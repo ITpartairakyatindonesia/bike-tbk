@@ -1,0 +1,20 @@
+export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
+  _id,
+  _type,
+  companyName,
+  companyLegalName,
+  tagline,
+  description,
+  logo{
+    asset->
+  },
+  favicon{
+    asset->
+  },
+  defaultSeoTitle,
+  defaultSeoDescription,
+  defaultOgImage{
+    asset->
+  },
+  copyright
+}`
