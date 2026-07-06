@@ -2,30 +2,30 @@ import { CONTACT_INFORMATION, CONTACT_MAP } from "@/lib/data/contact";
 
 export function ContactInformation() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {CONTACT_INFORMATION.map((info, index) => (
-        <div key={index}>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
+        <div
+          key={index}
+          className="rounded-xl border border-border bg-muted/30 p-6 hover:bg-muted/50 transition-colors duration-200"
+        >
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
             {info.title}
-          </div>
-          <div className="space-y-1">
+          </h3>
+          <div className="space-y-2">
             {info.lines.map((line, lineIndex) => (
-              <p key={lineIndex} className="text-foreground leading-snug">
+              <p key={lineIndex} className="text-foreground leading-relaxed">
                 {line}
               </p>
             ))}
           </div>
-          {index < CONTACT_INFORMATION.length - 1 && (
-            <div className="mt-8 border-b border-border" />
-          )}
         </div>
       ))}
 
-      <div className="pt-2">
-        <div className="text-xs uppercase tracking-wider text-muted-foreground mb-4">
+      <div className="rounded-xl border border-border bg-muted/30 p-6 hover:bg-muted/50 transition-colors duration-200">
+        <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
           {CONTACT_MAP.title}
-        </div>
-        <div className="relative rounded-2xl overflow-hidden border border-border bg-card aspect-[4/3]">
+        </h3>
+        <div className="relative rounded-xl overflow-hidden border border-border bg-background h-64">
           {CONTACT_MAP.embedUrl ? (
             <iframe
               src={CONTACT_MAP.embedUrl}
@@ -43,6 +43,14 @@ export function ContactInformation() {
             </div>
           )}
         </div>
+        <a
+          href="https://maps.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center text-sm text-primary hover:text-primary/80 mt-4 transition-colors duration-200"
+        >
+          View on Google Maps
+        </a>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ABOUT_OVERVIEW } from "@/lib/data/about-page";
 
-export function AboutOverviewSection() {
+export function AboutOverview() {
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container-page">

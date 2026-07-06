@@ -1,6 +1,6 @@
 import { ABOUT_INFO } from "@/lib/data/about-page";
 
-export function AboutInfoSection() {
+export function AboutInfo() {
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container-page">

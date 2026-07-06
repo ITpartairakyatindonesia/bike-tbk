@@ -1,7 +1,7 @@
 import { ManagementCard } from "@/components/ManagementCard";
 import { MANAGEMENT_EXECUTIVES } from "@/lib/data/management";
 
-export function AboutManagementSection() {
+export function AboutManagement() {
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container-page">

@@ -1,7 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import { ABOUT_HERO } from "@/lib/data/about-page";
 
-export function AboutHeroSection() {
+export function AboutHero() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">

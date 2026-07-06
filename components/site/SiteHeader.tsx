@@ -28,6 +28,8 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   const router = useRouter();
   const pathname = usePathname();
 
+  const isDarkPage = pathname === "/contact" || pathname === "/investor" || pathname.startsWith("/organization");
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
     handleScroll();
@@ -67,7 +69,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
+        isDarkPage || scrolled
           ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-soft"
           : "bg-transparent"
       )}
@@ -86,7 +88,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             </div>
           )}
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className={cn("font-display font-bold text-sm tracking-tight", scrolled ? "text-foreground" : "text-white")}>{siteSettings.companyName}</span>
+            <span className={cn("font-display font-bold text-sm tracking-tight", isDarkPage || scrolled ? "text-foreground" : "text-white")}>{siteSettings.companyName}</span>
           </div>
         </Link>
 
@@ -98,7 +100,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
               onClick={handleNavClick(item.href)}
               className={cn(
                 "px-3 py-2 text-sm font-medium transition-colors relative group",
-                scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
+                isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
               )}
             >
               {item.label}
@@ -112,7 +114,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             onClick={() => setLang(lang === "EN" ? "ID" : "EN")}
             className={cn(
               "hidden sm:inline-flex items-center gap-1 h-9 px-2.5 rounded-full text-xs font-semibold transition",
-              scrolled ? "text-foreground/80 hover:text-primary hover:bg-primary-soft" : "text-white/90 hover:text-white hover:bg-white/10"
+              isDarkPage || scrolled ? "text-foreground/80 hover:text-primary hover:bg-primary-soft" : "text-white/90 hover:text-white hover:bg-white/10"
             )}
           >
             <Globe className="h-3.5 w-3.5" />
@@ -130,7 +132,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             onClick={() => setOpen((v) => !v)}
             className={cn(
               "lg:hidden h-10 w-10 grid place-items-center rounded-full transition",
-              scrolled ? "text-foreground hover:bg-primary-soft" : "text-white hover:bg-white/10"
+              isDarkPage || scrolled ? "text-foreground hover:bg-primary-soft" : "text-white hover:bg-white/10"
             )}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

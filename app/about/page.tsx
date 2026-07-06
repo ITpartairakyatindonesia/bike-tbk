@@ -1,9 +1,9 @@
-import { AboutHeroSection } from "@/components/sections/AboutHeroSection";
-import { AboutOverviewSection } from "@/components/sections/AboutOverviewSection";
-import { AboutInfoSection } from "@/components/sections/AboutInfoSection";
-import { AboutVisionMissionSection } from "@/components/sections/AboutVisionMissionSection";
-import { AboutCultureSection } from "@/components/sections/AboutCultureSection";
-import { AboutManagementSection } from "@/components/sections/AboutManagementSection";
+import { AboutHero } from "@/components/about/AboutHero";
+import { AboutOverview } from "@/components/about/AboutOverview";
+import { AboutInfo } from "@/components/about/AboutInfo";
+import { AboutVisionMission } from "@/components/about/AboutVisionMission";
+import { AboutCulture } from "@/components/about/AboutCulture";
+import { AboutManagement } from "@/components/about/AboutManagement";
 
 export const metadata = {
   title: "About Us - PT Sepeda Bersama Indonesia Tbk",
@@ -14,12 +14,12 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div>
-      <AboutHeroSection />
-      <AboutOverviewSection />
-      <AboutInfoSection />
-      <AboutVisionMissionSection />
-      <AboutCultureSection />
-      <AboutManagementSection />
+      <AboutHero />
+      <AboutOverview />
+      <AboutInfo />
+      <AboutVisionMission />
+      <AboutCulture />
+      <AboutManagement />
     </div>
   );
 }

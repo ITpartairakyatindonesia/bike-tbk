@@ -1,6 +1,6 @@
 import { ABOUT_VISION, ABOUT_MISSION } from "@/lib/data/about-page";
 
-export function AboutVisionMissionSection() {
+export function AboutVisionMission() {
   return (
     <section className="py-16 md:py-24 bg-primary-deep text-primary-foreground">
       <div className="container-page">

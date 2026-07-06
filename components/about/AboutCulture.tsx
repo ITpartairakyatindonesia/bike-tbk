@@ -1,6 +1,6 @@
 import { ABOUT_CULTURE } from "@/lib/data/about-page";
 
-export function AboutCultureSection() {
+export function AboutCulture() {
   return (
     <section className="py-24 md:py-32 bg-primary-soft/30">
       <div className="container-page">

@@ -25,6 +25,7 @@ export interface Brand {
   logo?: string;
   image?: string;
   slug?: string;
+  website?: string;
 }
 
 export interface Project {

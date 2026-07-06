@@ -1,20 +1,43 @@
 import Link from "next/link";
 
-export function BrandsSection() {
+export function ProductsBrands() {
   const brands = [
     {
       name: "United Bike",
       description: "Indonesia's leading bicycle brand recognized for quality, innovation, and performance.",
-      website: "https://www.unitedbike.com/",
+      highlights: [
+        "Premium quality",
+        "Professional & enthusiast market",
+        "Sports & mobility",
+        "Supports Indonesian athletes",
+        "International competition achievements",
+      ],
+      website: "https://unitedbike.com",
     },
     {
       name: "Genio Bike",
       description: "Excellent value-for-money products with reliable quality for every family member.",
+      highlights: [
+        "Family-oriented",
+        "Baby stroller",
+        "Kids bike",
+        "Adult bicycles",
+        "Daily transportation",
+        "Fitness",
+      ],
       website: "https://genio.bike",
     },
     {
       name: "Avand Bike",
       description: "Designed for younger riders who value style, trends, and individuality.",
+      highlights: [
+        "Youth market",
+        "Fashion-oriented",
+        "Trendy design",
+        "Competitive pricing",
+        "Positive lifestyle",
+        "Environmental awareness",
+      ],
       website: "https://avandbike.com",
     },
   ];
@@ -22,13 +45,11 @@ export function BrandsSection() {
   return (
     <section className="py-16 md:py-24 bg-muted/30">
       <div className="container-page">
-        <div className="max-w-2xl mb-14">
-          <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            Our Brands
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            Trusted Bicycle Brands for Every Lifestyle.
-          </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Brands</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Three distinctive brands serving different market segments with shared commitment to quality and innovation.
+          </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {brands.map((brand, index) => (
@@ -43,6 +64,19 @@ export function BrandsSection() {
               <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
                 {brand.description}
               </p>
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  Key Highlights
+                </h4>
+                <ul className="space-y-2">
+                  {brand.highlights.map((highlight, idx) => (
+                    <li key={idx} className="text-sm text-foreground flex items-start">
+                      <span className="text-primary mr-2">•</span>
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <Link
                 href={brand.website}
                 target="_blank"
