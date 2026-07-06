@@ -1,24 +1,30 @@
-import { Zap, Ship, Landmark } from "lucide-react";
+import { Bike, BadgeCheck, Network, TrendingUp } from "lucide-react";
 import type { Sector } from "@/lib/types";
 
 export const PRODUCTS_SECTORS: Sector[] = [
   {
-    icon: Zap,
-    name: "Energy & Utilities",
-    desc: "Renewable and conventional power generation across the region.",
+    icon: Bike,
+    name: "Wholesale Bicycle Distribution",
+    desc: "Supplying bicycles through nationwide dealer and retail networks.",
     img: "/business-energy.jpg",
   },
   {
-    icon: Ship,
-    name: "Logistics & Ports",
-    desc: "End-to-end supply chain, shipping and port operations.",
+    icon: BadgeCheck,
+    name: "Brand Distribution",
+    desc: "Official distributor of Genio, United and Avand bicycles.",
     img: "/business-logistics.jpg",
   },
   {
-    icon: Landmark,
-    name: "Financial Services",
-    desc: "Banking, asset management and capital market services.",
+    icon: Network,
+    name: "Distribution Network",
+    desc: "Supporting traditional, modern and digital sales channels throughout Indonesia.",
     img: "/business-finance.jpg",
+  },
+  {
+    icon: TrendingUp,
+    name: "Business Development",
+    desc: "Continuously expanding distribution capabilities and creating long-term business growth.",
+    img: "/project-1.jpg",
   },
 ];
 

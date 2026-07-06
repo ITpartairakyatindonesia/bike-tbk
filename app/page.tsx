@@ -1,11 +1,11 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { BusinessSection } from "@/components/sections/BusinessSection";
-import { SubsidiariesSection } from "@/components/sections/SubsidiariesSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { ClientsSection } from "@/components/sections/ClientsSection";
+import { BrandsSection } from "@/components/sections/BrandsSection";
+import { TimelineSection } from "@/components/sections/TimelineSection";
+import { SustainabilitySection } from "@/components/sections/SustainabilitySection";
+import { NewsSection } from "@/components/sections/NewsSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { ContactSection } from "@/components/sections/ContactSection";
 
 export const metadata = {
   title: "Bike - Shaping a Sustainable Future",
@@ -18,11 +18,11 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <BusinessSection />
-      <SubsidiariesSection />
-      <ProjectsSection />
-      <ClientsSection />
+      <BrandsSection />
+      <TimelineSection />
+      <SustainabilitySection />
+      <NewsSection />
       <CTASection />
-      <ContactSection />
     </div>
   );
 }

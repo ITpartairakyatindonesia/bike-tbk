@@ -3,8 +3,8 @@ import { HERO_QUERY } from '@/lib/cms/queries'
 
 // Fallback values when CMS data is not available
 const FALLBACK_HERO = {
-  title: 'Shaping a sustainable future for the region.',
-  subtitle: 'Bike is a diversified super holding company creating enduring value across energy, logistics, finance, healthcare and infrastructure — operating in 15 countries.',
+  title: 'Empowering Active Lifestyles Across Indonesia.',
+  subtitle: 'PT Sepeda Bersama Indonesia Tbk is a leading bicycle distribution company committed to providing high-quality products, expanding nationwide distribution, and creating sustainable value for customers, business partners, shareholders, and communities.',
   backgroundImage: null,
 }
 

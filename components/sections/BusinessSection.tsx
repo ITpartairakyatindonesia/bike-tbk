@@ -1,28 +1,18 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { PRODUCTS_SECTORS } from "@/lib/data/products";
 
 export function BusinessSection() {
   return (
-    <section className="py-24 gradient-subtle">
+    <section id="business" className="py-24 gradient-subtle">
       <div className="container-page">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-              Our Business
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Portfolio anchored in essential industries.
-            </h2>
+        <div className="max-w-2xl mb-14">
+          <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
+            Our Business
           </div>
-          <Link
-            href="/business"
-            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-          >
-            Explore all sectors <ArrowRight className="h-4 w-4" />
-          </Link>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            SBI Business Activities.
+          </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-4 gap-6">
           {PRODUCTS_SECTORS.map((sector) => (
             <article
               key={sector.name}
@@ -46,12 +36,6 @@ export function BusinessSection() {
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   {sector.desc}
                 </p>
-                <Link
-                  href="/business"
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all"
-                >
-                  Learn more <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
               </div>
             </article>
           ))}

@@ -1,14 +1,14 @@
-import { SubsidiariesSection } from "@/components/sections/SubsidiariesSection";
+import { BrandsSection } from "@/components/sections/BrandsSection";
 
 export const metadata = {
-  title: "Organization - Bike",
-  description: "Discover Bike's 28 operating companies and organizational structure, unified by a shared purpose of building sustainable value.",
+  title: "Brands - Bike",
+  description: "Discover SBI's trusted bicycle brands: Genio, United, and Avand, supporting every lifestyle from everyday mobility to road and mountain cycling.",
 };
 
-export default function OrganizationPage() {
+export default function BrandsPage() {
   return (
     <div>
-      <SubsidiariesSection />
+      <BrandsSection />
     </div>
   );
 }

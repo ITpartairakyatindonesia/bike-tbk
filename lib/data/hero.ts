@@ -1,10 +1,10 @@
 import type { Stat } from "@/lib/types";
 
 export const HERO_STATS: Stat[] = [
-  { value: "42+", label: "Years of Excellence" },
-  { value: "28", label: "Subsidiaries" },
-  { value: "15", label: "Countries" },
-  { value: "48K+", label: "Employees Worldwide" },
+  { value: "2017", label: "Established" },
+  { value: "Bicycle Distribution", label: "Core Business" },
+  { value: "Listed on IDX", label: "Public Company" },
+  { value: "Genio • United • Avand", label: "Brands" },
 ];
 
 export async function getHeroStats() {

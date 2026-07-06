@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, Search, Globe, ChevronDown } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAVIGATION } from "@/lib/data/navigation";
 import { urlFor } from "@/lib/cms/image";
@@ -24,6 +25,8 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState<"EN" | "ID">("EN");
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
@@ -31,6 +34,34 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (pathname === "/" && window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, [pathname]);
+
+  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
+    if (href.startsWith("/#")) {
+      e.preventDefault();
+      const id = href.replace("/#", "");
+      if (pathname === "/") {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      } else {
+        router.push(href);
+      }
+      setOpen(false);
+    }
+  };
 
   return (
     <header
@@ -64,6 +95,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             <Link
               key={item.href}
               href={item.href}
+              onClick={handleNavClick(item.href)}
               className={cn(
                 "px-3 py-2 text-sm font-medium transition-colors relative group",
                 scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
@@ -76,15 +108,6 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
         </nav>
 
         <div className="ml-auto flex items-center gap-1 md:gap-2">
-          <button
-            aria-label="Search"
-            className={cn(
-              "h-9 w-9 grid place-items-center rounded-full transition",
-              scrolled ? "text-foreground/70 hover:text-primary hover:bg-primary-soft" : "text-white/80 hover:text-white hover:bg-white/10"
-            )}
-          >
-            <Search className="h-4 w-4" />
-          </button>
           <button
             onClick={() => setLang(lang === "EN" ? "ID" : "EN")}
             className={cn(
@@ -122,7 +145,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={handleNavClick(item.href)}
                 className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
               >
                 {item.label}

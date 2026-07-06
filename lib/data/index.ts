@@ -1,8 +1,10 @@
 export { NAVIGATION } from "./navigation";
 export { HERO_STATS } from "./hero";
-export { ABOUT_FEATURES, ABOUT_CLIENTS } from "./about";
-export { SUBSIDIARIES } from "./subsidiaries";
-export { EXPERIENCES_PROJECTS } from "./experiences";
+export { ABOUT_FEATURES } from "./about";
+export { BRANDS } from "./brands";
+export { COMPANY_MILESTONES } from "./timeline";
+export { LATEST_NEWS } from "./news";
+export { INVESTOR_CARDS } from "./investor";
 export { PRODUCTS_SECTORS } from "./products";
 export { CONTACT_ITEMS, CONTACT_INFO } from "./contact";
 export { FOOTER_SOCIAL_LINKS, FOOTER_COMPANY_LINKS, FOOTER_RESOURCE_LINKS, FOOTER_LEGAL_LINKS } from "./footer";

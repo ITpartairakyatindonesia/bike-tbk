@@ -60,8 +60,14 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
         <div>
           <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">Company</h4>
           <ul className="space-y-2.5 text-sm">
-            {FOOTER_COMPANY_LINKS.map((link) => (
-              <li key={link.href}><Link href={link.href} className="opacity-85 hover:opacity-100">{link.label}</Link></li>
+            {FOOTER_COMPANY_LINKS.map((link, index) => (
+              <li key={`${link.href}-${index}`}>
+                {link.href.startsWith('#') ? (
+                  <a href={link.href} className="opacity-85 hover:opacity-100">{link.label}</a>
+                ) : (
+                  <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label}</Link>
+                )}
+              </li>
             ))}
           </ul>
         </div>
@@ -84,9 +90,9 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
         <div>
           <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">Head Office</h4>
           <ul className="space-y-3 text-sm opacity-85">
-            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0" />Menara Bike, Jl. Jend. Sudirman Kav. 52, Jakarta 12190</li>
-            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0" />+62 21 5150 8888</li>
-            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0" />info@bike.co.id</li>
+            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0" />{CONTACT_INFO.address}</li>
+            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0" />{CONTACT_INFO.phone}</li>
+            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0" />{CONTACT_INFO.email}</li>
           </ul>
         </div>
       </div>

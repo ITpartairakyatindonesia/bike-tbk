@@ -1,14 +1,14 @@
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { TimelineSection } from "@/components/sections/TimelineSection";
 
 export const metadata = {
-  title: "Products & Services - Bike",
-  description: "View Bike's landmark projects and portfolio of products and services across infrastructure, technology, healthcare and more.",
+  title: "Company Milestones - Bike",
+  description: "Follow SBI's journey from establishment in 2017 through distribution expansion, public listing, and business growth.",
 };
 
-export default function ProductsPage() {
+export default function MilestonesPage() {
   return (
     <div>
-      <ProjectsSection />
+      <TimelineSection />
     </div>
   );
 }

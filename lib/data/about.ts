@@ -4,41 +4,26 @@ import type { Feature } from "@/lib/types";
 export const ABOUT_FEATURES: Feature[] = [
   {
     icon: ShieldCheck,
-    title: "Governance First",
-    desc: "GCG-certified with an independent commissioner majority.",
+    title: "Good Corporate Governance",
+    desc: "Conducting business with transparency, accountability, responsibility, independence, and fairness.",
   },
   {
     icon: Globe2,
-    title: "Global Reach",
-    desc: "Operating footprint spanning 15 countries.",
+    title: "Nationwide Distribution",
+    desc: "Strengthening bicycle distribution across Indonesia through trusted retail and business partners.",
   },
   {
     icon: TrendingUp,
     title: "Sustainable Growth",
-    desc: "12.4% CAGR over the last decade.",
+    desc: "Creating long-term value through responsible and sustainable business development.",
   },
   {
     icon: Award,
-    title: "Industry Recognition",
-    desc: "Forbes Global 2000 · Fortune SEA 500.",
+    title: "Customer Commitment",
+    desc: "Providing innovative bicycle products that meet the needs of every market segment.",
   },
-];
-
-export const ABOUT_CLIENTS: string[] = [
-  "ARAMCO",
-  "SIEMENS",
-  "MITSUBISHI",
-  "SAMSUNG",
-  "PERTAMINA",
-  "TELKOM",
-  "MANDIRI",
-  "BCA",
 ];
 
 export async function getAboutFeatures() {
   return ABOUT_FEATURES;
-}
-
-export async function getAboutClients() {
-  return ABOUT_CLIENTS;
 }

@@ -4,7 +4,7 @@ import { CONTACT_ITEMS } from "@/lib/data/contact";
 export function ContactSection() {
   return (
     <section className="pb-24">
-      <div className="container-page grid md:grid-cols-3 gap-4">
+      <div className="container-page grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {CONTACT_ITEMS.map((item) => (
           <Link
             href="/contact"
