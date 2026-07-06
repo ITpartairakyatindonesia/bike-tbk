@@ -36,7 +36,7 @@ export async function HeroSection() {
             Established 1983 · Publicly Listed
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight">
-            Shaping a <span className="text-accent-gold">sustainable</span> future for the region.
+            {hero.title}
           </h1>
           <p className="mt-6 text-lg md:text-xl opacity-85 max-w-2xl leading-relaxed">
             {hero.subtitle}
