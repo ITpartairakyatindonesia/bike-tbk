@@ -9,7 +9,7 @@ export function ProductsIntroduction() {
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                PT Sepeda Bersama Indonesia Tbk offers one of Indonesia's most diverse bicycle portfolios, covering every age group from toddlers to adults.
+                PT Bike Tbk offers one of Indonesia's most diverse bicycle portfolios, covering every age group from toddlers to adults.
               </p>
               <p>
                 Our products support transportation, sports, recreation, health, fashion, and modern lifestyles, positioning the Company to serve diverse customer needs.

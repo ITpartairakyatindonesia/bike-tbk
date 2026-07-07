@@ -2,8 +2,8 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInformation } from "@/components/contact/ContactInformation";
 
 export const metadata = {
-  title: "Contact - PT Sepeda Bersama Indonesia Tbk",
-  description: "Get in touch with PT Sepeda Bersama Indonesia Tbk. Visit our headquarters, call us, or send a message to start a conversation.",
+  title: "Contact - PT Bike Tbk",
+  description: "Get in touch with PT Bike Tbk. Visit our headquarters, call us, or send a message to start a conversation.",
 };
 
 export default function ContactPage() {

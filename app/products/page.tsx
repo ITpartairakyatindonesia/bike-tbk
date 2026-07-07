@@ -7,7 +7,7 @@ import { ProductsMarketPosition } from "@/components/products/ProductsMarketPosi
 import { ProductsCTA } from "@/components/products/ProductsCTA";
 
 export const metadata = {
-  title: "Products - PT Sepeda Bersama Indonesia Tbk",
+  title: "Products - PT Bike Tbk",
   description: "Our portfolio of trusted bicycle brands designed to serve every market segment, from children to professionals, supporting healthier lifestyles and sustainable mobility.",
 };
 

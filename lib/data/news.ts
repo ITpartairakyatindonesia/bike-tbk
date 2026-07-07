@@ -3,7 +3,7 @@ import type { NewsArticle } from "@/lib/types";
 export const LATEST_NEWS: NewsArticle[] = [
   {
     _id: "news-1",
-    title: "Public Expose PT Sepeda Bersama Indonesia Tbk",
+    title: "Public Expose PT Bike Tbk",
     slug: "public-expose-2023",
     date: "November 23, 2023",
     image: "/project-1.jpg",

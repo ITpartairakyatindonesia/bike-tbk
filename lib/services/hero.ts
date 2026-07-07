@@ -4,7 +4,7 @@ import { HERO_QUERY } from '@/lib/cms/queries'
 // Fallback values when CMS data is not available
 const FALLBACK_HERO = {
   title: 'Empowering Active Lifestyles Across Indonesia.',
-  subtitle: 'PT Sepeda Bersama Indonesia Tbk is a leading bicycle distribution company committed to providing high-quality products, expanding nationwide distribution, and creating sustainable value for customers, business partners, shareholders, and communities.',
+  subtitle: 'PT Bike Tbk is a leading bicycle distribution company committed to providing high-quality products, expanding nationwide distribution, and creating sustainable value for customers, business partners, shareholders, and communities.',
   backgroundImage: null,
 }
 

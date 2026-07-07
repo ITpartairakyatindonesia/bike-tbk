@@ -6,9 +6,9 @@ import { AboutCulture } from "@/components/about/AboutCulture";
 import { AboutManagement } from "@/components/about/AboutManagement";
 
 export const metadata = {
-  title: "About Us - PT Sepeda Bersama Indonesia Tbk",
+  title: "About Us - PT Bike Tbk",
   description:
-    "Learn about PT Sepeda Bersama Indonesia Tbk (SBI), Indonesia's leading bicycle distribution company, established in 2017 and committed to healthier, more active communities.",
+    "Learn about PT Bike Tbk (SBI), Indonesia's leading bicycle distribution company, established in 2017 and committed to healthier, more active communities.",
 };
 
 export default function AboutPage() {

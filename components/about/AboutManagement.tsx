@@ -13,7 +13,7 @@ export function AboutManagement() {
             Management Profile
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Meet the experienced leaders guiding PT Sepeda Bersama Indonesia Tbk through strategic growth, innovation, and responsible corporate governance.
+            Meet the experienced leaders guiding PT Bike Tbk through strategic growth, innovation, and responsible corporate governance.
           </p>
         </div>
 

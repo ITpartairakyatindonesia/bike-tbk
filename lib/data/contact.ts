@@ -22,7 +22,7 @@ export const CONTACT_ITEMS: ContactItem[] = [
   {
     icon: Mail,
     title: "Email",
-    value: "corsec@sepedabersamaindonesia.co.id",
+    value: "corsec@bike-tbk.co.id",
   },
   {
     icon: User,
@@ -32,10 +32,10 @@ export const CONTACT_ITEMS: ContactItem[] = [
 ];
 
 export const CONTACT_INFO = {
-  company: "PT Sepeda Bersama Indonesia Tbk",
+  company: "PT Bike Tbk",
   address: "Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
   phone: "(021) 3005 2633",
-  email: "corsec@sepedabersamaindonesia.co.id",
+  email: "corsec@bike-tbk.co.id",
   corporateSecretary: "Marina Pratiwi Sanjaya",
 };
 
@@ -64,7 +64,7 @@ export const CONTACT_INFORMATION: ContactInfoCardData[] = [
     icon: MapPin,
     title: "Head Office",
     lines: [
-      "PT Sepeda Bersama Indonesia Tbk, Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
+      "PT Bike Tbk, Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
       "Phone: (021) 3005 2633",
     ],
   },
@@ -74,7 +74,7 @@ export const CONTACT_INFORMATION: ContactInfoCardData[] = [
     lines: [
       "Marina Pratiwi Sanjaya",
       "Phone: (021) 3005 2633",
-      "Email: corsec@sepedabersamaindonesia.co.id",
+      "Email: corsec@bike-tbk.co.id",
     ],
   },
 ];
@@ -87,7 +87,7 @@ export const CONTACT_MAP = {
 export const CONTACT_CTA = {
   heading: "Looking for More Information?",
   description:
-    "Learn more about PT Sepeda Bersama Indonesia Tbk, our businesses, investor relations, and corporate governance.",
+    "Learn more about PT Bike Tbk, our businesses, investor relations, and corporate governance.",
   buttons: [
     { label: "About Us", href: "/about" },
     { label: "Investor Relations", href: "/investor" },
