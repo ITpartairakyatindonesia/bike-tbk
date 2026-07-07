@@ -7,8 +7,7 @@ const FALLBACK_SITE_SETTINGS = {
   companyName: 'Bike',
   companyLegalName: 'PT Bike Tbk',
   tagline: '',
-  description: 'Bike is a leading company driving innovation and growth across multiple industries.',
-  copyright: `© ${new Date().getFullYear()} PT Bike Tbk. All rights reserved.`,
+  footerDescription: 'Bike is a leading company driving innovation and growth across multiple industries.',
 }
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
@@ -36,7 +35,6 @@ export function getSiteSettingsWithFallback(settings: SiteSettings | null) {
     companyName: settings.companyName ?? FALLBACK_SITE_SETTINGS.companyName,
     companyLegalName: settings.companyLegalName ?? FALLBACK_SITE_SETTINGS.companyLegalName,
     tagline: settings.tagline ?? FALLBACK_SITE_SETTINGS.tagline,
-    description: settings.description ?? FALLBACK_SITE_SETTINGS.description,
-    copyright: settings.copyright ?? FALLBACK_SITE_SETTINGS.copyright,
+    footerDescription: settings.footerDescription ?? FALLBACK_SITE_SETTINGS.footerDescription,
   }
 }

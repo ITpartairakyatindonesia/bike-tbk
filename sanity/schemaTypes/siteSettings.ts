@@ -18,14 +18,22 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'companyInitials',
+      title: 'Company Initials',
+      type: 'string',
+      description: 'Short initials used in logo fallback (e.g. SBI).',
+    }),
+    defineField({
       name: 'tagline',
       title: 'Tagline',
       type: 'string',
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
+      name: 'footerDescription',
+      title: 'Footer Description',
       type: 'text',
+      rows: 3,
+      description: 'Short paragraph shown in the footer.',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -40,6 +48,41 @@ export default defineType({
       name: 'favicon',
       title: 'Favicon',
       type: 'image',
+      description: 'Upload a PNG image with size 16x16 pixels for the browser favicon.',
+    }),
+    defineField({
+      name: 'contactInfo',
+      title: 'Contact Information',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'address',
+          title: 'Address',
+          type: 'text',
+          rows: 3,
+        }),
+        defineField({
+          name: 'phone',
+          title: 'Phone',
+          type: 'string',
+        }),
+        defineField({
+          name: 'email',
+          title: 'Email',
+          type: 'string',
+        }),
+        defineField({
+          name: 'corporateSecretary',
+          title: 'Corporate Secretary',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'socialLinks',
+      title: 'Social Links',
+      type: 'array',
+      of: [{ type: 'socialLink' }],
     }),
     defineField({
       name: 'defaultSeoTitle',
@@ -58,12 +101,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      name: 'copyright',
-      title: 'Copyright',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

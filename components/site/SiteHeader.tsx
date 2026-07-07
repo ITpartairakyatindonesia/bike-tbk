@@ -12,6 +12,7 @@ interface SiteHeaderProps {
   siteSettings: {
     companyName: string;
     companyInitials: string;
+    companyTagline?: string;
     logo: {
       asset: {
         _ref: string;
@@ -89,6 +90,11 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
           )}
           <div className="hidden sm:flex flex-col leading-tight">
             <span className={cn("font-display font-bold text-sm tracking-tight", isDarkPage || scrolled ? "text-foreground" : "text-white")}>{siteSettings.companyName}</span>
+            {siteSettings.companyTagline && (
+              <span className={cn("text-[10px] uppercase tracking-wider", isDarkPage || scrolled ? "text-foreground/60" : "text-white/70")}>
+                {siteSettings.companyTagline}
+              </span>
+            )}
           </div>
         </Link>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Linkedin, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Linkedin, Twitter, Instagram, Youtube, Mail, Phone, MapPin, type LucideIcon } from "lucide-react";
 import { FOOTER_SOCIAL_LINKS, FOOTER_COMPANY_LINKS, FOOTER_RESOURCE_LINKS, FOOTER_LEGAL_LINKS, CONTACT_INFO } from "@/lib/data";
 import { urlFor } from "@/lib/cms/image";
 
@@ -7,7 +7,7 @@ interface SiteFooterProps {
   siteSettings: {
     companyName: string;
     companyInitials: string;
-    companyDescription: string;
+    footerDescription: string;
     currentYear: number;
     legalName: string;
     logo: {
@@ -16,8 +16,22 @@ interface SiteFooterProps {
         _type: 'reference';
       };
     } | null;
+    contactInfo: {
+      address: string;
+      phone: string;
+      email: string;
+    };
+    socialLinks: { platform: string; href: string; label?: string }[];
   };
 }
+
+const PLATFORM_ICONS: Record<string, LucideIcon> = {
+  linkedin: Linkedin,
+  twitter: Twitter,
+  facebook: Facebook,
+  instagram: Instagram,
+  youtube: Youtube,
+};
 
 export function SiteFooter({ siteSettings }: SiteFooterProps) {
   return (
@@ -41,19 +55,24 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
             </div>
           </div>
           <p className="text-sm opacity-75 leading-relaxed">
-            {siteSettings.companyDescription}
+            {siteSettings.footerDescription}
           </p>
           <div className="flex gap-2">
-            {[Linkedin, Twitter, Facebook, Instagram, Youtube].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="h-9 w-9 grid place-items-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition"
-                aria-label="Social"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+            {siteSettings.socialLinks.map((link, i) => {
+              const Icon = PLATFORM_ICONS[link.platform] || Linkedin;
+              return (
+                <a
+                  key={i}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-9 w-9 grid place-items-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition"
+                  aria-label={link.label || link.platform}
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -90,16 +109,16 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
         <div>
           <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">Head Office</h4>
           <ul className="space-y-3 text-sm opacity-85">
-            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0" />{CONTACT_INFO.address}</li>
-            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0" />{CONTACT_INFO.phone}</li>
-            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0" />{CONTACT_INFO.email}</li>
+            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0" />{siteSettings.contactInfo.address || CONTACT_INFO.address}</li>
+            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0" />{siteSettings.contactInfo.phone || CONTACT_INFO.phone}</li>
+            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0" />{siteSettings.contactInfo.email || CONTACT_INFO.email}</li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-primary-foreground/10">
         <div className="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs opacity-70">
-          <p>{siteSettings.currentYear} {siteSettings.legalName}. All rights reserved.</p>
+          <p>© {siteSettings.currentYear} {siteSettings.legalName}. All rights reserved.</p>
           <div className="flex gap-5">
             {FOOTER_LEGAL_LINKS.map((link, index) => (
               <a key={index} href={link.href} className="hover:opacity-100">

@@ -11,6 +11,16 @@ import { SanityLive } from "@/sanity/lib/live";
 import { DisableDraftMode } from "@/components/site/DisableDraftMode";
 import { getSiteSettings } from "@/lib/services/site-settings";
 import { urlFor } from "@/lib/cms/image";
+import type { SanityImage } from "@/lib/types/sanity";
+
+function imageUrl(image?: SanityImage | null) {
+  if (!image?.asset) return null;
+  try {
+    return urlFor(image).url();
+  } catch {
+    return null;
+  }
+}
 
 const inter = Inter({
   variable: "--font-sans",
@@ -27,20 +37,25 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export async function generateMetadata(): Promise<Metadata> {
   const siteSettings = await getSiteSettings();
   
+  const faviconUrl = imageUrl(siteSettings.favicon);
+  const ogImageUrl = imageUrl(siteSettings.defaultOgImage);
+
   return {
-    title: siteSettings.companyName,
-    description: siteSettings.companyDescription,
+    title: siteSettings.defaultSeoTitle,
+    description: siteSettings.defaultSeoDescription,
     icons: {
-      icon: siteSettings.favicon ? urlFor(siteSettings.favicon).url() : '/favicon.ico',
+      icon: faviconUrl ?? '/favicon.ico',
     },
     authors: [{ name: siteSettings.legalName }],
     openGraph: {
-      title: siteSettings.companyName,
-      description: siteSettings.companyDescription,
+      title: siteSettings.defaultSeoTitle,
+      description: siteSettings.defaultSeoDescription,
+      images: ogImageUrl ? [ogImageUrl] : [],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
+      images: ogImageUrl ? [ogImageUrl] : [],
     },
   };
 }

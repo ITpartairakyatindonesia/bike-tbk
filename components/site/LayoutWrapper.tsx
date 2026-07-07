@@ -9,7 +9,8 @@ interface LayoutWrapperProps {
   siteSettings: {
     companyName: string;
     companyInitials: string;
-    companyDescription: string;
+    companyTagline: string;
+    footerDescription: string;
     currentYear: number;
     legalName: string;
     logo: {
@@ -18,6 +19,13 @@ interface LayoutWrapperProps {
         _type: 'reference';
       };
     } | null;
+    contactInfo: {
+      address: string;
+      phone: string;
+      email: string;
+      corporateSecretary: string;
+    };
+    socialLinks: { platform: string; href: string; label?: string }[];
   };
   children: React.ReactNode;
 }

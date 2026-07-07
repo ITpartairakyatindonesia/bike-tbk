@@ -1,31 +1,34 @@
+export interface SanityImage {
+  asset: {
+    _ref: string
+    _type: 'reference'
+  }
+}
+
 export interface SiteSettings {
   _id: string
   _type: 'siteSettings'
   companyName: string
   companyLegalName: string
+  companyInitials?: string
   tagline?: string
-  description: string
-  logo?: {
-    asset: {
-      _ref: string
-      _type: 'reference'
-    }
+  footerDescription: string
+  logo?: SanityImage
+  favicon?: SanityImage
+  contactInfo?: {
+    address?: string
+    phone?: string
+    email?: string
+    corporateSecretary?: string
   }
-  favicon?: {
-    asset: {
-      _ref: string
-      _type: 'reference'
-    }
-  }
+  socialLinks?: {
+    platform: string
+    href: string
+    label?: string
+  }[]
   defaultSeoTitle?: string
   defaultSeoDescription?: string
-  defaultOgImage?: {
-    asset: {
-      _ref: string
-      _type: 'reference'
-    }
-  }
-  copyright: string
+  defaultOgImage?: SanityImage
 }
 
 export interface Hero {

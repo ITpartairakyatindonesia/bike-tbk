@@ -3,20 +3,18 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   _type,
   companyName,
   companyLegalName,
+  companyInitials,
   tagline,
-  description,
+  footerDescription,
   logo{
     asset->
   },
-  favicon{
-    asset->
-  },
+  favicon,
+  contactInfo,
+  socialLinks,
   defaultSeoTitle,
   defaultSeoDescription,
-  defaultOgImage{
-    asset->
-  },
-  copyright
+  defaultOgImage
 }`
 
 export const HERO_QUERY = `*[_type == "hero"][0]{
