@@ -76,14 +76,16 @@ export default async function RootLayout({
     getNavigation(),
   ]);
   
+  const { isEnabled: isDraftMode } = await draftMode();
+
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="min-h-screen flex flex-col">
         <LayoutWrapper siteSettings={siteSettings} navigation={navigation as NavigationGroups}>
           {children}
         </LayoutWrapper>
-        <SanityLive />
-        {(await draftMode()).isEnabled && (
+        <SanityLive includeDrafts={isDraftMode} />
+        {isDraftMode && (
           <>
             <VisualEditing />
             <DisableDraftMode />

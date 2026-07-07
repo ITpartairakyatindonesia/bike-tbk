@@ -1,35 +1,60 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { getHomePage } from "@/lib/services/home-page";
+import { urlFor } from "@/lib/cms/image";
 import { HOME_ABOUT } from "@/lib/data/home-about";
 
-export function AboutSection() {
+export async function AboutSection() {
+  const homePage = await getHomePage();
+  const aboutPreview = homePage.aboutPreview;
+
   return (
     <section className="py-24 md:py-32">
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {HOME_ABOUT.eyebrow}
+            {aboutPreview?.sectionHeader?.eyebrow}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {HOME_ABOUT.heading}
+            {aboutPreview?.sectionHeader?.heading}
           </h2>
+          {aboutPreview?.sectionHeader?.description && (
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              {aboutPreview.sectionHeader.description}
+            </p>
+          )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {HOME_ABOUT.description}
+            {aboutPreview?.description?.en}
           </p>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
             {HOME_ABOUT.secondaryDescription}
           </p>
-          <Link
-            href={HOME_ABOUT.buttonLink}
-            className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-          >
-            {HOME_ABOUT.buttonLabel} <ArrowRight className="h-4 w-4" />
-          </Link>
+          {aboutPreview?.button && (
+            <>
+              {aboutPreview.button.external ? (
+                <a
+                  href={aboutPreview.button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+                >
+                  {aboutPreview.button.label} <ArrowRight className="h-4 w-4" />
+                </a>
+              ) : (
+                <Link
+                  href={aboutPreview.button.href}
+                  className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+                >
+                  {aboutPreview.button.label} <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
+            </>
+          )}
         </div>
         <div className="relative">
           <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-elegant">
             <img
-              src="/about-team.jpg"
+              src={aboutPreview?.image ? urlFor(aboutPreview.image).url() : "/about-team.jpg"}
               alt="SBI leadership team"
               className="h-full w-full object-cover"
               loading="lazy"

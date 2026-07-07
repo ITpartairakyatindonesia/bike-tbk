@@ -1,18 +1,27 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { getHomePage } from "@/lib/services/home-page";
 import { LATEST_NEWS } from "@/lib/data/news";
 
-export function NewsSection() {
+export async function NewsSection() {
+  const homePage = await getHomePage();
+  const latestNews = homePage.latestNews;
+
   return (
     <section className="py-24">
       <div className="container-page">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            Latest News
+            {latestNews?.sectionHeader?.eyebrow}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            Updates from SBI.
+            {latestNews?.sectionHeader?.heading}
           </h2>
+          {latestNews?.description && (
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              {latestNews.description.en}
+            </p>
+          )}
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {LATEST_NEWS.map((article) => (
@@ -47,6 +56,29 @@ export function NewsSection() {
             </article>
           ))}
         </div>
+        {latestNews?.viewAllButton && (
+          <div className="mt-10 flex justify-center">
+            <>
+              {latestNews.viewAllButton.external ? (
+                <a
+                  href={latestNews.viewAllButton.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
+                >
+                  {latestNews.viewAllButton.label}
+                </a>
+              ) : (
+                <Link
+                  href={latestNews.viewAllButton.href}
+                  className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
+                >
+                  {latestNews.viewAllButton.label}
+                </Link>
+              )}
+            </>
+          </div>
+        )}
       </div>
     </section>
   );

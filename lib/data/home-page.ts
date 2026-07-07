@@ -32,7 +32,7 @@ export const HOME_PAGE: HomePage = {
     secondaryButton: {
       label: "Investor Relations",
       href: "/investors",
-      variant: "outline",
+      variant: "secondary",
       external: false,
     },
   },

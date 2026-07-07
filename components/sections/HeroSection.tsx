@@ -3,6 +3,28 @@ import { ArrowRight } from "lucide-react";
 import { getHomePage } from "@/lib/services/home-page";
 import { urlFor } from "@/lib/cms/image";
 import { getHeroStats } from "@/lib/data/hero";
+import type { Button } from "@/lib/types/sanity";
+
+function buttonClassName(variant?: Button["variant"]) {
+  const base =
+    "inline-flex items-center gap-2 h-12 px-7 rounded-full font-semibold transition";
+  if (variant === "primary") {
+    return `${base} bg-primary-foreground text-primary-deep hover:bg-accent-gold hover:text-primary-deep shadow-elegant`;
+  }
+  if (variant === "secondary") {
+    return `${base} bg-primary text-primary-foreground hover:bg-primary-deep shadow-soft`;
+  }
+  return `${base} border border-primary-foreground/40 hover:bg-primary-foreground/10`;
+}
+
+function buttonContent(label: string, variant?: Button["variant"]) {
+  return (
+    <>
+      {label}
+      {variant === "primary" && <ArrowRight className="h-4 w-4" />}
+    </>
+  );
+}
 
 export async function HeroSection() {
   const homePage = await getHomePage();
@@ -35,7 +57,7 @@ export async function HeroSection() {
         <div className="max-w-3xl reveal">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 backdrop-blur px-4 py-1.5 text-xs font-medium tracking-wider uppercase mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
-            Established 2017 · Publicly Listed
+            {hero?.eyebrow?.en}
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight">
             {hero?.title?.en}
@@ -44,18 +66,48 @@ export async function HeroSection() {
             {hero?.subtitle?.en}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold hover:text-primary-deep transition shadow-elegant"
-            >
-              Discover SBI <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/investors"
-              className="inline-flex items-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/40 hover:bg-primary-foreground/10 font-semibold transition"
-            >
-              Investor Relations
-            </Link>
+            {hero?.primaryButton && (
+              <>
+                {hero.primaryButton.external ? (
+                  <a
+                    href={hero.primaryButton.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={buttonClassName(hero.primaryButton.variant)}
+                  >
+                    {buttonContent(hero.primaryButton.label, hero.primaryButton.variant)}
+                  </a>
+                ) : (
+                  <Link
+                    href={hero.primaryButton.href}
+                    className={buttonClassName(hero.primaryButton.variant)}
+                  >
+                    {buttonContent(hero.primaryButton.label, hero.primaryButton.variant)}
+                  </Link>
+                )}
+              </>
+            )}
+            {hero?.secondaryButton && (
+              <>
+                {hero.secondaryButton.external ? (
+                  <a
+                    href={hero.secondaryButton.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={buttonClassName(hero.secondaryButton.variant)}
+                  >
+                    {buttonContent(hero.secondaryButton.label, hero.secondaryButton.variant)}
+                  </a>
+                ) : (
+                  <Link
+                    href={hero.secondaryButton.href}
+                    className={buttonClassName(hero.secondaryButton.variant)}
+                  >
+                    {buttonContent(hero.secondaryButton.label, hero.secondaryButton.variant)}
+                  </Link>
+                )}
+              </>
+            )}
           </div>
         </div>
 

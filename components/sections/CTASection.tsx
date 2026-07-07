@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
+import { getHomePage } from "@/lib/services/home-page";
 
-export function CTASection() {
+export async function CTASection() {
+  const homePage = await getHomePage();
+  const cta = homePage.cta;
+
   return (
     <section className="py-24">
       <div className="container-page">
@@ -10,27 +14,55 @@ export function CTASection() {
           <div className="relative grid md:grid-cols-[1.5fr_auto] items-center gap-10">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight max-w-2xl">
-                Together We Move Indonesia Forward.
+                {cta?.title?.en}
               </h2>
               <p className="mt-4 text-lg opacity-85 max-w-xl">
-                We believe every partnership begins with a conversation. Whether you're a business partner, investor, media representative, or customer, our team is ready to connect with you.
+                {cta?.description?.en}
               </p>
             </div>
             <div className="flex flex-col md:flex-col lg:flex-row flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold transition"
-              >
-                Contact Us <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition"
-              >
-                <MapPin className="h-4 w-4" /> Get Directions
-              </a>
+              {cta?.primaryButton && (
+                <>
+                  {cta.primaryButton.external ? (
+                    <a
+                      href={cta.primaryButton.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold transition"
+                    >
+                      {cta.primaryButton.label} <ArrowRight className="h-4 w-4" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={cta.primaryButton.href}
+                      className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold transition"
+                    >
+                      {cta.primaryButton.label} <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  )}
+                </>
+              )}
+              {cta?.secondaryButton && (
+                <>
+                  {cta.secondaryButton.external ? (
+                    <a
+                      href={cta.secondaryButton.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition"
+                    >
+                      <MapPin className="h-4 w-4" /> {cta.secondaryButton.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={cta.secondaryButton.href}
+                      className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition"
+                    >
+                      <MapPin className="h-4 w-4" /> {cta.secondaryButton.label}
+                    </Link>
+                  )}
+                </>
+              )}
             </div>
           </div>
         </div>
