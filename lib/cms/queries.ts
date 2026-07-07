@@ -4,13 +4,23 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   companyName,
   companyLegalName,
   companyInitials,
-  tagline{
-    en,
-    id
-  },
-  footerDescription{
-    en,
-    id
+  localizedContent{
+    tagline{
+      en,
+      id
+    },
+    footerDescription{
+      en,
+      id
+    },
+    defaultSeoTitle{
+      en,
+      id
+    },
+    defaultSeoDescription{
+      en,
+      id
+    }
   },
   logo{
     asset->
@@ -18,14 +28,6 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   favicon,
   contactInfo,
   socialLinks,
-  defaultSeoTitle{
-    en,
-    id
-  },
-  defaultSeoDescription{
-    en,
-    id
-  },
   defaultOgImage
 }`
 

@@ -54,6 +54,20 @@ export async function getHomePage(): Promise<HomePage> {
       page.aboutPreview?.description,
       HOME_PAGE.aboutPreview?.description
     ),
+    secondaryDescription: ensureLocalizedText(
+      page.aboutPreview?.secondaryDescription,
+      HOME_PAGE.aboutPreview?.secondaryDescription
+    ),
+    visionCard: {
+      label: ensureLocalizedString(
+        page.aboutPreview?.visionCard?.label,
+        HOME_PAGE.aboutPreview?.visionCard?.label
+      ),
+      statement: ensureLocalizedString(
+        page.aboutPreview?.visionCard?.statement,
+        HOME_PAGE.aboutPreview?.visionCard?.statement
+      ),
+    },
     image: page.aboutPreview?.image ?? HOME_PAGE.aboutPreview?.image,
     button: page.aboutPreview?.button ?? HOME_PAGE.aboutPreview?.button,
   }
@@ -87,6 +101,13 @@ export async function getHomePage(): Promise<HomePage> {
     ),
     image: page.sustainability?.image ?? HOME_PAGE.sustainability?.image,
     button: page.sustainability?.button ?? HOME_PAGE.sustainability?.button,
+    focusAreas:
+      page.sustainability?.focusAreas?.length
+        ? page.sustainability.focusAreas.map((area) => ({
+            icon: area.icon ?? HOME_PAGE.sustainability?.focusAreas?.[0]?.icon,
+            title: ensureLocalizedString(area.title, HOME_PAGE.sustainability?.focusAreas?.[0]?.title),
+          }))
+        : HOME_PAGE.sustainability?.focusAreas,
   }
 
   const latestNews: LatestNewsSection = {

@@ -17,6 +17,7 @@ import sectionHeader from './objects/sectionHeader'
 import socialLink from './objects/socialLink'
 import localizedString from './objects/localizedString'
 import localizedText from './objects/localizedText'
+import localizedSiteSettingsContent from './objects/localizedSiteSettingsContent'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -38,5 +39,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     socialLink,
     localizedString,
     localizedText,
+    localizedSiteSettingsContent,
   ],
 }

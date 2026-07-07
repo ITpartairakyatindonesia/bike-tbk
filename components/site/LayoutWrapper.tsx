@@ -8,7 +8,7 @@ import type { SiteSettings as SiteSettingsType, NavigationLink, LocalizedString,
 
 type NavigationItemForComponent = {
   _key?: string;
-  label: string;
+  label: LocalizedString;
   href: string;
   external?: boolean;
 };
@@ -19,12 +19,10 @@ interface LayoutWrapperProps {
   children: React.ReactNode;
 }
 
-const pickLocalized = (value?: (LocalizedString | LocalizedText | null)) => value?.en ?? "";
-
 const mapNavigation = (links: NavigationLink[] = []): NavigationItemForComponent[] =>
   links.map((link) => ({
     ...link,
-    label: pickLocalized(link.label),
+    label: link.label,
   }));
 
 export function LayoutWrapper({ siteSettings, navigation, children }: LayoutWrapperProps) {
@@ -34,8 +32,8 @@ export function LayoutWrapper({ siteSettings, navigation, children }: LayoutWrap
   const siteSettingsForComponents = {
     companyName: siteSettings.companyName,
     companyInitials: siteSettings.companyInitials ?? siteSettings.companyName?.slice(0, 1) ?? "",
-    companyTagline: pickLocalized(siteSettings.tagline),
-    footerDescription: pickLocalized(siteSettings.footerDescription),
+    tagline: siteSettings.tagline,
+    footerDescription: siteSettings.footerDescription,
     currentYear: siteSettings.currentYear,
     legalName: siteSettings.legalName ?? siteSettings.companyLegalName,
     logo: siteSettings.logo ?? null,

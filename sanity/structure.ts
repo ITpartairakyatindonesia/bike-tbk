@@ -27,22 +27,13 @@ export const structure: StructureResolver = (S) =>
         ),
       S.divider(),
       S.listItem()
-        .title('Pages')
-        .icon(() => '📄')
+        .title('Home Page')
+        .icon(() => '🏠')
         .child(
-          S.list()
-            .title('Pages')
-            .items([
-              S.listItem()
-                .title('Home Page')
-                .icon(() => '🏠')
-                .child(
-                  S.document()
-                    .schemaType('homePage')
-                    .documentId('homePage')
-                    .title('Home Page')
-                ),
-            ])
+          S.document()
+            .schemaType('homePage')
+            .documentId('homePage')
+            .title('Home Page')
         ),
       S.divider(),
       S.listItem()

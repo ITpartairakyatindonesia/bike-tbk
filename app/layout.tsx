@@ -13,6 +13,7 @@ import { getSiteSettings } from "@/lib/services/site-settings";
 import { getNavigation } from "@/lib/services/navigation";
 import { urlFor } from "@/lib/cms/image";
 import type { SanityImage, LocalizedString, LocalizedText, NavigationGroups } from "@/lib/types/sanity";
+import { LanguageProvider } from "@/lib/contexts/LanguageContext";
 
 export const revalidate = 0;
 
@@ -81,9 +82,11 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="min-h-screen flex flex-col">
-        <LayoutWrapper siteSettings={siteSettings} navigation={navigation as NavigationGroups}>
-          {children}
-        </LayoutWrapper>
+        <LanguageProvider>
+          <LayoutWrapper siteSettings={siteSettings} navigation={navigation as NavigationGroups}>
+            {children}
+          </LayoutWrapper>
+        </LanguageProvider>
         <SanityLive includeDrafts={isDraftMode} />
         {isDraftMode && (
           <>

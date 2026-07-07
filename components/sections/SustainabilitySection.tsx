@@ -1,13 +1,24 @@
-import Link from "next/link";
-import { getHomePage } from "@/lib/services/home-page";
-import {
-  SUSTAINABILITY_CONTENT,
-  SUSTAINABILITY_FOCUS_AREAS,
-} from "@/lib/data/sustainability";
+"use client";
 
-export async function SustainabilitySection() {
-  const homePage = await getHomePage();
-  const sustainability = homePage.sustainability;
+import Link from "next/link";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { ShieldCheck, Leaf, Users, TrendingUp } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import type { SustainabilitySection as SustainabilitySectionType } from "@/lib/types/sanity";
+
+const iconMap: Record<string, LucideIcon> = {
+  ShieldCheck,
+  Leaf,
+  Users,
+  TrendingUp,
+};
+
+interface SustainabilitySectionProps {
+  sustainability: SustainabilitySectionType;
+}
+
+export function SustainabilitySection({ sustainability }: SustainabilitySectionProps) {
+  const { language } = useLanguage();
 
   return (
     <section id="sustainability" className="py-24 md:py-32">
@@ -25,7 +36,7 @@ export async function SustainabilitySection() {
             </p>
           )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {sustainability?.description?.en}
+            {sustainability?.description?.[language]}
           </p>
           {sustainability?.button && (
             <>
@@ -50,17 +61,20 @@ export async function SustainabilitySection() {
           )}
         </div>
         <div className="grid sm:grid-cols-2 gap-6">
-          {SUSTAINABILITY_FOCUS_AREAS.map((area) => (
-            <div
-              key={area.title}
-              className="flex items-center gap-4 p-6 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-card transition"
-            >
-              <div className="h-11 w-11 shrink-0 grid place-items-center rounded-xl bg-primary-soft text-primary">
-                <area.icon className="h-5 w-5" />
+          {sustainability?.focusAreas?.map((area, index) => {
+            const Icon = area.icon ? iconMap[area.icon] : ShieldCheck;
+            return (
+              <div
+                key={index}
+                className="flex items-center gap-4 p-6 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-card transition"
+              >
+                <div className="h-11 w-11 shrink-0 grid place-items-center rounded-xl bg-primary-soft text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="font-semibold text-foreground">{area.title?.[language]}</div>
               </div>
-              <div className="font-semibold text-foreground">{area.title}</div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -24,16 +24,10 @@ export default defineType({
       description: 'Short initials used in logo fallback (e.g. SBI).',
     }),
     defineField({
-      name: 'tagline',
-      title: 'Tagline',
-      type: 'localizedString',
-    }),
-    defineField({
-      name: 'footerDescription',
-      title: 'Footer Description',
-      type: 'localizedText',
-      description: 'Short paragraph shown in the footer.',
-      validation: (Rule) => Rule.required(),
+      name: 'localizedContent',
+      title: 'Localized Content',
+      type: 'localizedSiteSettingsContent',
+      description: 'Language-specific content for tagline, footer, and SEO.',
     }),
     defineField({
       name: 'logo',
@@ -82,16 +76,6 @@ export default defineType({
       title: 'Social Links',
       type: 'array',
       of: [{ type: 'socialLink' }],
-    }),
-    defineField({
-      name: 'defaultSeoTitle',
-      title: 'Default SEO Title',
-      type: 'localizedString',
-    }),
-    defineField({
-      name: 'defaultSeoDescription',
-      title: 'Default SEO Description',
-      type: 'localizedText',
     }),
     defineField({
       name: 'defaultOgImage',

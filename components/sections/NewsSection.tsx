@@ -1,11 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getHomePage } from "@/lib/services/home-page";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 import { LATEST_NEWS } from "@/lib/data/news";
+import type { LatestNewsSection } from "@/lib/types/sanity";
 
-export async function NewsSection() {
-  const homePage = await getHomePage();
-  const latestNews = homePage.latestNews;
+interface NewsSectionProps {
+  latestNews: LatestNewsSection;
+}
+
+export function NewsSection({ latestNews }: NewsSectionProps) {
+  const { language } = useLanguage();
 
   return (
     <section className="py-24">
@@ -19,7 +25,7 @@ export async function NewsSection() {
           </h2>
           {latestNews?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {latestNews.description.en}
+              {latestNews.description[language]}
             </p>
           )}
         </div>

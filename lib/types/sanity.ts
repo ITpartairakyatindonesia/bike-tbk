@@ -23,6 +23,12 @@ export interface SiteSettings {
   companyLegalName: string
   legalName?: string
   companyInitials?: string
+  localizedContent?: {
+    tagline?: LocalizedString | null
+    footerDescription?: LocalizedText | null
+    defaultSeoTitle?: LocalizedString | null
+    defaultSeoDescription?: LocalizedText | null
+  }
   tagline?: LocalizedString | null
   footerDescription: LocalizedText | null
   logo?: SanityImage | null
@@ -98,6 +104,11 @@ export interface HeroSection {
 export interface AboutPreviewSection {
   sectionHeader?: SectionHeader
   description?: LocalizedText
+  secondaryDescription?: LocalizedText
+  visionCard?: {
+    label?: LocalizedString
+    statement?: LocalizedString
+  }
   image?: SanityImage
   button?: Button
 }
@@ -120,6 +131,10 @@ export interface SustainabilitySection {
   description?: LocalizedText
   image?: SanityImage
   button?: Button
+  focusAreas?: {
+    icon?: string
+    title?: LocalizedString
+  }[]
 }
 
 export interface LatestNewsSection {

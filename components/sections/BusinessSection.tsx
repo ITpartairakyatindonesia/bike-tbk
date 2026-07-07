@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import { getHomePage } from "@/lib/services/home-page";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 import { urlFor } from "@/lib/cms/image";
+import type { BusinessHighlightsSection } from "@/lib/types/sanity";
 
 const FALLBACK_IMAGES = [
   "/business-energy.jpg",
@@ -9,9 +12,12 @@ const FALLBACK_IMAGES = [
   "/project-1.jpg",
 ];
 
-export async function BusinessSection() {
-  const homePage = await getHomePage();
-  const businessHighlights = homePage.businessHighlights;
+interface BusinessSectionProps {
+  businessHighlights: BusinessHighlightsSection;
+}
+
+export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
+  const { language } = useLanguage();
 
   return (
     <section id="business" className="py-24 gradient-subtle">
@@ -42,7 +48,7 @@ export async function BusinessSection() {
                       ? urlFor(card.image).url()
                       : (FALLBACK_IMAGES[index] ?? "/project-1.jpg")
                   }
-                  alt={card.title?.en}
+                  alt={card.title?.[language]}
                   className="h-full w-full object-cover group-hover:scale-105 transition duration-700"
                   loading="lazy"
                   width={1200}
@@ -50,9 +56,9 @@ export async function BusinessSection() {
                 />
               </div>
               <div className="p-7">
-                <h3 className="text-xl font-bold">{card.title?.en}</h3>
+                <h3 className="text-xl font-bold">{card.title?.[language]}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  {card.description?.en}
+                  {card.description?.[language]}
                 </p>
                 {card.button && (
                   <>

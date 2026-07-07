@@ -1,9 +1,13 @@
 import { defineType, defineField } from 'sanity'
+import { LanguageSelector } from '@/sanity/presentation/LanguageSelector'
 
 export default defineType({
   name: 'ctaSection',
   title: 'CTA Section',
   type: 'object',
+  components: {
+    input: LanguageSelector,
+  },
   fields: [
     defineField({
       name: 'title',

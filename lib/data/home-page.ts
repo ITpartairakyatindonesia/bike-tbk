@@ -47,6 +47,22 @@ export const HOME_PAGE: HomePage = {
       id:
         "PT Bike Tbk (SBI) didirikan di Tangerang pada tahun 2017 dan telah berkembang menjadi salah satu perusahaan distribusi sepeda terkemuka di Indonesia. Melalui merek-merek terpercaya, jaringan dealer yang luas, dan komitmen terhadap praktik bisnis berkelanjutan, SBI terus mendukung gaya hidup yang lebih sehat dan aktif di seluruh negeri.",
     },
+    secondaryDescription: {
+      en:
+        "Established in Tangerang in 2017, PT Bike Tbk operates in the wholesale distribution of bicycles. As the brand owner of Genio Bike and the largest distributor of United Bike and Avand, SBI brings more than 100 bicycle models and over 300 variants to the Indonesian market every year.",
+      id:
+        "Didirikan di Tangerang pada tahun 2017, PT Bike Tbk beroperasi dalam distribusi grosir sepeda. Sebagai pemilik merek Genio Bike dan distributor terbesar United Bike dan Avand, SBI menghadirkan lebih dari 100 model sepeda dan lebih dari 300 varian ke pasar Indonesia setiap tahun.",
+    },
+    visionCard: {
+      label: {
+        en: "Vision",
+        id: "Visi",
+      },
+      statement: {
+        en: "Expanding Indonesia's bicycle market through affordable mobility, innovation, and trusted after-sales service.",
+        id: "Memperluas pasar sepeda Indonesia melalui mobilitas yang terjangkau, inovasi, dan layanan purna jual yang terpercaya.",
+      },
+    },
     button: {
       label: "Learn More",
       href: "/about",
@@ -113,6 +129,36 @@ export const HOME_PAGE: HomePage = {
       id:
         "PT Bike Tbk secara aktif berkontribusi untuk meningkatkan gaya hidup yang lebih sehat sambil mempertahankan praktik bisnis yang adil, jujur, dan berkelanjutan.",
     },
+    focusAreas: [
+      {
+        icon: "ShieldCheck",
+        title: {
+          en: "Responsible Business",
+          id: "Bisnis Bertanggung Jawab",
+        },
+      },
+      {
+        icon: "Leaf",
+        title: {
+          en: "Environmental Awareness",
+          id: "Kesadaran Lingkungan",
+        },
+      },
+      {
+        icon: "Users",
+        title: {
+          en: "Community Development",
+          id: "Pengembangan Masyarakat",
+        },
+      },
+      {
+        icon: "TrendingUp",
+        title: {
+          en: "Long-Term Sustainability",
+          id: "Keberlanjutan Jangka Panjang",
+        },
+      },
+    ],
   },
   latestNews: {
     sectionHeader: {

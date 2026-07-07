@@ -1,13 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { Facebook, Linkedin, Twitter, Instagram, Youtube, Mail, Phone, MapPin, type LucideIcon } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/data";
 import { urlFor } from "@/lib/cms/image";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import type { LocalizedString, LocalizedText } from "@/lib/types/sanity";
 
 interface SiteFooterProps {
   siteSettings: {
     companyName: string;
     companyInitials: string;
-    footerDescription: string;
+    footerDescription: LocalizedText | null;
     currentYear: number;
     legalName: string;
     logo: {
@@ -24,9 +28,9 @@ interface SiteFooterProps {
     socialLinks: { platform: string; href: string; label?: string }[];
   };
   navigation: {
-    footerCompanyLinks: { label: string; href: string; external?: boolean }[];
-    footerResourceLinks: { label: string; href: string; external?: boolean }[];
-    footerLegalLinks: { label: string; href: string; external?: boolean }[];
+    footerCompanyLinks: { label: LocalizedString; href: string; external?: boolean }[];
+    footerResourceLinks: { label: LocalizedString; href: string; external?: boolean }[];
+    footerLegalLinks: { label: LocalizedString; href: string; external?: boolean }[];
   };
 }
 
@@ -39,6 +43,7 @@ const PLATFORM_ICONS: Record<string, LucideIcon> = {
 };
 
 export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
+  const { language } = useLanguage();
   return (
     <footer className="mt-24 bg-primary-deep text-primary-foreground">
       <div className="container-page py-16 grid gap-12 lg:grid-cols-4">
@@ -60,7 +65,7 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
             </div>
           </div>
           <p className="text-sm opacity-75 leading-relaxed">
-            {siteSettings.footerDescription}
+            {siteSettings.footerDescription?.[language]}
           </p>
           <div className="flex gap-2">
             {siteSettings.socialLinks.map((link, i) => {
@@ -87,9 +92,9 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
             {navigation.footerCompanyLinks.map((link, index) => (
               <li key={`${link.href}-${index}`}>
                 {link.href.startsWith('#') ? (
-                  <a href={link.href} className="opacity-85 hover:opacity-100">{link.label}</a>
+                  <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</a>
                 ) : (
-                  <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label}</Link>
+                  <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</Link>
                 )}
               </li>
             ))}
@@ -102,9 +107,9 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
             {navigation.footerResourceLinks.map((link, index) => (
               <li key={`${link.href}-${index}`}>
                 {link.href.startsWith('#') ? (
-                  <a href={link.href} className="opacity-85 hover:opacity-100">{link.label}</a>
+                  <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</a>
                 ) : (
-                  <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label}</Link>
+                  <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</Link>
                 )}
               </li>
             ))}
@@ -127,7 +132,7 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
           <div className="flex gap-5">
             {navigation.footerLegalLinks.map((link, index) => (
               <a key={index} href={link.href} className="hover:opacity-100">
-                {link.label}
+                {link.label[language]}
               </a>
             ))}
           </div>

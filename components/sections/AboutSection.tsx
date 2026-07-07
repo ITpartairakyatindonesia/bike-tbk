@@ -1,12 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getHomePage } from "@/lib/services/home-page";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 import { urlFor } from "@/lib/cms/image";
-import { HOME_ABOUT } from "@/lib/data/home-about";
+import type { AboutPreviewSection } from "@/lib/types/sanity";
 
-export async function AboutSection() {
-  const homePage = await getHomePage();
-  const aboutPreview = homePage.aboutPreview;
+interface AboutSectionProps {
+  aboutPreview: AboutPreviewSection;
+}
+
+export function AboutSection({ aboutPreview }: AboutSectionProps) {
+  const { language } = useLanguage();
 
   return (
     <section className="py-24 md:py-32">
@@ -24,11 +29,13 @@ export async function AboutSection() {
             </p>
           )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {aboutPreview?.description?.en}
+            {aboutPreview?.description?.[language]}
           </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            {HOME_ABOUT.secondaryDescription}
-          </p>
+          {aboutPreview?.secondaryDescription?.[language] && (
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              {aboutPreview.secondaryDescription[language]}
+            </p>
+          )}
           {aboutPreview?.button && (
             <>
               {aboutPreview.button.external ? (
@@ -62,14 +69,16 @@ export async function AboutSection() {
               height={1024}
             />
           </div>
-          <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-elegant p-6 max-w-xs border border-border">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-              {HOME_ABOUT.visionCard.label}
+          {aboutPreview?.visionCard && (
+            <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-elegant p-6 max-w-xs border border-border">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                {aboutPreview.visionCard.label?.[language]}
+              </div>
+              <p className="font-display font-semibold text-lg leading-snug text-foreground">
+                {aboutPreview.visionCard.statement?.[language]}
+              </p>
             </div>
-            <p className="font-display font-semibold text-lg leading-snug text-foreground">
-              {HOME_ABOUT.visionCard.statement}
-            </p>
-          </div>
+          )}
         </div>
       </div>
     </section>

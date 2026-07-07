@@ -6,12 +6,14 @@ import { useRouter, usePathname } from "next/navigation";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { urlFor } from "@/lib/cms/image";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import type { LocalizedString } from "@/lib/types/sanity";
 
 interface SiteHeaderProps {
   siteSettings: {
     companyName: string;
     companyInitials: string;
-    companyTagline?: string;
+    tagline?: LocalizedString | null;
     logo: {
       asset: {
         _ref: string;
@@ -19,13 +21,13 @@ interface SiteHeaderProps {
       };
     } | null;
   };
-  navigation: { label: string; href: string; external?: boolean }[];
+  navigation: { label: LocalizedString; href: string; external?: boolean }[];
 }
 
 export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"EN" | "ID">("EN");
+  const { language, setLanguage } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -90,9 +92,9 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
           )}
           <div className="hidden sm:flex flex-col leading-tight">
             <span className={cn("font-display font-bold text-sm tracking-tight", isDarkPage || scrolled ? "text-foreground" : "text-white")}>{siteSettings.companyName}</span>
-            {siteSettings.companyTagline && (
+            {siteSettings.tagline && (
               <span className={cn("text-[10px] uppercase tracking-wider", isDarkPage || scrolled ? "text-foreground/60" : "text-white/70")}>
-                {siteSettings.companyTagline}
+                {siteSettings.tagline[language]}
               </span>
             )}
           </div>
@@ -105,11 +107,11 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
               href={item.href}
               onClick={handleNavClick(item.href)}
               className={cn(
-                "px-3 py-2 text-sm font-medium transition-colors relative group",
+                "px-3 py-2 text-sm font-medium transition-colors relative group min-w-[80px] text-center",
                 isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
               )}
             >
-              {item.label}
+              {item.label[language]}
               <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </Link>
           ))}
@@ -117,14 +119,14 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
 
         <div className="ml-auto flex items-center gap-1 md:gap-2">
           <button
-            onClick={() => setLang(lang === "EN" ? "ID" : "EN")}
+            onClick={() => setLanguage(language === "en" ? "id" : "en")}
             className={cn(
               "hidden sm:inline-flex items-center gap-1 h-9 px-2.5 rounded-full text-xs font-semibold transition",
               isDarkPage || scrolled ? "text-foreground/80 hover:text-primary hover:bg-primary-soft" : "text-white/90 hover:text-white hover:bg-white/10"
             )}
           >
             <Globe className="h-3.5 w-3.5" />
-            {lang}
+            {language.toUpperCase()}
             <ChevronDown className="h-3 w-3" />
           </button>
           <Link
@@ -156,7 +158,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                 onClick={handleNavClick(item.href)}
                 className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
               >
-                {item.label}
+                {item.label[language]}
               </Link>
             ))}
           </nav>

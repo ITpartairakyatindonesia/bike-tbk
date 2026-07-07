@@ -1,10 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
-import { getHomePage } from "@/lib/services/home-page";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import type { CTASection as CTASectionType } from "@/lib/types/sanity";
 
-export async function CTASection() {
-  const homePage = await getHomePage();
-  const cta = homePage.cta;
+interface CTASectionProps {
+  cta: CTASectionType;
+}
+
+export function CTASection({ cta }: CTASectionProps) {
+  const { language } = useLanguage();
 
   return (
     <section className="py-24">
@@ -14,10 +20,10 @@ export async function CTASection() {
           <div className="relative grid md:grid-cols-[1.5fr_auto] items-center gap-10">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight max-w-2xl">
-                {cta?.title?.en}
+                {cta?.title?.[language]}
               </h2>
               <p className="mt-4 text-lg opacity-85 max-w-xl">
-                {cta?.description?.en}
+                {cta?.description?.[language]}
               </p>
             </div>
             <div className="flex flex-col md:flex-col lg:flex-row flex-wrap gap-3">

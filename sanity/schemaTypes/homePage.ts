@@ -17,36 +17,60 @@ export default defineType({
       title: 'Hero',
       type: 'heroSection',
       description: 'Hero section for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'aboutPreview',
       title: 'About Preview',
       type: 'aboutPreviewSection',
       description: 'About Preview section for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'businessHighlights',
       title: 'Business Highlights',
       type: 'businessHighlightsSection',
       description: 'Business Highlights section for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'sustainability',
       title: 'Sustainability',
       type: 'sustainabilitySection',
       description: 'Sustainability section for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'latestNews',
       title: 'Latest News',
       type: 'latestNewsSection',
       description: 'Latest News preview section for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'cta',
       title: 'CTA',
       type: 'ctaSection',
       description: 'Call-to-action section for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
   ],
   preview: {

@@ -1,9 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getHomePage } from "@/lib/services/home-page";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 import { urlFor } from "@/lib/cms/image";
-import { getHeroStats } from "@/lib/data/hero";
-import type { Button } from "@/lib/types/sanity";
+import type { Button, HeroSection as HeroSectionType } from "@/lib/types/sanity";
+
+interface HeroSectionProps {
+  hero: HeroSectionType;
+  stats: { label: string; value: string }[];
+}
 
 function buttonClassName(variant?: Button["variant"]) {
   const base =
@@ -26,10 +32,8 @@ function buttonContent(label: string, variant?: Button["variant"]) {
   );
 }
 
-export async function HeroSection() {
-  const homePage = await getHomePage();
-  const hero = homePage.hero;
-  const stats = await getHeroStats();
+export function HeroSection({ hero, stats }: HeroSectionProps) {
+  const { language } = useLanguage();
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -57,13 +61,13 @@ export async function HeroSection() {
         <div className="max-w-3xl reveal">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 backdrop-blur px-4 py-1.5 text-xs font-medium tracking-wider uppercase mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
-            {hero?.eyebrow?.en}
+            {hero?.eyebrow?.[language]}
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight">
-            {hero?.title?.en}
+            {hero?.title?.[language]}
           </h1>
           <p className="mt-6 text-lg md:text-xl opacity-85 max-w-2xl leading-relaxed">
-            {hero?.subtitle?.en}
+            {hero?.subtitle?.[language]}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             {hero?.primaryButton && (
