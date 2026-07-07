@@ -5,7 +5,7 @@ import {
 
 export function SustainabilitySection() {
   return (
-    <section className="py-24 md:py-32">
+    <section id="sustainability" className="py-24 md:py-32">
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">

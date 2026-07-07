@@ -4,6 +4,7 @@ export default defineType({
   name: 'navigation',
   title: 'Navigation',
   type: 'document',
+  description: 'Singleton document for site-wide navigation. Only one navigation document should exist, managed via the Navigation item in the sidebar.',
   fields: [
     defineField({
       name: 'mainNavigation',

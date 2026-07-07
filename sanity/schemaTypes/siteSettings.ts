@@ -26,13 +26,12 @@ export default defineType({
     defineField({
       name: 'tagline',
       title: 'Tagline',
-      type: 'string',
+      type: 'localizedString',
     }),
     defineField({
       name: 'footerDescription',
       title: 'Footer Description',
-      type: 'text',
-      rows: 3,
+      type: 'localizedText',
       description: 'Short paragraph shown in the footer.',
       validation: (Rule) => Rule.required(),
     }),
@@ -87,12 +86,12 @@ export default defineType({
     defineField({
       name: 'defaultSeoTitle',
       title: 'Default SEO Title',
-      type: 'string',
+      type: 'localizedString',
     }),
     defineField({
       name: 'defaultSeoDescription',
       title: 'Default SEO Description',
-      type: 'text',
+      type: 'localizedText',
     }),
     defineField({
       name: 'defaultOgImage',

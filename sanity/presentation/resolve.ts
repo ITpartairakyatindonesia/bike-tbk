@@ -15,14 +15,14 @@ export const resolve: PresentationPluginOptions['resolve'] = {
         ],
       }),
     }),
-    hero: defineLocations({
+    homePage: defineLocations({
       select: {
-        title: 'title',
+        title: 'seo.title',
       },
       resolve: (doc) => ({
         locations: [
           {
-            title: doc?.title || 'Hero',
+            title: doc?.title || 'Home Page',
             href: '/',
           },
         ],

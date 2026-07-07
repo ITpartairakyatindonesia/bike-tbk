@@ -1,5 +1,7 @@
 import type {StructureResolver} from 'sanity/structure'
 
+const SINGLETONS = ['siteSettings', 'navigation', 'homePage']
+
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -9,8 +11,7 @@ export const structure: StructureResolver = (S) =>
         .title('Site Settings')
         .icon(() => '⚙️')
         .child(
-          S.editor()
-            .id('siteSettings')
+          S.document()
             .schemaType('siteSettings')
             .documentId('siteSettings')
             .title('Site Settings')
@@ -19,8 +20,7 @@ export const structure: StructureResolver = (S) =>
         .title('Navigation')
         .icon(() => '🔗')
         .child(
-          S.editor()
-            .id('navigation')
+          S.document()
             .schemaType('navigation')
             .documentId('navigation')
             .title('Navigation')
@@ -32,7 +32,17 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.list()
             .title('Pages')
-            .items([])
+            .items([
+              S.listItem()
+                .title('Home Page')
+                .icon(() => '🏠')
+                .child(
+                  S.document()
+                    .schemaType('homePage')
+                    .documentId('homePage')
+                    .title('Home Page')
+                ),
+            ])
         ),
       S.divider(),
       S.listItem()
@@ -45,6 +55,6 @@ export const structure: StructureResolver = (S) =>
         ),
       S.divider(),
       ...S.documentTypeListItems().filter((item) =>
-        !['siteSettings', 'navigation'].includes(item.getId() || '')
+        !SINGLETONS.includes(item.getId() || '')
       ),
     ])

@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getHero } from "@/lib/services/hero";
+import { getHomePage } from "@/lib/services/home-page";
 import { urlFor } from "@/lib/cms/image";
 import { getHeroStats } from "@/lib/data/hero";
 
 export async function HeroSection() {
-  const hero = await getHero();
+  const homePage = await getHomePage();
+  const hero = homePage.hero;
   const stats = await getHeroStats();
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        {hero.backgroundImage ? (
+        {hero?.backgroundImage ? (
           <img
             src={urlFor(hero.backgroundImage).url()}
             alt=""
@@ -37,10 +38,10 @@ export async function HeroSection() {
             Established 2017 · Publicly Listed
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight">
-            {hero.title}
+            {hero?.title?.en}
           </h1>
           <p className="mt-6 text-lg md:text-xl opacity-85 max-w-2xl leading-relaxed">
-            {hero.subtitle}
+            {hero?.subtitle?.en}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link

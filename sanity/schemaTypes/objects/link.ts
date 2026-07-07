@@ -8,7 +8,7 @@ export default defineType({
     defineField({
       name: 'label',
       title: 'Label',
-      type: 'string',
+      type: 'localizedString',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -27,12 +27,14 @@ export default defineType({
   ],
   preview: {
     select: {
-      label: 'label',
+      labelEn: 'label.en',
+      labelId: 'label.id',
       href: 'href',
     },
-    prepare({ label, href }) {
+    prepare({ labelEn, labelId, href }) {
+      const title = labelEn || labelId || 'Link'
       return {
-        title: label || 'Link',
+        title,
         subtitle: href || '',
       }
     },

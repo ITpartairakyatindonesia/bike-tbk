@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NAVIGATION } from "@/lib/data/navigation";
 import { urlFor } from "@/lib/cms/image";
 
 interface SiteHeaderProps {
@@ -20,9 +19,10 @@ interface SiteHeaderProps {
       };
     } | null;
   };
+  navigation: { label: string; href: string; external?: boolean }[];
 }
 
-export function SiteHeader({ siteSettings }: SiteHeaderProps) {
+export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState<"EN" | "ID">("EN");
@@ -99,7 +99,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1 mx-auto">
-          {NAVIGATION.map((item) => (
+          {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -149,7 +149,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl animate-fade-in">
           <nav className="container-page py-4 flex flex-col">
-            {NAVIGATION.map((item) => (
+            {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

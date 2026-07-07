@@ -10,8 +10,11 @@ import { VisualEditing } from "next-sanity/visual-editing";
 import { SanityLive } from "@/sanity/lib/live";
 import { DisableDraftMode } from "@/components/site/DisableDraftMode";
 import { getSiteSettings } from "@/lib/services/site-settings";
+import { getNavigation } from "@/lib/services/navigation";
 import { urlFor } from "@/lib/cms/image";
-import type { SanityImage } from "@/lib/types/sanity";
+import type { SanityImage, LocalizedString, LocalizedText, NavigationGroups } from "@/lib/types/sanity";
+
+export const revalidate = 0;
 
 function imageUrl(image?: SanityImage | null) {
   if (!image?.asset) return null;
@@ -21,6 +24,8 @@ function imageUrl(image?: SanityImage | null) {
     return null;
   }
 }
+
+const pickLocalized = (value?: LocalizedString | LocalizedText | null) => value?.en ?? "";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -39,17 +44,19 @@ export async function generateMetadata(): Promise<Metadata> {
   
   const faviconUrl = imageUrl(siteSettings.favicon);
   const ogImageUrl = imageUrl(siteSettings.defaultOgImage);
+  const defaultTitle = pickLocalized(siteSettings.defaultSeoTitle) || siteSettings.companyName;
+  const defaultDescription = pickLocalized(siteSettings.defaultSeoDescription) || pickLocalized(siteSettings.footerDescription);
 
   return {
-    title: siteSettings.defaultSeoTitle,
-    description: siteSettings.defaultSeoDescription,
+    title: defaultTitle,
+    description: defaultDescription,
     icons: {
       icon: faviconUrl ?? '/favicon.ico',
     },
-    authors: [{ name: siteSettings.legalName }],
+    authors: [{ name: siteSettings.legalName ?? siteSettings.companyLegalName }],
     openGraph: {
-      title: siteSettings.defaultSeoTitle,
-      description: siteSettings.defaultSeoDescription,
+      title: defaultTitle,
+      description: defaultDescription,
       images: ogImageUrl ? [ogImageUrl] : [],
       type: "website",
     },
@@ -64,12 +71,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const siteSettings = await getSiteSettings();
+  const [siteSettings, navigation] = await Promise.all([
+    getSiteSettings(),
+    getNavigation(),
+  ]);
   
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="min-h-screen flex flex-col">
-        <LayoutWrapper siteSettings={siteSettings}>
+        <LayoutWrapper siteSettings={siteSettings} navigation={navigation as NavigationGroups}>
           {children}
         </LayoutWrapper>
         <SanityLive />

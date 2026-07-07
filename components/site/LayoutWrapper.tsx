@@ -4,35 +4,56 @@ import { usePathname } from "next/navigation";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { FloatingActions } from "./FloatingActions";
+import type { SiteSettings as SiteSettingsType, NavigationLink, LocalizedString, LocalizedText, NavigationGroups } from "@/lib/types/sanity";
+
+type NavigationItemForComponent = {
+  _key?: string;
+  label: string;
+  href: string;
+  external?: boolean;
+};
 
 interface LayoutWrapperProps {
-  siteSettings: {
-    companyName: string;
-    companyInitials: string;
-    companyTagline: string;
-    footerDescription: string;
-    currentYear: number;
-    legalName: string;
-    logo: {
-      asset: {
-        _ref: string;
-        _type: 'reference';
-      };
-    } | null;
-    contactInfo: {
-      address: string;
-      phone: string;
-      email: string;
-      corporateSecretary: string;
-    };
-    socialLinks: { platform: string; href: string; label?: string }[];
-  };
+  siteSettings: SiteSettingsType;
+  navigation: NavigationGroups;
   children: React.ReactNode;
 }
 
-export function LayoutWrapper({ siteSettings, children }: LayoutWrapperProps) {
+const pickLocalized = (value?: (LocalizedString | LocalizedText | null)) => value?.en ?? "";
+
+const mapNavigation = (links: NavigationLink[] = []): NavigationItemForComponent[] =>
+  links.map((link) => ({
+    ...link,
+    label: pickLocalized(link.label),
+  }));
+
+export function LayoutWrapper({ siteSettings, navigation, children }: LayoutWrapperProps) {
   const pathname = usePathname();
   const isStudio = pathname?.startsWith("/studio");
+
+  const siteSettingsForComponents = {
+    companyName: siteSettings.companyName,
+    companyInitials: siteSettings.companyInitials ?? siteSettings.companyName?.slice(0, 1) ?? "",
+    companyTagline: pickLocalized(siteSettings.tagline),
+    footerDescription: pickLocalized(siteSettings.footerDescription),
+    currentYear: siteSettings.currentYear,
+    legalName: siteSettings.legalName ?? siteSettings.companyLegalName,
+    logo: siteSettings.logo ?? null,
+    contactInfo: {
+      address: siteSettings.contactInfo?.address ?? "",
+      phone: siteSettings.contactInfo?.phone ?? "",
+      email: siteSettings.contactInfo?.email ?? "",
+      corporateSecretary: siteSettings.contactInfo?.corporateSecretary ?? "",
+    },
+    socialLinks: siteSettings.socialLinks ?? [],
+  };
+
+  const navigationForComponents = {
+    mainNavigation: mapNavigation(navigation.mainNavigation),
+    footerCompanyLinks: mapNavigation(navigation.footerCompanyLinks),
+    footerResourceLinks: mapNavigation(navigation.footerResourceLinks),
+    footerLegalLinks: mapNavigation(navigation.footerLegalLinks),
+  };
 
   if (isStudio) {
     return <main className="flex-1">{children}</main>;
@@ -40,9 +61,9 @@ export function LayoutWrapper({ siteSettings, children }: LayoutWrapperProps) {
 
   return (
     <>
-      <SiteHeader siteSettings={siteSettings} />
+      <SiteHeader siteSettings={siteSettingsForComponents} navigation={navigationForComponents.mainNavigation} />
       <main className="flex-1">{children}</main>
-      <SiteFooter siteSettings={siteSettings} />
+      <SiteFooter siteSettings={siteSettingsForComponents} navigation={navigationForComponents} />
       <FloatingActions />
     </>
   );
