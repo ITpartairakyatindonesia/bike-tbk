@@ -1,35 +1,74 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { HOME_ABOUT } from "@/lib/data/home-about";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { urlFor } from "@/lib/cms/image";
+import type { AboutPreviewSection } from "@/lib/types/sanity";
 
-export function AboutSection() {
+interface AboutSectionProps {
+  aboutPreview: AboutPreviewSection;
+}
+
+export function AboutSection({ aboutPreview }: AboutSectionProps) {
+  const { language } = useLanguage();
+
+  const heading = aboutPreview?.sectionHeader?.heading?.[language];
+  const description = aboutPreview?.description?.[language];
+  const secondaryDescription = aboutPreview?.secondaryDescription?.[language];
+  const image = aboutPreview?.image;
+
+  if (!heading && !description && !secondaryDescription && !image) return null;
+
   return (
     <section className="py-24 md:py-32">
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {HOME_ABOUT.eyebrow}
+            {aboutPreview?.sectionHeader?.eyebrow?.[language]}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {HOME_ABOUT.heading}
+            {aboutPreview?.sectionHeader?.heading?.[language]}
           </h2>
+          {aboutPreview?.sectionHeader?.description && (
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              {aboutPreview.sectionHeader.description[language]}
+            </p>
+          )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {HOME_ABOUT.description}
+            {aboutPreview?.description?.[language]}
           </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            {HOME_ABOUT.secondaryDescription}
-          </p>
-          <Link
-            href={HOME_ABOUT.buttonLink}
-            className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-          >
-            {HOME_ABOUT.buttonLabel} <ArrowRight className="h-4 w-4" />
-          </Link>
+          {aboutPreview?.secondaryDescription?.[language] && (
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              {aboutPreview.secondaryDescription[language]}
+            </p>
+          )}
+          {(() => {
+            const button = aboutPreview?.button;
+            if (!button?.label?.[language] || !button.href) return null;
+            return button.external ? (
+              <a
+                href={button.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              >
+                {button.label[language]} <ArrowRight className="h-4 w-4" />
+              </a>
+            ) : (
+              <Link
+                href={button.href}
+                className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              >
+                {button.label[language]} <ArrowRight className="h-4 w-4" />
+              </Link>
+            );
+          })()}
         </div>
         <div className="relative">
           <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-elegant">
             <img
-              src="/about-team.jpg"
+              src={aboutPreview?.image ? urlFor(aboutPreview.image).url() : "/about-team.jpg"}
               alt="SBI leadership team"
               className="h-full w-full object-cover"
               loading="lazy"
@@ -37,14 +76,16 @@ export function AboutSection() {
               height={1024}
             />
           </div>
-          <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-elegant p-6 max-w-xs border border-border">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-              {HOME_ABOUT.visionCard.label}
+          {aboutPreview?.visionCard?.label?.[language] && aboutPreview?.visionCard?.statement?.[language] && (
+            <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-elegant p-6 max-w-xs border border-border">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                {aboutPreview.visionCard.label[language]}
+              </div>
+              <p className="font-display font-semibold text-lg leading-snug text-foreground">
+                {aboutPreview.visionCard.statement[language]}
+              </p>
             </div>
-            <p className="font-display font-semibold text-lg leading-snug text-foreground">
-              {HOME_ABOUT.visionCard.statement}
-            </p>
-          </div>
+          )}
         </div>
       </div>
     </section>

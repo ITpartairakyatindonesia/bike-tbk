@@ -3,18 +3,154 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   _type,
   companyName,
   companyLegalName,
-  tagline,
-  description,
+  companyInitials,
+  tagline{
+    en,
+    id
+  },
+  footerDescription{
+    en,
+    id
+  },
   logo{
     asset->
   },
-  favicon{
-    asset->
+  favicon,
+  contactInfo,
+  socialLinks,
+  defaultSeoTitle{
+    en,
+    id
   },
-  defaultSeoTitle,
-  defaultSeoDescription,
-  defaultOgImage{
-    asset->
+  defaultSeoDescription{
+    en,
+    id
   },
-  copyright
+  defaultOgImage
+}`
+
+export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
+  _id,
+  _type,
+  mainNavigation[]{
+    _key,
+    label{
+      en,
+      id
+    },
+    href,
+    external
+  },
+  footerCompanyLinks[]{
+    _key,
+    label{
+      en,
+      id
+    },
+    href,
+    external
+  },
+  footerResourceLinks[]{
+    _key,
+    label{
+      en,
+      id
+    },
+    href,
+    external
+  },
+  footerLegalLinks[]{
+    _key,
+    label{
+      en,
+      id
+    },
+    href,
+    external
+  }
+}`
+
+export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
+  _id,
+  _type,
+  seo,
+  hero{
+    eyebrow{
+      en,
+      id
+    },
+    title{
+      en,
+      id
+    },
+    subtitle{
+      en,
+      id
+    },
+    backgroundImage{
+      asset->
+    },
+    primaryButton,
+    secondaryButton
+  },
+  aboutPreview{
+    sectionHeader,
+    description{
+      en,
+      id
+    },
+    image{
+      asset->
+    },
+    button
+  },
+  businessHighlights{
+    sectionHeader,
+    cards[]{
+      _key,
+      image{
+        asset->
+      },
+      title{
+        en,
+        id
+      },
+      description{
+        en,
+        id
+      },
+      button
+    }
+  },
+  sustainability{
+    sectionHeader,
+    description{
+      en,
+      id
+    },
+    image{
+      asset->
+    },
+    button
+  },
+  latestNews{
+    sectionHeader,
+    description{
+      en,
+      id
+    },
+    viewAllButton
+  },
+  cta{
+    title{
+      en,
+      id
+    },
+    description{
+      en,
+      id
+    },
+    primaryButton,
+    secondaryButton
+  }
 }`

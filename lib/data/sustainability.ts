@@ -16,5 +16,5 @@ export const SUSTAINABILITY_FOCUS_AREAS: FocusArea[] = [
 export const SUSTAINABILITY_CONTENT = {
   heading: "Sustainability",
   subtitle: "Growing Responsibly for Indonesia.",
-  body: "PT Sepeda Bersama Indonesia Tbk actively contributes to improving healthier lifestyles while maintaining fair, honest and sustainable business practices.",
+  body: "PT Bike Tbk actively contributes to improving healthier lifestyles while maintaining fair, honest and sustainable business practices.",
 };

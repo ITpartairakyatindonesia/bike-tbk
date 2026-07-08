@@ -5,7 +5,7 @@ import { defineLive } from "next-sanity/live";
 import { client } from '../../lib/cms/client'
 
 export const { sanityFetch, SanityLive } = defineLive({
-  client: client.withConfig({ apiVersion: '2026-07-04' }),
+  client: client.withConfig({ apiVersion: '2026-07-04', useCdn: false }),
   serverToken: process.env.SANITY_API_READ_TOKEN,
   browserToken: process.env.SANITY_API_READ_TOKEN,
 });

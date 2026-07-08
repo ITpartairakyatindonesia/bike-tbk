@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${executive.name} - ${executive.position} | PT Sepeda Bersama Indonesia Tbk`,
+    title: `${executive.name} - ${executive.position} | PT Bike Tbk`,
     description: executive.biography,
   };
 }

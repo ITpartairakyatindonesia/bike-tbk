@@ -1,5 +1,7 @@
 import type {StructureResolver} from 'sanity/structure'
 
+const SINGLETONS = ['siteSettings', 'navigation', 'homePage']
+
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -9,12 +11,32 @@ export const structure: StructureResolver = (S) =>
         .title('Site Settings')
         .icon(() => '⚙️')
         .child(
-          S.editor()
-            .id('siteSettings')
+          S.document()
             .schemaType('siteSettings')
             .documentId('siteSettings')
             .title('Site Settings')
         ),
+      S.listItem()
+        .title('Navigation')
+        .icon(() => '🔗')
+        .child(
+          S.document()
+            .schemaType('navigation')
+            .documentId('navigation')
+            .title('Navigation')
+        ),
       S.divider(),
-      ...S.documentTypeListItems().filter((item) => item.getId() !== 'siteSettings'),
+      S.listItem()
+        .title('Home Page')
+        .icon(() => '🏠')
+        .child(
+          S.document()
+            .schemaType('homePage')
+            .documentId('homePage')
+            .title('Home Page')
+        ),
+      S.divider(),
+      ...S.documentTypeListItems().filter((item) =>
+        !SINGLETONS.includes(item.getId() || '')
+      ),
     ])

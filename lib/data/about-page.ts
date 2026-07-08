@@ -37,14 +37,14 @@ export const ABOUT_HERO = {
   eyebrow: "About Us",
   headline: "Building Healthier Communities Through Better Mobility.",
   description:
-    "PT Sepeda Bersama Indonesia Tbk (SBI) was established in Tangerang in 2017 and has grown into one of Indonesia's leading bicycle distribution companies. Through trusted brands, an extensive dealer network, and a commitment to sustainable business practices, SBI continues to support healthier and more active lifestyles across the country.",
+    "PT Bike Tbk (SBI) was established in Tangerang in 2017 and has grown into one of Indonesia's leading bicycle distribution companies. Through trusted brands, an extensive dealer network, and a commitment to sustainable business practices, SBI continues to support healthier and more active lifestyles across the country.",
   backgroundImage: "/business-logistics.jpg",
 };
 
 export const ABOUT_OVERVIEW = {
   title: "Who We Are",
   paragraphs: [
-    "Established in Tangerang in 2017, PT Sepeda Bersama Indonesia Tbk operates in the wholesale distribution of bicycles. As the brand owner of Genio Bike and the largest distributor of United Bike and Avand, SBI brings more than 100 bicycle models and over 300 variants to the Indonesian market every year.",
+    "Established in Tangerang in 2017, PT Bike Tbk operates in the wholesale distribution of bicycles. As the brand owner of Genio Bike and the largest distributor of United Bike and Avand, SBI brings more than 100 bicycle models and over 300 variants to the Indonesian market every year.",
     "Our nationwide distribution network reaches across Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, and Papua. We are committed to developing Indonesia's bicycle industry from upstream to downstream through a professional distribution network, integrated customer service, and a wide product portfolio that serves every market segment.",
   ],
 };
@@ -59,11 +59,11 @@ export const ABOUT_HIGHLIGHTS: AboutHighlight[] = [
 ];
 
 export const ABOUT_INFO: AboutInfoItem[] = [
-  { label: "Company Name", value: "PT Sepeda Bersama Indonesia Tbk" },
+  { label: "Company Name", value: "PT Bike Tbk" },
   { label: "Founded", value: "2017" },
   { label: "Head Office", value: "Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia" },
   { label: "Core Business", value: "Wholesale Bicycle Distribution" },
-  { label: "Website", value: "www.sepedabersamaindonesia.com" },
+  { label: "Website", value: "www.bike-tbk.co.id" },
   { label: "Board of Commissioners", value: "Komisaris Utama & Anggota" },
   { label: "Board of Directors", value: "Direktur Utama & Anggota" },
   { label: "Dealer Network", value: "578 Stores" },
@@ -158,7 +158,7 @@ export const ABOUT_DISTRIBUTION = {
 export const ABOUT_CLOSING = {
   headline: "Moving Indonesia Forward Together.",
   description:
-    "With a commitment to innovation, responsible business practices, and trusted partnerships, PT Sepeda Bersama Indonesia Tbk continues to strengthen Indonesia's bicycle industry while creating long-term value for customers, shareholders, employees, dealers, and communities.",
+    "With a commitment to innovation, responsible business practices, and trusted partnerships, PT Bike Tbk continues to strengthen Indonesia's bicycle industry while creating long-term value for customers, shareholders, employees, dealers, and communities.",
   primaryButton: { label: "Contact Us", href: "/contact" },
   secondaryButton: { label: "Investor Relations", href: "/investor" },
 };

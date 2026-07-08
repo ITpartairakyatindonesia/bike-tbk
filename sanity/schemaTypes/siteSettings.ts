@@ -18,15 +18,16 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'tagline',
-      title: 'Tagline',
+      name: 'companyInitials',
+      title: 'Company Initials',
       type: 'string',
+      description: 'Short initials used in logo fallback (e.g. SBI).',
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-      validation: (Rule) => Rule.required(),
+      name: 'localizedContent',
+      title: 'Localized Content',
+      type: 'localizedSiteSettingsContent',
+      description: 'Language-specific content for tagline, footer, and SEO.',
     }),
     defineField({
       name: 'logo',
@@ -40,16 +41,41 @@ export default defineType({
       name: 'favicon',
       title: 'Favicon',
       type: 'image',
+      description: 'Upload a PNG image with size 16x16 pixels for the browser favicon.',
     }),
     defineField({
-      name: 'defaultSeoTitle',
-      title: 'Default SEO Title',
-      type: 'string',
+      name: 'contactInfo',
+      title: 'Contact Information',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'address',
+          title: 'Address',
+          type: 'text',
+          rows: 3,
+        }),
+        defineField({
+          name: 'phone',
+          title: 'Phone',
+          type: 'string',
+        }),
+        defineField({
+          name: 'email',
+          title: 'Email',
+          type: 'string',
+        }),
+        defineField({
+          name: 'corporateSecretary',
+          title: 'Corporate Secretary',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
-      name: 'defaultSeoDescription',
-      title: 'Default SEO Description',
-      type: 'text',
+      name: 'socialLinks',
+      title: 'Social Links',
+      type: 'array',
+      of: [{ type: 'socialLink' }],
     }),
     defineField({
       name: 'defaultOgImage',
@@ -58,12 +84,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      name: 'copyright',
-      title: 'Copyright',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

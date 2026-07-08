@@ -3,15 +3,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NAVIGATION } from "@/lib/data/navigation";
 import { urlFor } from "@/lib/cms/image";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import type { LocalizedString } from "@/lib/types/sanity";
 
 interface SiteHeaderProps {
   siteSettings: {
     companyName: string;
     companyInitials: string;
+    tagline?: LocalizedString | null;
     logo: {
       asset: {
         _ref: string;
@@ -19,12 +21,13 @@ interface SiteHeaderProps {
       };
     } | null;
   };
+  navigation: { label: LocalizedString; href: string; external?: boolean }[];
 }
 
-export function SiteHeader({ siteSettings }: SiteHeaderProps) {
+export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"EN" | "ID">("EN");
+  const { language, setLanguage } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -48,6 +51,10 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
       }
     }
   }, [pathname]);
+
+  const validNavigation = navigation.filter((item) =>
+    Boolean(item.href && (item.label?.en || item.label?.id))
+  );
 
   const handleNavClick = (href: string) => (e: React.MouseEvent) => {
     if (href.startsWith("/#")) {
@@ -80,30 +87,35 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             <img
               src={urlFor(siteSettings.logo).url()}
               alt={siteSettings.companyName}
-              className="h-9 w-9 rounded-lg object-cover"
+              className="h-14 w-14 rounded-sm object-cover border border-primary-foreground/20 bg-primary-foreground/70 shadow-sm p-1"
             />
           ) : (
-            <div className="grid h-9 w-9 place-items-center rounded-lg gradient-hero shadow-elegant">
-              <span className="text-primary-foreground font-display font-bold text-sm">{siteSettings.companyInitials}</span>
+            <div className="grid h-14 w-14 place-items-center rounded-sm border border-primary-foreground/20 bg-primary-foreground/70 shadow-sm p-1">
+              <span className="font-display font-bold text-lg text-primary-deep">{siteSettings.companyInitials}</span>
             </div>
           )}
           <div className="hidden sm:flex flex-col leading-tight">
             <span className={cn("font-display font-bold text-sm tracking-tight", isDarkPage || scrolled ? "text-foreground" : "text-white")}>{siteSettings.companyName}</span>
+            {siteSettings.tagline && (
+              <span className={cn("text-[10px] uppercase tracking-wider", isDarkPage || scrolled ? "text-foreground/60" : "text-white/70")}>
+                {siteSettings.tagline[language]}
+              </span>
+            )}
           </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1 mx-auto">
-          {NAVIGATION.map((item) => (
+          {validNavigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={handleNavClick(item.href)}
               className={cn(
-                "px-3 py-2 text-sm font-medium transition-colors relative group",
+                "px-3 py-2 text-sm font-medium transition-colors relative group min-w-[80px] text-center",
                 isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
               )}
             >
-              {item.label}
+              {item.label[language]}
               <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </Link>
           ))}
@@ -111,15 +123,27 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
 
         <div className="ml-auto flex items-center gap-1 md:gap-2">
           <button
-            onClick={() => setLang(lang === "EN" ? "ID" : "EN")}
+            onClick={() => setLanguage(language === "en" ? "id" : "en")}
+            aria-label={`Switch language to ${language === "en" ? "Indonesian" : "English"}`}
             className={cn(
-              "hidden sm:inline-flex items-center gap-1 h-9 px-2.5 rounded-full text-xs font-semibold transition",
-              isDarkPage || scrolled ? "text-foreground/80 hover:text-primary hover:bg-primary-soft" : "text-white/90 hover:text-white hover:bg-white/10"
+              "inline-flex items-center justify-center h-9 w-9 rounded-md transition",
+              isDarkPage || scrolled ? "hover:bg-primary-soft" : "hover:bg-white/10"
             )}
           >
-            <Globe className="h-3.5 w-3.5" />
-            {lang}
-            <ChevronDown className="h-3 w-3" />
+            {language === "en" ? (
+              <svg viewBox="0 0 20 14" className="h-5 w-auto rounded-[3px] shadow-sm">
+                <rect width="20" height="14" fill="#012169" />
+                <path d="M0,0 L20,14 M20,0 L0,14" stroke="#FFFFFF" strokeWidth="2" />
+                <path d="M10,0 V14 M0,7 H20" stroke="#FFFFFF" strokeWidth="3" />
+                <path d="M10,0 V14 M0,7 H20" stroke="#C8102E" strokeWidth="1.5" />
+                <path d="M0,0 L20,14 M20,0 L0,14" stroke="#C8102E" strokeWidth="1" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 20 14" className="h-5 w-auto rounded-[3px] shadow-sm">
+                <rect width="20" height="7" fill="#FF0000" />
+                <rect y="7" width="20" height="7" fill="#FFFFFF" />
+              </svg>
+            )}
           </button>
           <Link
             href="/contact"
@@ -143,14 +167,14 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl animate-fade-in">
           <nav className="container-page py-4 flex flex-col">
-            {NAVIGATION.map((item) => (
+            {validNavigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={handleNavClick(item.href)}
                 className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
               >
-                {item.label}
+                {item.label[language]}
               </Link>
             ))}
           </nav>

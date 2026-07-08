@@ -1,3 +1,4 @@
+import { getHomePage } from "@/lib/services/home-page";
 import { BrandsSection } from "@/components/sections/BrandsSection";
 
 export const metadata = {
@@ -5,10 +6,12 @@ export const metadata = {
   description: "Discover SBI's trusted bicycle brands: Genio, United, and Avand, supporting every lifestyle from everyday mobility to road and mountain cycling.",
 };
 
-export default function BrandsPage() {
+export default async function BrandsPage() {
+  const homePage = await getHomePage();
+
   return (
     <div>
-      <BrandsSection />
+      <BrandsSection brandsSection={homePage.brandsSection || {}} />
     </div>
   );
 }
