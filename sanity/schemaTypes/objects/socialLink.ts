@@ -19,13 +19,11 @@ export default defineType({
           { title: 'Other', value: 'other' },
         ],
       },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'href',
       title: 'Profile URL',
       type: 'url',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'label',

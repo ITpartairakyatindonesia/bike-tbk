@@ -8,25 +8,23 @@ export default defineType({
     defineField({
       name: 'eyebrow',
       title: 'Eyebrow',
-      type: 'string',
+      type: 'localizedString',
     }),
     defineField({
       name: 'heading',
       title: 'Heading',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
+      type: 'localizedString',
     }),
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
-      rows: 3,
+      type: 'localizedText',
     }),
   ],
   preview: {
     select: {
-      eyebrow: 'eyebrow',
-      heading: 'heading',
+      eyebrow: 'eyebrow.en',
+      heading: 'heading.en',
     },
     prepare({ eyebrow, heading }) {
       return {

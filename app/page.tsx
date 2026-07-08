@@ -7,7 +7,7 @@ import { SustainabilitySection } from "@/components/sections/SustainabilitySecti
 import { NewsSection } from "@/components/sections/NewsSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { getHomePage } from "@/lib/services/home-page";
-import { getHeroStats } from "@/lib/data/hero";
+import { getLatestNews } from "@/lib/services/news";
 
 export const metadata = {
   title: "Bike - Shaping a Sustainable Future",
@@ -16,17 +16,17 @@ export const metadata = {
 
 export default async function HomePage() {
   const homePage = await getHomePage();
-  const stats = await getHeroStats();
+  const newsItems = await getLatestNews(3);
 
   return (
     <div>
-      <HeroSection hero={homePage.hero || {}} stats={stats} />
+      <HeroSection hero={homePage.hero || {}} />
       <AboutSection aboutPreview={homePage.aboutPreview || {}} />
       <BusinessSection businessHighlights={homePage.businessHighlights || {}} />
-      <BrandsSection />
-      <TimelineSection />
+      <BrandsSection brandsSection={homePage.brandsSection || {}} />
+      <TimelineSection milestonesSection={homePage.milestonesSection || {}} />
       <SustainabilitySection sustainability={homePage.sustainability || {}} />
-      <NewsSection latestNews={homePage.latestNews || {}} />
+      <NewsSection latestNews={homePage.latestNews || {}} newsItems={newsItems} />
       <CTASection cta={homePage.cta || {}} />
     </div>
   );

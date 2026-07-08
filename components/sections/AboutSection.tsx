@@ -13,19 +13,26 @@ interface AboutSectionProps {
 export function AboutSection({ aboutPreview }: AboutSectionProps) {
   const { language } = useLanguage();
 
+  const heading = aboutPreview?.sectionHeader?.heading?.[language];
+  const description = aboutPreview?.description?.[language];
+  const secondaryDescription = aboutPreview?.secondaryDescription?.[language];
+  const image = aboutPreview?.image;
+
+  if (!heading && !description && !secondaryDescription && !image) return null;
+
   return (
     <section className="py-24 md:py-32">
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {aboutPreview?.sectionHeader?.eyebrow}
+            {aboutPreview?.sectionHeader?.eyebrow?.[language]}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {aboutPreview?.sectionHeader?.heading}
+            {aboutPreview?.sectionHeader?.heading?.[language]}
           </h2>
           {aboutPreview?.sectionHeader?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {aboutPreview.sectionHeader.description}
+              {aboutPreview.sectionHeader.description[language]}
             </p>
           )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
@@ -36,27 +43,27 @@ export function AboutSection({ aboutPreview }: AboutSectionProps) {
               {aboutPreview.secondaryDescription[language]}
             </p>
           )}
-          {aboutPreview?.button && (
-            <>
-              {aboutPreview.button.external ? (
-                <a
-                  href={aboutPreview.button.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-                >
-                  {aboutPreview.button.label} <ArrowRight className="h-4 w-4" />
-                </a>
-              ) : (
-                <Link
-                  href={aboutPreview.button.href}
-                  className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-                >
-                  {aboutPreview.button.label} <ArrowRight className="h-4 w-4" />
-                </Link>
-              )}
-            </>
-          )}
+          {(() => {
+            const button = aboutPreview?.button;
+            if (!button?.label?.[language] || !button.href) return null;
+            return button.external ? (
+              <a
+                href={button.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              >
+                {button.label[language]} <ArrowRight className="h-4 w-4" />
+              </a>
+            ) : (
+              <Link
+                href={button.href}
+                className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              >
+                {button.label[language]} <ArrowRight className="h-4 w-4" />
+              </Link>
+            );
+          })()}
         </div>
         <div className="relative">
           <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-elegant">
@@ -69,13 +76,13 @@ export function AboutSection({ aboutPreview }: AboutSectionProps) {
               height={1024}
             />
           </div>
-          {aboutPreview?.visionCard && (
+          {aboutPreview?.visionCard?.label?.[language] && aboutPreview?.visionCard?.statement?.[language] && (
             <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-elegant p-6 max-w-xs border border-border">
               <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                {aboutPreview.visionCard.label?.[language]}
+                {aboutPreview.visionCard.label[language]}
               </div>
               <p className="font-display font-semibold text-lg leading-snug text-foreground">
-                {aboutPreview.visionCard.statement?.[language]}
+                {aboutPreview.visionCard.statement[language]}
               </p>
             </div>
           )}

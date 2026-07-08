@@ -8,15 +8,13 @@ export default defineType({
     defineField({
       name: 'label',
       title: 'Label',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
+      type: 'localizedString',
     }),
     defineField({
       name: 'href',
       title: 'URL',
       type: 'string',
       description: 'Use absolute paths for internal links (e.g. /about) or full URLs for external links.',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'variant',
@@ -41,7 +39,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      label: 'label',
+      label: 'label.en',
       href: 'href',
       variant: 'variant',
     },

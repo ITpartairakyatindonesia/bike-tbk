@@ -1,22 +1,47 @@
 "use client";
 
-import { Calendar } from "lucide-react";
+import { Calendar, Building2 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { COMPANY_MILESTONES } from "@/lib/data/timeline";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { urlFor } from "@/lib/cms/image";
+import type { MilestonesSection } from "@/lib/types/sanity";
 
 import "swiper/css";
 
-export function TimelineSection() {
+interface TimelineSectionProps {
+  milestonesSection: MilestonesSection;
+}
+
+export function TimelineSection({ milestonesSection }: TimelineSectionProps) {
+  const { language } = useLanguage();
+
+  const eyebrow = milestonesSection?.sectionHeader?.eyebrow?.[language];
+  const heading = milestonesSection?.sectionHeader?.heading?.[language];
+  const description = milestonesSection?.sectionHeader?.description?.[language];
+
+  const validCards = milestonesSection?.cards?.filter((card) => card.year) || [];
+
+  if (!eyebrow && !heading && !description && validCards.length === 0) return null;
+
   return (
     <section className="py-24 bg-primary-deep text-primary-foreground">
       <div className="container-page">
         <div className="max-w-2xl mb-14">
-          <div className="text-xs uppercase tracking-[0.25em] text-accent-gold font-semibold mb-4">
-            Our Journey
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            Company Milestones.
-          </h2>
+          {eyebrow && (
+            <div className="text-xs uppercase tracking-[0.25em] text-accent-gold font-semibold mb-4">
+              {eyebrow}
+            </div>
+          )}
+          {heading && (
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              {heading}
+            </h2>
+          )}
+          {description && (
+            <p className="mt-4 text-lg opacity-85 leading-relaxed">
+              {description}
+            </p>
+          )}
         </div>
 
         <div className="relative">
@@ -32,11 +57,13 @@ export function TimelineSection() {
             }}
             className="timeline-swiper"
           >
-            {COMPANY_MILESTONES.map((milestone, index) => {
-              const Icon = milestone.icon;
+            {validCards.map((card, index) => {
+              const title = card.title?.[language];
+              const description = card.description?.[language];
+              if (!card.year) return null;
 
               return (
-                <SwiperSlide key={milestone.year + index} className="h-auto flex">
+                <SwiperSlide key={card._key || `${card.year}-${index}`} className="h-auto flex">
                   <div className="relative h-full w-full flex flex-col pt-12">
                     {/* Calendar icon on the timeline line */}
                     <div className="flex justify-center mb-8">
@@ -50,16 +77,29 @@ export function TimelineSection() {
                       {/* Upward triangle pointer */}
                       <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-r-[10px] border-b-[10px] border-l-transparent border-r-transparent border-b-primary-foreground" />
 
-                      {Icon && (
+                      {card.image ? (
+                        <div className="h-16 w-16 mx-auto mb-4 grid place-items-center rounded-2xl bg-primary-soft overflow-hidden">
+                          <img
+                            src={urlFor(card.image).url()}
+                            alt={card.year}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      ) : (
                         <div className="h-16 w-16 mx-auto mb-4 grid place-items-center rounded-2xl bg-primary-soft text-primary">
-                          <Icon className="h-8 w-8" />
+                          <Building2 className="h-8 w-8" />
                         </div>
                       )}
                       <div className="text-2xl font-bold text-primary mb-3">
-                        {milestone.year}
+                        {card.year}
                       </div>
+                      {title && (
+                        <p className="text-sm font-semibold text-foreground mb-2">
+                          {title}
+                        </p>
+                      )}
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        {milestone.description}
+                        {description}
                       </p>
                     </div>
                   </div>

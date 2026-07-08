@@ -36,15 +36,6 @@ export const structure: StructureResolver = (S) =>
             .title('Home Page')
         ),
       S.divider(),
-      S.listItem()
-        .title('Collections')
-        .icon(() => '🗂️')
-        .child(
-          S.list()
-            .title('Collections')
-            .items([])
-        ),
-      S.divider(),
       ...S.documentTypeListItems().filter((item) =>
         !SINGLETONS.includes(item.getId() || '')
       ),

@@ -30,7 +30,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      heading: 'sectionHeader.heading',
+      heading: 'sectionHeader.heading.en',
     },
     prepare({ heading }) {
       return {

@@ -13,13 +13,11 @@ export default defineType({
       name: 'en',
       title: 'English',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'id',
       title: 'Indonesian',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
   ],
 })

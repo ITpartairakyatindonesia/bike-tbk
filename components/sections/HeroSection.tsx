@@ -4,11 +4,18 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
 import { urlFor } from "@/lib/cms/image";
+import { CompanyHighlightsSection } from "./CompanyHighlightsSection";
 import type { Button, HeroSection as HeroSectionType } from "@/lib/types/sanity";
 
 interface HeroSectionProps {
   hero: HeroSectionType;
-  stats: { label: string; value: string }[];
+}
+
+function getValidButton(
+  button: Button | undefined | null,
+  language: "en" | "id"
+): Button | null {
+  return button && button.label?.[language] && button.href ? button : null;
 }
 
 function buttonClassName(variant?: Button["variant"]) {
@@ -32,7 +39,7 @@ function buttonContent(label: string, variant?: Button["variant"]) {
   );
 }
 
-export function HeroSection({ hero, stats }: HeroSectionProps) {
+export function HeroSection({ hero }: HeroSectionProps) {
   const { language } = useLanguage();
 
   return (
@@ -70,62 +77,47 @@ export function HeroSection({ hero, stats }: HeroSectionProps) {
             {hero?.subtitle?.[language]}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            {hero?.primaryButton && (
-              <>
-                {hero.primaryButton.external ? (
-                  <a
-                    href={hero.primaryButton.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonClassName(hero.primaryButton.variant)}
-                  >
-                    {buttonContent(hero.primaryButton.label, hero.primaryButton.variant)}
-                  </a>
-                ) : (
-                  <Link
-                    href={hero.primaryButton.href}
-                    className={buttonClassName(hero.primaryButton.variant)}
-                  >
-                    {buttonContent(hero.primaryButton.label, hero.primaryButton.variant)}
-                  </Link>
-                )}
-              </>
-            )}
-            {hero?.secondaryButton && (
-              <>
-                {hero.secondaryButton.external ? (
-                  <a
-                    href={hero.secondaryButton.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonClassName(hero.secondaryButton.variant)}
-                  >
-                    {buttonContent(hero.secondaryButton.label, hero.secondaryButton.variant)}
-                  </a>
-                ) : (
-                  <Link
-                    href={hero.secondaryButton.href}
-                    className={buttonClassName(hero.secondaryButton.variant)}
-                  >
-                    {buttonContent(hero.secondaryButton.label, hero.secondaryButton.variant)}
-                  </Link>
-                )}
-              </>
-            )}
+            {(() => {
+              const button = getValidButton(hero?.primaryButton, language);
+              if (!button) return null;
+              return button.external ? (
+                <a
+                  href={button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonClassName(button.variant)}
+                >
+                  {buttonContent(button.label?.[language], button.variant)}
+                </a>
+              ) : (
+                <Link href={button.href} className={buttonClassName(button.variant)}>
+                  {buttonContent(button.label?.[language], button.variant)}
+                </Link>
+              );
+            })()}
+            {(() => {
+              const button = getValidButton(hero?.secondaryButton, language);
+              if (!button) return null;
+              return button.external ? (
+                <a
+                  href={button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonClassName(button.variant)}
+                >
+                  {buttonContent(button.label?.[language], button.variant)}
+                </a>
+              ) : (
+                <Link href={button.href} className={buttonClassName(button.variant)}>
+                  {buttonContent(button.label?.[language], button.variant)}
+                </Link>
+              );
+            })()}
           </div>
         </div>
 
-        <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-px bg-primary-foreground/15 rounded-2xl overflow-hidden backdrop-blur border border-primary-foreground/15">
-          {stats.map((stat) => (
-            <div key={stat.label} className="bg-primary-deep/60 p-6 md:p-8">
-              <div className="text-xl md:text-xl font-display font-bold text-accent-gold">
-                {stat.value}
-              </div>
-              <div className="mt-2 text-xs md:text-sm opacity-80 uppercase tracking-wider">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+        <div className="mt-16 md:mt-24">
+          <CompanyHighlightsSection />
         </div>
       </div>
     </section>

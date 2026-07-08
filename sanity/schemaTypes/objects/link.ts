@@ -9,14 +9,12 @@ export default defineType({
       name: 'label',
       title: 'Label',
       type: 'localizedString',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'href',
       title: 'URL',
       type: 'string',
       description: 'Use absolute paths for internal links (e.g. /about) or full URLs for external links.',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'external',

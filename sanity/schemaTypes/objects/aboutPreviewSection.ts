@@ -22,6 +22,12 @@ export default defineType({
       description: 'Main body text for the About Preview section.',
     }),
     defineField({
+      name: 'secondaryDescription',
+      title: 'Secondary Description',
+      type: 'localizedText',
+      description: 'Secondary body text below the main description.',
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -29,6 +35,24 @@ export default defineType({
         hotspot: true,
       },
       description: 'About Preview section image.',
+    }),
+    defineField({
+      name: 'visionCard',
+      title: 'Vision Card',
+      type: 'object',
+      description: 'Small overlay card shown on the section image.',
+      fields: [
+        defineField({
+          name: 'label',
+          title: 'Label',
+          type: 'localizedString',
+        }),
+        defineField({
+          name: 'statement',
+          title: 'Statement',
+          type: 'localizedString',
+        }),
+      ],
     }),
     defineField({
       name: 'button',
@@ -39,7 +63,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      heading: 'sectionHeader.heading',
+      heading: 'sectionHeader.heading.en',
     },
     prepare({ heading }) {
       return {

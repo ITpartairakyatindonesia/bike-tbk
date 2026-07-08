@@ -2,8 +2,8 @@ import { defineType, defineField } from 'sanity'
 import { LanguageSelector } from '@/sanity/presentation/LanguageSelector'
 
 export default defineType({
-  name: 'sustainabilitySection',
-  title: 'Sustainability Section',
+  name: 'milestonesSection',
+  title: 'Milestones Section',
   type: 'object',
   components: {
     input: LanguageSelector,
@@ -13,29 +13,14 @@ export default defineType({
       name: 'sectionHeader',
       title: 'Section Header',
       type: 'sectionHeader',
-      description: 'Eyebrow, heading, and description for the section header.',
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'localizedText',
-      description: 'Sustainability section body text.',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      description: 'Sustainability section image.',
+      description: 'Eyebrow, heading, and description for the milestones section.',
     }),
     defineField({
       name: 'cards',
       title: 'Cards',
       type: 'array',
-      of: [{ type: 'sustainabilityCard' }],
-      description: 'Focus area cards shown beside the section text.',
+      of: [{ type: 'milestoneCard' }],
+      description: 'List of milestone cards.',
     }),
   ],
   preview: {
@@ -45,7 +30,7 @@ export default defineType({
     },
     prepare({ heading, cards }) {
       return {
-        title: heading || 'Sustainability Section',
+        title: heading || 'Milestones Section',
         subtitle: `${cards?.length || 0} card${cards?.length === 1 ? '' : 's'}`,
       }
     },

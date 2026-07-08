@@ -25,7 +25,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      heading: 'sectionHeader.heading',
+      heading: 'sectionHeader.heading.en',
       cards: 'cards',
     },
     prepare({ heading, cards }) {

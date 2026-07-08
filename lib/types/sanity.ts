@@ -80,13 +80,13 @@ export interface Seo {
 }
 
 export interface SectionHeader {
-  eyebrow?: string
-  heading: string
-  description?: string
+  eyebrow?: LocalizedString
+  heading: LocalizedString
+  description?: LocalizedText
 }
 
 export interface Button {
-  label: string
+  label: LocalizedString
   href: string
   variant?: 'primary' | 'secondary' | 'outline'
   external?: boolean
@@ -130,11 +130,55 @@ export interface SustainabilitySection {
   sectionHeader?: SectionHeader
   description?: LocalizedText
   image?: SanityImage
+  cards?: SustainabilityCard[]
+}
+
+export interface SustainabilityCard {
+  _key?: string
+  icon?: string
+  title?: LocalizedString
+}
+
+export interface BrandCard {
+  _key?: string
+  logo?: SanityImage
+  name?: LocalizedString
+  description?: LocalizedText
   button?: Button
-  focusAreas?: {
-    icon?: string
-    title?: LocalizedString
-  }[]
+  products?: ProductCard[]
+}
+
+export interface ProductCard {
+  _key?: string
+  image?: SanityImage
+  name?: LocalizedString
+  description?: LocalizedText
+  link?: string
+}
+
+export interface MilestoneCard {
+  _key?: string
+  year?: string
+  title?: LocalizedString
+  description?: LocalizedText
+  image?: SanityImage
+}
+
+export interface News {
+  _id: string
+  _type: 'news'
+  title?: LocalizedString
+  slug?: {
+    _type?: 'slug'
+    current?: string
+  }
+  excerpt?: LocalizedText
+  featuredImage?: SanityImage
+  category?: string
+  publishedAt?: string
+  featured?: boolean
+  seo?: Seo
+  body?: unknown
 }
 
 export interface LatestNewsSection {
@@ -150,6 +194,16 @@ export interface CTASection {
   secondaryButton?: Button
 }
 
+export interface BrandsSection {
+  sectionHeader?: SectionHeader
+  cards?: BrandCard[]
+}
+
+export interface MilestonesSection {
+  sectionHeader?: SectionHeader
+  cards?: MilestoneCard[]
+}
+
 export interface HomePage {
   _id: string
   _type: 'homePage'
@@ -160,4 +214,6 @@ export interface HomePage {
   sustainability?: SustainabilitySection
   latestNews?: LatestNewsSection
   cta?: CTASection
+  brandsSection?: BrandsSection
+  milestonesSection?: MilestonesSection
 }

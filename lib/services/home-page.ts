@@ -11,26 +11,64 @@ import type {
   SustainabilitySection,
   LatestNewsSection,
   CTASection,
+  BrandsSection,
+  MilestonesSection,
 } from '@/lib/types/sanity'
 
 const ensureLocalizedString = (
-  value?: LocalizedString | null,
+  value?: LocalizedString | string | null,
   fallback?: LocalizedString | null
-) => ({
-  en: value?.en ?? fallback?.en ?? '',
-  id: value?.id ?? fallback?.id ?? '',
-})
+) => {
+  if (typeof value === 'string') {
+    return { en: value, id: value }
+  }
+  return {
+    en: value?.en ?? fallback?.en ?? '',
+    id: value?.id ?? fallback?.id ?? '',
+  }
+}
 
 const ensureLocalizedText = (
-  value?: LocalizedText | null,
+  value?: LocalizedText | string | null,
   fallback?: LocalizedText | null
+) => {
+  if (typeof value === 'string') {
+    return { en: value, id: value }
+  }
+  return {
+    en: value?.en ?? fallback?.en ?? '',
+    id: value?.id ?? fallback?.id ?? '',
+  }
+}
+
+const normalizeSectionHeader = (
+  value?: { eyebrow?: LocalizedString | string; heading?: LocalizedString | string; description?: LocalizedText | string } | null,
+  fallback?: { eyebrow?: LocalizedString; heading?: LocalizedString; description?: LocalizedText } | null
 ) => ({
-  en: value?.en ?? fallback?.en ?? '',
-  id: value?.id ?? fallback?.id ?? '',
+  eyebrow: ensureLocalizedString(value?.eyebrow, fallback?.eyebrow),
+  heading: ensureLocalizedString(value?.heading, fallback?.heading),
+  description: ensureLocalizedText(value?.description, fallback?.description),
 })
 
+const normalizeButton = (
+  value?: { label?: LocalizedString | string; href?: string; variant?: 'primary' | 'secondary' | 'outline'; external?: boolean } | null,
+  fallback?: { label?: LocalizedString; href?: string; variant?: 'primary' | 'secondary' | 'outline'; external?: boolean } | null
+) => {
+  if (!value && !fallback) return undefined
+  const base = value ?? fallback
+  return {
+    label: ensureLocalizedString(base?.label, fallback?.label),
+    href: base?.href ?? fallback?.href ?? '#',
+    variant: base?.variant ?? fallback?.variant,
+    external: base?.external ?? fallback?.external,
+  }
+}
+
 export async function getHomePage(): Promise<HomePage> {
-  const { data: cmsHomePage } = await sanityFetch({ query: HOME_PAGE_QUERY })
+  const { data: cmsHomePage } = await sanityFetch({
+    query: HOME_PAGE_QUERY,
+    tags: ['home-page'],
+  })
 
   if (!cmsHomePage) {
     console.warn('No Home Page document found in Sanity, using fallback values')
@@ -44,12 +82,15 @@ export async function getHomePage(): Promise<HomePage> {
     title: ensureLocalizedString(page.hero?.title, HOME_PAGE.hero?.title),
     subtitle: ensureLocalizedText(page.hero?.subtitle, HOME_PAGE.hero?.subtitle),
     backgroundImage: page.hero?.backgroundImage ?? HOME_PAGE.hero?.backgroundImage,
-    primaryButton: page.hero?.primaryButton ?? HOME_PAGE.hero?.primaryButton,
-    secondaryButton: page.hero?.secondaryButton ?? HOME_PAGE.hero?.secondaryButton,
+    primaryButton: normalizeButton(page.hero?.primaryButton, HOME_PAGE.hero?.primaryButton),
+    secondaryButton: normalizeButton(page.hero?.secondaryButton, HOME_PAGE.hero?.secondaryButton),
   }
 
   const aboutPreview: AboutPreviewSection = {
-    sectionHeader: page.aboutPreview?.sectionHeader ?? HOME_PAGE.aboutPreview?.sectionHeader,
+    sectionHeader: normalizeSectionHeader(
+      page.aboutPreview?.sectionHeader,
+      HOME_PAGE.aboutPreview?.sectionHeader
+    ),
     description: ensureLocalizedText(
       page.aboutPreview?.description,
       HOME_PAGE.aboutPreview?.description
@@ -69,12 +110,14 @@ export async function getHomePage(): Promise<HomePage> {
       ),
     },
     image: page.aboutPreview?.image ?? HOME_PAGE.aboutPreview?.image,
-    button: page.aboutPreview?.button ?? HOME_PAGE.aboutPreview?.button,
+    button: normalizeButton(page.aboutPreview?.button, HOME_PAGE.aboutPreview?.button),
   }
 
   const businessHighlights: BusinessHighlightsSection = {
-    sectionHeader:
-      page.businessHighlights?.sectionHeader ?? HOME_PAGE.businessHighlights?.sectionHeader,
+    sectionHeader: normalizeSectionHeader(
+      page.businessHighlights?.sectionHeader,
+      HOME_PAGE.businessHighlights?.sectionHeader
+    ),
     cards:
       page.businessHighlights?.cards?.length
         ? page.businessHighlights.cards.map((card, index) => ({
@@ -88,42 +131,77 @@ export async function getHomePage(): Promise<HomePage> {
               card.description,
               HOME_PAGE.businessHighlights?.cards?.[index]?.description
             ),
-            button: card.button ?? HOME_PAGE.businessHighlights?.cards?.[index]?.button,
+            button: normalizeButton(
+              card.button,
+              HOME_PAGE.businessHighlights?.cards?.[index]?.button
+            ),
           }))
         : HOME_PAGE.businessHighlights?.cards,
   }
 
   const sustainability: SustainabilitySection = {
-    sectionHeader: page.sustainability?.sectionHeader ?? HOME_PAGE.sustainability?.sectionHeader,
+    sectionHeader: normalizeSectionHeader(
+      page.sustainability?.sectionHeader,
+      HOME_PAGE.sustainability?.sectionHeader
+    ),
     description: ensureLocalizedText(
       page.sustainability?.description,
       HOME_PAGE.sustainability?.description
     ),
     image: page.sustainability?.image ?? HOME_PAGE.sustainability?.image,
-    button: page.sustainability?.button ?? HOME_PAGE.sustainability?.button,
-    focusAreas:
-      page.sustainability?.focusAreas?.length
-        ? page.sustainability.focusAreas.map((area) => ({
-            icon: area.icon ?? HOME_PAGE.sustainability?.focusAreas?.[0]?.icon,
-            title: ensureLocalizedString(area.title, HOME_PAGE.sustainability?.focusAreas?.[0]?.title),
-          }))
-        : HOME_PAGE.sustainability?.focusAreas,
+    cards: (page.sustainability?.cards || HOME_PAGE.sustainability?.cards || []).map(
+      (card: any) => ({
+        ...card,
+        title: ensureLocalizedString(card.title),
+      })
+    ),
   }
 
   const latestNews: LatestNewsSection = {
-    sectionHeader: page.latestNews?.sectionHeader ?? HOME_PAGE.latestNews?.sectionHeader,
+    sectionHeader: normalizeSectionHeader(
+      page.latestNews?.sectionHeader,
+      HOME_PAGE.latestNews?.sectionHeader
+    ),
     description: ensureLocalizedText(
       page.latestNews?.description,
       HOME_PAGE.latestNews?.description
     ),
-    viewAllButton: page.latestNews?.viewAllButton ?? HOME_PAGE.latestNews?.viewAllButton,
+    viewAllButton: normalizeButton(
+      page.latestNews?.viewAllButton,
+      HOME_PAGE.latestNews?.viewAllButton
+    ),
   }
 
   const cta: CTASection = {
     title: ensureLocalizedString(page.cta?.title, HOME_PAGE.cta?.title),
     description: ensureLocalizedText(page.cta?.description, HOME_PAGE.cta?.description),
-    primaryButton: page.cta?.primaryButton ?? HOME_PAGE.cta?.primaryButton,
-    secondaryButton: page.cta?.secondaryButton ?? HOME_PAGE.cta?.secondaryButton,
+    primaryButton: normalizeButton(page.cta?.primaryButton, HOME_PAGE.cta?.primaryButton),
+    secondaryButton: normalizeButton(page.cta?.secondaryButton, HOME_PAGE.cta?.secondaryButton),
+  }
+
+  const brandsSection: BrandsSection = {
+    sectionHeader: normalizeSectionHeader(
+      page.brandsSection?.sectionHeader,
+      HOME_PAGE.brandsSection?.sectionHeader
+    ),
+    cards: (page.brandsSection?.cards || HOME_PAGE.brandsSection?.cards || []).map((card) => ({
+      ...card,
+      name: ensureLocalizedString(card.name),
+      description: ensureLocalizedText(card.description),
+      button: normalizeButton(card.button, HOME_PAGE.brandsSection?.cards?.find((c: any) => c._key === card._key)?.button),
+    })),
+  }
+
+  const milestonesSection: MilestonesSection = {
+    sectionHeader: normalizeSectionHeader(
+      page.milestonesSection?.sectionHeader,
+      HOME_PAGE.milestonesSection?.sectionHeader
+    ),
+    cards: (page.milestonesSection?.cards || HOME_PAGE.milestonesSection?.cards || []).map((card) => ({
+      ...card,
+      title: ensureLocalizedString(card.title),
+      description: ensureLocalizedText(card.description),
+    })),
   }
 
   return {
@@ -137,5 +215,7 @@ export async function getHomePage(): Promise<HomePage> {
     sustainability,
     latestNews,
     cta,
+    brandsSection,
+    milestonesSection,
   }
 }

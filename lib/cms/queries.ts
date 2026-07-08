@@ -72,6 +72,71 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
   }
 }`
 
+export const NEWS_QUERY = `*[_type == "news" && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc){
+  _id,
+  _type,
+  title{
+    en,
+    id
+  },
+  slug,
+  excerpt{
+    en,
+    id
+  },
+  featuredImage{
+    asset->
+  },
+  category,
+  publishedAt,
+  featured,
+  seo,
+  body
+}`
+
+export const LATEST_NEWS_QUERY = `*[_type == "news" && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc)[0...3]{
+  _id,
+  _type,
+  title{
+    en,
+    id
+  },
+  slug,
+  excerpt{
+    en,
+    id
+  },
+  featuredImage{
+    asset->
+  },
+  category,
+  publishedAt,
+  featured
+}`
+
+const sectionHeaderFragment = `sectionHeader{
+    eyebrow{
+      en,
+      id
+    },
+    heading{
+      en,
+      id
+    },
+    description{
+      en,
+      id
+    }
+  }`
+
+const buttonFragment = `label{
+    en,
+    id
+  },
+  href,
+  variant,
+  external`
+
 export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
   _id,
   _type,
@@ -92,22 +157,42 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
     backgroundImage{
       asset->
     },
-    primaryButton,
-    secondaryButton
+    primaryButton{
+      ${buttonFragment}
+    },
+    secondaryButton{
+      ${buttonFragment}
+    }
   },
   aboutPreview{
-    sectionHeader,
+    ${sectionHeaderFragment},
     description{
+      en,
+      id
+    },
+    secondaryDescription{
       en,
       id
     },
     image{
       asset->
     },
-    button
+    visionCard{
+      label{
+        en,
+        id
+      },
+      statement{
+        en,
+        id
+      }
+    },
+    button{
+      ${buttonFragment}
+    }
   },
   businessHighlights{
-    sectionHeader,
+    ${sectionHeaderFragment},
     cards[]{
       _key,
       image{
@@ -121,11 +206,13 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
         en,
         id
       },
-      button
+      button{
+        ${buttonFragment}
+      }
     }
   },
   sustainability{
-    sectionHeader,
+    ${sectionHeaderFragment},
     description{
       en,
       id
@@ -133,15 +220,23 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
     image{
       asset->
     },
-    button
+    cards[]{
+      icon,
+      title{
+        en,
+        id
+      }
+    }
   },
   latestNews{
-    sectionHeader,
+    ${sectionHeaderFragment},
     description{
       en,
       id
     },
-    viewAllButton
+    viewAllButton{
+      ${buttonFragment}
+    }
   },
   cta{
     title{
@@ -152,7 +247,68 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
       en,
       id
     },
-    primaryButton,
-    secondaryButton
+    primaryButton{
+      ${buttonFragment}
+    },
+    secondaryButton{
+      ${buttonFragment}
+    }
+  },
+  brandsSection{
+    ${sectionHeaderFragment},
+    cards[]{
+      _key,
+      logo{
+        asset->
+      },
+      name{
+        en,
+        id
+      },
+      description{
+        en,
+        id
+      },
+      button{
+        label{
+          en,
+          id
+        },
+        href,
+        external
+      },
+      products[]{
+        image{
+          asset->
+        },
+        name{
+          en,
+          id
+        },
+        description{
+          en,
+          id
+        },
+        link
+      }
+    }
+  },
+  milestonesSection{
+    ${sectionHeaderFragment},
+    cards[]{
+      _key,
+      year,
+      title{
+        en,
+        id
+      },
+      description{
+        en,
+        id
+      },
+      image{
+        asset->
+      }
+    }
   }
 }`

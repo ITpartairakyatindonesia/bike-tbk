@@ -1,8 +1,6 @@
 export { NAVIGATION } from "./navigation";
 export { HERO_STATS } from "./hero";
 export { ABOUT_FEATURES } from "./about";
-export { BRANDS } from "./brands";
-export { COMPANY_MILESTONES } from "./timeline";
 export { LATEST_NEWS } from "./news";
 export { INVESTOR_CARDS } from "./investor";
 export { PRODUCTS_SECTORS } from "./products";

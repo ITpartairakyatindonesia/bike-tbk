@@ -14,14 +14,12 @@ export default defineType({
       title: 'English',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'id',
       title: 'Indonesian',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.required(),
     }),
   ],
 })

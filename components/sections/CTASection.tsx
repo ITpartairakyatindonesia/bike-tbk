@@ -12,6 +12,13 @@ interface CTASectionProps {
 export function CTASection({ cta }: CTASectionProps) {
   const { language } = useLanguage();
 
+  const title = cta?.title?.[language];
+  const description = cta?.description?.[language];
+  const primaryButton = cta?.primaryButton?.label?.[language] && cta?.primaryButton?.href ? cta.primaryButton : null;
+  const secondaryButton = cta?.secondaryButton?.label?.[language] && cta?.secondaryButton?.href ? cta.secondaryButton : null;
+
+  if (!title && !description && !primaryButton && !secondaryButton) return null;
+
   return (
     <section className="py-24">
       <div className="container-page">
@@ -20,51 +27,51 @@ export function CTASection({ cta }: CTASectionProps) {
           <div className="relative grid md:grid-cols-[1.5fr_auto] items-center gap-10">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight max-w-2xl">
-                {cta?.title?.[language]}
+                {title}
               </h2>
               <p className="mt-4 text-lg opacity-85 max-w-xl">
-                {cta?.description?.[language]}
+                {description}
               </p>
             </div>
             <div className="flex flex-col md:flex-col lg:flex-row flex-wrap gap-3">
-              {cta?.primaryButton && (
+              {primaryButton && (
                 <>
-                  {cta.primaryButton.external ? (
+                  {primaryButton.external ? (
                     <a
-                      href={cta.primaryButton.href}
+                      href={primaryButton.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold transition"
                     >
-                      {cta.primaryButton.label} <ArrowRight className="h-4 w-4" />
+                      {primaryButton.label[language]} <ArrowRight className="h-4 w-4" />
                     </a>
                   ) : (
                     <Link
-                      href={cta.primaryButton.href}
+                      href={primaryButton.href}
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold transition"
                     >
-                      {cta.primaryButton.label} <ArrowRight className="h-4 w-4" />
+                      {primaryButton.label[language]} <ArrowRight className="h-4 w-4" />
                     </Link>
                   )}
                 </>
               )}
-              {cta?.secondaryButton && (
+              {secondaryButton && (
                 <>
-                  {cta.secondaryButton.external ? (
+                  {secondaryButton.external ? (
                     <a
-                      href={cta.secondaryButton.href}
+                      href={secondaryButton.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition"
                     >
-                      <MapPin className="h-4 w-4" /> {cta.secondaryButton.label}
+                      <MapPin className="h-4 w-4" /> {secondaryButton.label[language]}
                     </a>
                   ) : (
                     <Link
-                      href={cta.secondaryButton.href}
+                      href={secondaryButton.href}
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition"
                     >
-                      <MapPin className="h-4 w-4" /> {cta.secondaryButton.label}
+                      <MapPin className="h-4 w-4" /> {secondaryButton.label[language]}
                     </Link>
                   )}
                 </>

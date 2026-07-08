@@ -24,13 +24,13 @@ export const HOME_PAGE: HomePage = {
         "PT Bike Tbk adalah perusahaan distribusi sepeda terkemuka yang berkomitmen untuk menyediakan produk berkualitas tinggi, memperluas distribusi nasional, dan menciptakan nilai berkelanjutan bagi pelanggan, mitra bisnis, pemegang saham, dan masyarakat.",
     },
     primaryButton: {
-      label: "Discover SBI",
+      label: { en: "Discover SBI", id: "Discover SBI" },
       href: "/about",
       variant: "primary",
       external: false,
     },
     secondaryButton: {
-      label: "Investor Relations",
+      label: { en: "Investor Relations", id: "Investor Relations" },
       href: "/investors",
       variant: "secondary",
       external: false,
@@ -38,8 +38,8 @@ export const HOME_PAGE: HomePage = {
   },
   aboutPreview: {
     sectionHeader: {
-      eyebrow: "About Us",
-      heading: "Building Healthier Communities Through Better Mobility.",
+      eyebrow: { en: "About Us", id: "About Us" },
+      heading: { en: "Building Healthier Communities Through Better Mobility.", id: "Building Healthier Communities Through Better Mobility." },
     },
     description: {
       en:
@@ -64,7 +64,7 @@ export const HOME_PAGE: HomePage = {
       },
     },
     button: {
-      label: "Learn More",
+      label: { en: "Learn More", id: "Learn More" },
       href: "/about",
       variant: "primary",
       external: false,
@@ -72,8 +72,8 @@ export const HOME_PAGE: HomePage = {
   },
   businessHighlights: {
     sectionHeader: {
-      eyebrow: "Our Business",
-      heading: "SBI Business Activities.",
+      eyebrow: { en: "Our Business", id: "Our Business" },
+      heading: { en: "SBI Business Activities.", id: "SBI Business Activities." },
     },
     cards: [
       {
@@ -120,8 +120,8 @@ export const HOME_PAGE: HomePage = {
   },
   sustainability: {
     sectionHeader: {
-      eyebrow: "Sustainability",
-      heading: "Growing Responsibly for Indonesia.",
+      eyebrow: { en: "Sustainability", id: "Sustainability" },
+      heading: { en: "Growing Responsibly for Indonesia.", id: "Growing Responsibly for Indonesia." },
     },
     description: {
       en:
@@ -129,7 +129,7 @@ export const HOME_PAGE: HomePage = {
       id:
         "PT Bike Tbk secara aktif berkontribusi untuk meningkatkan gaya hidup yang lebih sehat sambil mempertahankan praktik bisnis yang adil, jujur, dan berkelanjutan.",
     },
-    focusAreas: [
+    cards: [
       {
         icon: "ShieldCheck",
         title: {
@@ -162,8 +162,8 @@ export const HOME_PAGE: HomePage = {
   },
   latestNews: {
     sectionHeader: {
-      eyebrow: "Latest News",
-      heading: "Updates from SBI.",
+      eyebrow: { en: "Latest News", id: "Berita Terkini" },
+      heading: { en: "Updates from SBI.", id: "Updates from SBI." },
     },
     description: {
       en: "Stay informed with the latest announcements, public exposes, and updates from PT Bike Tbk.",
@@ -171,11 +171,125 @@ export const HOME_PAGE: HomePage = {
         "Tetap terinformasi dengan pengumuman terbaru, public expose, dan pembaruan dari PT Bike Tbk.",
     },
     viewAllButton: {
-      label: "View All News",
+      label: { en: "View All News", id: "Lihat Semua Berita" },
       href: "/news",
       variant: "primary",
       external: false,
     },
+  },
+  brandsSection: {
+    sectionHeader: {
+      eyebrow: { en: "Our Brands", id: "Merek Kami" },
+      heading: { en: "Trusted Bicycle Brands for Every Lifestyle.", id: "Merek Sepeda Terpercaya untuk Setiap Gaya Hidup." },
+    },
+    cards: [
+      {
+        name: {
+          en: "Genio",
+          id: "Genio",
+        },
+        description: {
+          en: "Lifestyle bicycle brand designed for everyday urban mobility.",
+          id: "Merek sepeda gaya hidup yang dirancang untuk mobilitas perkotaan sehari-hari.",
+        },
+        button: {
+          label: {
+            en: "Visit Genio",
+            id: "Kunjungi Genio",
+          },
+          href: "https://genio.bike",
+          external: true,
+        },
+      },
+      {
+        name: {
+          en: "United",
+          id: "United",
+        },
+        description: {
+          en: "Mountain, road, and urban bicycles for every rider.",
+          id: "Sepeda gunung, jalan, dan perkotaan untuk setiap pengendara.",
+        },
+        button: {
+          label: {
+            en: "Visit United",
+            id: "Kunjungi United",
+          },
+          href: "https://www.unitedbike.com/",
+          external: true,
+        },
+      },
+      {
+        name: {
+          en: "Avand",
+          id: "Avand",
+        },
+        description: {
+          en: "Reliable everyday mobility bicycles for Indonesian families.",
+          id: "Sepeda mobilitas harian yang andal untuk keluarga Indonesia.",
+        },
+        button: {
+          label: {
+            en: "Visit Avand",
+            id: "Kunjungi Avand",
+          },
+          href: "https://avand.com",
+          external: true,
+        },
+      },
+    ],
+  },
+  milestonesSection: {
+    sectionHeader: {
+      eyebrow: { en: "Our Journey", id: "Perjalanan Kami" },
+      heading: { en: "Company Milestones.", id: "Tonggak Perusahaan." },
+    },
+    cards: [
+      {
+        year: "2017",
+        title: {
+          en: "Company Established",
+          id: "Perusahaan Didirikan",
+        },
+        description: {
+          en: "Company established in October 2017 as PT Sepeda Bersama Indonesia.",
+          id: "Perusahaan didirikan pada Oktober 2017 sebagai PT Sepeda Bersama Indonesia.",
+        },
+      },
+      {
+        year: "2021",
+        title: {
+          en: "Dealer Network Growth",
+          id: "Pertumbuhan Jaringan Dealer",
+        },
+        description: {
+          en: "Partnering with 319 dealers spread across Indonesia.",
+          id: "Bermitra dengan 319 dealer yang tersebar di seluruh Indonesia.",
+        },
+      },
+      {
+        year: "2021",
+        title: {
+          en: "Leading Distributor",
+          id: "Distributor Terkemuka",
+        },
+        description: {
+          en: "Largest distributor for Genio, United and Avand bicycles.",
+          id: "Distributor terbesar untuk sepeda Genio, United, dan Avand.",
+        },
+      },
+      {
+        year: "2022",
+        title: {
+          en: "Initial Public Offering",
+          id: "Penawaran Umum Perdana",
+        },
+        description: {
+          en: "Initial Public Offering (IPO) with stock code BIKE.",
+          id: "Penawaran umum perdana (IPO) dengan kode saham BIKE.",
+        },
+      },
+    ],
   },
   cta: {
     title: {
@@ -189,13 +303,13 @@ export const HOME_PAGE: HomePage = {
         "Kami percaya setiap kemitraan dimulai dengan percakapan. Baik Anda mitra bisnis, investor, perwakilan media, atau pelanggan, tim kami siap terhubung dengan Anda.",
     },
     primaryButton: {
-      label: "Contact Us",
+      label: { en: "Contact Us", id: "Hubungi Kami" },
       href: "/contact",
       variant: "primary",
       external: false,
     },
     secondaryButton: {
-      label: "Get Directions",
+      label: { en: "Get Directions", id: "Petunjuk Arah" },
       href: "https://maps.google.com",
       variant: "outline",
       external: true,

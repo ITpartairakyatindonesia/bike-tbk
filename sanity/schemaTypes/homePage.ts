@@ -11,6 +11,10 @@ export default defineType({
       title: 'SEO',
       type: 'seo',
       description: 'Search engine optimization settings for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'hero',
@@ -37,6 +41,26 @@ export default defineType({
       title: 'Business Highlights',
       type: 'businessHighlightsSection',
       description: 'Business Highlights section for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    }),
+    defineField({
+      name: 'brandsSection',
+      title: 'Brands Section',
+      type: 'brandsSection',
+      description: 'Brands section header for the Home Page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    }),
+    defineField({
+      name: 'milestonesSection',
+      title: 'Milestones Section',
+      type: 'milestonesSection',
+      description: 'Milestones section header for the Home Page.',
       options: {
         collapsible: true,
         collapsed: true,
