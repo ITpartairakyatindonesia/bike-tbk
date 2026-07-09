@@ -5,6 +5,7 @@ import { AboutVisionMission } from "@/components/about/AboutVisionMission";
 import { AboutCulture } from "@/components/about/AboutCulture";
 import { AboutManagement } from "@/components/about/AboutManagement";
 import { getTranslations } from 'next-intl/server';
+import { getAboutPage } from '@/lib/services/about-page';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -39,15 +40,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const aboutPage = await getAboutPage();
+
   return (
     <div>
-      <AboutHero />
-      <AboutOverview />
-      <AboutInfo />
-      <AboutVisionMission />
-      <AboutCulture />
-      <AboutManagement />
+      <AboutHero hero={aboutPage.hero} locale={locale} />
+      <AboutOverview overview={aboutPage.overview} locale={locale} />
+      <AboutInfo info={aboutPage.info} locale={locale} />
+      <AboutVisionMission visionMission={aboutPage.visionMission} locale={locale} />
+      <AboutCulture culture={aboutPage.culture} locale={locale} />
+      <AboutManagement management={aboutPage.management} locale={locale} />
     </div>
   );
 }

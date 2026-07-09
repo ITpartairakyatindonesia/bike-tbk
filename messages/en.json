@@ -50,11 +50,12 @@
     "hero": {
       "eyebrow": "About Us",
       "headline": "Building Healthier Communities Through Better Mobility.",
-      "description": "PT Bike Tbk (SBI) was established in Tangerang in 2017 and has grown into one of Indonesia's leading bicycle distribution companies. Through trusted brands, an extensive dealer network, and a commitment to sustainable business practices, SBI continues to support healthier and more active lifestyles across the country."
+      "description": "PT Bike Tbk was established in Tangerang in 2017 and has grown into one of Indonesia's leading bicycle distribution companies. Through trusted brands, an extensive dealer network, and a commitment to sustainable business practices, PT Bike continues to support healthier and more active lifestyles across the country."
     },
     "overview": {
+      "sectionLabel": "Company Overview",
       "title": "Who We Are",
-      "paragraph1": "Established in Tangerang in 2017, PT Bike Tbk operates in the wholesale distribution of bicycles. As the brand owner of Genio Bike and the largest distributor of United Bike and Avand, SBI brings more than 100 bicycle models and over 300 variants to the Indonesian market every year.",
+      "paragraph1": "Established in Tangerang in 2017, PT Bike Tbk operates in the wholesale distribution of bicycles. As the brand owner of Genio Bike and the largest distributor of United Bike and Avand, PT Bike brings more than 100 bicycle models and over 300 variants to the Indonesian market every year.",
       "paragraph2": "Our nationwide distribution network reaches across Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, and Papua. We are committed to developing Indonesia's bicycle industry from upstream to downstream through a professional distribution network, integrated customer service, and a wide product portfolio that serves every market segment."
     },
     "highlights": {
@@ -68,6 +69,8 @@
       "business": "Business"
     },
     "info": {
+      "sectionLabel": "Corporate Information",
+      "title": "Company Information",
       "companyName": "Company Name",
       "founded": "Founded",
       "headOffice": "Head Office",
@@ -89,12 +92,24 @@
     "culture": {
       "title": "Our Culture",
       "subtitle": "Growing Together Through Human-Centered Values.",
-      "introduction": "At SBI, we believe that people are at the heart of every successful journey. Our culture is built on respect, integrity, and collaboration — empowering every individual to grow while contributing to a healthier and more sustainable Indonesia."
+      "introduction": "At PT Bike, we believe that people are at the heart of every successful journey. Our culture is built on respect, integrity, and collaboration — empowering every individual to grow while contributing to a healthier and more sustainable Indonesia."
+    },
+    "management": {
+      "sectionLabel": "Leadership",
+      "title": "Management Profile",
+      "introduction": "Meet the experienced leaders guiding PT Bike Tbk through strategic growth, innovation, and responsible corporate governance.",
+      "viewBiography": "View Biography",
+      "backToAbout": "Back to About",
+      "managementProfile": "Management Profile",
+      "biography": "Biography",
+      "education": "Education",
+      "career": "Career",
+      "currentPositions": "Current Positions"
     },
     "distribution": {
       "title": "Distribution Network",
       "subtitle": "Reaching Every Corner of Indonesia",
-      "description": "SBI's distribution network spans the archipelago, ensuring that quality bicycles and after-sales service are accessible to communities nationwide."
+      "description": "Bike's distribution network spans the archipelago, ensuring that quality bicycles and after-sales service are accessible to communities nationwide."
     },
     "closing": {
       "headline": "Moving Indonesia Forward Together.",
@@ -135,7 +150,7 @@
     },
     "about": {
       "title": "About Us - PT Bike Tbk",
-      "description": "Learn about PT Bike Tbk (SBI), Indonesia's leading bicycle distribution company, established in 2017 and committed to healthier, more active communities."
+      "description": "Learn about PT Bike Tbk, Indonesia's leading bicycle distribution company, established in 2017 and committed to healthier, more active communities."
     },
     "contact": {
       "title": "Contact - PT Bike Tbk",
@@ -143,11 +158,11 @@
     },
     "investor": {
       "title": "Investor Relations - Bike",
-      "description": "Access SBI's investor relations information including annual reports, financial statements, corporate governance documents, and public expose materials."
+      "description": "Access Bike's investor relations information including annual reports, financial statements, corporate governance documents, and public expose materials."
     },
     "organization": {
       "title": "Brands - Bike",
-      "description": "Discover SBI's trusted bicycle brands: Genio, United, and Avand, supporting every lifestyle from everyday mobility to road and mountain cycling."
+      "description": "Discover Bike's trusted bicycle brands: Genio, United, and Avand, supporting every lifestyle from everyday mobility to road and mountain cycling."
     },
     "products": {
       "title": "Products - PT Bike Tbk",
