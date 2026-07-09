@@ -1,9 +1,15 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { ABOUT_INFO } from "@/lib/data/about-page";
+import type { AboutInfoSection } from "@/lib/types/sanity";
+import { pickLocalized } from "@/lib/utils";
 
-export function AboutInfo() {
+interface AboutInfoProps {
+  info?: AboutInfoSection;
+  locale: string;
+}
+
+export function AboutInfo({ info, locale }: AboutInfoProps) {
   const t = useTranslations('about.info');
 
   const getLabelKey = (label: string): string => {
@@ -21,27 +27,29 @@ export function AboutInfo() {
     return keyMap[label] || label;
   };
 
+  const items = info?.items || [];
+
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container-page">
         <div className="max-w-4xl mx-auto">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            Corporate Information
+            {t('sectionLabel')}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-12">
-            Company Information
+            {t('title')}
           </h2>
           <div className="grid md:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-            {ABOUT_INFO.map((item, index) => (
+            {items.map((item, index) => (
               <div
                 key={index}
                 className="bg-card p-6 md:p-8 hover:bg-primary-soft/30 transition"
               >
                 <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                  {t(getLabelKey(item.label))}
+                  {pickLocalized(item.label, locale)}
                 </div>
                 <div className="font-semibold text-foreground leading-snug">
-                  {item.value}
+                  {pickLocalized(item.value, locale)}
                 </div>
               </div>
             ))}

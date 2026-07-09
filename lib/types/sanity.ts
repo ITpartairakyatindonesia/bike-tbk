@@ -3,6 +3,7 @@ export interface SanityImage {
     _ref: string
     _type: 'reference'
   }
+  url?: string
 }
 
 export interface LocalizedString {
@@ -216,4 +217,90 @@ export interface HomePage {
   cta?: CTASection
   brandsSection?: BrandsSection
   milestonesSection?: MilestonesSection
+}
+
+export interface AboutHeroSection {
+  eyebrow?: LocalizedString
+  title?: LocalizedString
+  subtitle?: LocalizedText
+  backgroundImage?: SanityImage
+  primaryButton?: Button
+  secondaryButton?: Button
+}
+
+export interface AboutOverviewSection {
+  sectionHeader?: SectionHeader
+  paragraphs?: LocalizedText[]
+}
+
+export interface AboutInfoItem {
+  label?: LocalizedString
+  value?: LocalizedString
+}
+
+export interface AboutInfoSection {
+  sectionHeader?: SectionHeader
+  items?: AboutInfoItem[]
+}
+
+export interface AboutVision {
+  label?: LocalizedString
+  statement?: LocalizedText
+}
+
+export interface AboutMissionItem {
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface AboutMission {
+  title?: LocalizedString
+  items?: AboutMissionItem[]
+}
+
+export interface AboutVisionMissionSection {
+  sectionHeader?: SectionHeader
+  vision?: AboutVision
+  mission?: AboutMission
+}
+
+export interface AboutCultureCard {
+  icon?: string
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface AboutCultureSection {
+  sectionHeader?: SectionHeader
+  introduction?: LocalizedText
+  cards?: AboutCultureCard[]
+}
+
+export interface AboutManagementExecutive {
+  name?: string
+  position?: LocalizedString
+  biography?: LocalizedText
+  slug?: {
+    _type?: 'slug'
+    current?: string
+  }
+  image?: SanityImage | null
+}
+
+export interface AboutManagementSection {
+  sectionHeader?: SectionHeader
+  introduction?: LocalizedText
+  executives?: AboutManagementExecutive[]
+}
+
+export interface AboutPage {
+  _id: string
+  _type: 'aboutPage'
+  seo?: Seo
+  hero?: AboutHeroSection
+  overview?: AboutOverviewSection
+  info?: AboutInfoSection
+  visionMission?: AboutVisionMissionSection
+  culture?: AboutCultureSection
+  management?: AboutManagementSection
 }

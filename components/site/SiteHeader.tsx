@@ -40,7 +40,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   // Handle language switch using next-intl routing
   const handleLanguageSwitch = (newLocale: string) => {
     const newPath = `/${newLocale}${pathnameWithoutLocale}`;
-    router.push(newPath);
+    router.push(newPath, { scroll: false });
   };
 
   useEffect(() => {

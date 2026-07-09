@@ -50,11 +50,12 @@
     "hero": {
       "eyebrow": "Tentang Kami",
       "headline": "Membangun Komunitas yang Lebih Sehat Melalui Mobilitas yang Lebih Baik.",
-      "description": "PT Bike Tbk (SBI) didirikan di Tangerang pada tahun 2017 dan telah berkembang menjadi salah satu perusahaan distribusi sepeda terkemuka di Indonesia. Melalui merek-merek terpercaya, jaringan dealer yang luas, dan komitmen terhadap praktik bisnis yang berkelanjutan, SBI terus mendukung gaya hidup yang lebih sehat dan aktif di seluruh negeri."
+      "description": "PT Bike Tbk didirikan di Tangerang pada tahun 2017 dan telah berkembang menjadi salah satu perusahaan distribusi sepeda terkemuka di Indonesia. Melalui merek-merek terpercaya, jaringan dealer yang luas, dan komitmen terhadap praktik bisnis yang berkelanjutan, PT Bike terus mendukung gaya hidup yang lebih sehat dan aktif di seluruh negeri."
     },
     "overview": {
+      "sectionLabel": "Ikhtisar Perusahaan",
       "title": "Siapa Kami",
-      "paragraph1": "Didirikan di Tangerang pada tahun 2017, PT Bike Tbk beroperasi dalam distribusi grosir sepeda. Sebagai pemilik merek Genio Bike dan distributor terbesar United Bike dan Avand, SBI membawa lebih dari 100 model sepeda dan lebih dari 300 varian ke pasar Indonesia setiap tahun.",
+      "paragraph1": "Didirikan di Tangerang pada tahun 2017, PT Bike Tbk beroperasi dalam distribusi grosir sepeda. Sebagai pemilik merek Genio Bike dan distributor terbesar United Bike dan Avand, PT Bike membawa lebih dari 100 model sepeda dan lebih dari 300 varian ke pasar Indonesia setiap tahun.",
       "paragraph2": "Jaringan distribusi nasional kami mencakup Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua. Kami berkomitmen untuk mengembangkan industri sepeda Indonesia dari hulu ke hilir melalui jaringan distribusi profesional, layanan pelanggan terintegrasi, dan portofolio produk yang luas yang melayani setiap segmen pasar."
     },
     "highlights": {
@@ -68,6 +69,8 @@
       "business": "Bisnis"
     },
     "info": {
+      "sectionLabel": "Informasi Perusahaan",
+      "title": "Informasi Perusahaan",
       "companyName": "Nama Perusahaan",
       "founded": "Didirikan",
       "headOffice": "Kantor Pusat",
@@ -89,12 +92,24 @@
     "culture": {
       "title": "Budaya Kami",
       "subtitle": "Berkembang Bersama Melalui Nilai-Nilai Berpusat pada Manusia.",
-      "introduction": "Di SBI, kami percaya bahwa orang-orang ada di jantung setiap perjalanan yang sukses. Budaya kami dibangun di atas rasa hormat, integritas, dan kolaborasi — memberdayakan setiap individu untuk tumbuh sambil berkontribusi pada Indonesia yang lebih sehat dan berkelanjutan."
+      "introduction": "Di PT Bike, kami percaya bahwa orang-orang ada di jantung setiap perjalanan yang sukses. Budaya kami dibangun di atas rasa hormat, integritas, dan kolaborasi — memberdayakan setiap individu untuk tumbuh sambil berkontribusi pada Indonesia yang lebih sehat dan berkelanjutan."
+    },
+    "management": {
+      "sectionLabel": "Kepemimpinan",
+      "title": "Profil Manajemen",
+      "introduction": "Temui pemimpin berpengalaman yang memandu PT Bike Tbk melalui pertumbuhan strategis, inovasi, dan tata kelola perusahaan yang bertanggung jawab.",
+      "viewBiography": "Lihat Biografi",
+      "backToAbout": "Kembali ke Tentang Kami",
+      "managementProfile": "Profil Manajemen",
+      "biography": "Biografi",
+      "education": "Pendidikan",
+      "career": "Karir",
+      "currentPositions": "Posisi Saat Ini"
     },
     "distribution": {
       "title": "Jaringan Distribusi",
       "subtitle": "Mencapai Setiap Sudut Indonesia",
-      "description": "Jaringan distribusi SBI mencakup seluruh kepulauan, memastikan bahwa sepeda berkualitas dan layanan purna jual dapat diakses oleh masyarakat di seluruh negeri."
+      "description": "Jaringan distribusi PT Bike mencakup seluruh kepulauan, memastikan bahwa sepeda berkualitas dan layanan purna jual dapat diakses oleh masyarakat di seluruh negeri."
     },
     "closing": {
       "headline": "Maju Bersama Indonesia.",
@@ -135,7 +150,7 @@
     },
     "about": {
       "title": "Tentang Kami - PT Bike Tbk",
-      "description": "Pelajari tentang PT Bike Tbk (SBI), perusahaan distribusi sepeda terkemuka di Indonesia, didirikan pada tahun 2017 dan berkomitmen untuk komunitas yang lebih sehat dan aktif."
+      "description": "Pelajari tentang PT Bike Tbk, perusahaan distribusi sepeda terkemuka di Indonesia, didirikan pada tahun 2017 dan berkomitmen untuk komunitas yang lebih sehat dan aktif."
     },
     "contact": {
       "title": "Kontak - PT Bike Tbk",
@@ -143,11 +158,11 @@
     },
     "investor": {
       "title": "Hubungan Investor - Bike",
-      "description": "Akses informasi hubungan investor SBI termasuk laporan tahunan, laporan keuangan, dokumen tata kelola perusahaan, dan materi paparan publik."
+      "description": "Akses informasi hubungan investor PT Bike termasuk laporan tahunan, laporan keuangan, dokumen tata kelola perusahaan, dan materi paparan publik."
     },
     "organization": {
       "title": "Merek - Bike",
-      "description": "Temukan merek sepeda terpercaya SBI: Genio, United, dan Avand, mendukung setiap gaya hidup dari mobilitas sehari-hari hingga sepeda jalan raya dan gunung."
+      "description": "Temukan merek sepeda terpercaya PT Bike: Genio, United, dan Avand, mendukung setiap gaya hidup dari mobilitas sehari-hari hingga sepeda jalan raya dan gunung."
     },
     "products": {
       "title": "Produk - PT Bike Tbk",

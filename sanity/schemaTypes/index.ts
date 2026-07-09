@@ -2,6 +2,7 @@ import { type SchemaTypeDefinition } from 'sanity'
 import siteSettings from './siteSettings'
 import navigation from './navigation'
 import homePage from './homePage'
+import aboutPage from './aboutPage'
 import news from './news'
 import button from './objects/button'
 import link from './objects/link'
@@ -31,6 +32,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     siteSettings,
     navigation,
     homePage,
+    aboutPage,
     news,
     button,
     link,
