@@ -1,25 +1,30 @@
-import { ABOUT_VISION, ABOUT_MISSION } from "@/lib/data/about-page";
+"use client";
+
+import { useTranslations } from 'next-intl';
+import { ABOUT_MISSION } from "@/lib/data/about-page";
 
 export function AboutVisionMission() {
+  const t = useTranslations('about');
+
   return (
     <section className="py-16 md:py-24 bg-primary-deep text-primary-foreground">
       <div className="container-page">
         <div className="text-xs uppercase tracking-[0.25em] text-accent-gold font-semibold mb-4">
-          {ABOUT_VISION.eyebrow}
+          {t('vision.eyebrow')}
         </div>
         <div className="grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16">
           <div className="lg:max-w-md">
             <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
-              {ABOUT_VISION.label}
+              {t('vision.label')}
             </h2>
             <p className="text-xl md:text-2xl lg:text-3xl font-display font-semibold leading-snug">
-              {ABOUT_VISION.statement}
+              {t('vision.statement')}
             </p>
           </div>
 
           <div>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
-              Mission
+              {t('mission.title')}
             </h2>
             <ol className="space-y-6">
               {ABOUT_MISSION.map((mission, index) => (

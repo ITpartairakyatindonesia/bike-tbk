@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { Facebook, Linkedin, Twitter, Instagram, Youtube, Mail, Phone, MapPin, type LucideIcon } from "lucide-react";
+import { useTranslations, useLocale } from 'next-intl';
 import { CONTACT_INFO } from "@/lib/data";
 import { urlFor } from "@/lib/cms/image";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
 import type { LocalizedString, LocalizedText } from "@/lib/types/sanity";
 
 interface SiteFooterProps {
@@ -43,7 +43,8 @@ const PLATFORM_ICONS: Record<string, LucideIcon> = {
 };
 
 export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
-  const { language } = useLanguage();
+  const locale = useLocale();
+  const t = useTranslations('footer');
 
   const validSocialLinks = (siteSettings.socialLinks || []).filter(
     (link) => link.platform && link.href && PLATFORM_ICONS[link.platform]
@@ -80,7 +81,7 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
             </div>
           </div>
           <p className="text-sm opacity-75 leading-relaxed">
-            {siteSettings.footerDescription?.[language]}
+            {siteSettings.footerDescription?.[locale as keyof LocalizedText]}
           </p>
           {validSocialLinks.length > 0 && (
             <div className="flex gap-2">
@@ -106,14 +107,14 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
 
         {validCompanyLinks.length > 0 && (
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">{language === "id" ? "Perusahaan" : "Company"}</h4>
+            <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">{t('company')}</h4>
             <ul className="space-y-2.5 text-sm">
               {validCompanyLinks.map((link, index) => (
                 <li key={`${link.href}-${index}`}>
                   {link.href.startsWith('#') ? (
-                    <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</a>
+                    <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</a>
                   ) : (
-                    <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</Link>
+                    <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
                   )}
                 </li>
               ))}
@@ -123,14 +124,14 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
 
         {validResourceLinks.length > 0 && (
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">{language === "id" ? "Sumber Daya" : "Resources"}</h4>
+            <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">{t('resources')}</h4>
             <ul className="space-y-2.5 text-sm">
               {validResourceLinks.map((link, index) => (
                 <li key={`${link.href}-${index}`}>
                   {link.href.startsWith('#') ? (
-                    <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</a>
+                    <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</a>
                   ) : (
-                    <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[language]}</Link>
+                    <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
                   )}
                 </li>
               ))}
@@ -139,7 +140,7 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
         )}
 
         <div>
-          <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">{language === "id" ? "Kantor Pusat" : "Head Office"}</h4>
+          <h4 className="text-xs uppercase tracking-[0.2em] opacity-70 mb-4">{t('headOffice')}</h4>
           <ul className="space-y-3 text-sm opacity-85">
             <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0" />{siteSettings.contactInfo.address || CONTACT_INFO.address}</li>
             <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0" />{siteSettings.contactInfo.phone || CONTACT_INFO.phone}</li>
@@ -150,12 +151,12 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
 
       <div className="border-t border-primary-foreground/10">
         <div className="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs opacity-70">
-          <p>© {siteSettings.currentYear} {siteSettings.legalName}. All rights reserved.</p>
+          <p>© {siteSettings.currentYear} {siteSettings.legalName}. {t('copyright')}</p>
           {validLegalLinks.length > 0 && (
             <div className="flex gap-5">
               {validLegalLinks.map((link, index) => (
                 <a key={index} href={link.href} className="hover:opacity-100">
-                  {link.label[language]}
+                  {link.label[locale as keyof LocalizedString]}
                 </a>
               ))}
             </div>

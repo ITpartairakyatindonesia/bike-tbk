@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useLocale } from 'next-intl';
 import { ShieldCheck, Leaf, Users, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { SustainabilitySection as SustainabilitySectionType } from "@/lib/types/sanity";
@@ -17,12 +17,12 @@ interface SustainabilitySectionProps {
 }
 
 export function SustainabilitySection({ sustainability }: SustainabilitySectionProps) {
-  const { language } = useLanguage();
+  const locale = useLocale() as "en" | "id";
 
-  const heading = sustainability?.sectionHeader?.heading?.[language];
-  const description = sustainability?.description?.[language];
+  const heading = sustainability?.sectionHeader?.heading?.[locale];
+  const description = sustainability?.description?.[locale];
   const validCards =
-    sustainability?.cards?.filter((card) => card.title?.[language]) ?? [];
+    sustainability?.cards?.filter((card) => card.title?.[locale]) ?? [];
 
   if (!heading && !description && validCards.length === 0) return null;
 
@@ -31,23 +31,23 @@ export function SustainabilitySection({ sustainability }: SustainabilitySectionP
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {sustainability?.sectionHeader?.eyebrow?.[language]}
+            {sustainability?.sectionHeader?.eyebrow?.[locale]}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {sustainability?.sectionHeader?.heading?.[language]}
+            {sustainability?.sectionHeader?.heading?.[locale]}
           </h2>
           {sustainability?.sectionHeader?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {sustainability.sectionHeader.description[language]}
+              {sustainability.sectionHeader.description[locale]}
             </p>
           )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {sustainability?.description?.[language]}
+            {sustainability?.description?.[locale]}
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-6">
           {validCards.map((card, index) => {
-            const title = card.title?.[language];
+            const title = card.title?.[locale];
             if (!title) return null;
             const Icon = card.icon ? iconMap[card.icon] : ShieldCheck;
             if (!Icon) return null;

@@ -1,6 +1,26 @@
+"use client";
+
+import { useTranslations } from 'next-intl';
 import { ABOUT_INFO } from "@/lib/data/about-page";
 
 export function AboutInfo() {
+  const t = useTranslations('about.info');
+
+  const getLabelKey = (label: string): string => {
+    const keyMap: Record<string, string> = {
+      'Company Name': 'companyName',
+      'Founded': 'founded',
+      'Head Office': 'headOffice',
+      'Core Business': 'coreBusiness',
+      'Website': 'website',
+      'Board of Commissioners': 'boardOfCommissioners',
+      'Board of Directors': 'boardOfDirectors',
+      'Dealer Network': 'dealerNetwork',
+      'Employees': 'employees',
+    };
+    return keyMap[label] || label;
+  };
+
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container-page">
@@ -18,7 +38,7 @@ export function AboutInfo() {
                 className="bg-card p-6 md:p-8 hover:bg-primary-soft/30 transition"
               >
                 <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                  {item.label}
+                  {t(getLabelKey(item.label))}
                 </div>
                 <div className="font-semibold text-foreground leading-snug">
                   {item.value}

@@ -13,6 +13,8 @@ import type {
   CTASection,
   BrandsSection,
   MilestonesSection,
+  SustainabilityCard,
+  BrandCard,
 } from '@/lib/types/sanity'
 
 const ensureLocalizedString = (
@@ -150,7 +152,7 @@ export async function getHomePage(): Promise<HomePage> {
     ),
     image: page.sustainability?.image ?? HOME_PAGE.sustainability?.image,
     cards: (page.sustainability?.cards || HOME_PAGE.sustainability?.cards || []).map(
-      (card: any) => ({
+      (card: SustainabilityCard) => ({
         ...card,
         title: ensureLocalizedString(card.title),
       })
@@ -184,11 +186,11 @@ export async function getHomePage(): Promise<HomePage> {
       page.brandsSection?.sectionHeader,
       HOME_PAGE.brandsSection?.sectionHeader
     ),
-    cards: (page.brandsSection?.cards || HOME_PAGE.brandsSection?.cards || []).map((card) => ({
+    cards: (page.brandsSection?.cards || HOME_PAGE.brandsSection?.cards || []).map((card: BrandCard) => ({
       ...card,
       name: ensureLocalizedString(card.name),
       description: ensureLocalizedText(card.description),
-      button: normalizeButton(card.button, HOME_PAGE.brandsSection?.cards?.find((c: any) => c._key === card._key)?.button),
+      button: normalizeButton(card.button, HOME_PAGE.brandsSection?.cards?.find((c: BrandCard) => c._key === card._key)?.button),
     })),
   }
 

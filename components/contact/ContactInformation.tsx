@@ -1,6 +1,11 @@
+"use client";
+
+import { useTranslations } from 'next-intl';
 import { CONTACT_INFORMATION, CONTACT_MAP } from "@/lib/data/contact";
 
 export function ContactInformation() {
+  const t = useTranslations('contact.information');
+
   return (
     <div className="space-y-6">
       {CONTACT_INFORMATION.map((info, index) => (
@@ -9,7 +14,7 @@ export function ContactInformation() {
           className="rounded-xl border border-border bg-muted/30 p-6 hover:bg-muted/50 transition-colors duration-200"
         >
           <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
-            {info.title}
+            {info.title === 'Head Office' ? t('headOffice') : info.title === 'Corporate Secretary' ? t('corporateSecretary') : info.title}
           </h3>
           <div className="space-y-2">
             {info.lines.map((line, lineIndex) => (

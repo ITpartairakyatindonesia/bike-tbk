@@ -1,13 +1,9 @@
 import { defineType, defineField } from 'sanity'
-import { LanguageSelector } from '@/sanity/presentation/LanguageSelector'
 
 export default defineType({
   name: 'heroSection',
   title: 'Hero Section',
   type: 'object',
-  components: {
-    input: LanguageSelector,
-  },
   fields: [
     defineField({
       name: 'eyebrow',

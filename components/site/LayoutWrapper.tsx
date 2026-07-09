@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { FloatingActions } from "./FloatingActions";
-import type { SiteSettings as SiteSettingsType, NavigationLink, LocalizedString, LocalizedText, NavigationGroups } from "@/lib/types/sanity";
+import type { SiteSettings as SiteSettingsType, NavigationLink, LocalizedString, NavigationGroups } from "@/lib/types/sanity";
 
 type NavigationItemForComponent = {
   _key?: string;

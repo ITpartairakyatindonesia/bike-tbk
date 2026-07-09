@@ -2,7 +2,7 @@
 
 import { Calendar, Building2 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useLocale } from 'next-intl';
 import { urlFor } from "@/lib/cms/image";
 import type { MilestonesSection } from "@/lib/types/sanity";
 
@@ -13,11 +13,11 @@ interface TimelineSectionProps {
 }
 
 export function TimelineSection({ milestonesSection }: TimelineSectionProps) {
-  const { language } = useLanguage();
+  const locale = useLocale() as "en" | "id";
 
-  const eyebrow = milestonesSection?.sectionHeader?.eyebrow?.[language];
-  const heading = milestonesSection?.sectionHeader?.heading?.[language];
-  const description = milestonesSection?.sectionHeader?.description?.[language];
+  const eyebrow = milestonesSection?.sectionHeader?.eyebrow?.[locale];
+  const heading = milestonesSection?.sectionHeader?.heading?.[locale];
+  const description = milestonesSection?.sectionHeader?.description?.[locale];
 
   const validCards = milestonesSection?.cards?.filter((card) => card.year) || [];
 
@@ -58,8 +58,8 @@ export function TimelineSection({ milestonesSection }: TimelineSectionProps) {
             className="timeline-swiper"
           >
             {validCards.map((card, index) => {
-              const title = card.title?.[language];
-              const description = card.description?.[language];
+              const title = card.title?.[locale];
+              const description = card.description?.[locale];
               if (!card.year) return null;
 
               return (

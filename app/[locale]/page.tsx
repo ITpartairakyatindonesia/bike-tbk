@@ -8,11 +8,40 @@ import { NewsSection } from "@/components/sections/NewsSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { getHomePage } from "@/lib/services/home-page";
 import { getLatestNews } from "@/lib/services/news";
+import { getTranslations } from 'next-intl/server';
 
-export const metadata = {
-  title: "Bike - Shaping a Sustainable Future",
-  description: "Bike is a diversified super holding company creating enduring value across energy, logistics, finance, healthcare and infrastructure — operating in 15 countries.",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('metadata.home');
+  
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+  const canonicalUrl = `${baseUrl}/${locale}`;
+  
+  const locales = ['en', 'id'] as const;
+  const alternates = locales.map(loc => ({
+    hrefLang: loc,
+    href: `${baseUrl}/${loc}`,
+  }));
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: Object.fromEntries(alternates.map(a => [a.hrefLang, a.href])),
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: canonicalUrl,
+      locale: locale === 'id' ? 'id_ID' : 'en_US',
+    },
+    twitter: {
+      title: t('title'),
+      description: t('description'),
+    },
+  };
+}
 
 export default async function HomePage() {
   const homePage = await getHomePage();
