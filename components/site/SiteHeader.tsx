@@ -93,7 +93,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
     >
       <div className="container-page flex h-16 md:h-20 items-center gap-6">
         <Link href={`/${locale}`} className="flex items-center gap-2.5 shrink-0">
-          {siteSettings.logo ? (
+          {siteSettings.logo?.asset ? (
             <img
               src={urlFor(siteSettings.logo).url()}
               alt={siteSettings.companyName}

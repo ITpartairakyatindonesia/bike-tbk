@@ -65,7 +65,7 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
       <div className="container-page py-16 grid gap-12 lg:grid-cols-4">
         <div className="lg:col-span-1 space-y-5">
           <div className="flex items-center gap-2.5">
-            {siteSettings.logo ? (
+            {siteSettings.logo?.asset ? (
               <img
                 src={urlFor(siteSettings.logo).url()}
                 alt={siteSettings.companyName}

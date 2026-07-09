@@ -52,7 +52,7 @@ export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={
-                      card.image
+                      card.image?.asset
                         ? urlFor(card.image).url()
                         : (FALLBACK_IMAGES[index] ?? "/project-1.jpg")
                     }

@@ -54,7 +54,7 @@ export function BrandsSection({ brandsSection = {} }: BrandsSectionProps) {
                 className="rounded-2xl border border-border bg-card p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col"
               >
                 <div className="h-16 w-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 overflow-hidden">
-                  {logo ? (
+                  {logo?.asset ? (
                     <img
                       src={urlFor(logo).url()}
                       alt={name}

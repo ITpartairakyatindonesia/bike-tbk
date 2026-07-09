@@ -19,13 +19,13 @@ export async function getNews(): Promise<News[]> {
   try {
     const { data } = await sanityFetch({ query: NEWS_QUERY })
     if (!data || !Array.isArray(data) || data.length === 0) {
-      console.warn('No news found in Sanity, using fallback data')
-      return FALLBACK_NEWS
+      console.warn('No news found in Sanity')
+      return []
     }
     return data as News[]
   } catch (error) {
-    console.warn('Failed to fetch news from Sanity, using fallback data', error)
-    return FALLBACK_NEWS
+    console.warn('Failed to fetch news from Sanity', error)
+    return []
   }
 }
 
@@ -33,12 +33,12 @@ export async function getLatestNews(limit = 3): Promise<News[]> {
   try {
     const { data } = await sanityFetch({ query: LATEST_NEWS_QUERY })
     if (!data || !Array.isArray(data) || data.length === 0) {
-      console.warn('No latest news found in Sanity, using fallback data')
-      return getLatestFallbackNews(limit)
+      console.warn('No latest news found in Sanity')
+      return []
     }
     return data as News[]
   } catch (error) {
-    console.warn('Failed to fetch latest news from Sanity, using fallback data', error)
-    return getLatestFallbackNews(limit)
+    console.warn('Failed to fetch latest news from Sanity', error)
+    return []
   }
 }

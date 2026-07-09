@@ -77,7 +77,7 @@ export function TimelineSection({ milestonesSection }: TimelineSectionProps) {
                       {/* Upward triangle pointer */}
                       <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-r-[10px] border-b-[10px] border-l-transparent border-r-transparent border-b-primary-foreground" />
 
-                      {card.image ? (
+                      {card.image?.asset ? (
                         <div className="h-16 w-16 mx-auto mb-4 grid place-items-center rounded-2xl bg-primary-soft overflow-hidden">
                           <img
                             src={urlFor(card.image).url()}

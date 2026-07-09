@@ -3,6 +3,9 @@
     "loading": "Memuat...",
     "error": "Terjadi kesalahan"
   },
+  "news": {
+    "noNews": "Belum ada berita"
+  },
   "navigation": {
     "getInTouch": "Hubungi Kami"
   },

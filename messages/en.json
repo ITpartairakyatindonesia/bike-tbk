@@ -3,6 +3,9 @@
     "loading": "Loading...",
     "error": "An error occurred"
   },
+  "news": {
+    "noNews": "No news available yet"
+  },
   "navigation": {
     "getInTouch": "Get in Touch"
   },

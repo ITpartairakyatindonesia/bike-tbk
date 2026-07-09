@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { urlFor } from "@/lib/cms/image";
 import type { LatestNewsSection, News } from "@/lib/types/sanity";
 
@@ -24,12 +25,38 @@ function formatDate(dateString: string | undefined, locale: string) {
 
 export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
   const locale = useLocale() as "en" | "id";
+  const t = useTranslations('news');
 
   const validArticles = newsItems.filter(
     (article) => article.title?.[locale] && article.slug?.current
   );
 
-  if (validArticles.length === 0) return null;
+  if (validArticles.length === 0) {
+    return (
+      <section className="py-24">
+        <div className="container-page">
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
+              {latestNews?.sectionHeader?.eyebrow?.[locale]}
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              {latestNews?.sectionHeader?.heading?.[locale]}
+            </h2>
+            {latestNews?.description && (
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                {latestNews.description[locale]}
+              </p>
+            )}
+          </div>
+          <div className="text-center py-16">
+            <p className="text-xl text-muted-foreground">
+              {t('noNews')}
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-24">
@@ -60,7 +87,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
                     src={
-                      article.featuredImage
+                      article.featuredImage?.asset
                         ? urlFor(article.featuredImage).url()
                         : (FALLBACK_IMAGES[index] ?? "/project-1.jpg")
                     }

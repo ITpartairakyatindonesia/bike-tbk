@@ -68,7 +68,7 @@ export function AboutSection({ aboutPreview }: AboutSectionProps) {
         <div className="relative">
           <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-elegant">
             <img
-              src={aboutPreview?.image ? urlFor(aboutPreview.image).url() : "/about-team.jpg"}
+              src={aboutPreview?.image?.asset ? urlFor(aboutPreview.image).url() : "/about-team.jpg"}
               alt="SBI leadership team"
               className="h-full w-full object-cover"
               loading="lazy"

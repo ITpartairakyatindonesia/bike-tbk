@@ -24,8 +24,8 @@ export function AboutVisionMission({ visionMission, locale }: AboutVisionMission
         <div className="text-xs uppercase tracking-[0.25em] text-accent-gold font-semibold mb-4">
           {eyebrow}
         </div>
-        <div className="grid lg:grid-cols-[2fr:3fr] gap-12 lg:gap-16">
-          <div className="lg:max-w-md">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <div className="rounded-2xl shadow-soft p-8">
             <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
               {visionLabel}
             </h2>
@@ -34,7 +34,7 @@ export function AboutVisionMission({ visionMission, locale }: AboutVisionMission
             </p>
           </div>
 
-          <div>
+          <div className="rounded-2xl shadow-soft p-8">
             <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
               {missionTitle}
             </h2>

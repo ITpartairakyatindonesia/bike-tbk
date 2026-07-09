@@ -45,7 +45,7 @@ export function HeroSection({ hero }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        {hero?.backgroundImage ? (
+        {hero?.backgroundImage?.asset ? (
           <img
             src={urlFor(hero.backgroundImage).url()}
             alt=""
