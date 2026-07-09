@@ -17,7 +17,7 @@ export function AboutHero({ hero, locale }: AboutHeroProps) {
   const eyebrow = pickLocalized(hero?.eyebrow, locale) || t('eyebrow');
   const headline = pickLocalized(hero?.title, locale) || t('headline');
   const description = pickLocalized(hero?.subtitle, locale) || t('description');
-  const backgroundImage = hero?.backgroundImage ? urlFor(hero.backgroundImage).url() : "/business-logistics.jpg";
+  const backgroundImage = hero?.backgroundImage?.asset ? urlFor(hero.backgroundImage).url() : "/business-logistics.jpg";
 
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
