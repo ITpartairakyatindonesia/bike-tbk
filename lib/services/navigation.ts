@@ -1,7 +1,7 @@
 import { sanityFetch } from '@/sanity/lib/live'
 import { NAVIGATION_QUERY } from '@/lib/cms/queries'
 import { NAVIGATION } from '@/lib/data/navigation'
-import type { Navigation, NavigationLink, NavigationGroups } from '@/lib/types/sanity'
+import type { Navigation, NavigationGroups } from '@/lib/types/sanity'
 
 const FALLBACK_NAVIGATION: NavigationGroups = {
   mainNavigation: NAVIGATION.map((item) => ({

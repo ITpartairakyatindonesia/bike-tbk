@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useLocale } from 'next-intl';
 
 interface LocalizedHighlight {
   en: { value: string; label: string };
@@ -27,13 +27,13 @@ const HIGHLIGHTS: LocalizedHighlight[] = [
 ];
 
 export function CompanyHighlightsSection() {
-  const { language } = useLanguage();
+  const locale = useLocale() as "en" | "id";
 
   return (
     <section id="company-highlights" className="w-full">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-primary-foreground/15 rounded-2xl overflow-hidden backdrop-blur border border-primary-foreground/15">
         {HIGHLIGHTS.map((highlight, index) => {
-          const { value, label } = highlight[language];
+          const { value, label } = highlight[locale];
 
           return (
             <div

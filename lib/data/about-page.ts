@@ -1,10 +1,5 @@
 import {
-  Building2,
   Users,
-  MapPin,
-  Briefcase,
-  Globe,
-  Shield,
   HeartHandshake,
   Lightbulb,
   TreePine,

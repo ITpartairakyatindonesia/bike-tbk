@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useLocale } from 'next-intl';
 import { urlFor } from "@/lib/cms/image";
 import type { BrandsSection as BrandsSectionType } from "@/lib/types/sanity";
 
@@ -10,13 +10,13 @@ interface BrandsSectionProps {
 }
 
 export function BrandsSection({ brandsSection = {} }: BrandsSectionProps) {
-  const { language } = useLanguage();
+  const locale = useLocale() as "en" | "id";
 
-  const eyebrow = brandsSection?.sectionHeader?.eyebrow?.[language];
-  const heading = brandsSection?.sectionHeader?.heading?.[language];
-  const description = brandsSection?.sectionHeader?.description?.[language];
+  const eyebrow = brandsSection?.sectionHeader?.eyebrow?.[locale];
+  const heading = brandsSection?.sectionHeader?.heading?.[locale];
+  const description = brandsSection?.sectionHeader?.description?.[locale];
 
-  const validCards = brandsSection?.cards?.filter((card) => card.name?.[language]) || [];
+  const validCards = brandsSection?.cards?.filter((card) => card.name?.[locale]) || [];
 
   if (!eyebrow && !heading && !description && validCards.length === 0) return null;
 
@@ -42,9 +42,9 @@ export function BrandsSection({ brandsSection = {} }: BrandsSectionProps) {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {validCards.map((card, index) => {
-            const name = card.name?.[language];
+            const name = card.name?.[locale];
             if (!name) return null;
-            const description = card.description?.[language];
+            const description = card.description?.[locale];
             const button = card.button;
             const logo = card.logo;
 
@@ -77,7 +77,7 @@ export function BrandsSection({ brandsSection = {} }: BrandsSectionProps) {
                     rel={button.external ? "noopener noreferrer" : undefined}
                     className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition-colors duration-200 shadow-soft"
                   >
-                    {button.label?.[language] || "Visit"}
+                    {button.label?.[locale] || "Visit"}
                   </Link>
                 )}
               </div>

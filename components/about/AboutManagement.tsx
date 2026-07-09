@@ -1,3 +1,5 @@
+"use client";
+
 import { ManagementCard } from "@/components/ManagementCard";
 import { MANAGEMENT_EXECUTIVES } from "@/lib/data/management";
 

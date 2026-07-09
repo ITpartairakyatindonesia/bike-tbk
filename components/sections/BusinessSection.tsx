@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useLocale } from 'next-intl';
 import { urlFor } from "@/lib/cms/image";
 import type { BusinessHighlightsSection } from "@/lib/types/sanity";
 
@@ -17,10 +17,10 @@ interface BusinessSectionProps {
 }
 
 export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
-  const { language } = useLanguage();
+  const locale = useLocale() as "en" | "id";
 
   const validCards =
-    businessHighlights?.cards?.filter((card) => card.title?.[language]) ?? [];
+    businessHighlights?.cards?.filter((card) => card.title?.[locale]) ?? [];
 
   if (validCards.length === 0) return null;
 
@@ -29,20 +29,20 @@ export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
       <div className="container-page">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {businessHighlights?.sectionHeader?.eyebrow?.[language]}
+            {businessHighlights?.sectionHeader?.eyebrow?.[locale]}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {businessHighlights?.sectionHeader?.heading?.[language]}
+            {businessHighlights?.sectionHeader?.heading?.[locale]}
           </h2>
           {businessHighlights?.sectionHeader?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {businessHighlights.sectionHeader.description[language]}
+              {businessHighlights.sectionHeader.description[locale]}
             </p>
           )}
         </div>
         <div className="grid md:grid-cols-4 gap-6">
           {validCards.map((card, index) => {
-            const title = card.title?.[language];
+            const title = card.title?.[locale];
             if (!title) return null;
             return (
               <article
@@ -66,9 +66,9 @@ export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
                 <div className="p-7">
                   <h3 className="text-xl font-bold">{title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    {card.description?.[language]}
+                    {card.description?.[locale]}
                   </p>
-                  {card.button?.label?.[language] && card.button.href && (
+                  {card.button?.label?.[locale] && card.button.href && (
                     <>
                       {card.button.external ? (
                         <a
@@ -77,14 +77,14 @@ export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
                           rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:underline"
                         >
-                          {card.button.label[language]}
+                          {card.button.label[locale]}
                         </a>
                       ) : (
                         <Link
                           href={card.button.href}
                           className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:underline"
                         >
-                          {card.button.label[language]}
+                          {card.button.label[locale]}
                         </Link>
                       )}
                     </>

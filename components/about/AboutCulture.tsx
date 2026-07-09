@@ -1,18 +1,23 @@
+"use client";
+
+import { useTranslations } from 'next-intl';
 import { ABOUT_CULTURE } from "@/lib/data/about-page";
 
 export function AboutCulture() {
+  const t = useTranslations('about.culture');
+
   return (
     <section className="py-24 md:py-32 bg-primary-soft/30">
       <div className="container-page">
         <div className="max-w-3xl mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {ABOUT_CULTURE.title}
+            {t('title')}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-            {ABOUT_CULTURE.subtitle}
+            {t('subtitle')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            {ABOUT_CULTURE.introduction}
+            {t('introduction')}
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useLocale } from 'next-intl';
 import { urlFor } from "@/lib/cms/image";
 import type { LatestNewsSection, News } from "@/lib/types/sanity";
 
@@ -13,9 +13,9 @@ interface NewsSectionProps {
   newsItems: News[];
 }
 
-function formatDate(dateString: string | undefined, language: string) {
+function formatDate(dateString: string | undefined, locale: string) {
   if (!dateString) return "";
-  return new Date(dateString).toLocaleDateString(language === "id" ? "id-ID" : "en-US", {
+  return new Date(dateString).toLocaleDateString(locale === "id" ? "id-ID" : "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -23,10 +23,10 @@ function formatDate(dateString: string | undefined, language: string) {
 }
 
 export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
-  const { language } = useLanguage();
+  const locale = useLocale() as "en" | "id";
 
   const validArticles = newsItems.filter(
-    (article) => article.title?.[language] && article.slug?.current
+    (article) => article.title?.[locale] && article.slug?.current
   );
 
   if (validArticles.length === 0) return null;
@@ -36,20 +36,20 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
       <div className="container-page">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {latestNews?.sectionHeader?.eyebrow?.[language]}
+            {latestNews?.sectionHeader?.eyebrow?.[locale]}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {latestNews?.sectionHeader?.heading?.[language]}
+            {latestNews?.sectionHeader?.heading?.[locale]}
           </h2>
           {latestNews?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {latestNews.description[language]}
+              {latestNews.description[locale]}
             </p>
           )}
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {validArticles.map((article, index) => {
-            const title = article.title?.[language];
+            const title = article.title?.[locale];
             const slug = article.slug?.current;
             if (!title || !slug) return null;
             return (
@@ -73,7 +73,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
                 </div>
                 <div className="p-7">
                   <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                    {formatDate(article.publishedAt, language)}
+                    {formatDate(article.publishedAt, locale)}
                   </div>
                   <h3 className="text-xl font-bold leading-tight mb-4">
                     {title}
@@ -91,7 +91,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
         </div>
         {(() => {
           const button = latestNews?.viewAllButton;
-          if (!button?.label?.[language] || !button.href) return null;
+          if (!button?.label?.[locale] || !button.href) return null;
           return (
             <div className="mt-10 flex justify-center">
               {button.external ? (
@@ -101,14 +101,14 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
                 >
-                  {button.label[language]}
+                  {button.label[locale]}
                 </a>
               ) : (
                 <Link
                   href={button.href}
                   className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
                 >
-                  {button.label[language]}
+                  {button.label[locale]}
                 </Link>
               )}
             </div>

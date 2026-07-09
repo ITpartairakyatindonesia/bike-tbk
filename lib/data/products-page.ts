@@ -1,5 +1,3 @@
-import { ArrowDown } from "lucide-react";
-
 export const PRODUCTS_HERO = {
   eyebrow: "Our Products",
   headline: "Trusted Bicycle Brands for Every Journey.",

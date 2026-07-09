@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from 'next-intl';
 
 export function ProductsCTA() {
+  const t = useTranslations('products.cta');
+
   const brands = [
     { name: "United Bike", website: "https://unitedbike.com" },
     { name: "Genio Bike", website: "https://genio.bike" },
@@ -12,10 +17,10 @@ export function ProductsCTA() {
       <div className="container-page">
         <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-primary/10 p-12 md:p-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Explore Our Complete Product Portfolio
+            {t('title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Visit each brand website to discover the latest collections, specifications, and dealer information.
+            {t('description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {brands.map((brand, index) => (

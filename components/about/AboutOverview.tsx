@@ -1,6 +1,10 @@
-import { ABOUT_OVERVIEW } from "@/lib/data/about-page";
+"use client";
+
+import { useTranslations } from 'next-intl';
 
 export function AboutOverview() {
+  const t = useTranslations('about.overview');
+
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container-page">
@@ -9,12 +13,11 @@ export function AboutOverview() {
             Company Overview
           </div>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-10">
-            {ABOUT_OVERVIEW.title}
+            {t('title')}
           </h2>
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            {ABOUT_OVERVIEW.paragraphs.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            <p>{t('paragraph1')}</p>
+            <p>{t('paragraph2')}</p>
           </div>
         </div>
       </div>

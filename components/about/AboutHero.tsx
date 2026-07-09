@@ -1,7 +1,12 @@
+"use client";
+
 import { ArrowDown } from "lucide-react";
+import { useTranslations } from 'next-intl';
 import { ABOUT_HERO } from "@/lib/data/about-page";
 
 export function AboutHero() {
+  const t = useTranslations('about.hero');
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
@@ -18,13 +23,13 @@ export function AboutHero() {
       <div className="container-page relative z-10 pt-32 pb-20 text-center text-primary-foreground">
         <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 backdrop-blur px-4 py-1.5 text-xs font-medium tracking-wider uppercase mb-6">
           <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
-          {ABOUT_HERO.eyebrow}
+          {t('eyebrow')}
         </div>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl mx-auto">
-          {ABOUT_HERO.headline}
+          {t('headline')}
         </h1>
         <p className="mt-8 text-lg md:text-xl opacity-85 max-w-3xl mx-auto leading-relaxed">
-          {ABOUT_HERO.description}
+          {t('description')}
         </p>
       </div>
 
