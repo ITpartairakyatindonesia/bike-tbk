@@ -36,15 +36,14 @@ export const normalizeSectionHeader = (
 })
 
 export const normalizeButton = (
-  value?: { label?: LocalizedString | string; href?: string; variant?: 'primary' | 'secondary' | 'outline'; external?: boolean } | null,
-  fallback?: { label?: LocalizedString; href?: string; variant?: 'primary' | 'secondary' | 'outline'; external?: boolean } | null
+  value?: { label?: LocalizedString | string; href?: string; external?: boolean } | null,
+  fallback?: { label?: LocalizedString; href?: string; external?: boolean } | null
 ) => {
   if (!value && !fallback) return undefined
   const base = value ?? fallback
   return {
     label: ensureLocalizedString(base?.label, fallback?.label),
     href: base?.href ?? fallback?.href ?? '#',
-    variant: base?.variant ?? fallback?.variant,
     external: base?.external ?? fallback?.external,
   }
 }

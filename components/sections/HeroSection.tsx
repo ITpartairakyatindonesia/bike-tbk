@@ -18,23 +18,19 @@ function getValidButton(
   return button && button.label?.[locale] && button.href ? button : null;
 }
 
-function buttonClassName(variant?: Button["variant"]) {
-  const base =
-    "inline-flex items-center gap-2 h-12 px-7 rounded-full font-semibold transition";
-  if (variant === "primary") {
-    return `${base} bg-primary-foreground text-primary-deep hover:bg-accent-gold hover:text-primary-deep shadow-elegant`;
-  }
-  if (variant === "secondary") {
-    return `${base} bg-primary text-primary-foreground hover:bg-primary-deep shadow-soft`;
-  }
-  return `${base} border border-primary-foreground/40 hover:bg-primary-foreground/10`;
+function primaryButtonClassName() {
+  return "inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold hover:text-primary-deep transition shadow-elegant";
 }
 
-function buttonContent(label: string, variant?: Button["variant"]) {
+function secondaryButtonClassName() {
+  return "inline-flex items-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/40 bg-transparent text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition";
+}
+
+function buttonContent(label: string, showIcon = true) {
   return (
     <>
       {label}
-      {variant === "primary" && <ArrowRight className="h-4 w-4" />}
+      {showIcon && <ArrowRight className="h-4 w-4" />}
     </>
   );
 }
@@ -85,13 +81,13 @@ export function HeroSection({ hero }: HeroSectionProps) {
                   href={button.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={buttonClassName(button.variant)}
+                  className={primaryButtonClassName()}
                 >
-                  {buttonContent(button.label?.[locale], button.variant)}
+                  {buttonContent(button.label?.[locale])}
                 </a>
               ) : (
-                <Link href={button.href} className={buttonClassName(button.variant)}>
-                  {buttonContent(button.label?.[locale], button.variant)}
+                <Link href={button.href} className={primaryButtonClassName()}>
+                  {buttonContent(button.label?.[locale])}
                 </Link>
               );
             })()}
@@ -103,13 +99,13 @@ export function HeroSection({ hero }: HeroSectionProps) {
                   href={button.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={buttonClassName(button.variant)}
+                  className={secondaryButtonClassName()}
                 >
-                  {buttonContent(button.label?.[locale], button.variant)}
+                  {buttonContent(button.label?.[locale], false)}
                 </a>
               ) : (
-                <Link href={button.href} className={buttonClassName(button.variant)}>
-                  {buttonContent(button.label?.[locale], button.variant)}
+                <Link href={button.href} className={secondaryButtonClassName()}>
+                  {buttonContent(button.label?.[locale], false)}
                 </Link>
               );
             })()}

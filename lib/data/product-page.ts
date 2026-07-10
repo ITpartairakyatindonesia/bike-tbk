@@ -65,7 +65,6 @@ export const PRODUCT_PAGE: ProductPage = {
         button: {
           label: { en: 'Visit', id: 'Kunjungi' },
           href: 'https://unitedbike.com',
-          variant: 'primary',
           external: true,
         },
       },
@@ -83,7 +82,6 @@ export const PRODUCT_PAGE: ProductPage = {
         button: {
           label: { en: 'Visit', id: 'Kunjungi' },
           href: 'https://genio.bike',
-          variant: 'primary',
           external: true,
         },
       },
@@ -101,7 +99,6 @@ export const PRODUCT_PAGE: ProductPage = {
         button: {
           label: { en: 'Visit', id: 'Kunjungi' },
           href: 'https://avandbike.com',
-          variant: 'primary',
           external: true,
         },
       },

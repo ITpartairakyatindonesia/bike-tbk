@@ -1,6 +1,9 @@
+"use client";
+
 import type { ProductFeaturedSection } from "@/lib/types/sanity";
 import { pickLocalized } from "@/lib/utils";
 import { urlFor } from "@/lib/cms/image";
+import { useTranslations } from 'next-intl';
 
 interface ProductsFeaturedProps {
   featured?: ProductFeaturedSection;
@@ -8,6 +11,7 @@ interface ProductsFeaturedProps {
 }
 
 export function ProductsFeatured({ featured, locale }: ProductsFeaturedProps) {
+  const t = useTranslations('products');
   const heading = pickLocalized(featured?.sectionHeader?.heading, locale) || "Featured Products";
   const description = pickLocalized(featured?.sectionHeader?.description, locale) || "Explore our latest innovations across all brands, designed for performance, comfort, and style.";
   const products = featured?.products || [];
@@ -44,7 +48,7 @@ export function ProductsFeatured({ featured, locale }: ProductsFeaturedProps) {
                 <div className="p-5">
                   <h3 className="font-semibold mb-4">{pickLocalized(product.name, locale)}</h3>
                   <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">
-                    View Details
+                    {t('viewDetails')}
                   </button>
                 </div>
               </div>
@@ -63,7 +67,7 @@ export function ProductsFeatured({ featured, locale }: ProductsFeaturedProps) {
                     <span className="text-xs font-medium text-muted-foreground">Performance</span>
                   </div>
                   <h3 className="font-semibold mb-4">UNITED STYGMA LITE</h3>
-                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">View Details</button>
+                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">{t('viewDetails')}</button>
                 </div>
               </div>
               <div className="rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group">
@@ -78,7 +82,7 @@ export function ProductsFeatured({ featured, locale }: ProductsFeaturedProps) {
                     <span className="text-xs font-medium text-muted-foreground">Family</span>
                   </div>
                   <h3 className="font-semibold mb-4">GENIO VANGARD</h3>
-                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">View Details</button>
+                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">{t('viewDetails')}</button>
                 </div>
               </div>
               <div className="rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group">
@@ -93,7 +97,7 @@ export function ProductsFeatured({ featured, locale }: ProductsFeaturedProps) {
                     <span className="text-xs font-medium text-muted-foreground">Sports</span>
                   </div>
                   <h3 className="font-semibold mb-4">UNITED EPSILON</h3>
-                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">View Details</button>
+                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">{t('viewDetails')}</button>
                 </div>
               </div>
               <div className="rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group">
@@ -108,7 +112,7 @@ export function ProductsFeatured({ featured, locale }: ProductsFeaturedProps) {
                     <span className="text-xs font-medium text-muted-foreground">Electric</span>
                   </div>
                   <h3 className="font-semibold mb-4">UNITED E-CLOVIS</h3>
-                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">View Details</button>
+                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors duration-200">{t('viewDetails')}</button>
                 </div>
               </div>
             </>

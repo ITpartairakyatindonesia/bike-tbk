@@ -124,6 +124,7 @@
     }
   },
   "products": {
+    "viewDetails": "Lihat Detail",
     "hero": {
       "eyebrow": "Produk Kami",
       "headline": "Merek Sepeda Terpercaya untuk Setiap Perjalanan.",

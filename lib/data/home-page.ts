@@ -28,13 +28,11 @@ export const HOME_PAGE: HomePage = {
     primaryButton: {
       label: { en: "Discover SBI", id: "Discover SBI" },
       href: "/about",
-      variant: "primary",
       external: false,
     },
     secondaryButton: {
       label: { en: "Investor Relations", id: "Investor Relations" },
       href: "/investors",
-      variant: "secondary",
       external: false,
     },
   },
@@ -68,7 +66,6 @@ export const HOME_PAGE: HomePage = {
     button: {
       label: { en: "Learn More", id: "Learn More" },
       href: "/about",
-      variant: "primary",
       external: false,
     },
   },
@@ -175,7 +172,6 @@ export const HOME_PAGE: HomePage = {
     viewAllButton: {
       label: { en: "View All News", id: "Lihat Semua Berita" },
       href: "/news",
-      variant: "primary",
       external: false,
     },
   },
@@ -307,13 +303,11 @@ export const HOME_PAGE: HomePage = {
     primaryButton: {
       label: { en: "Contact Us", id: "Hubungi Kami" },
       href: "/contact",
-      variant: "primary",
       external: false,
     },
     secondaryButton: {
       label: { en: "Get Directions", id: "Petunjuk Arah" },
       href: "https://maps.google.com",
-      variant: "outline",
       external: true,
     },
   },

@@ -89,7 +89,6 @@ export interface SectionHeader {
 export interface Button {
   label: LocalizedString
   href: string
-  variant?: 'primary' | 'secondary' | 'outline'
   external?: boolean
 }
 

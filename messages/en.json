@@ -124,6 +124,7 @@
     }
   },
   "products": {
+    "viewDetails": "View Details",
     "hero": {
       "eyebrow": "Our Products",
       "headline": "Trusted Bicycle Brands for Every Journey.",

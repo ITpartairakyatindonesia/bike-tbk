@@ -20,60 +20,21 @@ export function ProductsMarketPosition({ marketPosition, locale }: ProductsMarke
             {description}
           </p>
         </div>
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-5 gap-4">
-            {stages.length > 0 ? (
-              stages.map((stage, index) => (
-                <div key={index} className="relative">
-                  <div className="rounded-2xl border border-border bg-card p-6 text-center hover:shadow-lg transition-shadow duration-200">
-                    <div className="text-2xl font-bold text-primary mb-2">{pickLocalized(stage.title, locale)}</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{pickLocalized(stage.description, locale)}</p>
-                  </div>
-                  {index < stages.length - 1 && (
-                    <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary text-2xl">
-                      →
-                    </div>
-                  )}
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-5 lg:grid-cols-5 gap-4 items-stretch">
+            {stages.map((stage, index) => (
+              <div key={index} className="relative h-full min-w-[140px]">
+                <div className="rounded-2xl border border-border bg-card p-6 text-center hover:shadow-lg transition-shadow duration-200 h-full flex flex-col justify-center min-h-[120px]">
+                  <div className="text-xl font-bold text-primary mb-2 break-normal">{pickLocalized(stage.title, locale)}</div>
+                  <p className="text-xs text-muted-foreground leading-relaxed break-normal">{pickLocalized(stage.description, locale)}</p>
                 </div>
-              ))
-            ) : (
-              <>
-                <div className="relative">
-                  <div className="rounded-2xl border border-border bg-card p-6 text-center hover:shadow-lg transition-shadow duration-200">
-                    <div className="text-2xl font-bold text-primary mb-2">Children</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">First bikes and strollers for young riders</p>
+                {index < stages.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary text-2xl">
+                    →
                   </div>
-                  <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary text-2xl">→</div>
-                </div>
-                <div className="relative">
-                  <div className="rounded-2xl border border-border bg-card p-6 text-center hover:shadow-lg transition-shadow duration-200">
-                    <div className="text-2xl font-bold text-primary mb-2">Family</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Bicycles for everyday family activities</p>
-                  </div>
-                  <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary text-2xl">→</div>
-                </div>
-                <div className="relative">
-                  <div className="rounded-2xl border border-border bg-card p-6 text-center hover:shadow-lg transition-shadow duration-200">
-                    <div className="text-2xl font-bold text-primary mb-2">Daily Mobility</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Transportation for work and school</p>
-                  </div>
-                  <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary text-2xl">→</div>
-                </div>
-                <div className="relative">
-                  <div className="rounded-2xl border border-border bg-card p-6 text-center hover:shadow-lg transition-shadow duration-200">
-                    <div className="text-2xl font-bold text-primary mb-2">Sports</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Performance bikes for athletes</p>
-                  </div>
-                  <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary text-2xl">→</div>
-                </div>
-                <div className="relative">
-                  <div className="rounded-2xl border border-border bg-card p-6 text-center hover:shadow-lg transition-shadow duration-200">
-                    <div className="text-2xl font-bold text-primary mb-2">Professional</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Competition-grade equipment</p>
-                  </div>
-                </div>
-              </>
-            )}
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>

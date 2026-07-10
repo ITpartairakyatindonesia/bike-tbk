@@ -35,7 +35,6 @@ export const CONTACT_PAGE: ContactPage = {
     button: {
       label: { en: 'View on Google Maps', id: 'Lihat di Google Maps' },
       href: 'https://maps.google.com',
-      variant: 'primary',
       external: true,
     },
   },
@@ -48,7 +47,6 @@ export const CONTACT_PAGE: ContactPage = {
     button: {
       label: { en: 'About Us', id: 'Tentang Kami' },
       href: '/about',
-      variant: 'primary',
       external: false,
     },
   },
