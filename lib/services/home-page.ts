@@ -58,19 +58,11 @@ const normalizeButton = (
 ) => {
   if (!value && !fallback) return undefined
   const base = value ?? fallback
-  const result = {
+  return {
     label: ensureLocalizedString(base?.label, fallback?.label),
     href: base?.href ?? fallback?.href ?? '#',
     external: base?.external ?? fallback?.external,
   }
-
-  if (value?.href || fallback?.href) {
-    console.log('[CTA AUDIT] normalizeButton - base:', JSON.stringify(base, null, 2))
-    console.log('[CTA AUDIT] normalizeButton - fallback:', JSON.stringify(fallback, null, 2))
-    console.log('[CTA AUDIT] normalizeButton - result:', JSON.stringify(result, null, 2))
-  }
-
-  return result
 }
 
 export async function getHomePage(): Promise<HomePage> {
@@ -78,8 +70,6 @@ export async function getHomePage(): Promise<HomePage> {
     query: HOME_PAGE_QUERY,
     tags: ['home-page'],
   })
-
-  console.log('[CTA AUDIT] Raw Sanity Response:', JSON.stringify((cmsHomePage as any)?.cta?.secondaryButton, null, 2))
 
   if (!cmsHomePage) {
     console.warn('No Home Page document found in Sanity, using fallback values')
@@ -189,10 +179,6 @@ export async function getHomePage(): Promise<HomePage> {
     primaryButton: normalizeButton(page.cta?.primaryButton, HOME_PAGE.cta?.primaryButton),
     secondaryButton: normalizeButton(page.cta?.secondaryButton, HOME_PAGE.cta?.secondaryButton),
   }
-
-  console.log('[CTA AUDIT] page.cta.secondaryButton before normalization:', JSON.stringify(page.cta?.secondaryButton, null, 2))
-  console.log('[CTA AUDIT] HOME_PAGE.cta.secondaryButton fallback:', JSON.stringify(HOME_PAGE.cta?.secondaryButton, null, 2))
-  console.log('[CTA AUDIT] Final cta.secondaryButton after normalization:', JSON.stringify(cta.secondaryButton, null, 2))
 
   const brandsSection: BrandsSection = {
     sectionHeader: normalizeSectionHeader(
