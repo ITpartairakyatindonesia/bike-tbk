@@ -15,7 +15,8 @@ export function FloatingActions() {
 
   return (
     <div className="fixed z-40 bottom-5 right-5 flex flex-col gap-3">
-      <a
+      {/* WhatsApp bubble hidden temporarily */}
+      {/* <a
         href="https://wa.me/6281200000000"
         target="_blank"
         rel="noreferrer"
@@ -23,7 +24,7 @@ export function FloatingActions() {
         className="h-13 w-13 h-14 w-14 grid place-items-center rounded-full bg-[#25D366] text-white shadow-elegant hover:scale-105 transition"
       >
         <MessageCircle className="h-6 w-6" />
-      </a>
+      </a> */}
       <button
         aria-label="Back to top"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
