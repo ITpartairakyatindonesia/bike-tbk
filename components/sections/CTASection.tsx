@@ -12,10 +12,15 @@ interface CTASectionProps {
 export function CTASection({ cta }: CTASectionProps) {
   const locale = useLocale() as "en" | "id";
 
+  console.log('[CTA AUDIT] CTASection received cta prop:', JSON.stringify(cta, null, 2))
+  console.log('[CTA AUDIT] CTASection received cta.secondaryButton:', JSON.stringify(cta?.secondaryButton, null, 2))
+
   const title = cta?.title?.[locale];
   const description = cta?.description?.[locale];
   const primaryButton = cta?.primaryButton?.label?.[locale] && cta?.primaryButton?.href ? cta.primaryButton : null;
   const secondaryButton = cta?.secondaryButton?.label?.[locale] && cta?.secondaryButton?.href ? cta.secondaryButton : null;
+
+  console.log('[CTA AUDIT] CTASection secondaryButton after validation:', JSON.stringify(secondaryButton, null, 2))
 
   if (!title && !description && !primaryButton && !secondaryButton) return null;
 
