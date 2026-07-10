@@ -3,6 +3,7 @@ import siteSettings from './siteSettings'
 import navigation from './navigation'
 import homePage from './homePage'
 import aboutPage from './aboutPage'
+import productPage from './productPage'
 import news from './news'
 import button from './objects/button'
 import link from './objects/link'
@@ -33,6 +34,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navigation,
     homePage,
     aboutPage,
+    productPage,
     news,
     button,
     link,

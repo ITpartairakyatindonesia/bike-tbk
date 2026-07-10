@@ -141,6 +141,9 @@
       "sustainable": "Sustainable",
       "mobility": "Mobility"
     },
+    "brands": {
+      "visit": "Visit"
+    },
     "cta": {
       "title": "Explore Our Complete Product Portfolio",
       "description": "Visit each brand website to discover the latest collections, specifications, and dealer information."

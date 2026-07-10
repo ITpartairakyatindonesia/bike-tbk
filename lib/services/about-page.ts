@@ -1,6 +1,7 @@
 import { sanityFetch } from '@/sanity/lib/live'
 import { ABOUT_PAGE_QUERY } from '@/lib/cms/queries'
 import { ABOUT_PAGE } from '@/lib/data/about-page'
+import { ensureLocalizedString, ensureLocalizedText, normalizeSectionHeader, normalizeButton } from '@/lib/utils/localization'
 import type {
   AboutPage,
   LocalizedString,
@@ -13,55 +14,6 @@ import type {
   AboutManagementSection,
   SanityImage,
 } from '@/lib/types/sanity'
-
-const ensureLocalizedString = (
-  value?: LocalizedString | string | null,
-  fallback?: LocalizedString | null
-) => {
-  if (typeof value === 'string') {
-    return { en: value, id: value }
-  }
-  return {
-    en: value?.en ?? fallback?.en ?? '',
-    id: value?.id ?? fallback?.id ?? '',
-  }
-}
-
-const ensureLocalizedText = (
-  value?: LocalizedText | string | null,
-  fallback?: LocalizedText | null
-) => {
-  if (typeof value === 'string') {
-    return { en: value, id: value }
-  }
-  return {
-    en: value?.en ?? fallback?.en ?? '',
-    id: value?.id ?? fallback?.id ?? '',
-  }
-}
-
-const normalizeSectionHeader = (
-  value?: { eyebrow?: LocalizedString | string; heading?: LocalizedString | string; description?: LocalizedText | string } | null,
-  fallback?: { eyebrow?: LocalizedString; heading?: LocalizedString; description?: LocalizedText } | null
-) => ({
-  eyebrow: ensureLocalizedString(value?.eyebrow, fallback?.eyebrow),
-  heading: ensureLocalizedString(value?.heading, fallback?.heading),
-  description: ensureLocalizedText(value?.description, fallback?.description),
-})
-
-const normalizeButton = (
-  value?: { label?: LocalizedString | string; href?: string; variant?: 'primary' | 'secondary' | 'outline'; external?: boolean } | null,
-  fallback?: { label?: LocalizedString; href?: string; variant?: 'primary' | 'secondary' | 'outline'; external?: boolean } | null
-) => {
-  if (!value && !fallback) return undefined
-  const base = value ?? fallback
-  return {
-    label: ensureLocalizedString(base?.label, fallback?.label),
-    href: base?.href ?? fallback?.href ?? '#',
-    variant: base?.variant ?? fallback?.variant,
-    external: base?.external ?? fallback?.external,
-  }
-}
 
 export async function getAboutPage(): Promise<AboutPage> {
   const { data: cmsAboutPage } = await sanityFetch({

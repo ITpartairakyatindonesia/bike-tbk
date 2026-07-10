@@ -6,6 +6,7 @@ import { ProductsFeatured } from "@/components/products/ProductsFeatured";
 import { ProductsMarketPosition } from "@/components/products/ProductsMarketPosition";
 import { ProductsCTA } from "@/components/products/ProductsCTA";
 import { getTranslations } from 'next-intl/server';
+import { getProductPage } from '@/lib/services/product-page';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -40,16 +41,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function ProductsPage() {
+export default async function ProductsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const productPage = await getProductPage();
+
   return (
     <div>
-      <ProductsHero />
-      <ProductsIntroduction />
-      <ProductsWhy />
-      <ProductsBrands />
-      <ProductsFeatured />
-      <ProductsMarketPosition />
-      <ProductsCTA />
+      <ProductsHero hero={productPage.hero} locale={locale} />
+      <ProductsIntroduction introduction={productPage.introduction} locale={locale} />
+      <ProductsWhy why={productPage.why} locale={locale} />
+      <ProductsBrands brands={productPage.brands} locale={locale} />
+      <ProductsFeatured featured={productPage.featured} locale={locale} />
+      <ProductsMarketPosition marketPosition={productPage.marketPosition} locale={locale} />
+      <ProductsCTA cta={productPage.cta} locale={locale} />
     </div>
   );
 }

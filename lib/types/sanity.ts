@@ -304,3 +304,84 @@ export interface AboutPage {
   culture?: AboutCultureSection
   management?: AboutManagementSection
 }
+
+export interface ProductHeroSection {
+  eyebrow?: LocalizedString
+  title?: LocalizedString
+  subtitle?: LocalizedText
+  backgroundImage?: SanityImage
+  primaryButton?: Button
+  secondaryButton?: Button
+}
+
+export interface ProductStatCard {
+  value?: LocalizedString
+  label?: LocalizedString
+}
+
+export interface ProductIntroductionSection {
+  sectionHeader?: SectionHeader
+  paragraphs?: LocalizedText[]
+  statCards?: ProductStatCard[]
+}
+
+export interface ProductFeature {
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface ProductWhySection {
+  sectionHeader?: SectionHeader
+  features?: ProductFeature[]
+}
+
+export interface ProductBrandCard {
+  name?: string
+  description?: LocalizedText
+  highlights?: LocalizedString[]
+  button?: Button
+}
+
+export interface ProductBrandsSection {
+  sectionHeader?: SectionHeader
+  brandCards?: ProductBrandCard[]
+}
+
+export interface ProductFeaturedSection {
+  sectionHeader?: SectionHeader
+  products?: ProductCard[]
+}
+
+export interface ProductMarketStage {
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface ProductMarketPositionSection {
+  sectionHeader?: SectionHeader
+  stages?: ProductMarketStage[]
+}
+
+export interface ProductBrandLink {
+  name?: string
+  website?: string
+}
+
+export interface ProductCTASection {
+  title?: LocalizedString
+  description?: LocalizedText
+  brandLinks?: ProductBrandLink[]
+}
+
+export interface ProductPage {
+  _id: string
+  _type: 'productPage'
+  seo?: Seo
+  hero?: ProductHeroSection
+  introduction?: ProductIntroductionSection
+  why?: ProductWhySection
+  brands?: ProductBrandsSection
+  featured?: ProductFeaturedSection
+  marketPosition?: ProductMarketPositionSection
+  cta?: ProductCTASection
+}
