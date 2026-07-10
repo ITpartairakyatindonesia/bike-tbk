@@ -10,7 +10,7 @@ export const FOOTER_SOCIAL_LINKS: { icon: LucideIcon; href: string; label: strin
 
 export const FOOTER_COMPANY_LINKS: { href: string; label: string }[] = [
   { href: "/about", label: "About Us" },
-  { href: "/#business", label: "Business" },
+  { href: "#business", label: "Business" },
   { href: "/products", label: "Products" },
   { href: "/investor", label: "Investor Relations" },
   { href: "/contact", label: "Contact" },

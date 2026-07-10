@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { useTranslations, useLocale } from 'next-intl';
 import { cn } from "@/lib/utils";
 import { urlFor } from "@/lib/cms/image";
+import { AnchorLink } from "@/components/ui/AnchorLink";
 import type { LocalizedString } from "@/lib/types/sanity";
 
 interface SiteHeaderProps {
@@ -66,22 +67,6 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
     Boolean(item.href && (item.label?.en || item.label?.id))
   );
 
-  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
-    if (href.startsWith("/#")) {
-      e.preventDefault();
-      const id = href.replace("/#", "");
-      if (pathname === "/") {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      } else {
-        router.push(href);
-      }
-      setOpen(false);
-    }
-  };
-
   return (
     <header
       className={cn(
@@ -116,18 +101,31 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
 
         <nav className="hidden lg:flex items-center gap-1 mx-auto">
           {validNavigation.map((item) => (
-            <Link
-              key={item.href}
-              href={`/${locale}${item.href}`}
-              onClick={handleNavClick(item.href)}
-              className={cn(
-                "px-3 py-2 text-sm font-medium transition-colors relative group min-w-[80px] text-center",
-                isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
-              )}
-            >
-              {item.label[locale as keyof LocalizedString]}
-              <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-            </Link>
+            item.href.startsWith("#") ? (
+              <AnchorLink
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "px-3 py-2 text-sm font-medium transition-colors relative group min-w-[80px] text-center",
+                  isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
+                )}
+              >
+                {item.label[locale as keyof LocalizedString]}
+                <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              </AnchorLink>
+            ) : (
+              <Link
+                key={item.href}
+                href={`/${locale}${item.href}`}
+                className={cn(
+                  "px-3 py-2 text-sm font-medium transition-colors relative group min-w-[80px] text-center",
+                  isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
+                )}
+              >
+                {item.label[locale as keyof LocalizedString]}
+                <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              </Link>
+            )
           ))}
         </nav>
 
@@ -178,14 +176,25 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl animate-fade-in">
           <nav className="container-page py-4 flex flex-col">
             {validNavigation.map((item) => (
-              <Link
-                key={item.href}
-                href={`/${locale}${item.href}`}
-                onClick={handleNavClick(item.href)}
-                className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
-              >
-                {item.label[locale as keyof LocalizedString]}
-              </Link>
+              item.href.startsWith("#") ? (
+                <AnchorLink
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
+                >
+                  {item.label[locale as keyof LocalizedString]}
+                </AnchorLink>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={`/${locale}${item.href}`}
+                  onClick={() => setOpen(false)}
+                  className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
+                >
+                  {item.label[locale as keyof LocalizedString]}
+                </Link>
+              )
             ))}
           </nav>
         </div>

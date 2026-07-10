@@ -1,6 +1,7 @@
 import { sanityFetch } from '@/sanity/lib/live'
 import { NAVIGATION_QUERY } from '@/lib/cms/queries'
 import { NAVIGATION } from '@/lib/data/navigation'
+import { FOOTER_COMPANY_LINKS, FOOTER_RESOURCE_LINKS, FOOTER_LEGAL_LINKS } from '@/lib/data/footer'
 import type { Navigation, NavigationGroups } from '@/lib/types/sanity'
 
 const FALLBACK_NAVIGATION: NavigationGroups = {
@@ -10,9 +11,24 @@ const FALLBACK_NAVIGATION: NavigationGroups = {
     href: item.href,
     external: false,
   })),
-  footerCompanyLinks: [],
-  footerResourceLinks: [],
-  footerLegalLinks: [],
+  footerCompanyLinks: FOOTER_COMPANY_LINKS.map((item) => ({
+    _key: item.href,
+    label: { en: item.label, id: item.label },
+    href: item.href,
+    external: false,
+  })),
+  footerResourceLinks: FOOTER_RESOURCE_LINKS.map((item) => ({
+    _key: item.href,
+    label: { en: item.label, id: item.label },
+    href: item.href,
+    external: false,
+  })),
+  footerLegalLinks: FOOTER_LEGAL_LINKS.map((item) => ({
+    _key: item.href,
+    label: { en: item.label, id: item.label },
+    href: item.href,
+    external: false,
+  })),
 }
 
 export async function getNavigation(): Promise<NavigationGroups> {

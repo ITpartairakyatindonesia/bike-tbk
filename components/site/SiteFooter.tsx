@@ -5,6 +5,7 @@ import { Facebook, Linkedin, Twitter, Instagram, Youtube, Mail, Phone, MapPin, t
 import { useTranslations, useLocale } from 'next-intl';
 import { CONTACT_INFO } from "@/lib/data";
 import { urlFor } from "@/lib/cms/image";
+import { AnchorLink } from "@/components/ui/AnchorLink";
 import type { LocalizedString, LocalizedText } from "@/lib/types/sanity";
 
 interface SiteFooterProps {
@@ -112,9 +113,9 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
               {validCompanyLinks.map((link, index) => (
                 <li key={`${link.href}-${index}`}>
                   {link.href.startsWith('#') ? (
-                    <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</a>
+                    <AnchorLink href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</AnchorLink>
                   ) : (
-                    <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
+                    <Link href={`/${locale}${link.href}`} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
                   )}
                 </li>
               ))}
@@ -129,9 +130,9 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
               {validResourceLinks.map((link, index) => (
                 <li key={`${link.href}-${index}`}>
                   {link.href.startsWith('#') ? (
-                    <a href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</a>
+                    <AnchorLink href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</AnchorLink>
                   ) : (
-                    <Link href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
+                    <Link href={`/${locale}${link.href}`} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
                   )}
                 </li>
               ))}

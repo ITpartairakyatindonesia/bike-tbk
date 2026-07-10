@@ -20,7 +20,7 @@ export function CTASection({ cta }: CTASectionProps) {
   if (!title && !description && !primaryButton && !secondaryButton) return null;
 
   return (
-    <section className="py-24">
+    <section id="cta" className="py-24">
       <div className="container-page">
         <div className="relative mx-4 sm:mx-0 rounded-3xl gradient-hero p-10 md:p-16 text-primary-foreground overflow-hidden shadow-elegant">
           <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-accent-gold/20 blur-3xl" />

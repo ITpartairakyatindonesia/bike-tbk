@@ -33,7 +33,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
 
   if (validArticles.length === 0) {
     return (
-      <section className="py-24">
+      <section id="news" className="py-24">
         <div className="container-page">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
