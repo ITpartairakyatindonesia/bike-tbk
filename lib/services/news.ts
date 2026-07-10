@@ -1,5 +1,5 @@
 import { sanityFetch } from '@/sanity/lib/live'
-import { NEWS_QUERY, LATEST_NEWS_QUERY } from '@/lib/cms/queries'
+import { NEWS_QUERY, LATEST_NEWS_QUERY, NEWS_BY_SLUG_QUERY } from '@/lib/cms/queries'
 import { FALLBACK_NEWS } from '@/lib/data/news'
 import type { News } from '@/lib/types/sanity'
 
@@ -40,5 +40,22 @@ export async function getLatestNews(limit = 3): Promise<News[]> {
   } catch (error) {
     console.warn('Failed to fetch latest news from Sanity', error)
     return []
+  }
+}
+
+export async function getNewsBySlug(slug: string): Promise<News | null> {
+  try {
+    const { data } = await sanityFetch({ 
+      query: NEWS_BY_SLUG_QUERY,
+      params: { slug }
+    })
+    if (!data) {
+      console.warn('No news found with slug:', slug)
+      return null
+    }
+    return data as News
+  } catch (error) {
+    console.warn('Failed to fetch news by slug from Sanity', error)
+    return null
   }
 }

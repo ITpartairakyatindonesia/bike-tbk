@@ -4,7 +4,9 @@
     "error": "An error occurred"
   },
   "news": {
-    "noNews": "No news available yet"
+    "noNews": "No news available yet",
+    "readMore": "Read More",
+    "backToHome": "Back to Home"
   },
   "navigation": {
     "getInTouch": "Get in Touch"

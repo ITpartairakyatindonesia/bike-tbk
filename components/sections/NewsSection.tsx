@@ -109,7 +109,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
                     href={`/news/${slug}`}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all"
                   >
-                    Read More <ArrowRight className="h-3.5 w-3.5" />
+                    {t('readMore')} <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </article>

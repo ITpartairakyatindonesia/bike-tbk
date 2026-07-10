@@ -179,7 +179,7 @@ export interface News {
   publishedAt?: string
   featured?: boolean
   seo?: Seo
-  body?: unknown
+  body?: any[]
 }
 
 export interface LatestNewsSection {

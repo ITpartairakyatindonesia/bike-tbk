@@ -4,7 +4,9 @@
     "error": "Terjadi kesalahan"
   },
   "news": {
-    "noNews": "Belum ada berita"
+    "noNews": "Belum ada berita",
+    "readMore": "Baca Selengkapnya",
+    "backToHome": "Kembali ke Beranda"
   },
   "navigation": {
     "getInTouch": "Hubungi Kami"

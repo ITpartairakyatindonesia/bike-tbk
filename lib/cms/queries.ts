@@ -116,6 +116,28 @@ export const LATEST_NEWS_QUERY = `*[_type == "news" && defined(publishedAt) && p
   featured
 }`
 
+export const NEWS_BY_SLUG_QUERY = `*[_type == "news" && slug.current == $slug][0]{
+  _id,
+  _type,
+  title{
+    en,
+    id
+  },
+  slug,
+  excerpt{
+    en,
+    id
+  },
+  featuredImage{
+    asset->
+  },
+  category,
+  publishedAt,
+  featured,
+  seo,
+  body
+}`
+
 const sectionHeaderFragment = `sectionHeader{
     eyebrow{
       en,
