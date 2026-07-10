@@ -5,6 +5,7 @@ import homePage from './homePage'
 import aboutPage from './aboutPage'
 import productPage from './productPage'
 import contactPage from './contactPage'
+import investorPage from './investorPage'
 import news from './news'
 import button from './objects/button'
 import link from './objects/link'
@@ -37,6 +38,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutPage,
     productPage,
     contactPage,
+    investorPage,
     news,
     button,
     link,

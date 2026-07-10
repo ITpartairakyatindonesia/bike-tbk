@@ -1,13 +1,14 @@
 import { InvestorSection } from "@/components/sections/InvestorSection";
 import { getTranslations } from 'next-intl/server';
+import { getInvestorPage } from '@/lib/services/investor-page';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('metadata.investor');
-  
+
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
   const canonicalUrl = `${baseUrl}/${locale}/investor`;
-  
+
   const locales = ['en', 'id'] as const;
   const alternates = locales.map(loc => ({
     hrefLang: loc,
@@ -34,10 +35,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function InvestorPage() {
+export default async function InvestorPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const investorPage = await getInvestorPage();
+
   return (
     <div>
-      <InvestorSection />
+      <InvestorSection hero={investorPage.hero} cards={investorPage.cards} locale={locale} />
     </div>
   );
 }

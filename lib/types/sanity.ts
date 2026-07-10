@@ -422,3 +422,38 @@ export interface ContactPage {
   map?: ContactMapSection
   cta?: ContactCTASection
 }
+
+export interface InvestorHeroSection {
+  label?: LocalizedString
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface InvestorDocument {
+  title?: string
+  file?: {
+    asset?: {
+      _id?: string
+      _type?: string
+      url?: string
+      originalFilename?: string
+      mimeType?: string
+      size?: number
+    }
+  }
+}
+
+export interface InvestorCard {
+  title?: LocalizedString
+  description?: LocalizedText
+  iconKey?: string
+  documents?: InvestorDocument[]
+}
+
+export interface InvestorPage {
+  _id: string
+  _type: 'investorPage'
+  seo?: Seo
+  hero?: InvestorHeroSection
+  cards?: InvestorCard[]
+}

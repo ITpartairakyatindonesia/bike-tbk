@@ -1,6 +1,6 @@
 import type {StructureResolver} from 'sanity/structure'
 
-const SINGLETONS = ['siteSettings', 'navigation', 'homePage', 'aboutPage', 'productPage', 'contactPage']
+const SINGLETONS = ['siteSettings', 'navigation', 'homePage', 'aboutPage', 'productPage', 'contactPage', 'investorPage']
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
@@ -61,6 +61,15 @@ export const structure: StructureResolver = (S) =>
             .schemaType('contactPage')
             .documentId('contactPage')
             .title('Contact Page')
+        ),
+      S.listItem()
+        .title('Investor Page')
+        .icon(() => '📈')
+        .child(
+          S.document()
+            .schemaType('investorPage')
+            .documentId('investorPage')
+            .title('Investor Page')
         ),
       S.divider(),
       ...S.documentTypeListItems().filter((item) =>

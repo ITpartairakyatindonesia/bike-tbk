@@ -611,3 +611,40 @@ export const CONTACT_PAGE_QUERY = `*[_type == "contactPage"][0]{
     }
   }
 }`
+
+export const INVESTOR_PAGE_QUERY = `*[_type == "investorPage"][0]{
+  _id,
+  _type,
+  seo,
+  hero{
+    label{
+      en,
+      id
+    },
+    title{
+      en,
+      id
+    },
+    description{
+      en,
+      id
+    }
+  },
+  cards[]{
+    title{
+      en,
+      id
+    },
+    description{
+      en,
+      id
+    },
+    iconKey,
+    documents[]{
+      title,
+      file{
+        asset->
+      }
+    }
+  }
+}`
