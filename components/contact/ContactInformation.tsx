@@ -1,62 +1,79 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { CONTACT_INFORMATION, CONTACT_MAP } from "@/lib/data/contact";
+import { pickLocalized } from '@/lib/utils';
+import type { ContactInformationSection, ContactMapSection } from '@/lib/types/sanity';
 
-export function ContactInformation() {
+interface ContactInformationProps {
+  contactInformation?: ContactInformationSection;
+  map?: ContactMapSection;
+  locale: string;
+}
+
+function isValidGoogleMapsEmbedUrl(url: string): boolean {
+  return url.startsWith('https://www.google.com/maps/embed?pb=');
+}
+
+export function ContactInformation({ contactInformation, map, locale }: ContactInformationProps) {
   const t = useTranslations('contact.information');
+
+  const isValidEmbedUrl = map?.embedUrl && isValidGoogleMapsEmbedUrl(map.embedUrl);
 
   return (
     <div className="space-y-6">
-      {CONTACT_INFORMATION.map((info, index) => (
-        <div
-          key={index}
-          className="rounded-xl border border-border bg-muted/30 p-6 hover:bg-muted/50 transition-colors duration-200"
-        >
+      {contactInformation && (
+        <div className="rounded-xl border border-border bg-muted/30 p-6 hover:bg-muted/50 transition-colors duration-200">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
-            {info.title === 'Head Office' ? t('headOffice') : info.title === 'Corporate Secretary' ? t('corporateSecretary') : info.title}
+            {pickLocalized(contactInformation.title, locale) || t('headOffice')}
           </h3>
           <div className="space-y-2">
-            {info.lines.map((line, lineIndex) => (
-              <p key={lineIndex} className="text-foreground leading-relaxed">
-                {line}
+            <p className="text-foreground leading-relaxed">
+              {pickLocalized(contactInformation.address, locale)}
+            </p>
+            {contactInformation.phone && (
+              <p className="text-foreground leading-relaxed">
+                Phone: {contactInformation.phone}
               </p>
-            ))}
+            )}
+            {contactInformation.email && (
+              <p className="text-foreground leading-relaxed">
+                Email: {contactInformation.email}
+              </p>
+            )}
+            {contactInformation.contactPerson && (
+              <p className="text-foreground leading-relaxed">
+                {t('corporateSecretary')}: {contactInformation.contactPerson}
+              </p>
+            )}
           </div>
         </div>
-      ))}
+      )}
 
-      <div className="rounded-xl border border-border bg-muted/30 p-6 hover:bg-muted/50 transition-colors duration-200">
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
-          {CONTACT_MAP.title}
-        </h3>
-        <div className="relative rounded-xl overflow-hidden border border-border bg-background h-64">
-          {CONTACT_MAP.embedUrl ? (
-            <iframe
-              src={CONTACT_MAP.embedUrl}
-              title="Office location"
-              className="absolute inset-0 h-full w-full border-0"
-              allowFullScreen
-              loading="lazy"
-            />
-          ) : (
-            <div className="absolute inset-0 grid place-items-center text-muted-foreground">
-              <div className="text-center">
-                <p className="font-semibold text-sm">Google Maps embed will appear here</p>
-                <p className="text-xs mt-1">URL to be added later</p>
+      {map && (
+        <div className="rounded-xl border border-border bg-muted/30 p-6 hover:bg-muted/50 transition-colors duration-200">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+            {pickLocalized(map.title, locale)}
+          </h3>
+          <div className="relative rounded-xl overflow-hidden border border-border bg-background aspect-square">
+            {isValidEmbedUrl ? (
+              <iframe
+                src={map.embedUrl}
+                title="Office location"
+                className="absolute inset-0 h-full w-full border-0"
+                allowFullScreen
+                loading="lazy"
+              />
+            ) : (
+              <div className="absolute inset-0 grid place-items-center text-muted-foreground">
+                <div className="text-center">
+                  <p className="font-semibold text-sm">Google Maps embed will appear here</p>
+                  <p className="text-xs mt-1">URL to be added later</p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
-        <a
-          href="https://maps.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-sm text-primary hover:text-primary/80 mt-4 transition-colors duration-200"
-        >
-          View on Google Maps
-        </a>
-      </div>
+      )}
     </div>
   );
 }

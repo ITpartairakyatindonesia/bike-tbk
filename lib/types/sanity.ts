@@ -75,8 +75,8 @@ export interface NavigationGroups {
 }
 
 export interface Seo {
-  title?: string
-  description?: string
+  title?: LocalizedString
+  description?: LocalizedText
   ogImage?: SanityImage
 }
 
@@ -384,4 +384,41 @@ export interface ProductPage {
   featured?: ProductFeaturedSection
   marketPosition?: ProductMarketPositionSection
   cta?: ProductCTASection
+}
+
+export interface ContactHeroSection {
+  eyebrow?: LocalizedString
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface ContactInformationSection {
+  title?: LocalizedString
+  address?: LocalizedText
+  phone?: string
+  email?: string
+  contactPerson?: string
+  icon?: string
+}
+
+export interface ContactMapSection {
+  title?: LocalizedString
+  embedUrl?: string
+  button?: Button
+}
+
+export interface ContactCTASection {
+  title?: LocalizedString
+  description?: LocalizedText
+  button?: Button
+}
+
+export interface ContactPage {
+  _id: string
+  _type: 'contactPage'
+  seo?: Seo
+  hero?: ContactHeroSection
+  contactInformation?: ContactInformationSection
+  map?: ContactMapSection
+  cta?: ContactCTASection
 }

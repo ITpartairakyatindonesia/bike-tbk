@@ -554,3 +554,60 @@ export const PRODUCT_PAGE_QUERY = `*[_type == "productPage"][0]{
     }
   }
 }`
+
+export const CONTACT_PAGE_QUERY = `*[_type == "contactPage"][0]{
+  _id,
+  _type,
+  seo,
+  hero{
+    eyebrow{
+      en,
+      id
+    },
+    title{
+      en,
+      id
+    },
+    description{
+      en,
+      id
+    }
+  },
+  contactInformation{
+    title{
+      en,
+      id
+    },
+    address{
+      en,
+      id
+    },
+    phone,
+    email,
+    contactPerson,
+    icon
+  },
+  map{
+    title{
+      en,
+      id
+    },
+    embedUrl,
+    button{
+      ${buttonFragment}
+    }
+  },
+  cta{
+    title{
+      en,
+      id
+    },
+    description{
+      en,
+      id
+    },
+    button{
+      ${buttonFragment}
+    }
+  }
+}`

@@ -4,9 +4,11 @@ export const HOME_PAGE: HomePage = {
   _id: "homePageFallback",
   _type: "homePage",
   seo: {
-    title: "Bike - Shaping a Sustainable Future",
-    description:
-      "Bike is a diversified super holding company creating enduring value across energy, logistics, finance, healthcare and infrastructure — operating in 15 countries.",
+    title: { en: "Bike - Shaping a Sustainable Future", id: "Bike - Membentuk Masa Depan Berkelanjutan" },
+    description: {
+      en: "Bike is a diversified super holding company creating enduring value across energy, logistics, finance, healthcare and infrastructure — operating in 15 countries.",
+      id: "Bike adalah perusahaan holding super terdiversifikasi yang menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan dan infrastruktur — beroperasi di 15 negara.",
+    },
   },
   hero: {
     eyebrow: {

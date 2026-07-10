@@ -4,6 +4,7 @@ import navigation from './navigation'
 import homePage from './homePage'
 import aboutPage from './aboutPage'
 import productPage from './productPage'
+import contactPage from './contactPage'
 import news from './news'
 import button from './objects/button'
 import link from './objects/link'
@@ -35,6 +36,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homePage,
     aboutPage,
     productPage,
+    contactPage,
     news,
     button,
     link,
