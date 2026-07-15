@@ -6,11 +6,13 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   companyInitials,
   tagline{
     en,
-    id
+    id,
+    zh
   },
   footerDescription{
     en,
-    id
+    id,
+    zh
   },
   logo{
     asset->
@@ -20,11 +22,13 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   socialLinks,
   defaultSeoTitle{
     en,
-    id
+    id,
+    zh
   },
   defaultSeoDescription{
     en,
-    id
+    id,
+    zh
   },
   defaultOgImage
 }`
@@ -36,7 +40,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
@@ -45,7 +50,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
@@ -54,7 +60,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
@@ -63,7 +70,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
