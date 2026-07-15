@@ -2,8 +2,9 @@ import { AboutHero } from "@/components/about/AboutHero";
 import { AboutOverview } from "@/components/about/AboutOverview";
 import { AboutInfo } from "@/components/about/AboutInfo";
 import { AboutVisionMission } from "@/components/about/AboutVisionMission";
-import { AboutCulture } from "@/components/about/AboutCulture";
 import { AboutManagement } from "@/components/about/AboutManagement";
+import { TimelineSection } from "@/components/sections/TimelineSection";
+import { CTASection } from "@/components/sections/CTASection";
 import { getTranslations } from 'next-intl/server';
 import { getAboutPage } from '@/lib/services/about-page';
 
@@ -48,10 +49,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     <div>
       <AboutHero hero={aboutPage.hero} locale={locale} />
       <AboutOverview overview={aboutPage.overview} locale={locale} />
+      <TimelineSection milestonesSection={aboutPage.milestonesSection || {}} />
       <AboutInfo info={aboutPage.info} locale={locale} />
       <AboutVisionMission visionMission={aboutPage.visionMission} locale={locale} />
-      <AboutCulture culture={aboutPage.culture} locale={locale} />
       <AboutManagement management={aboutPage.management} locale={locale} />
+      <CTASection cta={aboutPage.cta || {}} />
     </div>
   );
 }

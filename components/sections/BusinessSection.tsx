@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useLocale } from 'next-intl';
+import { ArrowRight } from "lucide-react";
+import { useLocale, useTranslations } from 'next-intl';
 import { type Locale } from '@/i18n/routing';
 import { urlFor } from "@/lib/cms/image";
 import { pickLocalized } from "@/lib/utils";
@@ -20,6 +21,7 @@ interface BusinessSectionProps {
 
 export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
   const locale = useLocale() as Locale;
+  const t = useTranslations('business');
 
   const validCards =
     businessHighlights?.cards?.filter((card) => pickLocalized(card.title, locale)) ?? [];
@@ -99,6 +101,14 @@ export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
               </article>
             );
           })}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Link
+            href={`/${locale}/business`}
+            className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
+          >
+            {t('viewAll')} <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

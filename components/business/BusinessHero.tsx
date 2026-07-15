@@ -1,19 +1,19 @@
 "use client";
 
 import { ArrowDown } from "lucide-react";
-import type { AboutHeroSection } from "@/lib/types/sanity";
-import { urlFor } from "@/lib/cms/image";
 import { pickLocalized } from "@/lib/utils";
+import { urlFor } from "@/lib/cms/image";
+import type { BusinessHeroSection } from "@/lib/types/sanity";
 
-interface AboutHeroProps {
-  hero?: AboutHeroSection;
+interface BusinessHeroProps {
+  hero?: BusinessHeroSection;
   locale: string;
 }
 
-export function AboutHero({ hero, locale }: AboutHeroProps) {
+export function BusinessHero({ hero, locale }: BusinessHeroProps) {
   const eyebrow = pickLocalized(hero?.eyebrow, locale);
-  const headline = pickLocalized(hero?.title, locale);
-  const description = pickLocalized(hero?.subtitle, locale);
+  const headline = pickLocalized(hero?.headline, locale);
+  const description = pickLocalized(hero?.description, locale);
   const backgroundImage = hero?.backgroundImage?.asset ? urlFor(hero.backgroundImage).url() : "/business-logistics.jpg";
 
   return (
@@ -21,7 +21,7 @@ export function AboutHero({ hero, locale }: AboutHeroProps) {
       <div className="absolute inset-0">
         <img
           src={backgroundImage}
-          alt="SBI distribution and operations"
+          alt="Business operations"
           className="h-full w-full object-cover"
           width={1920}
           height={1280}

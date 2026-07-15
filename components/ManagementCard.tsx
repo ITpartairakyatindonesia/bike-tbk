@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from 'next-intl';
 
 export interface ManagementCardProps {
   name: string;
@@ -10,6 +9,7 @@ export interface ManagementCardProps {
   biography: string;
   slug: string;
   locale?: string;
+  viewBiographyLabel?: string;
 }
 
 export function ManagementCard({
@@ -19,8 +19,8 @@ export function ManagementCard({
   biography,
   slug,
   locale = 'en',
+  viewBiographyLabel = 'View Biography',
 }: ManagementCardProps) {
-  const t = useTranslations('about.management');
   const initials = name
     .split(" ")
     .map((word) => word[0])
@@ -60,7 +60,7 @@ export function ManagementCard({
           href={`/${locale}/organization/${slug}`}
           className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
         >
-          {t('viewBiography')} <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+          {viewBiographyLabel} <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
         </Link>
       </div>
     </div>

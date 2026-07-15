@@ -6,7 +6,8 @@
   "news": {
     "noNews": "Belum ada berita",
     "readMore": "Baca Selengkapnya",
-    "backToHome": "Kembali ke Beranda"
+    "backToHome": "Kembali ke Beranda",
+    "title": "Berita"
   },
   "navigation": {
     "getInTouch": "Hubungi Kami"
@@ -54,24 +55,22 @@
   "about": {
     "hero": {
       "eyebrow": "Tentang Kami",
-      "headline": "Membangun Komunitas yang Lebih Sehat Melalui Mobilitas yang Lebih Baik.",
-      "description": "PT Bike Tbk didirikan di Tangerang pada tahun 2017 dan telah berkembang menjadi salah satu perusahaan distribusi sepeda terkemuka di Indonesia. Melalui merek-merek terpercaya, jaringan dealer yang luas, dan komitmen terhadap praktik bisnis yang berkelanjutan, PT Bike terus mendukung gaya hidup yang lebih sehat dan aktif di seluruh negeri."
+      "headline": "Bertransformasi menjadi Perusahaan Holding Super.",
+      "description": "Bike telah berevolusi dari perusahaan distribusi sepeda menjadi grup holding super terdiversifikasi, menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur — beroperasi di 15 negara."
     },
     "overview": {
       "sectionLabel": "Ikhtisar Perusahaan",
       "title": "Siapa Kami",
-      "paragraph1": "Didirikan di Tangerang pada tahun 2017, PT Bike Tbk beroperasi dalam distribusi grosir sepeda. Sebagai pemilik merek Genio Bike dan distributor terbesar United Bike dan Avand, PT Bike membawa lebih dari 100 model sepeda dan lebih dari 300 varian ke pasar Indonesia setiap tahun.",
-      "paragraph2": "Jaringan distribusi nasional kami mencakup Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua. Kami berkomitmen untuk mengembangkan industri sepeda Indonesia dari hulu ke hilir melalui jaringan distribusi profesional, layanan pelanggan terintegrasi, dan portofolio produk yang luas yang melayani setiap segmen pasar."
+      "paragraph1": "Bike telah bertransformasi dari perusahaan distribusi sepeda menjadi grup holding super terdiversifikasi. Portofolio kami mencakup energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur, dengan operasi di 15 negara. Kami berkomitmen untuk menciptakan nilai abadi melalui praktik bisnis yang bertanggung jawab dan pertumbuhan berkelanjutan.",
+      "paragraph2": "Transformasi kami mencerminkan visi strategis untuk diversifikasi dan memperkuat fondasi bisnis kami. Dengan berekspansi ke berbagai sektor pertumbuhan tinggi, kami bertujuan membangun nilai jangka panjang bagi pemegang saham, mitra, dan masyarakat sambil mempertahankan standar tata kelola perusahaan tertinggi."
     },
     "highlights": {
       "established": "Didirikan",
-      "brands": "Merek",
-      "productPortfolio": "Portofolio Produk",
-      "variants": "Varian",
-      "dealerNetwork": "Jaringan Dealer",
-      "stores": "Toko",
-      "employees": "Karyawan",
-      "business": "Bisnis"
+      "countries": "Negara",
+      "businessSectors": "Sektor Bisnis",
+      "groupStructure": "Struktur Grup",
+      "listedOn": "Tercatat di",
+      "stockCode": "Kode Saham"
     },
     "info": {
       "sectionLabel": "Informasi Perusahaan",
@@ -79,17 +78,17 @@
       "companyName": "Nama Perusahaan",
       "founded": "Didirikan",
       "headOffice": "Kantor Pusat",
-      "coreBusiness": "Bisnis Utama",
+      "groupStructure": "Struktur Grup",
+      "businessSectors": "Sektor Bisnis",
+      "operations": "Operasi",
       "website": "Situs Web",
-      "boardOfCommissioners": "Dewan Komisaris",
-      "boardOfDirectors": "Dewan Direksi",
-      "dealerNetwork": "Jaringan Dealer",
-      "employees": "Karyawan"
+      "listedOn": "Tercatat di",
+      "stockCode": "Kode Saham"
     },
     "vision": {
       "eyebrow": "Arah Kami",
       "label": "Visi",
-      "statement": "Memperluas pangsa pasar di seluruh Indonesia dengan mewujudkan aspirasi pelanggan dan menawarkan solusi mobilitas dan gaya hidup yang terjangkau sambil memberikan layanan purna jual yang excellent."
+      "statement": "Menjadi perusahaan holding super terkemuka yang menciptakan nilai abadi di seluruh industri melalui praktik bisnis yang bertanggung jawab, inovasi, dan pertumbuhan berkelanjutan."
     },
     "mission": {
       "title": "Misi"
@@ -97,12 +96,13 @@
     "culture": {
       "title": "Budaya Kami",
       "subtitle": "Berkembang Bersama Melalui Nilai-Nilai Berpusat pada Manusia.",
-      "introduction": "Di PT Bike, kami percaya bahwa orang-orang ada di jantung setiap perjalanan yang sukses. Budaya kami dibangun di atas rasa hormat, integritas, dan kolaborasi — memberdayakan setiap individu untuk tumbuh sambil berkontribusi pada Indonesia yang lebih sehat dan berkelanjutan."
+      "introduction": "Di Bike, kami percaya bahwa orang-orang ada di jantung setiap perjalanan yang sukses. Budaya kami dibangun di atas rasa hormat, integritas, dan kolaborasi — memberdayakan setiap individu untuk tumbuh sambil berkontribusi pada masa depan yang berkelanjutan."
     },
     "management": {
       "sectionLabel": "Kepemimpinan",
       "title": "Profil Manajemen",
-      "introduction": "Temui pemimpin berpengalaman yang memandu PT Bike Tbk melalui pertumbuhan strategis, inovasi, dan tata kelola perusahaan yang bertanggung jawab.",
+      "introduction": "Temui pemimpin berpengalaman yang memandu Bike melalui pertumbuhan strategis, inovasi, dan tata kelola perusahaan yang bertanggung jawab.",
+      "placeholder": "Profil manajemen akan segera tersedia. Silakan kembali lagi nanti.",
       "viewBiography": "Lihat Biografi",
       "backToAbout": "Kembali ke Tentang Kami",
       "managementProfile": "Profil Manajemen",
@@ -114,11 +114,11 @@
     "distribution": {
       "title": "Jaringan Distribusi",
       "subtitle": "Mencapai Setiap Sudut Indonesia",
-      "description": "Jaringan distribusi PT Bike mencakup seluruh kepulauan, memastikan bahwa sepeda berkualitas dan layanan purna jual dapat diakses oleh masyarakat di seluruh negeri."
+      "description": "Jaringan distribusi Bike mencakup seluruh kepulauan, memastikan bahwa produk berkualitas dan layanan purna jual dapat diakses oleh masyarakat di seluruh negeri."
     },
     "closing": {
-      "headline": "Maju Bersama Indonesia.",
-      "description": "Dengan komitmen terhadap inovasi, praktik bisnis yang bertanggung jawab, dan kemitraan terpercaya, PT Bike Tbk terus memperkuat industri sepeda Indonesia sambil menciptakan nilai jangka panjang bagi pelanggan, pemegang saham, karyawan, dealer, dan komunitas.",
+      "headline": "Membangun Masa Depan Berkelanjutan Bersama.",
+      "description": "Dengan komitmen terhadap praktik bisnis yang bertanggung jawab, inovasi, dan kemitraan strategis, Bike terus menciptakan nilai abadi di seluruh industri bagi pemegang saham, mitra, dan masyarakat.",
       "contactUs": "Hubungi Kami",
       "investorRelations": "Hubungan Investor"
     }
@@ -152,6 +152,80 @@
       "description": "Kunjungi situs web setiap merek untuk menemukan koleksi terbaru, spesifikasi, dan informasi dealer."
     }
   },
+  "governance": {
+    "hero": {
+      "eyebrow": "Tata Kelola",
+      "title": "Tata Kelola Perusahaan",
+      "description": "Komitmen kami terhadap transparansi, akuntabilitas, dan praktik bisnis yang bertanggung jawab."
+    },
+    "placeholder": "Konten tata kelola akan segera tersedia di sini."
+  },
+  "business": {
+    "viewAll": "Jelajahi Bisnis Kami",
+    "hero": {
+      "eyebrow": "Bisnis",
+      "headline": "Membangun Nilai di Seluruh Industri.",
+      "description": "Dari awal mula sebagai perusahaan distribusi sepeda hingga transformasi menjadi grup holding super terdiversifikasi, kami terus menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur."
+    },
+    "introduction": {
+      "title": "Identitas Bisnis Kami",
+      "paragraph1": "Bike telah berevolusi dari perusahaan distribusi sepeda fokus tunggal menjadi grup holding super terdiversifikasi. Portofolio bisnis kami mencakup berbagai sektor pertumbuhan tinggi, masing-masing dikelola dengan komitmen terhadap keunggulan, inovasi, dan penciptaan nilai berkelanjutan.",
+      "paragraph2": "Transformasi kami mencerminkan visi strategis untuk membangun fondasi bisnis yang tangguh yang dapat beradaptasi dengan dinamika pasar yang berubah sambil memberikan nilai konsisten bagi pemegang saham, mitra, dan masyarakat di 15 negara.",
+      "stat1Value": "5",
+      "stat1Label": "Sektor Bisnis",
+      "stat2Value": "15",
+      "stat2Label": "Negara",
+      "stat3Value": "2017",
+      "stat3Label": "Didirikan",
+      "stat4Value": "BEI",
+      "stat4Label": "Tercatat di"
+    },
+    "extension": {
+      "sectionLabel": "Pertumbuhan",
+      "title": "Ekspansi Bisnis",
+      "description": "Memperluas jangkauan dan kapasitas kami untuk melayani pasar dengan lebih efektif.",
+      "card1Title": "Ekspansi Pasar",
+      "card1Description": "Memperluas kehadiran kami ke pasar geografis baru dan segmen pelanggan di berbagai wilayah.",
+      "card2Title": "Peningkatan Kapasitas",
+      "card2Description": "Berinvestasi dalam infrastruktur, teknologi, dan sumber daya manusia untuk meningkatkan skala operasi dan memenuhi permintaan yang terus tumbuh.",
+      "card3Title": "Penguatan Jaringan",
+      "card3Description": "Membangun kemitraan strategis dan saluran distribusi untuk memperdalam penetrasi pasar dan kualitas layanan."
+    },
+    "development": {
+      "sectionLabel": "Inovasi",
+      "title": "Pengembangan Bisnis",
+      "description": "Mendorong pertumbuhan melalui inovasi, riset, dan peningkatan berkelanjutan.",
+      "card1Title": "Inovasi",
+      "card1Description": "Mendorong budaya inovasi di seluruh sektor bisnis untuk mengembangkan solusi baru dan tetap selangkah di depan tren pasar.",
+      "card2Title": "Riset & Pengembangan",
+      "card2Description": "Berinvestasi dalam inisiatif riset untuk mengeksplorasi teknologi baru dan mengidentifikasi peluang bisnis baru.",
+      "card3Title": "Pertumbuhan Strategis",
+      "card3Description": "Menjalankan akuisisi strategis, usaha patungan, dan kemitraan untuk mempercepat pengembangan bisnis."
+    },
+    "diversification": {
+      "sectionLabel": "Transformasi",
+      "title": "Diversifikasi Bisnis",
+      "description": "Perjalanan kami dari perusahaan produk tunggal menjadi grup holding super terdiversifikasi mewakili transformasi mendasar dari model bisnis kami.",
+      "paragraph": "Dengan berekspansi ke energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur, kami telah membangun portofolio yang tangguh yang menyeimbangkan stabilitas dengan pertumbuhan — memposisikan Bike untuk kesuksesan jangka panjang di berbagai industri.",
+      "ctaLabel": "Pelajari Perjalanan Kami"
+    }
+  },
+  "sustainability": {
+    "hero": {
+      "eyebrow": "Keberlanjutan",
+      "title": "Keberlanjutan",
+      "description": "Membangun masa depan yang berkelanjutan melalui praktik bisnis yang bertanggung jawab."
+    },
+    "placeholder": "Konten keberlanjutan akan segera tersedia di sini."
+  },
+  "career": {
+    "hero": {
+      "eyebrow": "Karir",
+      "title": "Bergabung dengan Tim Kami",
+      "description": "Temukan peluang karir dan berkembang bersama kami."
+    },
+    "placeholder": "Konten karir akan segera tersedia di sini."
+  },
   "metadata": {
     "home": {
       "title": "Bike - Membentuk Masa Depan Berkelanjutan",
@@ -176,6 +250,26 @@
     "products": {
       "title": "Produk - PT Bike Tbk",
       "description": "Portofolio merek sepeda terpercaya kami yang dirancang untuk melayani setiap segmen pasar, dari anak-anak hingga profesional, mendukung gaya hidup yang lebih sehat dan mobilitas berkelanjutan."
+    },
+    "governance": {
+      "title": "Tata Kelola - Bike",
+      "description": "Pelajari struktur tata kelola perusahaan Bike, kebijakan, dan komitmen terhadap transparansi."
+    },
+    "business": {
+      "title": "Bisnis - Bike",
+      "description": "Jelajahi portofolio bisnis Bike yang beragam di berbagai industri dan pasar."
+    },
+    "sustainability": {
+      "title": "Keberlanjutan - Bike",
+      "description": "Temukan bagaimana Bike membangun masa depan berkelanjutan melalui praktik bisnis yang bertanggung jawab."
+    },
+    "career": {
+      "title": "Karir - Bike",
+      "description": "Bergabunglah dengan tim Bike dan temukan peluang karir di seluruh grup perusahaan kami."
+    },
+    "news": {
+      "title": "Berita - Bike",
+      "description": "Berita dan pembaruan terbaru dari Bike."
     }
   }
 }

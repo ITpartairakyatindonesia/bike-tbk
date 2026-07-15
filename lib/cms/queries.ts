@@ -490,6 +490,16 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
       id,
       zh
     },
+    placeholder{
+      en,
+      id,
+      zh
+    },
+    viewBiographyLabel{
+      en,
+      id,
+      zh
+    },
     executives[]{
       name,
       position{
@@ -508,6 +518,40 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
       image{
         asset->
       }
+    }
+  },
+  milestonesSection{
+    ${sectionHeaderFragment},
+    cards[]{
+      year,
+      title{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      }
+    }
+  },
+  cta{
+    title{
+      en,
+      id,
+      zh
+    },
+    description{
+      en,
+      id,
+      zh
+    },
+    primaryButton{
+      ${buttonFragment}
+    },
+    secondaryButton{
+      ${buttonFragment}
     }
   }
 }`
@@ -751,6 +795,142 @@ export const INVESTOR_PAGE_QUERY = `*[_type == "investorPage"][0]{
       file{
         asset->
       }
+    }
+  }
+}`
+
+export const BUSINESS_PAGE_QUERY = `*[_type == "businessPage"][0]{
+  _id,
+  _type,
+  seo,
+  hero {
+    eyebrow,
+    headline,
+    description,
+    backgroundImage {
+      asset->
+    }
+  },
+  introduction {
+    title,
+    paragraphs[],
+    statCards[] {
+      _key,
+      value,
+      label
+    }
+  },
+  extension {
+    sectionHeader {
+      eyebrow,
+      heading,
+      description
+    },
+    cards[] {
+      _key,
+      icon,
+      title,
+      description
+    }
+  },
+  development {
+    sectionHeader {
+      eyebrow,
+      heading,
+      description
+    },
+    cards[] {
+      _key,
+      icon,
+      title,
+      description
+    }
+  },
+  diversification {
+    sectionHeader {
+      eyebrow,
+      heading,
+      description
+    },
+    paragraph,
+    ctaLabel,
+    ctaHref
+  },
+  subHoldingStructure {
+    sectionHeader {
+      eyebrow,
+      heading,
+      description
+    },
+    cards[] {
+      _key,
+      icon,
+      title,
+      description
+    }
+  },
+  coreBusiness {
+    sectionHeader {
+      eyebrow,
+      heading,
+      description
+    },
+    cards[] {
+      _key,
+      image {
+        asset->
+      },
+      title,
+      description
+    }
+  },
+  projectExperience {
+    sectionHeader {
+      eyebrow,
+      heading,
+      description
+    },
+    projects[] {
+      _key,
+      image {
+        asset->
+      },
+      title,
+      location,
+      category,
+      description
+    }
+  },
+  legacyBusiness {
+    sectionHeader {
+      eyebrow,
+      heading,
+      description
+    },
+    brands[] {
+      _key,
+      name,
+      description,
+      highlights[],
+      button {
+        label,
+        href,
+        external
+      }
+    }
+  },
+  cta {
+    title,
+    description,
+    primaryButton {
+      label,
+      href,
+      external
+    },
+    secondaryButton {
+      label,
+      href,
+      external
     }
   }
 }`

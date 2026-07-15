@@ -291,6 +291,8 @@ export interface AboutManagementExecutive {
 export interface AboutManagementSection {
   sectionHeader?: SectionHeader
   introduction?: LocalizedText
+  placeholder?: LocalizedText
+  viewBiographyLabel?: LocalizedString
   executives?: AboutManagementExecutive[]
 }
 
@@ -304,6 +306,8 @@ export interface AboutPage {
   visionMission?: AboutVisionMissionSection
   culture?: AboutCultureSection
   management?: AboutManagementSection
+  milestonesSection?: MilestonesSection
+  cta?: CTASection
 }
 
 export interface ProductHeroSection {
@@ -457,4 +461,114 @@ export interface InvestorPage {
   seo?: Seo
   hero?: InvestorHeroSection
   cards?: InvestorCard[]
+}
+
+export interface BusinessHeroSection {
+  eyebrow?: LocalizedString
+  headline?: LocalizedString
+  description?: LocalizedText
+  backgroundImage?: SanityImage
+}
+
+export interface BusinessStatCard {
+  _key?: string
+  value?: LocalizedString
+  label?: LocalizedString
+}
+
+export interface BusinessIntroductionSection {
+  title?: LocalizedString
+  paragraphs?: LocalizedText[]
+  statCards?: BusinessStatCard[]
+}
+
+export interface BusinessInfoCard {
+  _key?: string
+  icon?: string
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface BusinessExtensionSection {
+  sectionHeader?: SectionHeader
+  cards?: BusinessInfoCard[]
+}
+
+export interface BusinessDevelopmentSection {
+  sectionHeader?: SectionHeader
+  cards?: BusinessInfoCard[]
+}
+
+export interface BusinessDiversificationSection {
+  sectionHeader?: SectionHeader
+  paragraph?: LocalizedText
+  ctaLabel?: LocalizedString
+  ctaHref?: string
+}
+
+export interface SubHoldingCard {
+  _key?: string
+  icon?: string
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface SubHoldingStructureSection {
+  sectionHeader?: SectionHeader
+  cards?: SubHoldingCard[]
+}
+
+export interface CoreBusinessCard {
+  _key?: string
+  image?: SanityImage
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface CoreBusinessSection {
+  sectionHeader?: SectionHeader
+  cards?: CoreBusinessCard[]
+}
+
+export interface BusinessPage {
+  _id?: string
+  _type?: string
+  seo?: Seo
+  hero?: BusinessHeroSection
+  introduction?: BusinessIntroductionSection
+  extension?: BusinessExtensionSection
+  development?: BusinessDevelopmentSection
+  diversification?: BusinessDiversificationSection
+  subHoldingStructure?: SubHoldingStructureSection
+  coreBusiness?: CoreBusinessSection
+  projectExperience?: ProjectExperienceSection
+  legacyBusiness?: LegacyBusinessSection
+  cta?: CTASection
+}
+
+export interface ProjectExperienceItem {
+  _key?: string
+  image?: SanityImage
+  title?: LocalizedString
+  location?: LocalizedString
+  category?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface ProjectExperienceSection {
+  sectionHeader?: SectionHeader
+  projects?: ProjectExperienceItem[]
+}
+
+export interface LegacyBrandCard {
+  _key?: string
+  name?: LocalizedString
+  description?: LocalizedText
+  highlights?: LocalizedString[]
+  button?: Button
+}
+
+export interface LegacyBusinessSection {
+  sectionHeader?: SectionHeader
+  brands?: LegacyBrandCard[]
 }

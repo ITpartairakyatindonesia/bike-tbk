@@ -31,73 +31,73 @@ export interface MissionItem {
 
 export const ABOUT_HERO = {
   eyebrow: "About Us",
-  headline: "Building Healthier Communities Through Better Mobility.",
+  headline: "Transforming into a Super Holding Company.",
   description:
-    "PT Bike Tbk (SBI) was established in Tangerang in 2017 and has grown into one of Indonesia's leading bicycle distribution companies. Through trusted brands, an extensive dealer network, and a commitment to sustainable business practices, SBI continues to support healthier and more active lifestyles across the country.",
-  backgroundImage: "/business-logistics.jpg",
+    "Bike has evolved from a bicycle distribution company into a diversified super holding group, creating enduring value across energy, logistics, finance, healthcare, and infrastructure — operating in 15 countries.",
+  backgroundImage: "/hero-tower.jpg",
 };
 
 export const ABOUT_OVERVIEW = {
   title: "Who We Are",
   paragraphs: [
-    "Established in Tangerang in 2017, PT Bike Tbk operates in the wholesale distribution of bicycles. As the brand owner of Genio Bike and the largest distributor of United Bike and Avand, SBI brings more than 100 bicycle models and over 300 variants to the Indonesian market every year.",
-    "Our nationwide distribution network reaches across Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, and Papua. We are committed to developing Indonesia's bicycle industry from upstream to downstream through a professional distribution network, integrated customer service, and a wide product portfolio that serves every market segment.",
+    "Bike has transformed from a bicycle distribution company into a diversified super holding group. Our portfolio spans energy, logistics, finance, healthcare, and infrastructure, with operations across 15 countries. We are committed to creating enduring value through responsible business practices and sustainable growth.",
+    "Our transformation reflects a strategic vision to diversify and strengthen our business foundation. By expanding into multiple high-growth sectors, we aim to build long-term value for shareholders, partners, and communities while maintaining the highest standards of corporate governance.",
   ],
 };
 
 export const ABOUT_HIGHLIGHTS: AboutHighlight[] = [
   { label: "Established", value: "2017" },
-  { label: "Brands", value: "Genio • United • Avand" },
-  { label: "Product Portfolio", value: "100+ Models", subtext: "300+ Variants" },
-  { label: "Dealer Network", value: "578 Stores" },
-  { label: "Employees", value: "16" },
-  { label: "Business", value: "Bicycle Distribution" },
+  { label: "Countries", value: "15" },
+  { label: "Business Sectors", value: "5" },
+  { label: "Group Structure", value: "Super Holding" },
+  { label: "Listed on", value: "IDX" },
+  { label: "Stock Code", value: "BIKE" },
 ];
 
 export const ABOUT_INFO: AboutInfoItem[] = [
   { label: "Company Name", value: "PT Bike Tbk" },
   { label: "Founded", value: "2017" },
   { label: "Head Office", value: "Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia" },
-  { label: "Core Business", value: "Wholesale Bicycle Distribution" },
+  { label: "Group Structure", value: "Super Holding Company" },
+  { label: "Business Sectors", value: "Energy, Logistics, Finance, Healthcare, Infrastructure" },
+  { label: "Operations", value: "15 Countries" },
   { label: "Website", value: "www.bike-tbk.co.id" },
-  { label: "Board of Commissioners", value: "Komisaris Utama & Anggota" },
-  { label: "Board of Directors", value: "Direktur Utama & Anggota" },
-  { label: "Dealer Network", value: "578 Stores" },
-  { label: "Employees", value: "16" },
+  { label: "Listed on", value: "Indonesia Stock Exchange (IDX)" },
+  { label: "Stock Code", value: "BIKE" },
 ];
 
 export const ABOUT_VISION = {
   eyebrow: "Our Direction",
   label: "Vision",
   statement:
-    "Expanding market share throughout Indonesia by realizing customers' aspirations and offering affordable mobility and lifestyle solutions while delivering excellent after-sales service.",
+    "To be a leading super holding company creating enduring value across industries through responsible business practices, innovation, and sustainable growth.",
 };
 
 export const ABOUT_MISSION: MissionItem[] = [
   {
-    title: "Build Long-Term Relationships",
+    title: "Create Enduring Value",
     description:
-      "Build and maintain strong relationships with dealers and customers to protect existing market share while expanding into new markets.",
+      "Build and manage a diversified portfolio of businesses that generate long-term value across multiple industries.",
   },
   {
-    title: "Maintain Customer Loyalty",
+    title: "Drive Innovation",
     description:
-      "Maintain customer loyalty by continuously improving product quality and customer satisfaction.",
+      "Foster innovation across all business sectors to stay competitive and adapt to evolving market needs.",
   },
   {
-    title: "Quality Assurance",
+    title: "Responsible Governance",
     description:
-      "Ensure every product passes consistent quality control before reaching customers.",
+      "Maintain the highest standards of corporate governance, transparency, and accountability across all operations.",
   },
   {
-    title: "Customer Feedback",
+    title: "Sustainable Growth",
     description:
-      "Collect customer feedback through dealers and direct surveys to continuously improve products and services.",
+      "Pursue growth strategies that balance economic performance with environmental stewardship and social responsibility.",
   },
   {
-    title: "Excellent After-Sales Service",
+    title: "Empower Communities",
     description:
-      "Deliver reliable after-sales service that supports long-term customer satisfaction.",
+      "Create positive impact in the communities where we operate through responsible business practices and strategic investments.",
   },
 ];
 
@@ -152,9 +152,9 @@ export const ABOUT_DISTRIBUTION = {
 };
 
 export const ABOUT_CLOSING = {
-  headline: "Moving Indonesia Forward Together.",
+  headline: "Building a Sustainable Future Together.",
   description:
-    "With a commitment to innovation, responsible business practices, and trusted partnerships, PT Bike Tbk continues to strengthen Indonesia's bicycle industry while creating long-term value for customers, shareholders, employees, dealers, and communities.",
+    "With a commitment to responsible business practices, innovation, and strategic partnerships, Bike continues to create enduring value across industries for shareholders, partners, and communities.",
   primaryButton: { label: "Contact Us", href: "/contact" },
   secondaryButton: { label: "Investor Relations", href: "/investor" },
 };
@@ -199,78 +199,117 @@ export const ABOUT_PAGE: AboutPage = {
   _id: 'about-page-fallback',
   _type: 'aboutPage',
   hero: {
-    eyebrow: { en: 'About Us', id: 'Tentang Kami' },
-    title: { en: 'Building Healthier Communities Through Better Mobility.', id: 'Membangun Komunitas yang Lebih Sehat Melalui Mobilitas yang Lebih Baik.' },
-    subtitle: { en: 'PT Bike Tbk (SBI) was established in Tangerang in 2017 and has grown into one of Indonesia\'s leading bicycle distribution companies. Through trusted brands, an extensive dealer network, and a commitment to sustainable business practices, SBI continues to support healthier and more active lifestyles across the country.', id: 'PT Bike Tbk (SBI) didirikan di Tangerang pada tahun 2017 dan telah berkembang menjadi salah satu perusahaan distribusi sepeda terkemuka di Indonesia. Melalui merek-merek terpercaya, jaringan dealer yang luas, dan komitmen terhadap praktik bisnis yang berkelanjutan, SBI terus mendukung gaya hidup yang lebih sehat dan aktif di seluruh negeri.' },
+    eyebrow: { en: 'About Us', id: 'Tentang Kami', zh: '关于我们' },
+    title: { en: 'Transforming into a Super Holding Company.', id: 'Bertransformasi menjadi Perusahaan Holding Super.', zh: '转型为超级控股集团。' },
+    subtitle: { en: 'Bike has evolved from a bicycle distribution company into a diversified super holding group, creating enduring value across energy, logistics, finance, healthcare, and infrastructure — operating in 15 countries.', id: 'Bike telah berevolusi dari perusahaan distribusi sepeda menjadi grup holding super terdiversifikasi, menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur — beroperasi di 15 negara.', zh: 'Bike 已从自行车分销公司发展为多元化超级控股集团，在能源、物流、金融、医疗保健和基础设施领域创造持久价值，业务遍及15个国家。' },
     backgroundImage: undefined,
   },
   overview: {
     sectionHeader: {
-      heading: { en: 'Who We Are', id: 'Siapa Kami' },
+      eyebrow: { en: 'Company Overview', id: 'Ikhtisar Perusahaan', zh: '公司概览' },
+      heading: { en: 'Who We Are', id: 'Siapa Kami', zh: '我们是谁' },
     },
     paragraphs: [
-      { en: 'Established in Tangerang in 2017, PT Bike Tbk operates in the wholesale distribution of bicycles. As the brand owner of Genio Bike and the largest distributor of United Bike and Avand, SBI brings more than 100 bicycle models and over 300 variants to the Indonesian market every year.', id: 'Didirikan di Tangerang pada tahun 2017, PT Bike Tbk beroperasi dalam distribusi grosir sepeda. Sebagai pemilik merek Genio Bike dan distributor terbesar United Bike dan Avand, SBI membawa lebih dari 100 model sepeda dan lebih dari 300 varian ke pasar Indonesia setiap tahun.' },
-      { en: 'Our nationwide distribution network reaches across Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, and Papua. We are committed to developing Indonesia\'s bicycle industry from upstream to downstream through a professional distribution network, integrated customer service, and a wide product portfolio that serves every market segment.', id: 'Jaringan distribusi nasional kami mencakup Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua. Kami berkomitmen untuk mengembangkan industri sepeda Indonesia dari hulu ke hilir melalui jaringan distribusi profesional, layanan pelanggan terintegrasi, dan portofolio produk yang luas yang melayani setiap segmen pasar.' },
+      { en: 'Bike has transformed from a bicycle distribution company into a diversified super holding group. Our portfolio spans energy, logistics, finance, healthcare, and infrastructure, with operations across 15 countries. We are committed to creating enduring value through responsible business practices and sustainable growth.', id: 'Bike telah bertransformasi dari perusahaan distribusi sepeda menjadi grup holding super terdiversifikasi. Portofolio kami mencakup energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur, dengan operasi di 15 negara. Kami berkomitmen untuk menciptakan nilai abadi melalui praktik bisnis yang bertanggung jawab dan pertumbuhan berkelanjutan.', zh: 'Bike 已从自行车分销公司转型为多元化超级控股集团。我们的业务组合涵盖能源、物流、金融、医疗保健和基础设施，业务遍及15个国家。我们致力于通过负责任的商业实践和可持续增长创造持久价值。' },
+      { en: 'Our transformation reflects a strategic vision to diversify and strengthen our business foundation. By expanding into multiple high-growth sectors, we aim to build long-term value for shareholders, partners, and communities while maintaining the highest standards of corporate governance.', id: 'Transformasi kami mencerminkan visi strategis untuk diversifikasi dan memperkuat fondasi bisnis kami. Dengan berekspansi ke berbagai sektor pertumbuhan tinggi, kami bertujuan membangun nilai jangka panjang bagi pemegang saham, mitra, dan masyarakat sambil mempertahankan standar tata kelola perusahaan tertinggi.', zh: '我们的转型体现了多元化和加强业务基础的战略愿景。通过扩展到多个高增长领域，我们旨在为股东、合作伙伴和社区创造长期价值，同时保持最高标准的公司治理。' },
     ],
   },
   info: {
     sectionHeader: {
-      heading: { en: 'Company Information', id: 'Informasi Perusahaan' },
+      eyebrow: { en: 'Corporate Information', id: 'Informasi Korporat', zh: '企业信息' },
+      heading: { en: 'Company Information', id: 'Informasi Perusahaan', zh: '公司信息' },
     },
     items: [
-      { label: { en: 'Company Name', id: 'Nama Perusahaan' }, value: { en: 'PT Bike Tbk', id: 'PT Bike Tbk' } },
-      { label: { en: 'Founded', id: 'Didirikan' }, value: { en: '2017', id: '2017' } },
-      { label: { en: 'Head Office', id: 'Kantor Pusat' }, value: { en: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', id: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia' } },
-      { label: { en: 'Core Business', id: 'Bisnis Utama' }, value: { en: 'Wholesale Bicycle Distribution', id: 'Distribusi Grosir Sepeda' } },
-      { label: { en: 'Website', id: 'Situs Web' }, value: { en: 'www.bike-tbk.co.id', id: 'www.bike-tbk.co.id' } },
-      { label: { en: 'Board of Commissioners', id: 'Dewan Komisaris' }, value: { en: 'Komisaris Utama & Anggota', id: 'Komisaris Utama & Anggota' } },
-      { label: { en: 'Board of Directors', id: 'Dewan Direksi' }, value: { en: 'Direktur Utama & Anggota', id: 'Direktur Utama & Anggota' } },
-      { label: { en: 'Dealer Network', id: 'Jaringan Dealer' }, value: { en: '578 Stores', id: '578 Toko' } },
-      { label: { en: 'Employees', id: 'Karyawan' }, value: { en: '16', id: '16' } },
+      { label: { en: 'Company Name', id: 'Nama Perusahaan', zh: '公司名称' }, value: { en: 'PT Bike Tbk', id: 'PT Bike Tbk', zh: 'PT Bike Tbk' } },
+      { label: { en: 'Founded', id: 'Didirikan', zh: '成立时间' }, value: { en: '2017', id: '2017', zh: '2017' } },
+      { label: { en: 'Head Office', id: 'Kantor Pusat', zh: '总部' }, value: { en: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', id: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', zh: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia' } },
+      { label: { en: 'Group Structure', id: 'Struktur Grup', zh: '集团架构' }, value: { en: 'Super Holding Company', id: 'Perusahaan Holding Super', zh: '超级控股公司' } },
+      { label: { en: 'Business Sectors', id: 'Sektor Bisnis', zh: '业务领域' }, value: { en: 'Energy, Logistics, Finance, Healthcare, Infrastructure', id: 'Energi, Logistik, Keuangan, Kesehatan, Infrastruktur', zh: '能源、物流、金融、医疗保健、基础设施' } },
+      { label: { en: 'Operations', id: 'Operasi', zh: '运营' }, value: { en: '15 Countries', id: '15 Negara', zh: '15个国家' } },
+      { label: { en: 'Website', id: 'Situs Web', zh: '网站' }, value: { en: 'www.bike-tbk.co.id', id: 'www.bike-tbk.co.id', zh: 'www.bike-tbk.co.id' } },
+      { label: { en: 'Listed on', id: 'Tercatat di', zh: '上市交易所' }, value: { en: 'Indonesia Stock Exchange (IDX)', id: 'Bursa Efek Indonesia (BEI)', zh: '印尼证券交易所 (IDX)' } },
+      { label: { en: 'Stock Code', id: 'Kode Saham', zh: '股票代码' }, value: { en: 'BIKE', id: 'BIKE', zh: 'BIKE' } },
     ],
   },
   visionMission: {
     sectionHeader: {
-      eyebrow: { en: 'Our Direction', id: 'Arah Kami' },
-      heading: { en: 'Vision & Mission', id: 'Visi & Misi' },
+      eyebrow: { en: 'Our Direction', id: 'Arah Kami', zh: '我们的方向' },
+      heading: { en: 'Vision & Mission', id: 'Visi & Misi', zh: '愿景与使命' },
     },
     vision: {
-      label: { en: 'Vision', id: 'Visi' },
-      statement: { en: 'Expanding market share throughout Indonesia by realizing customers\' aspirations and offering affordable mobility and lifestyle solutions while delivering excellent after-sales service.', id: 'Memperluas pangsa pasar di seluruh Indonesia dengan mewujudkan aspirasi pelanggan dan menawarkan solusi mobilitas dan gaya hidup yang terjangkau sambil memberikan layanan purna jual yang excellent.' },
+      label: { en: 'Vision', id: 'Visi', zh: '愿景' },
+      statement: { en: 'To be a leading super holding company creating enduring value across industries through responsible business practices, innovation, and sustainable growth.', id: 'Menjadi perusahaan holding super terkemuka yang menciptakan nilai abadi di seluruh industri melalui praktik bisnis yang bertanggung jawab, inovasi, dan pertumbuhan berkelanjutan.', zh: '成为领先的超级控股集团，通过负责任的商业实践、创新和可持续增长，跨行业创造持久价值。' },
     },
     mission: {
-      title: { en: 'Mission', id: 'Misi' },
+      title: { en: 'Mission', id: 'Misi', zh: '使命' },
       items: [
-        { title: { en: 'Build Long-Term Relationships', id: 'Membangun Hubungan Jangka Panjang' }, description: { en: 'Build and maintain strong relationships with dealers and customers to protect existing market share while expanding into new markets.', id: 'Membangun dan mempertahankan hubungan yang kuat dengan dealer dan pelanggan untuk melindungi pangsa pasar yang ada sambil memperluas ke pasar baru.' } },
-        { title: { en: 'Maintain Customer Loyalty', id: 'Mempertahankan Loyalitas Pelanggan' }, description: { en: 'Maintain customer loyalty by continuously improving product quality and customer satisfaction.', id: 'Mempertahankan loyalitas pelanggan dengan terus meningkatkan kualitas produk dan kepuasan pelanggan.' } },
-        { title: { en: 'Quality Assurance', id: 'Jaminan Kualitas' }, description: { en: 'Ensure every product passes consistent quality control before reaching customers.', id: 'Memastikan setiap produk lulus kontrol kualitas yang konsisten sebelum mencapai pelanggan.' } },
-        { title: { en: 'Customer Feedback', id: 'Umpan Balik Pelanggan' }, description: { en: 'Collect customer feedback through dealers and direct surveys to continuously improve products and services.', id: 'Mengumpulkan umpan balik pelanggan melalui dealer dan survei langsung untuk terus meningkatkan produk dan layanan.' } },
-        { title: { en: 'Excellent After-Sales Service', id: 'Layanan Purna Jual yang Excellent' }, description: { en: 'Deliver reliable after-sales service that supports long-term customer satisfaction.', id: 'Memberikan layanan purna jual yang andal yang mendukung kepuasan pelanggan jangka panjang.' } },
+        { title: { en: 'Create Enduring Value', id: 'Menciptakan Nilai Abadi', zh: '创造持久价值' }, description: { en: 'Build and manage a diversified portfolio of businesses that generate long-term value across multiple industries.', id: 'Membangun dan mengelola portofolio bisnis terdiversifikasi yang menghasilkan nilai jangka panjang di berbagai industri.', zh: '建立和管理多元化业务组合，在多个行业创造长期价值。' } },
+        { title: { en: 'Drive Innovation', id: 'Mendorong Inovasi', zh: '推动创新' }, description: { en: 'Foster innovation across all business sectors to stay competitive and adapt to evolving market needs.', id: 'Mendorong inovasi di seluruh sektor bisnis untuk tetap kompetitif dan beradaptasi dengan kebutuhan pasar yang terus berkembang.', zh: '在所有业务领域推动创新，保持竞争力并适应不断变化的市场需求。' } },
+        { title: { en: 'Responsible Governance', id: 'Tata Kelola yang Bertanggung Jawab', zh: '负责任的治理' }, description: { en: 'Maintain the highest standards of corporate governance, transparency, and accountability across all operations.', id: 'Mempertahankan standar tertinggi tata kelola perusahaan, transparansi, dan akuntabilitas di seluruh operasi.', zh: '在所有运营中保持最高标准的公司治理、透明度和问责制。' } },
+        { title: { en: 'Sustainable Growth', id: 'Pertumbuhan Berkelanjutan', zh: '可持续增长' }, description: { en: 'Pursue growth strategies that balance economic performance with environmental stewardship and social responsibility.', id: 'Menjalankan strategi pertumbuhan yang menyeimbangkan kinerja ekonomi dengan pengelolaan lingkungan dan tanggung jawab sosial.', zh: '追求平衡经济绩效与环境管理和社会责任的成长战略。' } },
+        { title: { en: 'Empower Communities', id: 'Memberdayakan Masyarakat', zh: '赋能社区' }, description: { en: 'Create positive impact in the communities where we operate through responsible business practices and strategic investments.', id: 'Menciptakan dampak positif di masyarakat tempat kami beroperasi melalui praktik bisnis yang bertanggung jawab dan investasi strategis.', zh: '通过负责任的商业实践和战略投资，在我们运营的社区创造积极影响。' } },
       ],
     },
   },
   culture: {
     sectionHeader: {
-      heading: { en: 'Our Culture', id: 'Budaya Kami' },
+      heading: { en: 'Our Culture', id: 'Budaya Kami', zh: '企业文化' },
     },
-    introduction: { en: 'At SBI, we believe that people are at the heart of every successful journey. Our culture is built on respect, integrity, and collaboration — empowering every individual to grow while contributing to a healthier and more sustainable Indonesia.', id: 'Di SBI, kami percaya bahwa orang-orang ada di jantung setiap perjalanan yang sukses. Budaya kami dibangun di atas rasa hormat, integritas, dan kolaborasi — memberdayakan setiap individu untuk tumbuh sambil berkontribusi pada Indonesia yang lebih sehat dan berkelanjutan.' },
+    introduction: { en: 'At Bike, we believe that people are at the heart of every successful journey. Our culture is built on respect, integrity, and collaboration — empowering every individual to grow while contributing to a sustainable future.', id: 'Di Bike, kami percaya bahwa orang-orang ada di jantung setiap perjalanan yang sukses. Budaya kami dibangun di atas rasa hormat, integritas, dan kolaborasi — memberdayakan setiap individu untuk tumbuh sambil berkontribusi pada masa depan yang berkelanjutan.', zh: '在 Bike，我们相信人是每次成功旅程的核心。我们的文化建立在尊重、诚信和协作的基础上——赋能每个人成长，同时为可持续未来做出贡献。' },
     cards: [
-      { icon: 'TreePine', title: { en: 'Human & Environment', id: 'Manusia & Lingkungan' }, description: { en: 'Promote honesty, responsibility, trust and environmental awareness.', id: 'Mempromosikan kejujuran, tanggung jawab, kepercayaan dan kesadaran lingkungan.' } },
-      { icon: 'HeartHandshake', title: { en: 'Human & Customers', id: 'Manusia & Pelanggan' }, description: { en: 'Deliver beyond expectations through empathy and excellent service.', id: 'Memberikan lebih dari yang diharapkan melalui empati dan layanan yang excellent.' } },
-      { icon: 'Users', title: { en: 'Human & Partners', id: 'Manusia & Mitra' }, description: { en: 'Build long-term partnerships based on fairness and mutual growth.', id: 'Membangun kemitraan jangka panjang berdasarkan keadilan dan pertumbuhan bersama.' } },
-      { icon: 'Lightbulb', title: { en: 'Innovation & People', id: 'Inovasi & Orang' }, description: { en: 'Support continuous development of people, products, services and innovation.', id: 'Mendukung pengembangan berkelanjutan orang, produk, layanan dan inovasi.' } },
+      { icon: 'TreePine', title: { en: 'Human & Environment', id: 'Manusia & Lingkungan', zh: '人与环境' }, description: { en: 'Promote honesty, responsibility, trust and environmental awareness.', id: 'Mempromosikan kejujuran, tanggung jawab, kepercayaan dan kesadaran lingkungan.', zh: '倡导诚实、责任、信任和环保意识。' } },
+      { icon: 'HeartHandshake', title: { en: 'Human & Customers', id: 'Manusia & Pelanggan', zh: '人与客户' }, description: { en: 'Deliver beyond expectations through empathy and excellent service.', id: 'Memberikan lebih dari yang diharapkan melalui empati dan layanan yang excellent.', zh: '通过同理心和卓越服务超越期望。' } },
+      { icon: 'Users', title: { en: 'Human & Partners', id: 'Manusia & Mitra', zh: '人与合作伙伴' }, description: { en: 'Build long-term partnerships based on fairness and mutual growth.', id: 'Membangun kemitraan jangka panjang berdasarkan keadilan dan pertumbuhan bersama.', zh: '基于公平和共同增长建立长期合作伙伴关系。' } },
+      { icon: 'Lightbulb', title: { en: 'Innovation & People', id: 'Inovasi & Orang', zh: '创新与人才' }, description: { en: 'Support continuous development of people, products, services and innovation.', id: 'Mendukung pengembangan berkelanjutan orang, produk, layanan dan inovasi.', zh: '支持人才、产品、服务和创新的持续发展。' } },
     ],
   },
   management: {
     sectionHeader: {
-      heading: { en: 'Management Profile', id: 'Profil Manajemen' },
+      eyebrow: { en: 'Leadership', id: 'Kepemimpinan', zh: '领导层' },
+      heading: { en: 'Management Profile', id: 'Profil Manajemen', zh: '管理层简介' },
     },
-    introduction: { en: 'Meet the experienced leaders guiding PT Bike Tbk through strategic growth, innovation, and responsible corporate governance.', id: 'Temui pemimpin berpengalaman yang memandu PT Bike Tbk melalui pertumbuhan strategis, inovasi, dan tata kelola perusahaan yang bertanggung jawab.' },
-    executives: [
-      { name: 'Henry Mulyadi', position: { en: 'Komisaris Utama', id: 'Komisaris Utama' }, biography: { en: 'Henry Mulyadi was born in Jakarta in 1963 and is one of the founders of PT Bike Tbk, currently serving as President Commissioner.', id: 'Henry Mulyadi lahir di Jakarta pada tahun 1963, merupakan salah satu pendiri PT Bike Tbk dan saat ini menjabat sebagai Komisaris Utama.' }, slug: { current: 'henry-mulyadi' }, image: { asset: { _ref: 'image-placeholder', _type: 'reference' }, url: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop' } },
-      { name: 'Mayor Jenderal TNI (Purn.) M. Nur Rahmad', position: { en: 'Independent Commissioner', id: 'Komisaris Independen' }, biography: { en: 'Mayor Jenderal TNI (Purn.) M. Nur Rahmad was born in Ciamis in 1965 and currently serves as Independent Commissioner of PT Bike Tbk.', id: 'Mayor Jenderal TNI (Purn.) M. Nur Rahmad lahir di Ciamis pada tahun 1965 dan saat ini menjabat sebagai Komisaris Independen PT Bike Tbk.' }, slug: { current: 'm-nur-rahmad' }, image: { asset: { _ref: 'image-placeholder', _type: 'reference' }, url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop' } },
-      { name: 'Andrew Mulyadi', position: { en: 'President Director', id: 'Direktur Utama' }, biography: { en: 'Andrew Mulyadi was born in Jakarta in 1957 and currently serves as President Director of PT Bike Tbk.', id: 'Andrew Mulyadi lahir di Jakarta pada tahun 1957 dan saat ini menjabat sebagai Direktur Utama PT Bike Tbk.' }, slug: { current: 'andrew-mulyadi' }, image: { asset: { _ref: 'image-placeholder', _type: 'reference' }, url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop' } },
-      { name: 'Winston Mulyadi', position: { en: 'Director', id: 'Direktur' }, biography: { en: 'Winston Mulyadi was born in Jakarta in 1994 and currently serves as Director of PT Bike Tbk.', id: 'Winston Mulyadi lahir di Jakarta pada tahun 1994 dan saat ini menjabat sebagai Direktur PT Bike Tbk.' }, slug: { current: 'winston-mulyadi' }, image: { asset: { _ref: 'image-placeholder', _type: 'reference' }, url: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop' } },
+    introduction: { en: 'Meet the experienced leaders guiding Bike through strategic growth, innovation, and responsible corporate governance.', id: 'Temui pemimpin berpengalaman yang memandu Bike melalui pertumbuhan strategis, inovasi, dan tata kelola perusahaan yang bertanggung jawab.', zh: '认识引领 Bike 实现战略增长、创新和负责任公司治理的经验丰富的领导者。' },
+    placeholder: { en: 'Management profiles will be available soon. Please check back later.', id: 'Profil manajemen akan segera tersedia. Silakan periksa kembali nanti.', zh: '管理层简介即将发布，请稍后回来查看。' },
+    viewBiographyLabel: { en: 'View Biography', id: 'Lihat Biografi', zh: '查看简历' },
+    executives: [],
+  },
+  milestonesSection: {
+    sectionHeader: {
+      eyebrow: { en: 'Our Journey', id: 'Perjalanan Kami', zh: '我们的历程' },
+      heading: { en: 'Company Milestones.', id: 'Tonggak Perusahaan.', zh: '公司里程碑。' },
+    },
+    cards: [
+      {
+        year: '2017',
+        title: { en: 'Company Established', id: 'Perusahaan Didirikan', zh: '公司成立' },
+        description: { en: 'Company established in October 2017 as PT Sepeda Bersama Indonesia.', id: 'Perusahaan didirikan pada Oktober 2017 sebagai PT Sepeda Bersama Indonesia.', zh: '公司于2017年10月成立，名为 PT Sepeda Bersama Indonesia。' },
+      },
+      {
+        year: '2021',
+        title: { en: 'Business Expansion', id: 'Ekspansi Bisnis', zh: '业务扩张' },
+        description: { en: 'Expanded distribution network with 319 dealers across Indonesia, becoming the largest distributor for Genio, United, and Avand bicycles.', id: 'Memperluas jaringan distribusi dengan 319 dealer di seluruh Indonesia, menjadi distributor terbesar untuk sepeda Genio, United, dan Avand.', zh: '扩展分销网络，在印尼拥有319家经销商，成为 Genio、United 和 Avand 自行车的最大分销商。' },
+      },
+      {
+        year: '2022',
+        title: { en: 'Initial Public Offering', id: 'Penawaran Umum Perdana', zh: '首次公开募股' },
+        description: { en: 'Initial Public Offering (IPO) on the Indonesia Stock Exchange with stock code BIKE.', id: 'Penawaran umum perdana (IPO) di Bursa Efek Indonesia dengan kode saham BIKE.', zh: '在印尼证券交易所首次公开募股（IPO），股票代码为 BIKE。' },
+      },
+      {
+        year: '2024',
+        title: { en: 'Business Diversification', id: 'Diversifikasi Bisnis', zh: '业务多元化' },
+        description: { en: 'Expanded into multiple business sectors including energy, logistics, finance, healthcare, and infrastructure.', id: 'Berekspansi ke berbagai sektor bisnis termasuk energi, logistik, keuangan, kesehatan, dan infrastruktur.', zh: '扩展至多个业务领域，包括能源、物流、金融、医疗保健和基础设施。' },
+      },
+      {
+        year: '2025',
+        title: { en: 'Transformation into Super Holding', id: 'Transformasi menjadi Super Holding', zh: '转型为超级控股' },
+        description: { en: 'Transformed into a diversified super holding company with operations spanning 15 countries across multiple industries.', id: 'Bertransformasi menjadi perusahaan holding super terdiversifikasi dengan operasi yang mencakup 15 negara di berbagai industri.', zh: '转型为多元化超级控股集团，业务遍及15个国家，涵盖多个行业。' },
+      },
     ],
+  },
+  cta: {
+    title: { en: 'Partner with Bike for a Sustainable Future.', id: 'Berkolaborasi dengan Bike untuk Masa Depan Berkelanjutan.', zh: '与 Bike 携手共创可持续未来。' },
+    description: { en: 'Whether you\'re a business partner, investor, or community stakeholder, we\'re ready to connect and explore opportunities together.', id: 'Baik Anda mitra bisnis, investor, atau pemangku kepentingan masyarakat, kami siap terhubung dan menjelajahi peluang bersama.', zh: '无论您是业务合作伙伴、投资者还是社区利益相关者，我们都随时准备与您联系，共同探索机遇。' },
+    primaryButton: { label: { en: 'Contact Us', id: 'Hubungi Kami', zh: '联系我们' }, href: '/contact', external: false },
+    secondaryButton: { label: { en: 'Get Directions', id: 'Petunjuk Arah', zh: '获取路线' }, href: 'https://maps.google.com', external: true },
   },
 };

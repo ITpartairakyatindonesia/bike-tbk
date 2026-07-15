@@ -13,19 +13,19 @@ const FALLBACK_NAVIGATION: NavigationGroups = {
   })),
   footerCompanyLinks: FOOTER_COMPANY_LINKS.map((item) => ({
     _key: item.href,
-    label: { en: item.label, id: item.label },
+    label: { en: item.label, id: item.label, zh: item.label },
     href: item.href,
     external: false,
   })),
   footerResourceLinks: FOOTER_RESOURCE_LINKS.map((item) => ({
     _key: item.href,
-    label: { en: item.label, id: item.label },
+    label: { en: item.label, id: item.label, zh: item.label },
     href: item.href,
     external: false,
   })),
   footerLegalLinks: FOOTER_LEGAL_LINKS.map((item) => ({
     _key: item.href,
-    label: { en: item.label, id: item.label },
+    label: { en: item.label, id: item.label, zh: item.label },
     href: item.href,
     external: false,
   })),

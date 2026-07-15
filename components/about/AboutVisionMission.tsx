@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
 import type { AboutVisionMissionSection } from "@/lib/types/sanity";
 import { pickLocalized } from "@/lib/utils";
 
@@ -10,12 +9,10 @@ interface AboutVisionMissionProps {
 }
 
 export function AboutVisionMission({ visionMission, locale }: AboutVisionMissionProps) {
-  const t = useTranslations('about');
-
-  const eyebrow = pickLocalized(visionMission?.sectionHeader?.eyebrow, locale) || t('vision.eyebrow');
-  const visionLabel = pickLocalized(visionMission?.vision?.label, locale) || t('vision.label');
-  const visionStatement = pickLocalized(visionMission?.vision?.statement, locale) || t('vision.statement');
-  const missionTitle = pickLocalized(visionMission?.mission?.title, locale) || t('mission.title');
+  const eyebrow = pickLocalized(visionMission?.sectionHeader?.eyebrow, locale);
+  const visionLabel = pickLocalized(visionMission?.vision?.label, locale);
+  const visionStatement = pickLocalized(visionMission?.vision?.statement, locale);
+  const missionTitle = pickLocalized(visionMission?.mission?.title, locale);
   const missionItems = visionMission?.mission?.items || [];
 
   return (

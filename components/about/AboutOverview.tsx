@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
 import type { AboutOverviewSection } from "@/lib/types/sanity";
 import { pickLocalized } from "@/lib/utils";
 
@@ -10,18 +9,19 @@ interface AboutOverviewProps {
 }
 
 export function AboutOverview({ overview, locale }: AboutOverviewProps) {
-  const t = useTranslations('about.overview');
-
-  const title = pickLocalized(overview?.sectionHeader?.heading, locale) || t('title');
-  const paragraphs = overview?.paragraphs || [t('paragraph1'), t('paragraph2')];
+  const eyebrow = pickLocalized(overview?.sectionHeader?.eyebrow, locale);
+  const title = pickLocalized(overview?.sectionHeader?.heading, locale);
+  const paragraphs = overview?.paragraphs || [];
 
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container-page">
         <div className="max-w-3xl mx-auto">
-          <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {t('sectionLabel')}
-          </div>
+          {eyebrow && (
+            <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
+              {eyebrow}
+            </div>
+          )}
           <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-10">
             {title}
           </h2>

@@ -107,7 +107,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
                     {title}
                   </h3>
                   <Link
-                    href={`/news/${slug}`}
+                    href={`/${locale}/news/${slug}`}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all"
                   >
                     {t('readMore')} <ArrowRight className="h-3.5 w-3.5" />
@@ -133,7 +133,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
                 </a>
               ) : (
                 <Link
-                  href={button.href}
+                  href={`/${locale}${button.href}`}
                   className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
                 >
                   {pickLocalized(button.label, locale)}

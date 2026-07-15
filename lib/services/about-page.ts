@@ -12,6 +12,8 @@ import type {
   AboutVisionMissionSection,
   AboutCultureSection,
   AboutManagementSection,
+  MilestonesSection,
+  CTASection,
   SanityImage,
 } from '@/lib/types/sanity'
 
@@ -112,6 +114,14 @@ export async function getAboutPage(): Promise<AboutPage> {
       page.management?.introduction,
       ABOUT_PAGE.management?.introduction
     ),
+    placeholder: ensureLocalizedText(
+      page.management?.placeholder,
+      ABOUT_PAGE.management?.placeholder
+    ),
+    viewBiographyLabel: ensureLocalizedString(
+      page.management?.viewBiographyLabel,
+      ABOUT_PAGE.management?.viewBiographyLabel
+    ),
     executives: (page.management?.executives || ABOUT_PAGE.management?.executives || []).map(
       (executive: { name?: string; position?: LocalizedString | string; biography?: LocalizedText | string; slug?: { current?: string }; image?: SanityImage | null }) => ({
         name: executive.name,
@@ -121,6 +131,25 @@ export async function getAboutPage(): Promise<AboutPage> {
         image: executive.image || undefined,
       })
     ),
+  }
+
+  const milestonesSection: MilestonesSection = {
+    sectionHeader: normalizeSectionHeader(
+      page.milestonesSection?.sectionHeader,
+      ABOUT_PAGE.milestonesSection?.sectionHeader
+    ),
+    cards: (page.milestonesSection?.cards || ABOUT_PAGE.milestonesSection?.cards || []).map((card) => ({
+      ...card,
+      title: ensureLocalizedString(card.title),
+      description: ensureLocalizedText(card.description),
+    })),
+  }
+
+  const cta: CTASection = {
+    title: ensureLocalizedString(page.cta?.title, ABOUT_PAGE.cta?.title),
+    description: ensureLocalizedText(page.cta?.description, ABOUT_PAGE.cta?.description),
+    primaryButton: normalizeButton(page.cta?.primaryButton, ABOUT_PAGE.cta?.primaryButton),
+    secondaryButton: normalizeButton(page.cta?.secondaryButton, ABOUT_PAGE.cta?.secondaryButton),
   }
 
   return {
@@ -134,5 +163,7 @@ export async function getAboutPage(): Promise<AboutPage> {
     visionMission,
     culture,
     management,
+    milestonesSection,
+    cta,
   }
 }

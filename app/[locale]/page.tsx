@@ -1,8 +1,6 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { BusinessSection } from "@/components/sections/BusinessSection";
-import { BrandsSection } from "@/components/sections/BrandsSection";
-import { TimelineSection } from "@/components/sections/TimelineSection";
 import { SustainabilitySection } from "@/components/sections/SustainabilitySection";
 import { NewsSection } from "@/components/sections/NewsSection";
 import { CTASection } from "@/components/sections/CTASection";
@@ -52,8 +50,6 @@ export default async function HomePage() {
       <HeroSection hero={homePage.hero || {}} />
       <AboutSection aboutPreview={homePage.aboutPreview || {}} />
       <BusinessSection businessHighlights={homePage.businessHighlights || {}} />
-      <BrandsSection brandsSection={homePage.brandsSection || {}} />
-      <TimelineSection milestonesSection={homePage.milestonesSection || {}} />
       <SustainabilitySection sustainability={homePage.sustainability || {}} />
       <NewsSection latestNews={homePage.latestNews || {}} newsItems={newsItems} />
       <CTASection cta={homePage.cta || {}} />

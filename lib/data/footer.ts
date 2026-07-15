@@ -9,16 +9,17 @@ export const FOOTER_SOCIAL_LINKS: { icon: LucideIcon; href: string; label: strin
 ];
 
 export const FOOTER_COMPANY_LINKS: { href: string; label: string }[] = [
-  { href: "/about", label: "About Us" },
-  { href: "#business", label: "Business" },
-  { href: "/products", label: "Products" },
+  { href: "/about", label: "About" },
+  { href: "/governance", label: "Governance" },
+  { href: "/business", label: "Business" },
   { href: "/investor", label: "Investor Relations" },
   { href: "/contact", label: "Contact" },
 ];
 
 export const FOOTER_RESOURCE_LINKS: { href: string; label: string }[] = [
-  { href: "#", label: "Sustainability" },
-  { href: "#", label: "Careers" },
+  { href: "/sustainability", label: "Sustainability" },
+  { href: "/career", label: "Careers" },
+  { href: "/news", label: "News" },
 ];
 
 export const FOOTER_LEGAL_LINKS: { href: string; label: string }[] = [

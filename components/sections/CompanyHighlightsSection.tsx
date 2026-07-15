@@ -10,14 +10,14 @@ interface LocalizedHighlight {
 
 const HIGHLIGHTS: LocalizedHighlight[] = [
   {
-    en: { value: "2017", label: "Established" },
-    id: { value: "2017", label: "Didirikan" },
-    zh: { value: "2017", label: "成立" },
+    en: { value: "15", label: "Countries" },
+    id: { value: "15", label: "Negara" },
+    zh: { value: "15", label: "个国家" },
   },
   {
-    en: { value: "Bicycle Distribution", label: "Core Business" },
-    id: { value: "Distribusi Sepeda", label: "Bisnis Utama" },
-    zh: { value: "自行车分销", label: "核心业务" },
+    en: { value: "5", label: "Business Sectors" },
+    id: { value: "5", label: "Sektor Bisnis" },
+    zh: { value: "5", label: "个业务领域" },
   },
   {
     en: { value: "Listed on IDX", label: "Public Company" },
@@ -25,9 +25,9 @@ const HIGHLIGHTS: LocalizedHighlight[] = [
     zh: { value: "在印尼证券交易所上市", label: "上市公司" },
   },
   {
-    en: { value: "Genio • United • Avand", label: "Brands" },
-    id: { value: "Genio • United • Avand", label: "Merek" },
-    zh: { value: "Genio • United • Avand", label: "品牌" },
+    en: { value: "Super Holding", label: "Group Structure" },
+    id: { value: "Holding Super", label: "Struktur Grup" },
+    zh: { value: "超级控股", label: "集团架构" },
   },
 ];
 

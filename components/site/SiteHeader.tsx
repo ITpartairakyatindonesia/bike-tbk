@@ -36,7 +36,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   // Get the pathname without locale prefix
   const pathnameWithoutLocale = pathname.replace(/^\/(en|id|zh)/, '') || '/';
 
-  const isDarkPage = pathnameWithoutLocale === "/contact" || pathnameWithoutLocale === "/investor" || pathnameWithoutLocale.startsWith("/organization");
+  const isDarkPage = pathnameWithoutLocale === "/contact" || pathnameWithoutLocale === "/investor" || pathnameWithoutLocale.startsWith("/organization") || pathnameWithoutLocale === "/governance" || pathnameWithoutLocale === "/business" || pathnameWithoutLocale === "/sustainability" || pathnameWithoutLocale === "/career" || pathnameWithoutLocale.startsWith("/news");
 
   // Handle language switch using next-intl routing
   const handleLanguageSwitch = (newLocale: string) => {

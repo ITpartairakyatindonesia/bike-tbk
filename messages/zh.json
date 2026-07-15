@@ -6,7 +6,8 @@
   "news": {
     "noNews": "暂无新闻",
     "readMore": "阅读更多",
-    "backToHome": "返回首页"
+    "backToHome": "返回首页",
+    "title": "新闻"
   },
   "navigation": {
     "getInTouch": "联系我们"
@@ -54,24 +55,22 @@
   "about": {
     "hero": {
       "eyebrow": "关于我们",
-      "headline": "通过更好的出行方式建设更健康的社区。",
-      "description": "PT Bike Tbk 成立于2017年，总部位于印尼丹格朗，现已发展成为印尼领先的自行车分销企业之一。凭借值得信赖的品牌、覆盖全国的经销网络以及对可持续经营的承诺，PT Bike 持续推动全国更加健康、积极的生活方式。"
+      "headline": "转型为超级控股集团。",
+      "description": "Bike 已从自行车分销公司发展为多元化超级控股集团，在能源、物流、金融、医疗保健和基础设施领域创造持久价值，业务遍及15个国家。"
     },
     "overview": {
       "sectionLabel": "公司概况",
       "title": "我们是谁",
-      "paragraph1": "PT Bike Tbk 于2017年成立于丹格朗，从事自行车批发分销业务。作为 Genio Bike 品牌所有者以及 United Bike 和 Avand 的最大分销商，公司每年向印尼市场提供100多个车型和300多个产品型号。",
-      "paragraph2": "我们的全国分销网络覆盖爪哇、巴厘岛、苏门答腊、加里曼丹、苏拉威西、努沙登加拉、马鲁古及巴布亚。我们致力于通过专业分销网络、完善的客户服务和丰富的产品组合，推动印尼自行车产业从上游到下游的发展，满足各类市场需求。"
+      "paragraph1": "Bike 已从自行车分销公司转型为多元化超级控股集团。我们的业务组合涵盖能源、物流、金融、医疗保健和基础设施，业务遍及15个国家。我们致力于通过负责任的商业实践和可持续增长创造持久价值。",
+      "paragraph2": "我们的转型体现了多元化和加强业务基础的战略愿景。通过扩展到多个高增长领域，我们旨在为股东、合作伙伴和社区创造长期价值，同时保持最高标准的公司治理。"
     },
     "highlights": {
       "established": "成立时间",
-      "brands": "品牌",
-      "productPortfolio": "产品组合",
-      "variants": "产品型号",
-      "dealerNetwork": "经销网络",
-      "stores": "门店",
-      "employees": "员工",
-      "business": "业务"
+      "countries": "国家",
+      "businessSectors": "业务领域",
+      "groupStructure": "集团架构",
+      "listedOn": "上市交易所",
+      "stockCode": "股票代码"
     },
     "info": {
       "sectionLabel": "公司信息",
@@ -79,17 +78,17 @@
       "companyName": "公司名称",
       "founded": "成立时间",
       "headOffice": "总部",
-      "coreBusiness": "核心业务",
+      "groupStructure": "集团架构",
+      "businessSectors": "业务领域",
+      "operations": "运营",
       "website": "官方网站",
-      "boardOfCommissioners": "监事会",
-      "boardOfDirectors": "董事会",
-      "dealerNetwork": "经销网络",
-      "employees": "员工"
+      "listedOn": "上市交易所",
+      "stockCode": "股票代码"
     },
     "vision": {
       "eyebrow": "我们的方向",
       "label": "愿景",
-      "statement": "通过实现客户需求、提供价格合理的出行与生活方式解决方案，并提供卓越的售后服务，不断扩大公司在印尼市场的占有率。"
+      "statement": "成为领先的超级控股集团，通过负责任的商业实践、创新和可持续增长，跨行业创造持久价值。"
     },
     "mission": {
       "title": "使命"
@@ -97,12 +96,13 @@
     "culture": {
       "title": "企业文化",
       "subtitle": "以人为本，共同成长。",
-      "introduction": "在 PT Bike，我们相信人才是每一段成功旅程的核心。我们的企业文化建立在尊重、诚信与合作的基础之上，赋能每一位员工不断成长，共同建设更加健康、更加可持续发展的印度尼西亚。"
+      "introduction": "在 Bike，我们相信人才是每一段成功旅程的核心。我们的企业文化建立在尊重、诚信与合作的基础之上，赋能每一位员工不断成长，共同建设可持续发展的未来。"
     },
     "management": {
       "sectionLabel": "领导团队",
       "title": "管理层简介",
-      "introduction": "认识带领 PT Bike Tbk 实现战略增长、持续创新及良好公司治理的管理团队。",
+      "introduction": "认识带领 Bike 实现战略增长、持续创新及良好公司治理的管理团队。",
+      "placeholder": "管理层简介即将发布，请稍后关注。",
       "viewBiography": "查看简介",
       "backToAbout": "返回关于我们",
       "managementProfile": "管理层简介",
@@ -114,11 +114,11 @@
     "distribution": {
       "title": "分销网络",
       "subtitle": "覆盖印度尼西亚各地",
-      "description": "Bike 的分销网络遍布印尼群岛，确保高品质自行车及售后服务能够惠及全国各地社区。"
+      "description": "Bike 的分销网络遍布印尼群岛，确保高品质产品及售后服务能够惠及全国各地社区。"
     },
     "closing": {
-      "headline": "携手推动印度尼西亚迈向未来。",
-      "description": "秉持创新、负责任经营和值得信赖的合作伙伴关系，PT Bike Tbk 将持续巩固印尼自行车产业的发展，为客户、股东、员工、经销商及社会创造长期价值。",
+      "headline": "携手共建可持续未来。",
+      "description": "秉持负责任经营、创新和战略合作伙伴关系，Bike 持续跨行业为股东、合作伙伴和社区创造持久价值。",
       "contactUs": "联系我们",
       "investorRelations": "投资者关系"
     }
@@ -152,6 +152,80 @@
       "description": "访问各品牌官方网站，了解最新产品系列、规格参数及经销商信息。"
     }
   },
+  "governance": {
+    "hero": {
+      "eyebrow": "公司治理",
+      "title": "企业治理",
+      "description": "我们致力于透明度、问责制和负责任的商业实践。"
+    },
+    "placeholder": "公司治理内容即将上线。"
+  },
+  "business": {
+    "viewAll": "探索我们的业务",
+    "hero": {
+      "eyebrow": "业务",
+      "headline": "跨行业创造价值。",
+      "description": "从自行车分销起步，到转型为多元化超级控股集团，我们持续在能源、物流、金融、医疗保健和基础设施领域创造持久价值。"
+    },
+    "introduction": {
+      "title": "我们的业务身份",
+      "paragraph1": "Bike 已从单一业务的自行车分销公司发展为多元化超级控股集团。我们的业务组合涵盖多个高增长领域，每个领域都以卓越、创新和可持续价值创造为承诺进行管理。",
+      "paragraph2": "我们的转型体现了建立韧性业务基础的战略愿景，能够适应不断变化的市场动态，同时为15个国家的股东、合作伙伴和社区持续创造价值。",
+      "stat1Value": "5",
+      "stat1Label": "业务领域",
+      "stat2Value": "15",
+      "stat2Label": "国家",
+      "stat3Value": "2017",
+      "stat3Label": "成立时间",
+      "stat4Value": "IDX",
+      "stat4Label": "上市交易所"
+    },
+    "extension": {
+      "sectionLabel": "增长",
+      "title": "业务扩展",
+      "description": "拓展我们的覆盖范围和能力，更有效地服务市场。",
+      "card1Title": "市场扩张",
+      "card1Description": "将业务拓展至新的地理市场和客户群体，覆盖多个区域。",
+      "card2Title": "产能提升",
+      "card2Description": "投资基础设施、技术和人才，扩大运营规模并满足不断增长的需求。",
+      "card3Title": "网络强化",
+      "card3Description": "建立战略合作伙伴关系和分销渠道，深化市场渗透和服务质量。"
+    },
+    "development": {
+      "sectionLabel": "创新",
+      "title": "业务发展",
+      "description": "通过创新、研发和持续改进推动增长。",
+      "card1Title": "创新",
+      "card1Description": "在所有业务领域培育创新文化，开发新解决方案并保持市场趋势领先。",
+      "card2Title": "研发",
+      "card2Description": "投资研究计划，探索新兴技术并识别新的商业机会。",
+      "card3Title": "战略增长",
+      "card3Description": "推进战略收购、合资企业和合作伙伴关系，加速业务发展。"
+    },
+    "diversification": {
+      "sectionLabel": "转型",
+      "title": "业务多元化",
+      "description": "我们从单一产品公司到多元化超级控股集团的历程，代表了商业模式的根本转型。",
+      "paragraph": "通过扩展到能源、物流、金融、医疗保健和基础设施领域，我们建立了一个平衡稳定与增长的韧性组合——为 Bike 在多个行业的长期成功奠定基础。",
+      "ctaLabel": "了解我们的历程"
+    }
+  },
+  "sustainability": {
+    "hero": {
+      "eyebrow": "可持续发展",
+      "title": "可持续发展",
+      "description": "通过负责任的商业实践建设可持续未来。"
+    },
+    "placeholder": "可持续发展内容即将上线。"
+  },
+  "career": {
+    "hero": {
+      "eyebrow": "人才招聘",
+      "title": "加入我们的团队",
+      "description": "发现职业机遇，与我们一起成长。"
+    },
+    "placeholder": "招聘内容即将上线。"
+  },
   "metadata": {
     "home": {
       "title": "Bike - 塑造可持续未来",
@@ -176,6 +250,26 @@
     "products": {
       "title": "产品 - PT Bike Tbk",
       "description": "我们拥有值得信赖的自行车品牌组合，覆盖从儿童到专业骑行者的各类市场需求，倡导健康生活方式与可持续出行。"
+    },
+    "governance": {
+      "title": "公司治理 - Bike",
+      "description": "了解 Bike 的公司治理结构、政策及对透明度的承诺。"
+    },
+    "business": {
+      "title": "业务 - Bike",
+      "description": "探索 Bike 在多个行业和市场的多元化业务组合。"
+    },
+    "sustainability": {
+      "title": "可持续发展 - Bike",
+      "description": "了解 Bike 如何通过负责任的商业实践建设可持续未来。"
+    },
+    "career": {
+      "title": "人才招聘 - Bike",
+      "description": "加入 Bike 团队，探索集团各公司的职业发展机遇。"
+    },
+    "news": {
+      "title": "新闻 - Bike",
+      "description": "Bike 的最新新闻与动态。"
     }
   }
 }

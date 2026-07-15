@@ -1,6 +1,8 @@
 "use client";
 
-import { useLocale } from 'next-intl';
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { useLocale, useTranslations } from 'next-intl';
 import { type Locale } from '@/i18n/routing';
 import { ShieldCheck, Leaf, Users, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -20,6 +22,7 @@ interface SustainabilitySectionProps {
 
 export function SustainabilitySection({ sustainability }: SustainabilitySectionProps) {
   const locale = useLocale() as Locale;
+  const t = useTranslations('sustainability');
 
   const heading = pickLocalized(sustainability?.sectionHeader?.heading, locale);
   const description = pickLocalized(sustainability?.description, locale);
@@ -66,6 +69,14 @@ export function SustainabilitySection({ sustainability }: SustainabilitySectionP
             );
           })}
         </div>
+      </div>
+      <div className="col-span-full mt-10 flex justify-center">
+        <Link
+          href={`/${locale}/sustainability`}
+          className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
+        >
+          {t('hero.title')} <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
     </section>
   );
