@@ -1,0 +1,181 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误"
+  },
+  "news": {
+    "noNews": "暂无新闻",
+    "readMore": "阅读更多",
+    "backToHome": "返回首页"
+  },
+  "navigation": {
+    "getInTouch": "联系我们"
+  },
+  "footer": {
+    "company": "公司",
+    "resources": "资源",
+    "headOffice": "总部",
+    "copyright": "版权所有"
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "联系我们",
+      "heading": "让我们开始沟通",
+      "description": "无论您是业务合作伙伴、投资者、媒体代表、经销商还是客户，我们的团队都随时为您提供协助。"
+    },
+    "form": {
+      "title": "发送消息",
+      "description": "请填写以下表单，我们的团队将在24小时内与您联系。",
+      "fields": {
+        "name": {
+          "label": "您的姓名",
+          "placeholder": "请输入您的姓名"
+        },
+        "email": {
+          "label": "电子邮箱",
+          "placeholder": "请输入您的电子邮箱"
+        },
+        "subject": {
+          "label": "主题",
+          "placeholder": "请输入消息主题"
+        },
+        "message": {
+          "label": "留言内容",
+          "placeholder": "请在此输入您的留言"
+        }
+      },
+      "submit": "发送消息"
+    },
+    "information": {
+      "headOffice": "总部",
+      "corporateSecretary": "公司秘书"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "关于我们",
+      "headline": "通过更好的出行方式建设更健康的社区。",
+      "description": "PT Bike Tbk 成立于2017年，总部位于印尼丹格朗，现已发展成为印尼领先的自行车分销企业之一。凭借值得信赖的品牌、覆盖全国的经销网络以及对可持续经营的承诺，PT Bike 持续推动全国更加健康、积极的生活方式。"
+    },
+    "overview": {
+      "sectionLabel": "公司概况",
+      "title": "我们是谁",
+      "paragraph1": "PT Bike Tbk 于2017年成立于丹格朗，从事自行车批发分销业务。作为 Genio Bike 品牌所有者以及 United Bike 和 Avand 的最大分销商，公司每年向印尼市场提供100多个车型和300多个产品型号。",
+      "paragraph2": "我们的全国分销网络覆盖爪哇、巴厘岛、苏门答腊、加里曼丹、苏拉威西、努沙登加拉、马鲁古及巴布亚。我们致力于通过专业分销网络、完善的客户服务和丰富的产品组合，推动印尼自行车产业从上游到下游的发展，满足各类市场需求。"
+    },
+    "highlights": {
+      "established": "成立时间",
+      "brands": "品牌",
+      "productPortfolio": "产品组合",
+      "variants": "产品型号",
+      "dealerNetwork": "经销网络",
+      "stores": "门店",
+      "employees": "员工",
+      "business": "业务"
+    },
+    "info": {
+      "sectionLabel": "公司信息",
+      "title": "公司资料",
+      "companyName": "公司名称",
+      "founded": "成立时间",
+      "headOffice": "总部",
+      "coreBusiness": "核心业务",
+      "website": "官方网站",
+      "boardOfCommissioners": "监事会",
+      "boardOfDirectors": "董事会",
+      "dealerNetwork": "经销网络",
+      "employees": "员工"
+    },
+    "vision": {
+      "eyebrow": "我们的方向",
+      "label": "愿景",
+      "statement": "通过实现客户需求、提供价格合理的出行与生活方式解决方案，并提供卓越的售后服务，不断扩大公司在印尼市场的占有率。"
+    },
+    "mission": {
+      "title": "使命"
+    },
+    "culture": {
+      "title": "企业文化",
+      "subtitle": "以人为本，共同成长。",
+      "introduction": "在 PT Bike，我们相信人才是每一段成功旅程的核心。我们的企业文化建立在尊重、诚信与合作的基础之上，赋能每一位员工不断成长，共同建设更加健康、更加可持续发展的印度尼西亚。"
+    },
+    "management": {
+      "sectionLabel": "领导团队",
+      "title": "管理层简介",
+      "introduction": "认识带领 PT Bike Tbk 实现战略增长、持续创新及良好公司治理的管理团队。",
+      "viewBiography": "查看简介",
+      "backToAbout": "返回关于我们",
+      "managementProfile": "管理层简介",
+      "biography": "个人简介",
+      "education": "教育背景",
+      "career": "职业经历",
+      "currentPositions": "现任职务"
+    },
+    "distribution": {
+      "title": "分销网络",
+      "subtitle": "覆盖印度尼西亚各地",
+      "description": "Bike 的分销网络遍布印尼群岛，确保高品质自行车及售后服务能够惠及全国各地社区。"
+    },
+    "closing": {
+      "headline": "携手推动印度尼西亚迈向未来。",
+      "description": "秉持创新、负责任经营和值得信赖的合作伙伴关系，PT Bike Tbk 将持续巩固印尼自行车产业的发展，为客户、股东、员工、经销商及社会创造长期价值。",
+      "contactUs": "联系我们",
+      "investorRelations": "投资者关系"
+    }
+  },
+  "products": {
+    "viewDetails": "查看详情",
+    "hero": {
+      "eyebrow": "我们的产品",
+      "headline": "值得信赖的自行车品牌，陪伴每一段旅程。",
+      "description": "PT Bike Tbk 提供丰富的自行车品牌组合，覆盖从儿童到专业骑行者的各类市场需求，支持更健康的生活方式和可持续出行。"
+    },
+    "introduction": {
+      "title": "覆盖各细分市场的竞争优势",
+      "paragraph1": "PT Bike Tbk 拥有印尼最丰富的自行车产品组合之一，覆盖从幼儿到成年人的各年龄层。",
+      "paragraph2": "我们的产品广泛应用于交通出行、运动、休闲、健康、时尚及现代生活方式，满足不同消费者的需求。",
+      "paragraph3": "印尼的人口红利为可持续出行带来了长期机遇，而不断提升的环保意识也推动了自行车作为新经济时代交通工具的需求增长。",
+      "paragraph4": "每个品牌均经过战略定位，服务不同市场细分领域，具备鲜明的品牌定位与竞争优势。",
+      "productCategories": "产品类别",
+      "allAges": "全年龄段",
+      "toddlersToAdults": "从幼儿到成年人",
+      "transport": "交通出行",
+      "lifestyle": "与生活方式",
+      "sustainable": "可持续",
+      "mobility": "出行"
+    },
+    "brands": {
+      "visit": "访问官网"
+    },
+    "cta": {
+      "title": "探索我们完整的产品组合",
+      "description": "访问各品牌官方网站，了解最新产品系列、规格参数及经销商信息。"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Bike - 塑造可持续未来",
+      "description": "Bike 是一家多元化控股集团，在能源、物流、金融、医疗保健和基础设施等领域创造长期价值，业务遍及15个国家。"
+    },
+    "about": {
+      "title": "关于我们 - PT Bike Tbk",
+      "description": "了解 PT Bike Tbk——成立于2017年的印尼领先自行车分销企业，致力于打造更加健康、积极的社区。"
+    },
+    "contact": {
+      "title": "联系我们 - PT Bike Tbk",
+      "description": "联系 PT Bike Tbk。欢迎访问总部、致电咨询或发送消息与我们取得联系。"
+    },
+    "investor": {
+      "title": "投资者关系 - Bike",
+      "description": "获取 Bike 的投资者关系资料，包括年度报告、财务报表、公司治理文件及公开说明会材料。"
+    },
+    "organization": {
+      "title": "品牌 - Bike",
+      "description": "探索 Bike 值得信赖的自行车品牌：Genio、United 和 Avand，满足日常通勤、公路骑行及山地骑行等多样化需求。"
+    },
+    "products": {
+      "title": "产品 - PT Bike Tbk",
+      "description": "我们拥有值得信赖的自行车品牌组合，覆盖从儿童到专业骑行者的各类市场需求，倡导健康生活方式与可持续出行。"
+    }
+  }
+}

@@ -94,12 +94,15 @@ export default defineType({
   preview: {
     select: {
       title: 'title.en',
+      titleId: 'title.id',
+      titleZh: 'title.zh',
       category: 'category',
       publishedAt: 'publishedAt',
       featured: 'featured',
       media: 'featuredImage',
     },
-    prepare({ title, category, publishedAt, featured, media }) {
+    prepare({ title, titleId, titleZh, category, publishedAt, featured, media }) {
+      const displayTitle = title || titleId || titleZh || 'Untitled News'
       const date = publishedAt
         ? new Date(publishedAt).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -109,7 +112,7 @@ export default defineType({
         : 'Unscheduled'
       const badge = featured ? ' ★ Featured' : ''
       return {
-        title: title || 'Untitled News',
+        title: displayTitle,
         subtitle: `${date}${category ? ` · ${category}` : ''}${badge}`,
         media,
       }

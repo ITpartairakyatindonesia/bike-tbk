@@ -52,7 +52,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
     : undefined;
 
   const formattedDate = publishedAt 
-    ? new Date(publishedAt).toLocaleDateString(locale === 'id' ? 'id-ID' : 'en-US', {
+    ? new Date(publishedAt).toLocaleDateString(locale === 'id' ? 'id-ID' : locale === 'zh' ? 'zh-CN' : 'en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',

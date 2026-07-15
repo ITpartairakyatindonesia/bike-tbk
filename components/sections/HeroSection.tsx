@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLocale } from 'next-intl';
+import { type Locale } from '@/i18n/routing';
 import { urlFor } from "@/lib/cms/image";
+import { pickLocalized } from "@/lib/utils";
 import { CompanyHighlightsSection } from "./CompanyHighlightsSection";
 import type { Button, HeroSection as HeroSectionType } from "@/lib/types/sanity";
 
@@ -13,9 +15,9 @@ interface HeroSectionProps {
 
 function getValidButton(
   button: Button | undefined | null,
-  locale: "en" | "id"
+  locale: Locale
 ): Button | null {
-  return button && button.label?.[locale] && button.href ? button : null;
+  return button && pickLocalized(button.label, locale) && button.href ? button : null;
 }
 
 function primaryButtonClassName() {
@@ -36,7 +38,7 @@ function buttonContent(label: string, showIcon = true) {
 }
 
 export function HeroSection({ hero }: HeroSectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as Locale;
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -64,13 +66,13 @@ export function HeroSection({ hero }: HeroSectionProps) {
         <div className="max-w-3xl reveal">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 backdrop-blur px-4 py-1.5 text-xs font-medium tracking-wider uppercase mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
-            {hero?.eyebrow?.[locale]}
+            {pickLocalized(hero?.eyebrow, locale)}
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight">
-            {hero?.title?.[locale]}
+            {pickLocalized(hero?.title, locale)}
           </h1>
           <p className="mt-6 text-lg md:text-xl opacity-85 max-w-2xl leading-relaxed">
-            {hero?.subtitle?.[locale]}
+            {pickLocalized(hero?.subtitle, locale)}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             {(() => {
@@ -83,11 +85,11 @@ export function HeroSection({ hero }: HeroSectionProps) {
                   rel="noopener noreferrer"
                   className={primaryButtonClassName()}
                 >
-                  {buttonContent(button.label?.[locale])}
+                  {buttonContent(pickLocalized(button.label, locale) || '')}
                 </a>
               ) : (
                 <Link href={button.href} className={primaryButtonClassName()}>
-                  {buttonContent(button.label?.[locale])}
+                  {buttonContent(pickLocalized(button.label, locale) || '')}
                 </Link>
               );
             })()}
@@ -101,11 +103,11 @@ export function HeroSection({ hero }: HeroSectionProps) {
                   rel="noopener noreferrer"
                   className={secondaryButtonClassName()}
                 >
-                  {buttonContent(button.label?.[locale], false)}
+                  {buttonContent(pickLocalized(button.label, locale) || '', false)}
                 </a>
               ) : (
                 <Link href={button.href} className={secondaryButtonClassName()}>
-                  {buttonContent(button.label?.[locale], false)}
+                  {buttonContent(pickLocalized(button.label, locale) || '', false)}
                 </Link>
               );
             })()}

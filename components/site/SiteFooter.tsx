@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { CONTACT_INFO } from "@/lib/data";
 import { urlFor } from "@/lib/cms/image";
 import { AnchorLink } from "@/components/ui/AnchorLink";
+import { pickLocalized, hasLocalizedContent } from "@/lib/utils";
 import type { LocalizedString, LocalizedText } from "@/lib/types/sanity";
 
 interface SiteFooterProps {
@@ -52,13 +53,13 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
   );
 
   const validCompanyLinks = (navigation.footerCompanyLinks || []).filter(
-    (link) => link.href && (link.label?.en || link.label?.id)
+    (link) => link.href && hasLocalizedContent(link.label)
   );
   const validResourceLinks = (navigation.footerResourceLinks || []).filter(
-    (link) => link.href && (link.label?.en || link.label?.id)
+    (link) => link.href && hasLocalizedContent(link.label)
   );
   const validLegalLinks = (navigation.footerLegalLinks || []).filter(
-    (link) => link.href && (link.label?.en || link.label?.id)
+    (link) => link.href && hasLocalizedContent(link.label)
   );
 
   return (
@@ -82,7 +83,7 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
             </div>
           </div>
           <p className="text-sm opacity-75 leading-relaxed">
-            {siteSettings.footerDescription?.[locale as keyof LocalizedText]}
+            {pickLocalized(siteSettings.footerDescription, locale)}
           </p>
           {validSocialLinks.length > 0 && (
             <div className="flex gap-2">
@@ -113,9 +114,9 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
               {validCompanyLinks.map((link, index) => (
                 <li key={`${link.href}-${index}`}>
                   {link.href.startsWith('#') ? (
-                    <AnchorLink href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</AnchorLink>
+                    <AnchorLink href={link.href} className="opacity-85 hover:opacity-100">{pickLocalized(link.label, locale)}</AnchorLink>
                   ) : (
-                    <Link href={`/${locale}${link.href}`} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
+                    <Link href={`/${locale}${link.href}`} className="opacity-85 hover:opacity-100">{pickLocalized(link.label, locale)}</Link>
                   )}
                 </li>
               ))}
@@ -130,9 +131,9 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
               {validResourceLinks.map((link, index) => (
                 <li key={`${link.href}-${index}`}>
                   {link.href.startsWith('#') ? (
-                    <AnchorLink href={link.href} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</AnchorLink>
+                    <AnchorLink href={link.href} className="opacity-85 hover:opacity-100">{pickLocalized(link.label, locale)}</AnchorLink>
                   ) : (
-                    <Link href={`/${locale}${link.href}`} className="opacity-85 hover:opacity-100">{link.label[locale as keyof LocalizedString]}</Link>
+                    <Link href={`/${locale}${link.href}`} className="opacity-85 hover:opacity-100">{pickLocalized(link.label, locale)}</Link>
                   )}
                 </li>
               ))}
@@ -157,7 +158,7 @@ export function SiteFooter({ siteSettings, navigation }: SiteFooterProps) {
             <div className="flex gap-5">
               {validLegalLinks.map((link, index) => (
                 <a key={index} href={link.href} className="hover:opacity-100">
-                  {link.label[locale as keyof LocalizedString]}
+                  {pickLocalized(link.label, locale)}
                 </a>
               ))}
             </div>

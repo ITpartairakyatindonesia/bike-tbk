@@ -7,19 +7,23 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   localizedContent{
     tagline{
       en,
-      id
+      id,
+      zh
     },
     footerDescription{
       en,
-      id
+      id,
+      zh
     },
     defaultSeoTitle{
       en,
-      id
+      id,
+      zh
     },
     defaultSeoDescription{
       en,
-      id
+      id,
+      zh
     }
   },
   logo{
@@ -40,7 +44,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
@@ -49,7 +54,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
@@ -58,7 +64,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
@@ -67,7 +74,8 @@ export const NAVIGATION_QUERY = `*[_id == "navigation"][0]{
     _key,
     label{
       en,
-      id
+      id,
+      zh
     },
     href,
     external
@@ -79,12 +87,14 @@ export const NEWS_QUERY = `*[_type == "news" && defined(publishedAt) && publishe
   _type,
   title{
     en,
-    id
+    id,
+    zh
   },
   slug,
   excerpt{
     en,
-    id
+    id,
+    zh
   },
   featuredImage{
     asset->
@@ -101,12 +111,14 @@ export const LATEST_NEWS_QUERY = `*[_type == "news" && defined(publishedAt) && p
   _type,
   title{
     en,
-    id
+    id,
+    zh
   },
   slug,
   excerpt{
     en,
-    id
+    id,
+    zh
   },
   featuredImage{
     asset->
@@ -121,12 +133,14 @@ export const NEWS_BY_SLUG_QUERY = `*[_type == "news" && slug.current == $slug][0
   _type,
   title{
     en,
-    id
+    id,
+    zh
   },
   slug,
   excerpt{
     en,
-    id
+    id,
+    zh
   },
   featuredImage{
     asset->
@@ -141,21 +155,25 @@ export const NEWS_BY_SLUG_QUERY = `*[_type == "news" && slug.current == $slug][0
 const sectionHeaderFragment = `sectionHeader{
     eyebrow{
       en,
-      id
+      id,
+      zh
     },
     heading{
       en,
-      id
+      id,
+      zh
     },
     description{
       en,
-      id
+      id,
+      zh
     }
   }`
 
 const buttonFragment = `label{
     en,
-    id
+    id,
+    zh
   },
   href,
   external`
@@ -167,15 +185,18 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
   hero{
     eyebrow{
       en,
-      id
+      id,
+      zh
     },
     title{
       en,
-      id
+      id,
+      zh
     },
     subtitle{
       en,
-      id
+      id,
+      zh
     },
     backgroundImage{
       asset->
@@ -191,11 +212,13 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
     ${sectionHeaderFragment},
     description{
       en,
-      id
+      id,
+      zh
     },
     secondaryDescription{
       en,
-      id
+      id,
+      zh
     },
     image{
       asset->
@@ -203,11 +226,13 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
     visionCard{
       label{
         en,
-        id
+        id,
+        zh
       },
       statement{
         en,
-        id
+        id,
+        zh
       }
     },
     button{
@@ -223,11 +248,13 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
       },
       title{
         en,
-        id
+        id,
+        zh
       },
       description{
         en,
-        id
+        id,
+        zh
       },
       button{
         ${buttonFragment}
@@ -238,7 +265,8 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
     ${sectionHeaderFragment},
     description{
       en,
-      id
+      id,
+      zh
     },
     image{
       asset->
@@ -247,7 +275,8 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
       icon,
       title{
         en,
-        id
+        id,
+        zh
       }
     }
   },
@@ -255,7 +284,8 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
     ${sectionHeaderFragment},
     description{
       en,
-      id
+      id,
+      zh
     },
     viewAllButton{
       ${buttonFragment}
@@ -264,11 +294,13 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
   cta{
     title{
       en,
-      id
+      id,
+      zh
     },
     description{
       en,
-      id
+      id,
+      zh
     },
     primaryButton{
       ${buttonFragment}
@@ -286,16 +318,19 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
       },
       name{
         en,
-        id
+        id,
+        zh
       },
       description{
         en,
-        id
+        id,
+        zh
       },
       button{
         label{
           en,
-          id
+          id,
+          zh
         },
         href,
         external
@@ -306,11 +341,13 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
         },
         name{
           en,
-          id
+          id,
+          zh
         },
         description{
           en,
-          id
+          id,
+          zh
         },
         link
       }
@@ -323,11 +360,13 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
       year,
       title{
         en,
-        id
+        id,
+        zh
       },
       description{
         en,
-        id
+        id,
+        zh
       },
       image{
         asset->
@@ -343,15 +382,18 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
   hero{
     eyebrow{
       en,
-      id
+      id,
+      zh
     },
     title{
       en,
-      id
+      id,
+      zh
     },
     subtitle{
       en,
-      id
+      id,
+      zh
     },
     backgroundImage{
       asset->
@@ -367,7 +409,8 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
     ${sectionHeaderFragment},
     paragraphs[]{
       en,
-      id
+      id,
+      zh
     }
   },
   info{
@@ -375,11 +418,13 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
     items[]{
       label{
         en,
-        id
+        id,
+        zh
       },
       value{
         en,
-        id
+        id,
+        zh
       }
     }
   },
@@ -388,26 +433,31 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
     vision{
       label{
         en,
-        id
+        id,
+        zh
       },
       statement{
         en,
-        id
+        id,
+        zh
       }
     },
     mission{
       title{
         en,
-        id
+        id,
+        zh
       },
       items[]{
         title{
           en,
-          id
+          id,
+          zh
         },
         description{
           en,
-          id
+          id,
+          zh
         }
       }
     }
@@ -416,17 +466,20 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
     ${sectionHeaderFragment},
     introduction{
       en,
-      id
+      id,
+      zh
     },
     cards[]{
       icon,
       title{
         en,
-        id
+        id,
+        zh
       },
       description{
         en,
-        id
+        id,
+        zh
       }
     }
   },
@@ -434,17 +487,20 @@ export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
     ${sectionHeaderFragment},
     introduction{
       en,
-      id
+      id,
+      zh
     },
     executives[]{
       name,
       position{
         en,
-        id
+        id,
+        zh
       },
       biography{
         en,
-        id
+        id,
+        zh
       },
       slug{
         current
@@ -463,15 +519,18 @@ export const PRODUCT_PAGE_QUERY = `*[_type == "productPage"][0]{
   hero{
     eyebrow{
       en,
-      id
+      id,
+      zh
     },
     title{
       en,
-      id
+      id,
+      zh
     },
     subtitle{
       en,
-      id
+      id,
+      zh
     },
     backgroundImage{
       asset->
@@ -487,16 +546,19 @@ export const PRODUCT_PAGE_QUERY = `*[_type == "productPage"][0]{
     ${sectionHeaderFragment},
     paragraphs[]{
       en,
-      id
+      id,
+      zh
     },
     statCards[]{
       value{
         en,
-        id
+        id,
+        zh
       },
       label{
         en,
-        id
+        id,
+        zh
       }
     }
   },
@@ -505,11 +567,13 @@ export const PRODUCT_PAGE_QUERY = `*[_type == "productPage"][0]{
     features[]{
       title{
         en,
-        id
+        id,
+        zh
       },
       description{
         en,
-        id
+        id,
+        zh
       }
     }
   },
@@ -519,11 +583,13 @@ export const PRODUCT_PAGE_QUERY = `*[_type == "productPage"][0]{
       name,
       description{
         en,
-        id
+        id,
+        zh
       },
       highlights[]{
         en,
-        id
+        id,
+        zh
       },
       button{
         ${buttonFragment}
@@ -538,11 +604,13 @@ export const PRODUCT_PAGE_QUERY = `*[_type == "productPage"][0]{
       },
       name{
         en,
-        id
+        id,
+        zh
       },
       description{
         en,
-        id
+        id,
+        zh
       },
       link
     }
@@ -552,22 +620,26 @@ export const PRODUCT_PAGE_QUERY = `*[_type == "productPage"][0]{
     stages[]{
       title{
         en,
-        id
+        id,
+        zh
       },
       description{
         en,
-        id
+        id,
+        zh
       }
     }
   },
   cta{
     title{
       en,
-      id
+      id,
+      zh
     },
     description{
         en,
-        id
+        id,
+        zh
     },
     brandLinks[]{
       name,
@@ -583,25 +655,30 @@ export const CONTACT_PAGE_QUERY = `*[_type == "contactPage"][0]{
   hero{
     eyebrow{
       en,
-      id
+      id,
+      zh
     },
     title{
       en,
-      id
+      id,
+      zh
     },
     description{
       en,
-      id
+      id,
+      zh
     }
   },
   contactInformation{
     title{
       en,
-      id
+      id,
+      zh
     },
     address{
       en,
-      id
+      id,
+      zh
     },
     phone,
     email,
@@ -611,7 +688,8 @@ export const CONTACT_PAGE_QUERY = `*[_type == "contactPage"][0]{
   map{
     title{
       en,
-      id
+      id,
+      zh
     },
     embedUrl,
     button{
@@ -621,11 +699,13 @@ export const CONTACT_PAGE_QUERY = `*[_type == "contactPage"][0]{
   cta{
     title{
       en,
-      id
+      id,
+      zh
     },
     description{
       en,
-      id
+      id,
+      zh
     },
     button{
       ${buttonFragment}
@@ -640,25 +720,30 @@ export const INVESTOR_PAGE_QUERY = `*[_type == "investorPage"][0]{
   hero{
     label{
       en,
-      id
+      id,
+      zh
     },
     title{
       en,
-      id
+      id,
+      zh
     },
     description{
       en,
-      id
+      id,
+      zh
     }
   },
   cards[]{
     title{
       en,
-      id
+      id,
+      zh
     },
     description{
       en,
-      id
+      id,
+      zh
     },
     iconKey,
     documents[]{

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'
-const locales = ['en', 'id'] as const
+const locales = ['en', 'id', 'zh'] as const
 const paths = ['', '/about', '/contact', '/investor', '/organization', '/products']
 
 export default function sitemap(): MetadataRoute.Sitemap {

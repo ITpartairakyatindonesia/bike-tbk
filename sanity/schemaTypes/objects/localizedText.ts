@@ -17,5 +17,11 @@ export default defineType({
       type: 'text',
       rows: 3,
     }),
+    defineField({
+      name: 'zh',
+      title: 'Chinese (Simplified)',
+      type: 'text',
+      rows: 3,
+    }),
   ],
 })

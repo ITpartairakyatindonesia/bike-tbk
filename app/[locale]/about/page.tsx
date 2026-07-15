@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
   const canonicalUrl = `${baseUrl}/${locale}/about`;
   
-  const locales = ['en', 'id'] as const;
+  const locales = ['en', 'id', 'zh'] as const;
   const alternates = locales.map(loc => ({
     hrefLang: loc,
     href: `${baseUrl}/${loc}/about`,
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: t('title'),
       description: t('description'),
       url: canonicalUrl,
-      locale: locale === 'id' ? 'id_ID' : 'en_US',
+      locale: locale === 'id' ? 'id_ID' : locale === 'zh' ? 'zh_CN' : 'en_US',
     },
     twitter: {
       title: t('title'),

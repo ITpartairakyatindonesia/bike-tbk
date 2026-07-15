@@ -5,11 +5,12 @@ export const ensureLocalizedString = (
   fallback?: LocalizedString | null
 ) => {
   if (typeof value === 'string') {
-    return { en: value, id: value }
+    return { en: value, id: value, zh: value }
   }
   return {
     en: value?.en ?? fallback?.en ?? '',
     id: value?.id ?? fallback?.id ?? '',
+    zh: value?.zh ?? fallback?.zh ?? '',
   }
 }
 
@@ -18,11 +19,12 @@ export const ensureLocalizedText = (
   fallback?: LocalizedText | null
 ) => {
   if (typeof value === 'string') {
-    return { en: value, id: value }
+    return { en: value, id: value, zh: value }
   }
   return {
     en: value?.en ?? fallback?.en ?? '',
     id: value?.id ?? fallback?.id ?? '',
+    zh: value?.zh ?? fallback?.zh ?? '',
   }
 }
 

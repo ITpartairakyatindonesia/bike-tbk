@@ -18,7 +18,7 @@ export default defineType({
       name: 'name',
       title: 'Name',
       type: 'localizedString',
-      description: 'Brand name in English and Indonesian.',
+      description: 'Brand name in English, Indonesian, and Chinese.',
     }),
     defineField({
       name: 'description',

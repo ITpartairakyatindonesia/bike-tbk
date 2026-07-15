@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useLocale } from 'next-intl';
+import { type Locale } from '@/i18n/routing';
 import { urlFor } from "@/lib/cms/image";
+import { pickLocalized } from "@/lib/utils";
 import type { BrandsSection as BrandsSectionType } from "@/lib/types/sanity";
 
 interface BrandsSectionProps {
@@ -10,13 +12,13 @@ interface BrandsSectionProps {
 }
 
 export function BrandsSection({ brandsSection = {} }: BrandsSectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as Locale;
 
-  const eyebrow = brandsSection?.sectionHeader?.eyebrow?.[locale];
-  const heading = brandsSection?.sectionHeader?.heading?.[locale];
-  const description = brandsSection?.sectionHeader?.description?.[locale];
+  const eyebrow = pickLocalized(brandsSection?.sectionHeader?.eyebrow, locale);
+  const heading = pickLocalized(brandsSection?.sectionHeader?.heading, locale);
+  const description = pickLocalized(brandsSection?.sectionHeader?.description, locale);
 
-  const validCards = brandsSection?.cards?.filter((card) => card.name?.[locale]) || [];
+  const validCards = brandsSection?.cards?.filter((card) => pickLocalized(card.name, locale)) || [];
 
   if (!eyebrow && !heading && !description && validCards.length === 0) return null;
 
@@ -42,9 +44,9 @@ export function BrandsSection({ brandsSection = {} }: BrandsSectionProps) {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {validCards.map((card, index) => {
-            const name = card.name?.[locale];
+            const name = pickLocalized(card.name, locale);
             if (!name) return null;
-            const description = card.description?.[locale];
+            const description = pickLocalized(card.description, locale);
             const button = card.button;
             const logo = card.logo;
 
@@ -77,7 +79,7 @@ export function BrandsSection({ brandsSection = {} }: BrandsSectionProps) {
                     rel={button.external ? "noopener noreferrer" : undefined}
                     className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition-colors duration-200 shadow-soft"
                   >
-                    {button.label?.[locale] || "Visit"}
+                    {pickLocalized(button.label, locale) || "Visit"}
                   </Link>
                 )}
               </div>

@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLocale } from 'next-intl';
+import { type Locale } from '@/i18n/routing';
 import { urlFor } from "@/lib/cms/image";
+import { pickLocalized } from "@/lib/utils";
 import type { AboutPreviewSection } from "@/lib/types/sanity";
 
 interface AboutSectionProps {
@@ -11,11 +13,11 @@ interface AboutSectionProps {
 }
 
 export function AboutSection({ aboutPreview }: AboutSectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as Locale;
 
-  const heading = aboutPreview?.sectionHeader?.heading?.[locale];
-  const description = aboutPreview?.description?.[locale];
-  const secondaryDescription = aboutPreview?.secondaryDescription?.[locale];
+  const heading = pickLocalized(aboutPreview?.sectionHeader?.heading, locale);
+  const description = pickLocalized(aboutPreview?.description, locale);
+  const secondaryDescription = pickLocalized(aboutPreview?.secondaryDescription, locale);
   const image = aboutPreview?.image;
 
   if (!heading && !description && !secondaryDescription && !image) return null;
@@ -25,27 +27,27 @@ export function AboutSection({ aboutPreview }: AboutSectionProps) {
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {aboutPreview?.sectionHeader?.eyebrow?.[locale]}
+            {pickLocalized(aboutPreview?.sectionHeader?.eyebrow, locale)}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {aboutPreview?.sectionHeader?.heading?.[locale]}
+            {pickLocalized(aboutPreview?.sectionHeader?.heading, locale)}
           </h2>
           {aboutPreview?.sectionHeader?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {aboutPreview.sectionHeader.description[locale]}
+              {pickLocalized(aboutPreview.sectionHeader.description, locale)}
             </p>
           )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {aboutPreview?.description?.[locale]}
+            {pickLocalized(aboutPreview?.description, locale)}
           </p>
-          {aboutPreview?.secondaryDescription?.[locale] && (
+          {pickLocalized(aboutPreview?.secondaryDescription, locale) && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {aboutPreview.secondaryDescription[locale]}
+              {pickLocalized(aboutPreview.secondaryDescription, locale)}
             </p>
           )}
           {(() => {
             const button = aboutPreview?.button;
-            if (!button?.label?.[locale] || !button.href) return null;
+            if (!button || !pickLocalized(button.label, locale) || !button.href) return null;
             return button.external ? (
               <a
                 href={button.href}
@@ -53,14 +55,14 @@ export function AboutSection({ aboutPreview }: AboutSectionProps) {
                 rel="noopener noreferrer"
                 className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
               >
-                {button.label[locale]} <ArrowRight className="h-4 w-4" />
+                {pickLocalized(button.label, locale)} <ArrowRight className="h-4 w-4" />
               </a>
             ) : (
               <Link
                 href={button.href}
                 className="mt-10 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
               >
-                {button.label[locale]} <ArrowRight className="h-4 w-4" />
+                {pickLocalized(button.label, locale)} <ArrowRight className="h-4 w-4" />
               </Link>
             );
           })()}
@@ -76,16 +78,20 @@ export function AboutSection({ aboutPreview }: AboutSectionProps) {
               height={1024}
             />
           </div>
-          {aboutPreview?.visionCard?.label?.[locale] && aboutPreview?.visionCard?.statement?.[locale] && (
-            <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-elegant p-6 max-w-xs border border-border">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                {aboutPreview.visionCard.label[locale]}
+          {(() => {
+            const visionCard = aboutPreview?.visionCard;
+            if (!visionCard || !pickLocalized(visionCard.label, locale) || !pickLocalized(visionCard.statement, locale)) return null;
+            return (
+              <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-elegant p-6 max-w-xs border border-border">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                  {pickLocalized(visionCard.label, locale)}
+                </div>
+                <p className="font-display font-semibold text-lg leading-snug text-foreground">
+                  {pickLocalized(visionCard.statement, locale)}
+                </p>
               </div>
-              <p className="font-display font-semibold text-lg leading-snug text-foreground">
-                {aboutPreview.visionCard.statement[locale]}
-              </p>
-            </div>
-          )}
+            );
+          })()}
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useTranslations, useLocale } from 'next-intl';
-import { cn } from "@/lib/utils";
+import { cn, pickLocalized, hasLocalizedContent } from "@/lib/utils";
 import { urlFor } from "@/lib/cms/image";
 import { AnchorLink } from "@/components/ui/AnchorLink";
 import type { LocalizedString } from "@/lib/types/sanity";
@@ -34,7 +34,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   const pathname = usePathname();
 
   // Get the pathname without locale prefix
-  const pathnameWithoutLocale = pathname.replace(/^\/(en|id)/, '') || '/';
+  const pathnameWithoutLocale = pathname.replace(/^\/(en|id|zh)/, '') || '/';
 
   const isDarkPage = pathnameWithoutLocale === "/contact" || pathnameWithoutLocale === "/investor" || pathnameWithoutLocale.startsWith("/organization");
 
@@ -42,6 +42,13 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   const handleLanguageSwitch = (newLocale: string) => {
     const newPath = `/${newLocale}${pathnameWithoutLocale}`;
     router.push(newPath, { scroll: false });
+  };
+
+  // Cycle through locales: en -> id -> zh -> en
+  const getNextLocale = (currentLocale: string) => {
+    const locales = ['en', 'id', 'zh'];
+    const currentIndex = locales.indexOf(currentLocale);
+    return locales[(currentIndex + 1) % locales.length];
   };
 
   useEffect(() => {
@@ -64,7 +71,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   }, [pathname]);
 
   const validNavigation = navigation.filter((item) =>
-    Boolean(item.href && (item.label?.en || item.label?.id))
+    Boolean(item.href && hasLocalizedContent(item.label))
   );
 
   return (
@@ -93,7 +100,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
             <span className={cn("font-display font-bold text-sm tracking-tight", isDarkPage || scrolled ? "text-foreground" : "text-white")}>{siteSettings.companyName}</span>
             {siteSettings.tagline && (
               <span className={cn("text-[10px] uppercase tracking-wider", isDarkPage || scrolled ? "text-foreground/60" : "text-white/70")}>
-                {siteSettings.tagline[locale as keyof LocalizedString]}
+                {pickLocalized(siteSettings.tagline, locale)}
               </span>
             )}
           </div>
@@ -110,7 +117,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                   isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
                 )}
               >
-                {item.label[locale as keyof LocalizedString]}
+                {pickLocalized(item.label, locale)}
                 <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </AnchorLink>
             ) : (
@@ -122,7 +129,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                   isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
                 )}
               >
-                {item.label[locale as keyof LocalizedString]}
+                {pickLocalized(item.label, locale)}
                 <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </Link>
             )
@@ -131,8 +138,8 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
 
         <div className="ml-auto flex items-center gap-1 md:gap-2">
           <button
-            onClick={() => handleLanguageSwitch(locale === "en" ? "id" : "en")}
-            aria-label={`Switch language to ${locale === "en" ? "Indonesian" : "English"}`}
+            onClick={() => handleLanguageSwitch(getNextLocale(locale))}
+            aria-label={`Switch language`}
             className={cn(
               "inline-flex items-center justify-center h-9 w-9 rounded-md transition",
               isDarkPage || scrolled ? "hover:bg-primary-soft" : "hover:bg-white/10"
@@ -146,10 +153,15 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                 <path d="M10,0 V14 M0,7 H20" stroke="#C8102E" strokeWidth="1.5" />
                 <path d="M0,0 L20,14 M20,0 L0,14" stroke="#C8102E" strokeWidth="1" />
               </svg>
-            ) : (
+            ) : locale === "id" ? (
               <svg viewBox="0 0 20 14" className="h-5 w-auto rounded-[3px] shadow-sm">
                 <rect width="20" height="7" fill="#FF0000" />
                 <rect y="7" width="20" height="7" fill="#FFFFFF" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 20 14" className="h-5 w-auto rounded-[3px] shadow-sm">
+                <rect width="20" height="14" fill="#DE2910" />
+                <circle cx="10" cy="7" r="3" fill="#FFDE00" />
               </svg>
             )}
           </button>
@@ -183,7 +195,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                   onClick={() => setOpen(false)}
                   className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
                 >
-                  {item.label[locale as keyof LocalizedString]}
+                  {pickLocalized(item.label, locale)}
                 </AnchorLink>
               ) : (
                 <Link
@@ -192,7 +204,7 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                   onClick={() => setOpen(false)}
                   className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
                 >
-                  {item.label[locale as keyof LocalizedString]}
+                  {pickLocalized(item.label, locale)}
                 </Link>
               )
             ))}

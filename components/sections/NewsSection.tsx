@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useLocale } from 'next-intl';
 import { useTranslations } from 'next-intl';
 import { urlFor } from "@/lib/cms/image";
+import { pickLocalized } from "@/lib/utils";
 import type { LatestNewsSection, News } from "@/lib/types/sanity";
 
 const FALLBACK_IMAGES = ["/project-1.jpg", "/project-2.jpg", "/project-3.jpg"];
@@ -16,7 +17,7 @@ interface NewsSectionProps {
 
 function formatDate(dateString: string | undefined, locale: string) {
   if (!dateString) return "";
-  return new Date(dateString).toLocaleDateString(locale === "id" ? "id-ID" : "en-US", {
+  return new Date(dateString).toLocaleDateString(locale === "id" ? "id-ID" : locale === "zh" ? "zh-CN" : "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -24,11 +25,11 @@ function formatDate(dateString: string | undefined, locale: string) {
 }
 
 export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as "en" | "id" | "zh";
   const t = useTranslations('news');
 
   const validArticles = newsItems.filter(
-    (article) => article.title?.[locale] && article.slug?.current
+    (article) => pickLocalized(article.title, locale) && article.slug?.current
   );
 
   if (validArticles.length === 0) {
@@ -37,14 +38,14 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
         <div className="container-page">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-              {latestNews?.sectionHeader?.eyebrow?.[locale]}
+              {pickLocalized(latestNews?.sectionHeader?.eyebrow, locale)}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              {latestNews?.sectionHeader?.heading?.[locale]}
+              {pickLocalized(latestNews?.sectionHeader?.heading, locale)}
             </h2>
             {latestNews?.description && (
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                {latestNews.description[locale]}
+                {pickLocalized(latestNews.description, locale)}
               </p>
             )}
           </div>
@@ -63,20 +64,20 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
       <div className="container-page">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {latestNews?.sectionHeader?.eyebrow?.[locale]}
+            {pickLocalized(latestNews?.sectionHeader?.eyebrow, locale)}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {latestNews?.sectionHeader?.heading?.[locale]}
+            {pickLocalized(latestNews?.sectionHeader?.heading, locale)}
           </h2>
           {latestNews?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {latestNews.description[locale]}
+              {pickLocalized(latestNews.description, locale)}
             </p>
           )}
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {validArticles.map((article, index) => {
-            const title = article.title?.[locale];
+            const title = pickLocalized(article.title, locale);
             const slug = article.slug?.current;
             if (!title || !slug) return null;
             return (
@@ -118,7 +119,7 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
         </div>
         {(() => {
           const button = latestNews?.viewAllButton;
-          if (!button?.label?.[locale] || !button.href) return null;
+          if (!button || !pickLocalized(button.label, locale) || !button.href) return null;
           return (
             <div className="mt-10 flex justify-center">
               {button.external ? (
@@ -128,14 +129,14 @@ export function NewsSection({ latestNews, newsItems }: NewsSectionProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
                 >
-                  {button.label[locale]}
+                  {pickLocalized(button.label, locale)}
                 </a>
               ) : (
                 <Link
                   href={button.href}
                   className="inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-deep transition shadow-soft"
                 >
-                  {button.label[locale]}
+                  {pickLocalized(button.label, locale)}
                 </Link>
               )}
             </div>

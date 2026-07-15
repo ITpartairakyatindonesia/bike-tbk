@@ -27,10 +27,11 @@ export default defineType({
     select: {
       labelEn: 'label.en',
       labelId: 'label.id',
+      labelZh: 'label.zh',
       href: 'href',
     },
-    prepare({ labelEn, labelId, href }) {
-      const title = labelEn || labelId || 'Link'
+    prepare({ labelEn, labelId, labelZh, href }) {
+      const title = labelEn || labelId || labelZh || 'Link'
       return {
         title,
         subtitle: href || '',

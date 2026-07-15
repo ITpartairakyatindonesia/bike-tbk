@@ -15,5 +15,10 @@ export default defineType({
       title: 'Indonesian',
       type: 'string',
     }),
+    defineField({
+      name: 'zh',
+      title: 'Chinese (Simplified)',
+      type: 'string',
+    }),
   ],
 })

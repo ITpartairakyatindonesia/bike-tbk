@@ -3,7 +3,9 @@
 import { Calendar, Building2 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useLocale } from 'next-intl';
+import { type Locale } from '@/i18n/routing';
 import { urlFor } from "@/lib/cms/image";
+import { pickLocalized } from "@/lib/utils";
 import type { MilestonesSection } from "@/lib/types/sanity";
 
 import "swiper/css";
@@ -13,11 +15,11 @@ interface TimelineSectionProps {
 }
 
 export function TimelineSection({ milestonesSection }: TimelineSectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as Locale;
 
-  const eyebrow = milestonesSection?.sectionHeader?.eyebrow?.[locale];
-  const heading = milestonesSection?.sectionHeader?.heading?.[locale];
-  const description = milestonesSection?.sectionHeader?.description?.[locale];
+  const eyebrow = pickLocalized(milestonesSection?.sectionHeader?.eyebrow, locale);
+  const heading = pickLocalized(milestonesSection?.sectionHeader?.heading, locale);
+  const description = pickLocalized(milestonesSection?.sectionHeader?.description, locale);
 
   const validCards = milestonesSection?.cards?.filter((card) => card.year) || [];
 
@@ -58,8 +60,8 @@ export function TimelineSection({ milestonesSection }: TimelineSectionProps) {
             className="timeline-swiper"
           >
             {validCards.map((card, index) => {
-              const title = card.title?.[locale];
-              const description = card.description?.[locale];
+              const title = pickLocalized(card.title, locale);
+              const description = pickLocalized(card.description, locale);
               if (!card.year) return null;
 
               return (

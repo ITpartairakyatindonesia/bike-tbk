@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useLocale } from 'next-intl';
+import { type Locale } from '@/i18n/routing';
 import { urlFor } from "@/lib/cms/image";
+import { pickLocalized } from "@/lib/utils";
 import type { BusinessHighlightsSection } from "@/lib/types/sanity";
 
 const FALLBACK_IMAGES = [
@@ -17,10 +19,10 @@ interface BusinessSectionProps {
 }
 
 export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as Locale;
 
   const validCards =
-    businessHighlights?.cards?.filter((card) => card.title?.[locale]) ?? [];
+    businessHighlights?.cards?.filter((card) => pickLocalized(card.title, locale)) ?? [];
 
   if (validCards.length === 0) return null;
 
@@ -29,20 +31,20 @@ export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
       <div className="container-page">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {businessHighlights?.sectionHeader?.eyebrow?.[locale]}
+            {pickLocalized(businessHighlights?.sectionHeader?.eyebrow, locale)}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {businessHighlights?.sectionHeader?.heading?.[locale]}
+            {pickLocalized(businessHighlights?.sectionHeader?.heading, locale)}
           </h2>
           {businessHighlights?.sectionHeader?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {businessHighlights.sectionHeader.description[locale]}
+              {pickLocalized(businessHighlights.sectionHeader.description, locale)}
             </p>
           )}
         </div>
         <div className="grid md:grid-cols-4 gap-6">
           {validCards.map((card, index) => {
-            const title = card.title?.[locale];
+            const title = pickLocalized(card.title, locale);
             if (!title) return null;
             return (
               <article
@@ -66,29 +68,33 @@ export function BusinessSection({ businessHighlights }: BusinessSectionProps) {
                 <div className="p-7">
                   <h3 className="text-xl font-bold">{title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    {card.description?.[locale]}
+                    {pickLocalized(card.description, locale)}
                   </p>
-                  {card.button?.label?.[locale] && card.button.href && (
-                    <>
-                      {card.button.external ? (
-                        <a
-                          href={card.button.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:underline"
-                        >
-                          {card.button.label[locale]}
-                        </a>
-                      ) : (
-                        <Link
-                          href={card.button.href}
-                          className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:underline"
-                        >
-                          {card.button.label[locale]}
-                        </Link>
-                      )}
-                    </>
-                  )}
+                  {(() => {
+                    const button = card.button;
+                    if (!button || !pickLocalized(button.label, locale) || !button.href) return null;
+                    return (
+                      <>
+                        {button.external ? (
+                          <a
+                            href={button.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:underline"
+                          >
+                            {pickLocalized(button.label, locale)}
+                          </a>
+                        ) : (
+                          <Link
+                            href={button.href}
+                            className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:underline"
+                          >
+                            {pickLocalized(button.label, locale)}
+                          </Link>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
               </article>
             );

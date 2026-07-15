@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useLocale } from 'next-intl';
+import { type Locale } from '@/i18n/routing';
+import { pickLocalized } from "@/lib/utils";
 import type { CTASection as CTASectionType } from "@/lib/types/sanity";
 
 interface CTASectionProps {
@@ -10,12 +12,12 @@ interface CTASectionProps {
 }
 
 export function CTASection({ cta }: CTASectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as Locale;
 
-  const title = cta?.title?.[locale];
-  const description = cta?.description?.[locale];
-  const primaryButton = cta?.primaryButton?.label?.[locale] && cta?.primaryButton?.href ? cta.primaryButton : null;
-  const secondaryButton = cta?.secondaryButton?.label?.[locale] && cta?.secondaryButton?.href ? cta.secondaryButton : null;
+  const title = pickLocalized(cta?.title, locale);
+  const description = pickLocalized(cta?.description, locale);
+  const primaryButton = pickLocalized(cta?.primaryButton?.label, locale) && cta?.primaryButton?.href ? cta.primaryButton : null;
+  const secondaryButton = pickLocalized(cta?.secondaryButton?.label, locale) && cta?.secondaryButton?.href ? cta.secondaryButton : null;
 
   if (!title && !description && !primaryButton && !secondaryButton) return null;
 
@@ -43,14 +45,14 @@ export function CTASection({ cta }: CTASectionProps) {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold transition"
                     >
-                      {primaryButton.label[locale]} <ArrowRight className="h-4 w-4" />
+                      {pickLocalized(primaryButton.label, locale)} <ArrowRight className="h-4 w-4" />
                     </a>
                   ) : (
                     <Link
                       href={primaryButton.href}
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary-deep font-semibold hover:bg-accent-gold transition"
                     >
-                      {primaryButton.label[locale]} <ArrowRight className="h-4 w-4" />
+                      {pickLocalized(primaryButton.label, locale)} <ArrowRight className="h-4 w-4" />
                     </Link>
                   )}
                 </>
@@ -64,14 +66,14 @@ export function CTASection({ cta }: CTASectionProps) {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition"
                     >
-                      <MapPin className="h-4 w-4" /> {secondaryButton.label[locale]}
+                      <MapPin className="h-4 w-4" /> {pickLocalized(secondaryButton.label, locale)}
                     </a>
                   ) : (
                     <Link
                       href={secondaryButton.href}
                       className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition"
                     >
-                      <MapPin className="h-4 w-4" /> {secondaryButton.label[locale]}
+                      <MapPin className="h-4 w-4" /> {pickLocalized(secondaryButton.label, locale)}
                     </Link>
                   )}
                 </>

@@ -1,7 +1,8 @@
 import { sanityFetch } from '@/sanity/lib/live'
 import { SITE_SETTINGS_QUERY } from '@/lib/cms/queries'
 import { SITE_SETTINGS } from '@/lib/data/site-settings'
-import type { LocalizedString, LocalizedText, SiteSettings } from '@/lib/types/sanity'
+import { ensureLocalizedString, ensureLocalizedText } from '@/lib/utils/localization'
+import type { SiteSettings } from '@/lib/types/sanity'
 
 // Fallback values when CMS data is not available
 const FALLBACK_SITE_SETTINGS = {
@@ -17,16 +18,6 @@ const FALLBACK_SITE_SETTINGS = {
   contactInfo: SITE_SETTINGS.contactInfo,
   socialLinks: SITE_SETTINGS.socialLinks,
 }
-
-const ensureLocalizedString = (value?: LocalizedString | null, fallback?: LocalizedString | null | undefined) => ({
-  en: value?.en ?? fallback?.en ?? '',
-  id: value?.id ?? fallback?.id ?? '',
-})
-
-const ensureLocalizedText = (value?: LocalizedText | null, fallback?: LocalizedText | null | undefined) => ({
-  en: value?.en ?? fallback?.en ?? '',
-  id: value?.id ?? fallback?.id ?? '',
-})
 
 export async function getSiteSettings(): Promise<SiteSettings> {
   const { data: cmsSettings } = await sanityFetch({ query: SITE_SETTINGS_QUERY })

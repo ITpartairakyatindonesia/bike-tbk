@@ -26,7 +26,7 @@ export function AnchorLink({ href, children, className, onClick }: AnchorLinkPro
   const locale = useLocale();
 
   // Get the pathname without locale prefix
-  const pathnameWithoutLocale = pathname.replace(/^\/(en|id)/, '') || '/';
+  const pathnameWithoutLocale = pathname.replace(/^\/(en|id|zh)/, '') || '/';
 
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {

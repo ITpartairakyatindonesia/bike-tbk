@@ -1,8 +1,10 @@
 "use client";
 
 import { useLocale } from 'next-intl';
+import { type Locale } from '@/i18n/routing';
 import { ShieldCheck, Leaf, Users, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { pickLocalized } from "@/lib/utils";
 import type { SustainabilitySection as SustainabilitySectionType } from "@/lib/types/sanity";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -17,12 +19,12 @@ interface SustainabilitySectionProps {
 }
 
 export function SustainabilitySection({ sustainability }: SustainabilitySectionProps) {
-  const locale = useLocale() as "en" | "id";
+  const locale = useLocale() as Locale;
 
-  const heading = sustainability?.sectionHeader?.heading?.[locale];
-  const description = sustainability?.description?.[locale];
+  const heading = pickLocalized(sustainability?.sectionHeader?.heading, locale);
+  const description = pickLocalized(sustainability?.description, locale);
   const validCards =
-    sustainability?.cards?.filter((card) => card.title?.[locale]) ?? [];
+    sustainability?.cards?.filter((card) => pickLocalized(card.title, locale)) ?? [];
 
   if (!heading && !description && validCards.length === 0) return null;
 
@@ -31,23 +33,23 @@ export function SustainabilitySection({ sustainability }: SustainabilitySectionP
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {sustainability?.sectionHeader?.eyebrow?.[locale]}
+            {pickLocalized(sustainability?.sectionHeader?.eyebrow, locale)}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            {sustainability?.sectionHeader?.heading?.[locale]}
+            {pickLocalized(sustainability?.sectionHeader?.heading, locale)}
           </h2>
           {sustainability?.sectionHeader?.description && (
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {sustainability.sectionHeader.description[locale]}
+              {pickLocalized(sustainability.sectionHeader.description, locale)}
             </p>
           )}
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {sustainability?.description?.[locale]}
+            {pickLocalized(sustainability?.description, locale)}
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-6">
           {validCards.map((card, index) => {
-            const title = card.title?.[locale];
+            const title = pickLocalized(card.title, locale);
             if (!title) return null;
             const Icon = card.icon ? iconMap[card.icon] : ShieldCheck;
             if (!Icon) return null;

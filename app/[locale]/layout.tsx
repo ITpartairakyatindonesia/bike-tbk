@@ -10,7 +10,8 @@ import { LocaleHtml } from "@/components/LocaleHtml";
 import { getSiteSettings } from "@/lib/services/site-settings";
 import { getNavigation } from "@/lib/services/navigation";
 import { urlFor } from "@/lib/cms/image";
-import type { SanityImage, LocalizedString, LocalizedText, NavigationGroups } from "@/lib/types/sanity";
+import { pickLocalized } from "@/lib/utils";
+import type { SanityImage, NavigationGroups } from "@/lib/types/sanity";
 
 export const revalidate = 0;
 
@@ -22,12 +23,6 @@ function imageUrl(image?: SanityImage | null) {
     return null;
   }
 }
-
-const pickLocalized = (value?: LocalizedString | LocalizedText | null, locale?: string) => {
-  if (!value) return "";
-  if (locale === 'id' && value.id) return value.id;
-  return value.en ?? "";
-};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -41,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
   const canonicalUrl = `${baseUrl}/${locale}`;
   
-  const locales = ['en', 'id'] as const;
+  const locales = ['en', 'id', 'zh'] as const;
   const alternates = locales.map(loc => ({
     hrefLang: loc,
     href: `${baseUrl}/${loc}`,
@@ -64,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       url: canonicalUrl,
       siteName: siteSettings.companyName,
       images: ogImageUrl ? [{ url: ogImageUrl, width: 1200, height: 630, alt: defaultTitle }] : [],
-      locale: locale === 'id' ? 'id_ID' : 'en_US',
+      locale: locale === 'id' ? 'id_ID' : locale === 'zh' ? 'zh_CN' : 'en_US',
       type: "website",
     },
     twitter: {

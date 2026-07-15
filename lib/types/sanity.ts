@@ -9,11 +9,13 @@ export interface SanityImage {
 export interface LocalizedString {
   en: string
   id: string
+  zh?: string
 }
 
 export interface LocalizedText {
   en: string
   id: string
+  zh?: string
 }
 
 export interface SiteSettings {
