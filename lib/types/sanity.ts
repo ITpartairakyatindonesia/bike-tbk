@@ -139,6 +139,7 @@ export interface SustainabilityCard {
   _key?: string
   icon?: string
   title?: LocalizedString
+  description?: LocalizedText
 }
 
 export interface BrandCard {
@@ -571,4 +572,82 @@ export interface LegacyBrandCard {
 export interface LegacyBusinessSection {
   sectionHeader?: SectionHeader
   brands?: LegacyBrandCard[]
+}
+
+export interface GovernanceHeroSection {
+  eyebrow?: LocalizedString
+  headline?: LocalizedString
+  description?: LocalizedText
+  backgroundImage?: SanityImage
+}
+
+export interface GovernanceOverviewSection {
+  sectionHeader?: SectionHeader
+  paragraphs?: LocalizedText[]
+  image?: SanityImage
+}
+
+export interface GovernancePrinciple {
+  _key?: string
+  icon?: string
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface GovernancePrinciplesSection {
+  sectionHeader?: SectionHeader
+  principles?: GovernancePrinciple[]
+}
+
+export interface RiskManagementSection {
+  sectionHeader?: SectionHeader
+  cards?: GovernancePrinciple[]
+}
+
+export interface CorporateStatementSection {
+  sectionHeader?: SectionHeader
+  statement?: LocalizedText
+}
+
+export interface GovernancePage {
+  _id?: string
+  _type?: string
+  seo?: Seo
+  hero?: GovernanceHeroSection
+  overview?: GovernanceOverviewSection
+  principles?: GovernancePrinciplesSection
+  riskManagement?: RiskManagementSection
+  corporateStatement?: CorporateStatementSection
+  cta?: CTASection
+}
+
+export interface SustainabilityHeroSection {
+  eyebrow?: LocalizedString
+  headline?: LocalizedString
+  description?: LocalizedText
+  backgroundImage?: SanityImage
+}
+
+export interface SustainabilityOverviewSection {
+  sectionHeader?: SectionHeader
+  paragraphs?: LocalizedText[]
+  image?: SanityImage
+}
+
+export interface SustainabilityInitiativesSection {
+  sectionHeader?: SectionHeader
+  cards?: SustainabilityCard[]
+}
+
+export interface SustainabilityPage {
+  _id?: string
+  _type?: string
+  seo?: Seo
+  hero?: SustainabilityHeroSection
+  overview?: SustainabilityOverviewSection
+  esgCommitment?: SustainabilityInitiativesSection
+  environmentalInitiatives?: SustainabilityInitiativesSection
+  socialResponsibility?: SustainabilityInitiativesSection
+  governanceIntegration?: SustainabilityInitiativesSection
+  cta?: CTASection
 }

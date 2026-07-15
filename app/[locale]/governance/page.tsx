@@ -1,4 +1,11 @@
 import { getTranslations } from 'next-intl/server';
+import { GovernanceHero } from "@/components/governance/GovernanceHero";
+import { GovernanceOverview } from "@/components/governance/GovernanceOverview";
+import { GovernancePrinciples } from "@/components/governance/GovernancePrinciples";
+import { RiskManagement } from "@/components/governance/RiskManagement";
+import { CorporateStatement } from "@/components/governance/CorporateStatement";
+import { CTASection } from "@/components/sections/CTASection";
+import { getGovernancePage } from '@/lib/services/governance-page';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -33,36 +40,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function GovernancePage() {
-  const t = await getTranslations('governance');
+export default async function GovernancePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const governancePage = await getGovernancePage();
 
   return (
     <div>
-      <section className="relative py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container-page">
-          <div className="max-w-3xl">
-            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-              {t('hero.eyebrow')}
-            </span>
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-              {t('hero.title')}
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground">
-              {t('hero.description')}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24">
-        <div className="container-page">
-          <div className="rounded-2xl border border-dashed border-border bg-muted/20 p-12 text-center">
-            <p className="text-muted-foreground text-lg">
-              {t('placeholder')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <GovernanceHero hero={governancePage.hero} locale={locale} />
+      <GovernanceOverview overview={governancePage.overview} locale={locale} />
+      <GovernancePrinciples principles={governancePage.principles} locale={locale} />
+      <RiskManagement riskManagement={governancePage.riskManagement} locale={locale} />
+      <CorporateStatement corporateStatement={governancePage.corporateStatement} locale={locale} />
+      <CTASection cta={governancePage.cta || {}} />
     </div>
   );
 }

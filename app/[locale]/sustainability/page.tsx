@@ -1,4 +1,9 @@
 import { getTranslations } from 'next-intl/server';
+import { SustainabilityHero } from "@/components/sustainability/SustainabilityHero";
+import { SustainabilityOverview } from "@/components/sustainability/SustainabilityOverview";
+import { SustainabilityInitiatives } from "@/components/sustainability/SustainabilityInitiatives";
+import { CTASection } from "@/components/sections/CTASection";
+import { getSustainabilityPage } from '@/lib/services/sustainability-page';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -33,36 +38,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function SustainabilityPage() {
-  const t = await getTranslations('sustainability');
+export default async function SustainabilityPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const sustainabilityPage = await getSustainabilityPage();
 
   return (
     <div>
-      <section className="relative py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container-page">
-          <div className="max-w-3xl">
-            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-              {t('hero.eyebrow')}
-            </span>
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-              {t('hero.title')}
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground">
-              {t('hero.description')}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24">
-        <div className="container-page">
-          <div className="rounded-2xl border border-dashed border-border bg-muted/20 p-12 text-center">
-            <p className="text-muted-foreground text-lg">
-              {t('placeholder')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <SustainabilityHero hero={sustainabilityPage.hero} locale={locale} />
+      <SustainabilityOverview overview={sustainabilityPage.overview} locale={locale} />
+      <SustainabilityInitiatives section={sustainabilityPage.esgCommitment} locale={locale} />
+      <SustainabilityInitiatives section={sustainabilityPage.environmentalInitiatives} locale={locale} bgClass="bg-muted/30" />
+      <SustainabilityInitiatives section={sustainabilityPage.socialResponsibility} locale={locale} />
+      <SustainabilityInitiatives section={sustainabilityPage.governanceIntegration} locale={locale} bgClass="bg-muted/30" />
+      <CTASection cta={sustainabilityPage.cta || {}} />
     </div>
   );
 }
