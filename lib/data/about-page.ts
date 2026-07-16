@@ -31,37 +31,37 @@ export interface MissionItem {
 
 export const ABOUT_HERO = {
   eyebrow: "About Us",
-  headline: "Transforming into a Super Holding Company.",
+  headline: "Transformasi Menuju Perusahaan Holding Super.",
   description:
-    "Bike has evolved from a bicycle distribution company into a diversified super holding group, creating enduring value across energy, logistics, finance, healthcare, and infrastructure — operating in 15 countries.",
+    "Bike berevolusi dari distributor sepeda menjadi grup holding super terdiversifikasi, seiring masuknya PT Penajam Makmur Jaya sebagai pengendali baru pada 2026.",
   backgroundImage: "/hero-tower.jpg",
 };
 
 export const ABOUT_OVERVIEW = {
-  title: "Who We Are",
+  title: "Siapa Kami",
   paragraphs: [
-    "Bike has transformed from a bicycle distribution company into a diversified super holding group. Our portfolio spans energy, logistics, finance, healthcare, and infrastructure, with operations across 15 countries. We are committed to creating enduring value through responsible business practices and sustainable growth.",
-    "Our transformation reflects a strategic vision to diversify and strengthen our business foundation. By expanding into multiple high-growth sectors, we aim to build long-term value for shareholders, partners, and communities while maintaining the highest standards of corporate governance.",
+    "PT Sepeda Bersama Indonesia (SBI) didirikan di Tangerang pada 2017. SBI memegang merek Genio Bike dan merupakan distributor terbesar sepeda merek United Bike dan Avand, mendistribusikan lebih dari 100 jenis dan 300 varian sepeda setiap tahun melalui 319 toko yang tersebar di Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua.",
+    "Transformasi kami mencerminkan visi strategis untuk berkembang melampaui bisnis sepeda — merambah sektor energi, teknologi, dan infrastruktur — didukung masuknya PT Penajam Makmur Jaya sebagai pemegang saham pengendali baru dengan komitmen pendanaan Rp 2 triliun.",
   ],
 };
 
 export const ABOUT_HIGHLIGHTS: AboutHighlight[] = [
   { label: "Established", value: "2017" },
-  { label: "Countries", value: "15" },
-  { label: "Business Sectors", value: "5" },
+  { label: "Stores", value: "319" },
+  { label: "Business Sectors", value: "9" },
   { label: "Group Structure", value: "Super Holding" },
   { label: "Listed on", value: "IDX" },
   { label: "Stock Code", value: "BIKE" },
 ];
 
 export const ABOUT_INFO: AboutInfoItem[] = [
-  { label: "Company Name", value: "PT Bike Tbk" },
+  { label: "Company Name", value: "PT Bhineka Inovasi Ketahanan Energi Tbk" },
   { label: "Founded", value: "2017" },
-  { label: "Head Office", value: "Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia" },
+  { label: "Head Office", value: "Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia" },
   { label: "Group Structure", value: "Super Holding Company" },
-  { label: "Business Sectors", value: "Energy, Logistics, Finance, Healthcare, Infrastructure" },
-  { label: "Operations", value: "15 Countries" },
-  { label: "Website", value: "www.bike-tbk.co.id" },
+  { label: "Business Sectors", value: "9 Strategic Sectors" },
+  { label: "Operations", value: "Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, Papua" },
+  { label: "Website", value: "bike-tbk.co.id" },
   { label: "Listed on", value: "Indonesia Stock Exchange (IDX)" },
   { label: "Stock Code", value: "BIKE" },
 ];
@@ -70,34 +70,24 @@ export const ABOUT_VISION = {
   eyebrow: "Our Direction",
   label: "Vision",
   statement:
-    "To be a leading super holding company creating enduring value across industries through responsible business practices, innovation, and sustainable growth.",
+    "Menjadi perusahaan terkemuka yang membangun dunia dengan menjaga keseimbangan antara kehidupan manusia dan alam semesta.",
 };
 
 export const ABOUT_MISSION: MissionItem[] = [
   {
-    title: "Create Enduring Value",
+    title: "Transformasi",
     description:
-      "Build and manage a diversified portfolio of businesses that generate long-term value across multiple industries.",
+      "Menjadi perusahaan yang adaptif, inovatif, dan berkelanjutan melalui transformasi bisnis ke sektor-sektor strategis dengan prospek pertumbuhan jangka panjang.",
   },
   {
-    title: "Drive Innovation",
+    title: "Transisi",
     description:
-      "Foster innovation across all business sectors to stay competitive and adapt to evolving market needs.",
+      "Mendukung program transisi energi nasional, ketahanan energi, keamanan data, dan digitalisasi pengembangan teknologi serta infrastruktur.",
   },
   {
-    title: "Responsible Governance",
+    title: "Pertumbuhan",
     description:
-      "Maintain the highest standards of corporate governance, transparency, and accountability across all operations.",
-  },
-  {
-    title: "Sustainable Growth",
-    description:
-      "Pursue growth strategies that balance economic performance with environmental stewardship and social responsibility.",
-  },
-  {
-    title: "Empower Communities",
-    description:
-      "Create positive impact in the communities where we operate through responsible business practices and strategic investments.",
+      "Menciptakan pertumbuhan berkelanjutan dan nilai tambah bagi investor, pemegang saham, serta seluruh pemangku kepentingan.",
   },
 ];
 
@@ -105,7 +95,7 @@ export const ABOUT_CULTURE = {
   title: "Our Culture",
   subtitle: "Growing Together Through Human-Centered Values.",
   introduction:
-    "At SBI, we believe that people are at the heart of every successful journey. Our culture is built on respect, integrity, and collaboration — empowering every individual to grow while contributing to a healthier and more sustainable Indonesia.",
+    "Membangun karakter perusahaan yang kuat, budaya perusahaan yang berorientasi pelanggan, dan identitas korporat sebagai ciri khas perusahaan.",
   cards: [
     {
       icon: TreePine,
@@ -200,8 +190,8 @@ export const ABOUT_PAGE: AboutPage = {
   _type: 'aboutPage',
   hero: {
     eyebrow: { en: 'About Us', id: 'Tentang Kami', zh: '关于我们' },
-    title: { en: 'Transforming into a Super Holding Company.', id: 'Bertransformasi menjadi Perusahaan Holding Super.', zh: '转型为超级控股集团。' },
-    subtitle: { en: 'Bike has evolved from a bicycle distribution company into a diversified super holding group, creating enduring value across energy, logistics, finance, healthcare, and infrastructure — operating in 15 countries.', id: 'Bike telah berevolusi dari perusahaan distribusi sepeda menjadi grup holding super terdiversifikasi, menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur — beroperasi di 15 negara.', zh: 'Bike 已从自行车分销公司发展为多元化超级控股集团，在能源、物流、金融、医疗保健和基础设施领域创造持久价值，业务遍及15个国家。' },
+    title: { en: 'Transformation Towards a Super Holding Company.', id: 'Transformasi Menuju Perusahaan Holding Super.', zh: '向超级控股集团转型。' },
+    subtitle: { en: 'Bike has evolved from a bicycle distributor into a diversified super holding group, following the entry of PT Penajam Makmur Jaya as the new controlling shareholder in 2026.', id: 'Bike berevolusi dari distributor sepeda menjadi grup holding super terdiversifikasi, seiring masuknya PT Penajam Makmur Jaya sebagai pengendali baru pada 2026.', zh: 'Bike 已从自行车分销商发展为多元化超级控股集团，随着 PT Penajam Makmur Jaya 于2026年成为新的控股股东。' },
     backgroundImage: undefined,
   },
   overview: {
@@ -210,8 +200,8 @@ export const ABOUT_PAGE: AboutPage = {
       heading: { en: 'Who We Are', id: 'Siapa Kami', zh: '我们是谁' },
     },
     paragraphs: [
-      { en: 'Bike has transformed from a bicycle distribution company into a diversified super holding group. Our portfolio spans energy, logistics, finance, healthcare, and infrastructure, with operations across 15 countries. We are committed to creating enduring value through responsible business practices and sustainable growth.', id: 'Bike telah bertransformasi dari perusahaan distribusi sepeda menjadi grup holding super terdiversifikasi. Portofolio kami mencakup energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur, dengan operasi di 15 negara. Kami berkomitmen untuk menciptakan nilai abadi melalui praktik bisnis yang bertanggung jawab dan pertumbuhan berkelanjutan.', zh: 'Bike 已从自行车分销公司转型为多元化超级控股集团。我们的业务组合涵盖能源、物流、金融、医疗保健和基础设施，业务遍及15个国家。我们致力于通过负责任的商业实践和可持续增长创造持久价值。' },
-      { en: 'Our transformation reflects a strategic vision to diversify and strengthen our business foundation. By expanding into multiple high-growth sectors, we aim to build long-term value for shareholders, partners, and communities while maintaining the highest standards of corporate governance.', id: 'Transformasi kami mencerminkan visi strategis untuk diversifikasi dan memperkuat fondasi bisnis kami. Dengan berekspansi ke berbagai sektor pertumbuhan tinggi, kami bertujuan membangun nilai jangka panjang bagi pemegang saham, mitra, dan masyarakat sambil mempertahankan standar tata kelola perusahaan tertinggi.', zh: '我们的转型体现了多元化和加强业务基础的战略愿景。通过扩展到多个高增长领域，我们旨在为股东、合作伙伴和社区创造长期价值，同时保持最高标准的公司治理。' },
+      { en: 'PT Sepeda Bersama Indonesia (SBI) was established in Tangerang in 2017. SBI holds the Genio Bike brand and is the largest distributor of United Bike and Avand brand bicycles, distributing more than 100 types and 300 variants of bicycles annually through 319 stores across Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, and Papua.', id: 'PT Sepeda Bersama Indonesia (SBI) didirikan di Tangerang pada 2017. SBI memegang merek Genio Bike dan merupakan distributor terbesar sepeda merek United Bike dan Avand, mendistribusikan lebih dari 100 jenis dan 300 varian sepeda setiap tahun melalui 319 toko yang tersebar di Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua.', zh: 'PT Sepeda Bersama Indonesia (SBI) 于2017年在坦格朗成立。SBI 持有 Genio Bike 品牌，是 United Bike 和 Avand 品牌自行车的最大分销商，每年通过319家门店分销超过100种和300个变型的自行车，覆盖爪哇、巴厘、苏门答腊、加里曼丹、苏拉威西、努沙登加拉、马鲁古和巴布亚。' },
+      { en: 'Our transformation reflects a strategic vision to grow beyond the bicycle business — venturing into energy, technology, and infrastructure sectors — supported by the entry of PT Penajam Makmur Jaya as the new controlling shareholder with a funding commitment of Rp 2 trillion.', id: 'Transformasi kami mencerminkan visi strategis untuk berkembang melampaui bisnis sepeda — merambah sektor energi, teknologi, dan infrastruktur — didukung masuknya PT Penajam Makmur Jaya sebagai pemegang saham pengendali baru dengan komitmen pendanaan Rp 2 triliun.', zh: '我们的转型体现了超越自行车业务发展的战略愿景——进军能源、科技和基础设施领域——得益于 PT Penajam Makmur Jaya 作为新控股股东的加入，并承诺提供2万亿印尼盾的资金支持。' },
     ],
   },
   info: {
@@ -220,13 +210,13 @@ export const ABOUT_PAGE: AboutPage = {
       heading: { en: 'Company Information', id: 'Informasi Perusahaan', zh: '公司信息' },
     },
     items: [
-      { label: { en: 'Company Name', id: 'Nama Perusahaan', zh: '公司名称' }, value: { en: 'PT Bike Tbk', id: 'PT Bike Tbk', zh: 'PT Bike Tbk' } },
+      { label: { en: 'Company Name', id: 'Nama Perusahaan', zh: '公司名称' }, value: { en: 'PT Bhineka Inovasi Ketahanan Energi Tbk', id: 'PT Bhineka Inovasi Ketahanan Energi Tbk', zh: 'PT Bhineka Inovasi Ketahanan Energi Tbk' } },
       { label: { en: 'Founded', id: 'Didirikan', zh: '成立时间' }, value: { en: '2017', id: '2017', zh: '2017' } },
-      { label: { en: 'Head Office', id: 'Kantor Pusat', zh: '总部' }, value: { en: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', id: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', zh: 'Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia' } },
+      { label: { en: 'Head Office', id: 'Kantor Pusat', zh: '总部' }, value: { en: 'Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', id: 'Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', zh: 'Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia' } },
       { label: { en: 'Group Structure', id: 'Struktur Grup', zh: '集团架构' }, value: { en: 'Super Holding Company', id: 'Perusahaan Holding Super', zh: '超级控股公司' } },
-      { label: { en: 'Business Sectors', id: 'Sektor Bisnis', zh: '业务领域' }, value: { en: 'Energy, Logistics, Finance, Healthcare, Infrastructure', id: 'Energi, Logistik, Keuangan, Kesehatan, Infrastruktur', zh: '能源、物流、金融、医疗保健、基础设施' } },
-      { label: { en: 'Operations', id: 'Operasi', zh: '运营' }, value: { en: '15 Countries', id: '15 Negara', zh: '15个国家' } },
-      { label: { en: 'Website', id: 'Situs Web', zh: '网站' }, value: { en: 'www.bike-tbk.co.id', id: 'www.bike-tbk.co.id', zh: 'www.bike-tbk.co.id' } },
+      { label: { en: 'Business Sectors', id: 'Sektor Bisnis', zh: '业务领域' }, value: { en: '9 Strategic Sectors', id: '9 Sektor Strategis', zh: '9大战略领域' } },
+      { label: { en: 'Operations', id: 'Operasi', zh: '运营地区' }, value: { en: 'Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, Papua (Indonesia)', id: 'Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, Papua (Indonesia)', zh: '爪哇、巴厘、苏门答腊、加里曼丹、苏拉威西、努沙登加拉、马鲁古、巴布亚（印尼）' } },
+      { label: { en: 'Website', id: 'Situs Web', zh: '网站' }, value: { en: 'bike-tbk.co.id', id: 'bike-tbk.co.id', zh: 'bike-tbk.co.id' } },
       { label: { en: 'Listed on', id: 'Tercatat di', zh: '上市交易所' }, value: { en: 'Indonesia Stock Exchange (IDX)', id: 'Bursa Efek Indonesia (BEI)', zh: '印尼证券交易所 (IDX)' } },
       { label: { en: 'Stock Code', id: 'Kode Saham', zh: '股票代码' }, value: { en: 'BIKE', id: 'BIKE', zh: 'BIKE' } },
     ],
@@ -238,16 +228,14 @@ export const ABOUT_PAGE: AboutPage = {
     },
     vision: {
       label: { en: 'Vision', id: 'Visi', zh: '愿景' },
-      statement: { en: 'To be a leading super holding company creating enduring value across industries through responsible business practices, innovation, and sustainable growth.', id: 'Menjadi perusahaan holding super terkemuka yang menciptakan nilai abadi di seluruh industri melalui praktik bisnis yang bertanggung jawab, inovasi, dan pertumbuhan berkelanjutan.', zh: '成为领先的超级控股集团，通过负责任的商业实践、创新和可持续增长，跨行业创造持久价值。' },
+      statement: { en: 'To be a leading company that builds the world by maintaining harmony between human life and the universe.', id: 'Menjadi perusahaan terkemuka yang membangun dunia dengan menjaga keseimbangan antara kehidupan manusia dan alam semesta.', zh: '成为一家在建设世界的同时维护人类与自然和谐共生的卓越企业。' },
     },
     mission: {
       title: { en: 'Mission', id: 'Misi', zh: '使命' },
       items: [
-        { title: { en: 'Create Enduring Value', id: 'Menciptakan Nilai Abadi', zh: '创造持久价值' }, description: { en: 'Build and manage a diversified portfolio of businesses that generate long-term value across multiple industries.', id: 'Membangun dan mengelola portofolio bisnis terdiversifikasi yang menghasilkan nilai jangka panjang di berbagai industri.', zh: '建立和管理多元化业务组合，在多个行业创造长期价值。' } },
-        { title: { en: 'Drive Innovation', id: 'Mendorong Inovasi', zh: '推动创新' }, description: { en: 'Foster innovation across all business sectors to stay competitive and adapt to evolving market needs.', id: 'Mendorong inovasi di seluruh sektor bisnis untuk tetap kompetitif dan beradaptasi dengan kebutuhan pasar yang terus berkembang.', zh: '在所有业务领域推动创新，保持竞争力并适应不断变化的市场需求。' } },
-        { title: { en: 'Responsible Governance', id: 'Tata Kelola yang Bertanggung Jawab', zh: '负责任的治理' }, description: { en: 'Maintain the highest standards of corporate governance, transparency, and accountability across all operations.', id: 'Mempertahankan standar tertinggi tata kelola perusahaan, transparansi, dan akuntabilitas di seluruh operasi.', zh: '在所有运营中保持最高标准的公司治理、透明度和问责制。' } },
-        { title: { en: 'Sustainable Growth', id: 'Pertumbuhan Berkelanjutan', zh: '可持续增长' }, description: { en: 'Pursue growth strategies that balance economic performance with environmental stewardship and social responsibility.', id: 'Menjalankan strategi pertumbuhan yang menyeimbangkan kinerja ekonomi dengan pengelolaan lingkungan dan tanggung jawab sosial.', zh: '追求平衡经济绩效与环境管理和社会责任的成长战略。' } },
-        { title: { en: 'Empower Communities', id: 'Memberdayakan Masyarakat', zh: '赋能社区' }, description: { en: 'Create positive impact in the communities where we operate through responsible business practices and strategic investments.', id: 'Menciptakan dampak positif di masyarakat tempat kami beroperasi melalui praktik bisnis yang bertanggung jawab dan investasi strategis.', zh: '通过负责任的商业实践和战略投资，在我们运营的社区创造积极影响。' } },
+        { title: { en: 'Transformation', id: 'Transformasi', zh: '转型' }, description: { en: 'To be an adaptive, innovative, and sustainable company through business transformation into strategic sectors with long-term growth prospects.', id: 'Menjadi perusahaan yang adaptif, inovatif, dan berkelanjutan melalui transformasi bisnis ke sektor-sektor strategis dengan prospek pertumbuhan jangka panjang.', zh: '通过向具有长期增长前景的战略领域进行业务转型，成为一家适应性强、创新且可持续的企业。' } },
+        { title: { en: 'Transition', id: 'Transisi', zh: '过渡' }, description: { en: 'Support national energy transition programs, energy security, data security, and technology and infrastructure digitalization.', id: 'Mendukung program transisi energi nasional, ketahanan energi, keamanan data, dan digitalisasi pengembangan teknologi serta infrastruktur.', zh: '支持国家能源转型计划、能源安全、数据安全以及科技与基础设施的数字化发展。' } },
+        { title: { en: 'Growth', id: 'Pertumbuhan', zh: '增长' }, description: { en: 'Create sustainable growth and added value for investors, shareholders, and all stakeholders.', id: 'Menciptakan pertumbuhan berkelanjutan dan nilai tambah bagi investor, pemegang saham, serta seluruh pemangku kepentingan.', zh: '为投资者、股东及所有利益相关者创造可持续增长和附加价值。' } },
       ],
     },
   },
@@ -255,7 +243,7 @@ export const ABOUT_PAGE: AboutPage = {
     sectionHeader: {
       heading: { en: 'Our Culture', id: 'Budaya Kami', zh: '企业文化' },
     },
-    introduction: { en: 'At Bike, we believe that people are at the heart of every successful journey. Our culture is built on respect, integrity, and collaboration — empowering every individual to grow while contributing to a sustainable future.', id: 'Di Bike, kami percaya bahwa orang-orang ada di jantung setiap perjalanan yang sukses. Budaya kami dibangun di atas rasa hormat, integritas, dan kolaborasi — memberdayakan setiap individu untuk tumbuh sambil berkontribusi pada masa depan yang berkelanjutan.', zh: '在 Bike，我们相信人是每次成功旅程的核心。我们的文化建立在尊重、诚信和协作的基础上——赋能每个人成长，同时为可持续未来做出贡献。' },
+    introduction: { en: 'Building a strong corporate character, customer-oriented corporate culture, and corporate identity as the company\'s hallmark.', id: 'Membangun karakter perusahaan yang kuat, budaya perusahaan yang berorientasi pelanggan, dan identitas korporat sebagai ciri khas perusahaan.', zh: '打造强大的企业品格、以客户为导向的企业文化，以及作为企业标志的企业身份。' },
     cards: [
       { icon: 'TreePine', title: { en: 'Human & Environment', id: 'Manusia & Lingkungan', zh: '人与环境' }, description: { en: 'Promote honesty, responsibility, trust and environmental awareness.', id: 'Mempromosikan kejujuran, tanggung jawab, kepercayaan dan kesadaran lingkungan.', zh: '倡导诚实、责任、信任和环保意识。' } },
       { icon: 'HeartHandshake', title: { en: 'Human & Customers', id: 'Manusia & Pelanggan', zh: '人与客户' }, description: { en: 'Deliver beyond expectations through empathy and excellent service.', id: 'Memberikan lebih dari yang diharapkan melalui empati dan layanan yang excellent.', zh: '通过同理心和卓越服务超越期望。' } },
@@ -295,14 +283,9 @@ export const ABOUT_PAGE: AboutPage = {
         description: { en: 'Initial Public Offering (IPO) on the Indonesia Stock Exchange with stock code BIKE.', id: 'Penawaran umum perdana (IPO) di Bursa Efek Indonesia dengan kode saham BIKE.', zh: '在印尼证券交易所首次公开募股（IPO），股票代码为 BIKE。' },
       },
       {
-        year: '2024',
-        title: { en: 'Business Diversification', id: 'Diversifikasi Bisnis', zh: '业务多元化' },
-        description: { en: 'Expanded into multiple business sectors including energy, logistics, finance, healthcare, and infrastructure.', id: 'Berekspansi ke berbagai sektor bisnis termasuk energi, logistik, keuangan, kesehatan, dan infrastruktur.', zh: '扩展至多个业务领域，包括能源、物流、金融、医疗保健和基础设施。' },
-      },
-      {
-        year: '2025',
+        year: '2026',
         title: { en: 'Transformation into Super Holding', id: 'Transformasi menjadi Super Holding', zh: '转型为超级控股' },
-        description: { en: 'Transformed into a diversified super holding company with operations spanning 15 countries across multiple industries.', id: 'Bertransformasi menjadi perusahaan holding super terdiversifikasi dengan operasi yang mencakup 15 negara di berbagai industri.', zh: '转型为多元化超级控股集团，业务遍及15个国家，涵盖多个行业。' },
+        description: { en: 'PT Penajam Makmur Jaya officially became the new controlling shareholder; beginning the transformation into PT Bhineka Inovasi Ketahanan Energi Tbk (Super Holding BIKE Tbk).', id: 'PT Penajam Makmur Jaya resmi menjadi pemegang saham pengendali baru; dimulainya transformasi menjadi PT Bhineka Inovasi Ketahanan Energi Tbk (Super Holding BIKE Tbk).', zh: 'PT Penajam Makmur Jaya 正式成为新的控股股东；启动向 PT Bhineka Inovasi Ketahanan Energi Tbk（超级控股 BIKE Tbk）的转型。' },
       },
     ],
   },

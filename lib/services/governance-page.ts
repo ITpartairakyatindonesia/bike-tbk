@@ -63,6 +63,10 @@ export async function getGovernancePage(): Promise<GovernancePage> {
       page.riskManagement?.sectionHeader,
       GOVERNANCE_PAGE.riskManagement?.sectionHeader
     ),
+    subtitle: ensureLocalizedString(
+      page.riskManagement?.subtitle,
+      GOVERNANCE_PAGE.riskManagement?.subtitle
+    ),
     cards: (page.riskManagement?.cards || GOVERNANCE_PAGE.riskManagement?.cards || []).map(
       (card: GovernancePrinciple, index: number) => ({
         _key: card._key ?? `risk-${index}`,

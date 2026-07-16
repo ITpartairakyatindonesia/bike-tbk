@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ShieldCheck, Leaf, Users, TrendingUp } from "lucide-react";
+import { ShieldCheck, Leaf, Users, TrendingUp, HeartPulse, Recycle, Droplets, Sun, Scale, GraduationCap, ClipboardCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { pickLocalized } from "@/lib/utils";
 import type { SustainabilitySection as SustainabilitySectionType } from "@/lib/types/sanity";
@@ -10,6 +10,13 @@ const iconMap: Record<string, LucideIcon> = {
   Leaf,
   Users,
   TrendingUp,
+  HeartPulse,
+  Recycle,
+  Droplets,
+  Sun,
+  Scale,
+  GraduationCap,
+  ClipboardCheck,
 };
 
 interface HomeSustainabilityProps {
@@ -48,17 +55,25 @@ export function HomeSustainability({ sustainability, locale }: HomeSustainabilit
           {validCards.map((card, index) => {
             const title = pickLocalized(card.title, locale);
             if (!title) return null;
+            const cardDescription = pickLocalized(card.description, locale);
             const Icon = card.icon ? iconMap[card.icon] : ShieldCheck;
             if (!Icon) return null;
             return (
               <div
                 key={card._key || index}
-                className="flex items-center gap-4 p-6 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-card transition"
+                className="flex flex-col gap-3 p-6 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-card transition"
               >
-                <div className="h-11 w-11 shrink-0 grid place-items-center rounded-xl bg-primary-soft text-primary">
-                  <Icon className="h-5 w-5" />
+                <div className="flex items-center gap-4">
+                  <div className="h-11 w-11 shrink-0 grid place-items-center rounded-xl bg-primary-soft text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="font-semibold text-foreground">{title}</div>
                 </div>
-                <div className="font-semibold text-foreground">{title}</div>
+                {cardDescription && (
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {cardDescription}
+                  </p>
+                )}
               </div>
             );
           })}

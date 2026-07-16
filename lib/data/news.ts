@@ -56,75 +56,50 @@ export const NEWS_PAGE_FALLBACK: NewsPage = {
 
 export const FALLBACK_NEWS: News[] = [
   {
-    _id: "news-1",
+    _id: "news-pmj-controlling-shareholder",
     _type: "news",
     title: {
-      en: "Article Placeholder",
-      id: "Article Placeholder",
-      zh: "文章占位",
+      en: "PT Penajam Makmur Jaya Officially Becomes New Controlling Shareholder of Bike Tbk",
+      id: "PT Penajam Makmur Jaya Resmi Jadi Pemegang Saham Pengendali Baru Bike Tbk",
+      zh: "PT Penajam Makmur Jaya 正式成为 Bike Tbk 新控股股东",
     },
-    slug: { current: "article-placeholder" },
+    slug: { _type: "slug", current: "pmj-pemegang-saham-pengendali-bike-tbk" },
     excerpt: {
-      en: "This is a placeholder article. Content will be available soon.",
-      id: "Ini adalah artikel placeholder. Konten akan segera tersedia.",
-      zh: "这是一篇占位文章。内容即将上线。",
+      en: "PT Penajam Makmur Jaya (PMJ) officially becomes the new controlling shareholder of PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk), supporting the company's business transformation and expansion into strategic sectors with long-term growth prospects. PMJ plans to provide funding support of Rp 1 trillion in early 2026.",
+      id: "PT Penajam Makmur Jaya (PMJ) resmi menjadi pemegang saham pengendali baru PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk), mendukung transformasi dan ekspansi bisnis perusahaan ke sektor-sektor strategis dengan prospek pertumbuhan jangka panjang. PMJ berencana menyediakan dukungan pendanaan senilai Rp 1 triliun pada awal 2026.",
+      zh: "PT Penajam Makmur Jaya (PMJ) 正式成为 PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk) 的新控股股东，支持公司业务转型和向具有长期增长前景的战略领域扩张。PMJ 计划在2026年初提供1万亿印尼盾的资金支持。",
     },
     category: "Announcement",
-    publishedAt: "2025-01-01T00:00:00.000Z",
+    publishedAt: "2025-07-01T00:00:00.000Z",
     featured: true,
-  },
-  {
-    _id: "news-2",
-    _type: "news",
-    title: {
-      en: "News Placeholder",
-      id: "News Placeholder",
-      zh: "新闻占位",
-    },
-    slug: { current: "news-placeholder" },
-    excerpt: {
-      en: "This is a placeholder news item. Content will be available soon.",
-      id: "Ini adalah item berita placeholder. Konten akan segera tersedia.",
-      zh: "这是一条占位新闻。内容即将上线。",
-    },
-    category: "Announcement",
-    publishedAt: "2025-01-01T00:00:00.000Z",
-    featured: false,
-  },
-  {
-    _id: "news-3",
-    _type: "news",
-    title: {
-      en: "Latest Update",
-      id: "Pembaruan Terbaru",
-      zh: "最新更新",
-    },
-    slug: { current: "latest-update" },
-    excerpt: {
-      en: "This is a placeholder for the latest update. Content will be available soon.",
-      id: "Ini adalah placeholder untuk pembaruan terbaru. Konten akan segera tersedia.",
-      zh: "这是最新更新的占位。内容即将上线。",
-    },
-    category: "Update",
-    publishedAt: "2025-01-01T00:00:00.000Z",
-    featured: false,
-  },
-  {
-    _id: "news-4",
-    _type: "news",
-    title: {
-      en: "Company Announcement",
-      id: "Pengumuman Perusahaan",
-      zh: "公司公告",
-    },
-    slug: { current: "company-announcement" },
-    excerpt: {
-      en: "This is a placeholder for a company announcement. Content will be available soon.",
-      id: "Ini adalah placeholder untuk pengumuman perusahaan. Konten akan segera tersedia.",
-      zh: "这是公司公告的占位。内容即将上线。",
-    },
-    category: "Announcement",
-    publishedAt: "2025-01-01T00:00:00.000Z",
-    featured: false,
+    author: "Bike Tbk",
+    body: [
+      {
+        _type: "block",
+        _key: "block-1",
+        style: "normal",
+        markDefs: [],
+        children: [
+          {
+            _type: "span",
+            _key: "span-1",
+            text: "PT Penajam Makmur Jaya (PMJ) resmi menjadi pemegang saham pengendali baru PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk), mendukung transformasi dan ekspansi bisnis perusahaan ke sektor-sektor strategis dengan prospek pertumbuhan jangka panjang. Kehadiran PMJ diharapkan memperkuat permodalan, mempercepat pengembangan bisnis, dan memperluas jaringan usaha perusahaan.",
+          },
+        ],
+      },
+      {
+        _type: "block",
+        _key: "block-2",
+        style: "normal",
+        markDefs: [],
+        children: [
+          {
+            _type: "span",
+            _key: "span-2",
+            text: "Sebagai bagian dari komitmen ini, PMJ berencana menyediakan dukungan pendanaan berupa pinjaman modal senilai Rp 1 triliun pada awal 2026, yang akan digunakan untuk mendukung ekspansi bisnis perusahaan — khususnya di sektor energi terbarukan, teknologi, jaringan distribusi, dan berbagai proyek strategis nasional. Langkah ini meletakkan fondasi bagi transformasi Bike Tbk menjadi perusahaan yang lebih terdiversifikasi dan berorientasi masa depan.",
+          },
+        ],
+      },
+    ],
   },
 ];

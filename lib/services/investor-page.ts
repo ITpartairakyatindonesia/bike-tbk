@@ -16,6 +16,8 @@ import type {
   InvestorStockInfoField,
   InvestorCorporateActionSection,
   InvestorCorporateActionItem,
+  InvestorAttractionSection,
+  InvestorAttractionCard,
   CTASection,
   LocalizedText,
 } from '@/lib/types/sanity'
@@ -59,6 +61,27 @@ function normalizeHighlightsSection(
         _key: card._key ?? `${keyPrefix}-${index}`,
         value: ensureLocalizedString(card.value, fallback?.cards?.[index]?.value),
         label: ensureLocalizedString(card.label, fallback?.cards?.[index]?.label),
+        description: ensureLocalizedText(card.description, fallback?.cards?.[index]?.description),
+      })
+    ),
+  }
+}
+
+function normalizeAttractionSection(
+  section: InvestorAttractionSection | undefined,
+  fallback: InvestorAttractionSection | undefined,
+  keyPrefix: string
+): InvestorAttractionSection {
+  return {
+    sectionHeader: normalizeSectionHeader(
+      section?.sectionHeader,
+      fallback?.sectionHeader
+    ),
+    cards: (section?.cards || fallback?.cards || []).map(
+      (card: InvestorAttractionCard, index: number) => ({
+        _key: card._key ?? `${keyPrefix}-${index}`,
+        icon: card.icon ?? fallback?.cards?.[index]?.icon,
+        title: ensureLocalizedString(card.title, fallback?.cards?.[index]?.title),
         description: ensureLocalizedText(card.description, fallback?.cards?.[index]?.description),
       })
     ),
@@ -179,6 +202,12 @@ export async function getInvestorPage(): Promise<InvestorPage> {
     ),
   }
 
+  const attraction = normalizeAttractionSection(
+    page.attraction,
+    INVESTOR_PAGE.attraction,
+    'attr'
+  )
+
   const cta: CTASection = {
     title: ensureLocalizedString(page.cta?.title, INVESTOR_PAGE.cta?.title),
     description: ensureLocalizedText(page.cta?.description, INVESTOR_PAGE.cta?.description),
@@ -202,6 +231,7 @@ export async function getInvestorPage(): Promise<InvestorPage> {
     publicExpose,
     stockInfo,
     corporateAction,
+    attraction,
     cta,
   }
 }

@@ -4,11 +4,11 @@ export const HOME_PAGE: HomePage = {
   _id: "homePageFallback",
   _type: "homePage",
   seo: {
-    title: { en: "Bike - Shaping a Sustainable Future", id: "Bike - Membentuk Masa Depan Berkelanjutan", zh: "Bike - 塑造可持续未来" },
+    title: { en: "Bike — Transformation Beyond Energy", id: "Bike — Transformasi Melampaui Energi", zh: "Bike — 超越能源的转型" },
     description: {
-      en: "Bike is a diversified super holding company creating enduring value across energy, logistics, finance, healthcare and infrastructure — operating in 15 countries.",
-      id: "Bike adalah perusahaan holding super terdiversifikasi yang menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan dan infrastruktur — beroperasi di 15 negara.",
-      zh: "Bike 是一家多元化控股集团，在能源、物流、金融、医疗保健和基础设施等领域创造长期价值，业务遍及15个国家。",
+      en: "Bike (PT Bhineka Inovasi Ketahanan Energi Tbk) is a super holding company transformed from Indonesia's largest bicycle distributor into a diversified group across 9 strategic sectors — supported by 319 stores serving Indonesia since 2017.",
+      id: "Bike (PT Bhineka Inovasi Ketahanan Energi Tbk) adalah perusahaan holding super yang bertransformasi dari distributor sepeda terbesar di Indonesia menjadi grup terdiversifikasi di 9 sektor strategis — didukung 319 toko yang melayani Indonesia sejak 2017.",
+      zh: "Bike（PT Bhineka Inovasi Ketahanan Energi Tbk）是一家超级控股公司，已从印尼最大的自行车分销商转型为涵盖9大战略领域的多元化集团——依托319家门店，自2017年起服务印尼市场。",
     },
   },
   hero: {
@@ -18,17 +18,17 @@ export const HOME_PAGE: HomePage = {
       zh: "超级控股集团",
     },
     title: {
-      en: "Shaping a Sustainable Future Across Industries.",
-      id: "Membentuk Masa Depan Berkelanjutan di Seluruh Industri.",
-      zh: "跨行业塑造可持续未来。",
+      en: "Transformation Beyond Energy.",
+      id: "Transformasi Melampaui Energi.",
+      zh: "超越能源的转型。",
     },
     subtitle: {
       en:
-        "Bike is a diversified super holding company creating enduring value across energy, logistics, finance, healthcare, and infrastructure — operating in 15 countries with a commitment to responsible business practices.",
+        "Bike (PT Bhineka Inovasi Ketahanan Energi Tbk) is a super holding company transformed from Indonesia's largest bicycle distributor into a diversified group across energy, technology, infrastructure, and beyond — supported by 319 stores serving the Indonesian market since 2017.",
       id:
-        "Bike adalah perusahaan holding super terdiversifikasi yang menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur — beroperasi di 15 negara dengan komitmen terhadap praktik bisnis yang bertanggung jawab.",
+        "Bike (PT Bhineka Inovasi Ketahanan Energi Tbk) adalah perusahaan holding super yang bertransformasi dari distributor sepeda terbesar di Indonesia menjadi grup terdiversifikasi di sektor energi, teknologi, infrastruktur, dan lainnya — didukung 319 toko yang telah melayani pasar Indonesia sejak 2017.",
       zh:
-        "Bike 是一家多元化控股集团，在能源、物流、金融、医疗保健和基础设施领域创造长期价值，业务遍及15个国家，致力于负责任的商业实践。",
+        "Bike（PT Bhineka Inovasi Ketahanan Energi Tbk）是一家超级控股公司，已从印尼最大的自行车分销商转型为涵盖能源、科技、基础设施等领域的多元化集团——依托319家门店，自2017年起服务印尼市场。",
     },
     primaryButton: {
       label: { en: "About Bike", id: "Tentang Bike", zh: "关于 Bike" },
@@ -44,23 +44,23 @@ export const HOME_PAGE: HomePage = {
   aboutPreview: {
     sectionHeader: {
       eyebrow: { en: "About Us", id: "Tentang Kami", zh: "关于我们" },
-      heading: { en: "A Super Holding Company Building Enduring Value.", id: "Perusahaan Holding Super yang Menciptakan Nilai Abadi.", zh: "一家创造持久价值的超级控股集团。" },
+      heading: { en: "A Super Holding Company Building Enduring Value.", id: "Perusahaan Holding Super yang Membangun Nilai Berkelanjutan.", zh: "创造持久价值的超级控股集团。" },
     },
     description: {
       en:
-        "Bike has transformed into a diversified super holding company, creating enduring value across energy, logistics, finance, healthcare, and infrastructure. With operations spanning 15 countries, we are committed to responsible business practices and sustainable growth.",
+        "Bike has transformed from a bicycle distribution company into a diversified super holding company, following the entry of PT Penajam Makmur Jaya as the new controlling shareholder.",
       id:
-        "Bike telah bertransformasi menjadi perusahaan holding super terdiversifikasi, menciptakan nilai abadi di seluruh energi, logistik, keuangan, perawatan kesehatan, dan infrastruktur. Dengan operasi yang mencakup 15 negara, kami berkomitmen terhadap praktik bisnis yang bertanggung jawab dan pertumbuhan berkelanjutan.",
+        "Bike bertransformasi dari perusahaan distribusi sepeda menjadi perusahaan holding super terdiversifikasi, didukung masuknya PT Penajam Makmur Jaya sebagai pemegang saham pengendali baru.",
       zh:
-        "Bike 已转型为多元化超级控股集团，在能源、物流、金融、医疗保健和基础设施领域创造持久价值。业务遍及15个国家，我们致力于负责任的商业实践和可持续增长。",
+        "Bike 已从自行车分销公司转型为多元化超级控股集团，随着 PT Penajam Makmur Jaya 成为新的控股股东。",
     },
     secondaryDescription: {
       en:
-        "Our group of companies serves diverse markets across multiple industries, driving innovation and creating long-term value for shareholders, partners, and communities.",
+        "Our group of companies now spans nine strategic sectors — from renewable energy and technology to infrastructure — while maintaining the bicycle business foundation established since 2017.",
       id:
-        "Grup perusahaan kami melayani pasar yang beragam di berbagai industri, mendorong inovasi dan menciptakan nilai jangka panjang bagi pemegang saham, mitra, dan masyarakat.",
+        "Grup perusahaan kami kini merambah sembilan sektor strategis — dari energi terbarukan, teknologi, hingga infrastruktur — sambil tetap mempertahankan fondasi bisnis sepeda yang telah dibangun sejak 2017.",
       zh:
-        "我们的集团公司在多个行业服务多元化市场，推动创新，为股东、合作伙伴和社区创造长期价值。",
+        "我们的企业集团现已涉足九大战略领域——从可再生能源、科技到基础设施——同时保持自2017年建立的自行车业务基础。",
     },
     visionCard: {
       label: {
@@ -69,9 +69,9 @@ export const HOME_PAGE: HomePage = {
         zh: "愿景",
       },
       statement: {
-        en: "Creating enduring value across industries through responsible business practices and sustainable growth.",
-        id: "Menciptakan nilai abadi di seluruh industri melalui praktik bisnis yang bertanggung jawab dan pertumbuhan berkelanjutan.",
-        zh: "通过负责任的商业实践和可持续增长，跨行业创造持久价值。",
+        en: "To be a leading company that builds the world by maintaining harmony between human life and the universe.",
+        id: "Menjadi perusahaan terkemuka yang membangun dunia dengan menjaga keseimbangan antara kehidupan manusia dan alam semesta.",
+        zh: "成为一家在建设世界的同时维护人类与自然和谐共生的卓越企业。",
       },
     },
     button: {
@@ -83,60 +83,64 @@ export const HOME_PAGE: HomePage = {
   businessHighlights: {
     sectionHeader: {
       eyebrow: { en: "Our Business", id: "Bisnis Kami", zh: "我们的业务" },
-      heading: { en: "Diverse Business Portfolio Across Industries.", id: "Portofolio Bisnis yang Beragam di Seluruh Industri.", zh: "跨行业多元化业务组合。" },
+      heading: { en: "Business Portfolio Across 9 Strategic Sectors.", id: "Portofolio Bisnis di 9 Sektor Strategis.", zh: "九大战略领域的业务组合。" },
     },
     cards: [
       {
+        _key: "bh-1",
         title: {
-          en: "Energy",
-          id: "Energi",
-          zh: "能源",
+          en: "Energy & Sustainable Power",
+          id: "Energi & Pembangkit Berkelanjutan",
+          zh: "能源与可持续电力",
         },
         description: {
-          en: "Powering communities through reliable and sustainable energy solutions.",
-          id: "Memberdayakan masyarakat melalui solusi energi yang andal dan berkelanjutan.",
-          zh: "通过可靠和可持续的能源解决方案为社区提供动力。",
+          en: "Power Plant & Sustainable Energy",
+          id: "Pembangkit Listrik & Energi Berkelanjutan",
+          zh: "发电厂与可持续能源",
         },
       },
       {
+        _key: "bh-2",
         title: {
-          en: "Logistics",
-          id: "Logistik",
-          zh: "物流",
+          en: "Technology & Data Centers",
+          id: "Teknologi & Pusat Data",
+          zh: "科技与数据中心",
         },
         description: {
-          en: "Connecting markets with efficient and integrated supply chain solutions.",
-          id: "Menghubungkan pasar dengan solusi rantai pasok yang efisien dan terintegrasi.",
-          zh: "以高效、一体化的供应链解决方案连接市场。",
+          en: "Technology, Data Center & Integrated Utility Network Facilities",
+          id: "Teknologi, Pusat Data & Fasilitas Jaringan Utilitas Terpadu",
+          zh: "科技、数据中心及综合公用网络设施",
         },
       },
       {
+        _key: "bh-3",
         title: {
-          en: "Finance",
-          id: "Keuangan",
-          zh: "金融",
+          en: "Property & Development",
+          id: "Properti & Pengembangan",
+          zh: "地产与开发",
         },
         description: {
-          en: "Delivering financial services that drive growth and create value.",
-          id: "Menyediakan layanan keuangan yang mendorong pertumbuhan dan menciptakan nilai.",
-          zh: "提供推动增长和创造价值的金融服务。",
+          en: "Property & Development",
+          id: "Properti & Pengembangan",
+          zh: "地产与开发",
         },
       },
       {
+        _key: "bh-4",
         title: {
-          en: "Healthcare & Infrastructure",
-          id: "Kesehatan & Infrastruktur",
-          zh: "医疗保健与基础设施",
+          en: "Finance & Investment",
+          id: "Keuangan & Investasi",
+          zh: "金融与投资",
         },
         description: {
-          en: "Building essential infrastructure and healthcare services for communities.",
-          id: "Membangun infrastruktur penting dan layanan kesehatan untuk masyarakat.",
-          zh: "为社区建设基础设施和医疗保健服务。",
+          en: "Finance & Investment",
+          id: "Keuangan & Investasi",
+          zh: "金融与投资",
         },
       },
     ],
     viewAllButton: {
-      label: { en: "Explore Our Business", id: "Jelajahi Bisnis Kami", zh: "探索我们的业务" },
+      label: { en: "Explore All 9 Business Sectors", id: "Lihat Semua 9 Sektor Bisnis", zh: "查看全部9大业务领域" },
       href: "/business",
       external: false,
     },
@@ -148,43 +152,67 @@ export const HOME_PAGE: HomePage = {
     },
     description: {
       en:
-        "We are committed to responsible business practices, environmental stewardship, and creating positive impact across all our operations.",
+        "Our commitment rests on three main pillars — Profit, People, Planet — along with environmental protection and occupational health and safety.",
       id:
-        "Kami berkomitmen terhadap praktik bisnis yang bertanggung jawab, pengelolaan lingkungan, dan menciptakan dampak positif di seluruh operasi kami.",
+        "Komitmen kami berpijak pada tiga pilar utama — Profit, People, Planet — serta perlindungan terhadap lingkungan dan kesehatan kerja.",
       zh:
-        "我们致力于负责任的商业实践、环境管理，并在所有运营中创造积极影响。",
+        "我们的承诺建立在三大支柱之上——利润、人文、地球——以及对环境和职业健康安全的保护。",
     },
     cards: [
       {
-        icon: "ShieldCheck",
-        title: {
-          en: "Responsible Business",
-          id: "Bisnis Bertanggung Jawab",
-          zh: "负责任的商业",
-        },
-      },
-      {
-        icon: "Leaf",
-        title: {
-          en: "Environmental Awareness",
-          id: "Kesadaran Lingkungan",
-          zh: "环保意识",
-        },
-      },
-      {
-        icon: "Users",
-        title: {
-          en: "Community Development",
-          id: "Pengembangan Masyarakat",
-          zh: "社区发展",
-        },
-      },
-      {
+        _key: "sus-1",
         icon: "TrendingUp",
         title: {
-          en: "Long-Term Sustainability",
-          id: "Keberlanjutan Jangka Panjang",
-          zh: "长期可持续发展",
+          en: "Profit",
+          id: "Profit",
+          zh: "利润",
+        },
+        description: {
+          en: "Long-term economic value-oriented business growth.",
+          id: "Pertumbuhan bisnis yang berorientasi nilai ekonomi jangka panjang.",
+          zh: "以长期经济价值为导向的业务增长。",
+        },
+      },
+      {
+        _key: "sus-2",
+        icon: "Users",
+        title: {
+          en: "People",
+          id: "People",
+          zh: "人文",
+        },
+        description: {
+          en: "Caring for employees, local communities, and society.",
+          id: "Kepedulian terhadap karyawan, komunitas lokal, dan masyarakat.",
+          zh: "关爱员工、本地社区和社会。",
+        },
+      },
+      {
+        _key: "sus-3",
+        icon: "Leaf",
+        title: {
+          en: "Planet",
+          id: "Planet",
+          zh: "地球",
+        },
+        description: {
+          en: "Environmental responsibility and carbon footprint management.",
+          id: "Tanggung jawab lingkungan dan pengelolaan jejak karbon.",
+          zh: "环境责任与碳足迹管理。",
+        },
+      },
+      {
+        _key: "sus-4",
+        icon: "ShieldCheck",
+        title: {
+          en: "Occupational Health & Safety",
+          id: "Kesehatan & Keselamatan Kerja (K3)",
+          zh: "职业健康与安全 (K3)",
+        },
+        description: {
+          en: "Environmental protection and worker health protection.",
+          id: "Perlindungan lingkungan dan kesehatan pekerja.",
+          zh: "环境保护与劳动者健康保护。",
         },
       },
     ],

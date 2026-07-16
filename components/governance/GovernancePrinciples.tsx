@@ -7,8 +7,6 @@ import {
   Scale,
   ShieldCheck,
   Users,
-  Lightbulb,
-  RefreshCw,
   type LucideIcon,
 } from "lucide-react";
 
@@ -17,8 +15,6 @@ const iconMap: Record<string, LucideIcon> = {
   Scale,
   ShieldCheck,
   Users,
-  Lightbulb,
-  RefreshCw,
 };
 
 interface GovernancePrinciplesProps {

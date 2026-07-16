@@ -11,14 +11,14 @@ interface HomeHeroProps {
 
 const HIGHLIGHTS = [
   {
-    en: { value: "15", label: "Countries" },
-    id: { value: "15", label: "Negara" },
-    zh: { value: "15", label: "个国家" },
+    en: { value: "319", label: "Stores" },
+    id: { value: "319", label: "Toko" },
+    zh: { value: "319", label: "家门店" },
   },
   {
-    en: { value: "5", label: "Business Sectors" },
-    id: { value: "5", label: "Sektor Bisnis" },
-    zh: { value: "5", label: "个业务领域" },
+    en: { value: "9", label: "Business Sectors" },
+    id: { value: "9", label: "Sektor Bisnis" },
+    zh: { value: "9", label: "个业务领域" },
   },
   {
     en: { value: "Listed on IDX", label: "Public Company" },

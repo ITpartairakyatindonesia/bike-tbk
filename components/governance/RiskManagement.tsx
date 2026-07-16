@@ -3,16 +3,18 @@
 import { pickLocalized } from "@/lib/utils";
 import type { RiskManagementSection, GovernancePrinciple } from "@/lib/types/sanity";
 import {
-  Search,
+  Users,
+  TrendingUp,
   ClipboardCheck,
-  Shield,
+  Leaf,
   type LucideIcon,
 } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
-  Search,
+  Users,
+  TrendingUp,
   ClipboardCheck,
-  Shield,
+  Leaf,
 };
 
 interface RiskManagementProps {
@@ -24,6 +26,7 @@ export function RiskManagement({ riskManagement, locale }: RiskManagementProps) 
   const eyebrow = pickLocalized(riskManagement?.sectionHeader?.eyebrow, locale);
   const heading = pickLocalized(riskManagement?.sectionHeader?.heading, locale);
   const description = pickLocalized(riskManagement?.sectionHeader?.description, locale);
+  const subtitle = pickLocalized(riskManagement?.subtitle, locale);
   const cards = riskManagement?.cards || [];
 
   return (
@@ -38,15 +41,20 @@ export function RiskManagement({ riskManagement, locale }: RiskManagementProps) 
           <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
             {heading}
           </h2>
+          {subtitle && (
+            <p className="text-xl font-semibold text-primary mb-4">
+              {subtitle}
+            </p>
+          )}
           {description && (
             <p className="text-muted-foreground max-w-2xl mx-auto">
               {description}
             </p>
           )}
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {cards.map((card: GovernancePrinciple, index) => {
-            const Icon = iconMap[card.icon || ""] || Search;
+            const Icon = iconMap[card.icon || ""] || Users;
             return (
               <div
                 key={card._key ?? `risk-${index}`}

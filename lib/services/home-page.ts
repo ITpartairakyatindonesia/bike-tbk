@@ -111,6 +111,7 @@ export async function getHomePage(): Promise<HomePage> {
       (card: SustainabilityCard) => ({
         ...card,
         title: ensureLocalizedString(card.title),
+        description: ensureLocalizedText(card.description),
       })
     ),
     viewAllButton: normalizeButton(

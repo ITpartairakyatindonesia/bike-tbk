@@ -568,6 +568,18 @@ export interface InvestorCorporateActionSection {
   actions?: InvestorCorporateActionItem[]
 }
 
+export interface InvestorAttractionCard {
+  _key?: string
+  icon?: string
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface InvestorAttractionSection {
+  sectionHeader?: SectionHeader
+  cards?: InvestorAttractionCard[]
+}
+
 export interface InvestorPage {
   _id: string
   _type: 'investorPage'
@@ -583,6 +595,7 @@ export interface InvestorPage {
   publicExpose?: InvestorDocumentSection
   stockInfo?: InvestorStockInfoSection
   corporateAction?: InvestorCorporateActionSection
+  attraction?: InvestorAttractionSection
   cta?: CTASection
   cards?: InvestorCard[]
 }
@@ -640,6 +653,7 @@ export interface SubHoldingCard {
 export interface SubHoldingStructureSection {
   sectionHeader?: SectionHeader
   cards?: SubHoldingCard[]
+  tagline?: LocalizedString
 }
 
 export interface CoreBusinessCard {
@@ -724,6 +738,7 @@ export interface GovernancePrinciplesSection {
 
 export interface RiskManagementSection {
   sectionHeader?: SectionHeader
+  subtitle?: LocalizedString
   cards?: GovernancePrinciple[]
 }
 

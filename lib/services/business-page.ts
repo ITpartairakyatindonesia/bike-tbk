@@ -106,6 +106,10 @@ export async function getBusinessPage(): Promise<BusinessPage> {
       title: ensureLocalizedString(card?.title, BUSINESS_PAGE.subHoldingStructure?.cards?.[index]?.title),
       description: ensureLocalizedText(card?.description, BUSINESS_PAGE.subHoldingStructure?.cards?.[index]?.description),
     })) as SubHoldingCard[],
+    tagline: ensureLocalizedString(
+      page.subHoldingStructure?.tagline,
+      BUSINESS_PAGE.subHoldingStructure?.tagline
+    ),
   }
 
   const coreBusiness: CoreBusinessSection = {

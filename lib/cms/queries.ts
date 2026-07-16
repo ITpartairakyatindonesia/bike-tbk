@@ -344,8 +344,14 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
       asset->
     },
     cards[]{
+      _key,
       icon,
       title{
+        en,
+        id,
+        zh
+      },
+      description{
         en,
         id,
         zh
@@ -1224,6 +1230,23 @@ export const INVESTOR_PAGE_QUERY = `*[_type == "investorPage"][0]{
       }
     }
   },
+  attraction{
+    ${sectionHeaderFragment},
+    cards[]{
+      _key,
+      icon,
+      title{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      }
+    }
+  },
   cta{
     title{
       en,
@@ -1331,7 +1354,8 @@ export const BUSINESS_PAGE_QUERY = `*[_type == "businessPage"][0]{
       icon,
       title,
       description
-    }
+    },
+    tagline
   },
   coreBusiness {
     sectionHeader {
@@ -1453,6 +1477,11 @@ export const GOVERNANCE_PAGE_QUERY = `*[_type == "governancePage"][0]{
   },
   riskManagement{
     ${sectionHeaderFragment},
+    subtitle{
+      en,
+      id,
+      zh
+    },
     cards[]{
       _key,
       icon,
