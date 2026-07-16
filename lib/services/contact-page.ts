@@ -9,7 +9,7 @@ import type {
   ContactHeroSection,
   ContactInformationSection,
   ContactMapSection,
-  ContactCTASection,
+  CTASection,
 } from '@/lib/types/sanity'
 
 export async function getContactPage(): Promise<ContactPage> {
@@ -54,10 +54,11 @@ export async function getContactPage(): Promise<ContactPage> {
     button: normalizeButton(page.map?.button, CONTACT_PAGE.map?.button),
   }
 
-  const cta: ContactCTASection = {
+  const cta: CTASection = {
     title: ensureLocalizedString(page.cta?.title, CONTACT_PAGE.cta?.title),
     description: ensureLocalizedText(page.cta?.description, CONTACT_PAGE.cta?.description),
-    button: normalizeButton(page.cta?.button, CONTACT_PAGE.cta?.button),
+    primaryButton: normalizeButton(page.cta?.primaryButton, CONTACT_PAGE.cta?.primaryButton),
+    secondaryButton: normalizeButton(page.cta?.secondaryButton, CONTACT_PAGE.cta?.secondaryButton),
   }
 
   return {

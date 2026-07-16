@@ -51,7 +51,7 @@ export default async function GovernancePage({ params }: { params: Promise<{ loc
       <GovernancePrinciples principles={governancePage.principles} locale={locale} />
       <RiskManagement riskManagement={governancePage.riskManagement} locale={locale} />
       <CorporateStatement corporateStatement={governancePage.corporateStatement} locale={locale} />
-      <CTASection cta={governancePage.cta || {}} />
+      <CTASection cta={governancePage.cta || {}} locale={locale} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInformation } from "@/components/contact/ContactInformation";
-import { ContactCTA } from "@/components/contact/ContactCTA";
+import { CTASection } from "@/components/sections/CTASection";
 import { getTranslations } from 'next-intl/server';
 import { getContactPage } from '@/lib/services/contact-page';
 import { pickLocalized } from '@/lib/utils';
@@ -68,7 +68,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           </div>
         </div>
       </section>
-      <ContactCTA cta={contactPage.cta} locale={locale} />
+      <CTASection cta={contactPage.cta || {}} locale={locale} />
     </div>
   );
 }

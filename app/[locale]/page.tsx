@@ -1,8 +1,8 @@
-import { HeroSection } from "@/components/sections/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { BusinessSection } from "@/components/sections/BusinessSection";
-import { SustainabilitySection } from "@/components/sections/SustainabilitySection";
-import { NewsSection } from "@/components/sections/NewsSection";
+import { HomeHero } from "@/components/home/HomeHero";
+import { HomeAboutPreview } from "@/components/home/HomeAboutPreview";
+import { HomeBusinessHighlights } from "@/components/home/HomeBusinessHighlights";
+import { HomeSustainability } from "@/components/home/HomeSustainability";
+import { HomeLatestNews } from "@/components/home/HomeLatestNews";
 import { CTASection } from "@/components/sections/CTASection";
 import { getHomePage } from "@/lib/services/home-page";
 import { getLatestNews } from "@/lib/services/news";
@@ -41,18 +41,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const homePage = await getHomePage();
   const newsItems = await getLatestNews(3);
 
   return (
     <div>
-      <HeroSection hero={homePage.hero || {}} />
-      <AboutSection aboutPreview={homePage.aboutPreview || {}} />
-      <BusinessSection businessHighlights={homePage.businessHighlights || {}} />
-      <SustainabilitySection sustainability={homePage.sustainability || {}} />
-      <NewsSection latestNews={homePage.latestNews || {}} newsItems={newsItems} />
-      <CTASection cta={homePage.cta || {}} />
+      <HomeHero hero={homePage.hero || {}} locale={locale} />
+      <HomeAboutPreview aboutPreview={homePage.aboutPreview || {}} locale={locale} />
+      <HomeBusinessHighlights businessHighlights={homePage.businessHighlights || {}} locale={locale} />
+      <HomeSustainability sustainability={homePage.sustainability || {}} locale={locale} />
+      <HomeLatestNews latestNews={homePage.latestNews || {}} newsItems={newsItems} locale={locale} />
+      <CTASection cta={homePage.cta || {}} locale={locale} />
     </div>
   );
 }

@@ -1,7 +1,13 @@
 import { getTranslations } from 'next-intl/server';
+import { CareerHero } from "@/components/career/CareerHero";
+import { JobOpenings } from "@/components/career/JobOpenings";
+import { CTASection } from "@/components/sections/CTASection";
+import { getCareerPage } from '@/lib/services/career-page';
+import { pickLocalized } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const careerPage = await getCareerPage();
   const t = await getTranslations('metadata.career');
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
@@ -13,56 +19,38 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     href: `${baseUrl}/${loc}/career`,
   }));
 
+  const seoTitle = pickLocalized(careerPage.seo?.title, locale) || t('title');
+  const seoDescription = pickLocalized(careerPage.seo?.description, locale) || t('description');
+
   return {
-    title: t('title'),
-    description: t('description'),
+    title: seoTitle,
+    description: seoDescription,
     alternates: {
       canonical: canonicalUrl,
       languages: Object.fromEntries(alternates.map(a => [a.hrefLang, a.href])),
     },
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title: seoTitle,
+      description: seoDescription,
       url: canonicalUrl,
       locale: locale === 'id' ? 'id_ID' : locale === 'zh' ? 'zh_CN' : 'en_US',
     },
     twitter: {
-      title: t('title'),
-      description: t('description'),
+      title: seoTitle,
+      description: seoDescription,
     },
   };
 }
 
-export default async function CareerPage() {
-  const t = await getTranslations('career');
+export default async function CareerPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const careerPage = await getCareerPage();
 
   return (
     <div>
-      <section className="relative py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container-page">
-          <div className="max-w-3xl">
-            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-              {t('hero.eyebrow')}
-            </span>
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-              {t('hero.title')}
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground">
-              {t('hero.description')}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24">
-        <div className="container-page">
-          <div className="rounded-2xl border border-dashed border-border bg-muted/20 p-12 text-center">
-            <p className="text-muted-foreground text-lg">
-              {t('placeholder')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <CareerHero hero={careerPage.hero} locale={locale} />
+      <JobOpenings section={careerPage.jobOpenings} locale={locale} />
+      <CTASection cta={careerPage.cta || {}} locale={locale} />
     </div>
   );
 }

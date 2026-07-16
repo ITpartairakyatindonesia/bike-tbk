@@ -126,6 +126,7 @@ export interface BusinessHighlightCard {
 export interface BusinessHighlightsSection {
   sectionHeader?: SectionHeader
   cards?: BusinessHighlightCard[]
+  viewAllButton?: Button
 }
 
 export interface SustainabilitySection {
@@ -133,6 +134,7 @@ export interface SustainabilitySection {
   description?: LocalizedText
   image?: SanityImage
   cards?: SustainabilityCard[]
+  viewAllButton?: Button
 }
 
 export interface SustainabilityCard {
@@ -180,14 +182,47 @@ export interface News {
   category?: string
   publishedAt?: string
   featured?: boolean
+  author?: string
   seo?: Seo
   body?: any[]
+}
+
+export interface NewsPage {
+  _id: string
+  _type: 'newsPage'
+  seo?: Seo
+  hero?: {
+    eyebrow?: LocalizedString
+    title?: LocalizedString
+    description?: LocalizedText
+  }
+  noNewsMessage?: LocalizedText
+  readMoreLabel?: LocalizedString
+  backToNewsLabel?: LocalizedString
+  loadMoreLabel?: LocalizedString
+}
+
+export interface NewsCategory {
+  _id: string
+  _type: 'newsCategory'
+  title?: LocalizedString
+  slug?: {
+    _type?: 'slug'
+    current?: string
+  }
+}
+
+export interface NewsDetail {
+  article: News
+  relatedArticles: News[]
 }
 
 export interface LatestNewsSection {
   sectionHeader?: SectionHeader
   description?: LocalizedText
   viewAllButton?: Button
+  noNewsMessage?: LocalizedText
+  readMoreLabel?: LocalizedString
 }
 
 export interface CTASection {
@@ -413,12 +448,6 @@ export interface ContactMapSection {
   button?: Button
 }
 
-export interface ContactCTASection {
-  title?: LocalizedString
-  description?: LocalizedText
-  button?: Button
-}
-
 export interface ContactPage {
   _id: string
   _type: 'contactPage'
@@ -426,7 +455,7 @@ export interface ContactPage {
   hero?: ContactHeroSection
   contactInformation?: ContactInformationSection
   map?: ContactMapSection
-  cta?: ContactCTASection
+  cta?: CTASection
 }
 
 export interface InvestorHeroSection {
@@ -456,11 +485,105 @@ export interface InvestorCard {
   documents?: InvestorDocument[]
 }
 
+export interface InvestorOverviewSection {
+  sectionHeader?: SectionHeader
+  paragraphs?: LocalizedText[]
+  image?: SanityImage
+}
+
+export interface InvestorHighlightCard {
+  _key?: string
+  value?: LocalizedString
+  label?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface InvestorHighlightsSection {
+  sectionHeader?: SectionHeader
+  cards?: InvestorHighlightCard[]
+}
+
+export interface InvestorQuickAccessCard {
+  _key?: string
+  icon?: string
+  title?: LocalizedString
+  description?: LocalizedText
+  button?: Button
+}
+
+export interface InvestorQuickAccessSection {
+  sectionHeader?: SectionHeader
+  cards?: InvestorQuickAccessCard[]
+}
+
+export interface InvestorDocumentItem {
+  _key?: string
+  title?: LocalizedString
+  year?: string
+  category?: LocalizedString
+  description?: LocalizedText
+  file?: {
+    asset?: {
+      _id?: string
+      _type?: string
+      url?: string
+      originalFilename?: string
+      mimeType?: string
+      size?: number
+    }
+  }
+  thumbnail?: SanityImage
+}
+
+export interface InvestorDocumentSection {
+  sectionHeader?: SectionHeader
+  documents?: InvestorDocumentItem[]
+}
+
+export interface InvestorStockInfoField {
+  _key?: string
+  label?: LocalizedString
+  value?: LocalizedString
+}
+
+export interface InvestorStockInfoSection {
+  sectionHeader?: SectionHeader
+  stockCode?: string
+  exchange?: LocalizedString
+  listingDate?: string
+  market?: LocalizedString
+  fields?: InvestorStockInfoField[]
+}
+
+export interface InvestorCorporateActionItem {
+  _key?: string
+  date?: string
+  title?: LocalizedString
+  description?: LocalizedText
+  type?: LocalizedString
+}
+
+export interface InvestorCorporateActionSection {
+  sectionHeader?: SectionHeader
+  actions?: InvestorCorporateActionItem[]
+}
+
 export interface InvestorPage {
   _id: string
   _type: 'investorPage'
   seo?: Seo
   hero?: InvestorHeroSection
+  overview?: InvestorOverviewSection
+  investmentHighlights?: InvestorHighlightsSection
+  financialHighlights?: InvestorHighlightsSection
+  quickAccess?: InvestorQuickAccessSection
+  annualReports?: InvestorDocumentSection
+  financialStatements?: InvestorDocumentSection
+  prospectus?: InvestorDocumentSection
+  publicExpose?: InvestorDocumentSection
+  stockInfo?: InvestorStockInfoSection
+  corporateAction?: InvestorCorporateActionSection
+  cta?: CTASection
   cards?: InvestorCard[]
 }
 
@@ -649,5 +772,36 @@ export interface SustainabilityPage {
   environmentalInitiatives?: SustainabilityInitiativesSection
   socialResponsibility?: SustainabilityInitiativesSection
   governanceIntegration?: SustainabilityInitiativesSection
+  cta?: CTASection
+}
+
+export interface CareerHeroSection {
+  eyebrow?: LocalizedString
+  title?: LocalizedString
+  description?: LocalizedText
+}
+
+export interface JobOpening {
+  _key?: string
+  title?: LocalizedString
+  department?: LocalizedString
+  location?: LocalizedString
+  type?: LocalizedString
+  description?: LocalizedText
+  applyButton?: Button
+}
+
+export interface JobOpeningsSection {
+  sectionHeader?: SectionHeader
+  emptyMessage?: LocalizedText
+  jobs?: JobOpening[]
+}
+
+export interface CareerPage {
+  _id?: string
+  _type?: string
+  seo?: Seo
+  hero?: CareerHeroSection
+  jobOpenings?: JobOpeningsSection
   cta?: CTASection
 }

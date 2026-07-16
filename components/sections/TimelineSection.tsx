@@ -2,8 +2,6 @@
 
 import { Calendar, Building2 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useLocale } from 'next-intl';
-import { type Locale } from '@/i18n/routing';
 import { urlFor } from "@/lib/cms/image";
 import { pickLocalized } from "@/lib/utils";
 import type { MilestonesSection } from "@/lib/types/sanity";
@@ -12,10 +10,10 @@ import "swiper/css";
 
 interface TimelineSectionProps {
   milestonesSection: MilestonesSection;
+  locale: string;
 }
 
-export function TimelineSection({ milestonesSection }: TimelineSectionProps) {
-  const locale = useLocale() as Locale;
+export function TimelineSection({ milestonesSection, locale }: TimelineSectionProps) {
 
   const eyebrow = pickLocalized(milestonesSection?.sectionHeader?.eyebrow, locale);
   const heading = pickLocalized(milestonesSection?.sectionHeader?.heading, locale);

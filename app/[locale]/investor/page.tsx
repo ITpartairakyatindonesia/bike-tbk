@@ -1,5 +1,11 @@
-import { InvestorSection } from "@/components/sections/InvestorSection";
 import { getTranslations } from 'next-intl/server';
+import { InvestorHero } from "@/components/investor/InvestorHero";
+import { InvestorOverview } from "@/components/investor/InvestorOverview";
+import { InvestorHighlights } from "@/components/investor/InvestorHighlights";
+import { InvestorQuickAccess } from "@/components/investor/InvestorQuickAccess";
+import { InvestorStockInfo } from "@/components/investor/InvestorStockInfo";
+import { InvestorCorporateAction } from "@/components/investor/InvestorCorporateAction";
+import { CTASection } from "@/components/sections/CTASection";
 import { getInvestorPage } from '@/lib/services/investor-page';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -41,7 +47,14 @@ export default async function InvestorPage({ params }: { params: Promise<{ local
 
   return (
     <div>
-      <InvestorSection hero={investorPage.hero} cards={investorPage.cards} locale={locale} />
+      <InvestorHero hero={investorPage.hero} locale={locale} />
+      <InvestorOverview overview={investorPage.overview} locale={locale} />
+      <InvestorHighlights section={investorPage.investmentHighlights} locale={locale} />
+      <InvestorHighlights section={investorPage.financialHighlights} locale={locale} bgClass="bg-muted/30" />
+      <InvestorQuickAccess section={investorPage.quickAccess} locale={locale} />
+      <InvestorStockInfo section={investorPage.stockInfo} locale={locale} />
+      <InvestorCorporateAction section={investorPage.corporateAction} locale={locale} />
+      <CTASection cta={investorPage.cta || {}} locale={locale} />
     </div>
   );
 }

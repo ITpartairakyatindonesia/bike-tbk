@@ -102,6 +102,7 @@ export const NEWS_QUERY = `*[_type == "news" && defined(publishedAt) && publishe
   category,
   publishedAt,
   featured,
+  author,
   seo,
   body
 }`
@@ -125,7 +126,8 @@ export const LATEST_NEWS_QUERY = `*[_type == "news" && defined(publishedAt) && p
   },
   category,
   publishedAt,
-  featured
+  featured,
+  author
 }`
 
 export const NEWS_BY_SLUG_QUERY = `*[_type == "news" && slug.current == $slug][0]{
@@ -148,8 +150,75 @@ export const NEWS_BY_SLUG_QUERY = `*[_type == "news" && slug.current == $slug][0
   category,
   publishedAt,
   featured,
+  author,
   seo,
   body
+}`
+
+export const RELATED_NEWS_QUERY = `*[_type == "news" && slug.current != $slug && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc)[0...3]{
+  _id,
+  _type,
+  title{
+    en,
+    id,
+    zh
+  },
+  slug,
+  excerpt{
+    en,
+    id,
+    zh
+  },
+  featuredImage{
+    asset->
+  },
+  category,
+  publishedAt,
+  featured,
+  author
+}`
+
+export const NEWS_PAGE_QUERY = `*[_type == "newsPage"][0]{
+  _id,
+  _type,
+  seo,
+  hero{
+    eyebrow{
+      en,
+      id,
+      zh
+    },
+    title{
+      en,
+      id,
+      zh
+    },
+    description{
+      en,
+      id,
+      zh
+    }
+  },
+  noNewsMessage{
+    en,
+    id,
+    zh
+  },
+  readMoreLabel{
+    en,
+    id,
+    zh
+  },
+  backToNewsLabel{
+    en,
+    id,
+    zh
+  },
+  loadMoreLabel{
+    en,
+    id,
+    zh
+  }
 }`
 
 const sectionHeaderFragment = `sectionHeader{
@@ -259,6 +328,9 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
       button{
         ${buttonFragment}
       }
+    },
+    viewAllButton{
+      ${buttonFragment}
     }
   },
   sustainability{
@@ -278,6 +350,9 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
         id,
         zh
       }
+    },
+    viewAllButton{
+      ${buttonFragment}
     }
   },
   latestNews{
@@ -289,6 +364,16 @@ export const HOME_PAGE_QUERY = `*[_type == "homePage"][0]{
     },
     viewAllButton{
       ${buttonFragment}
+    },
+    noNewsMessage{
+      en,
+      id,
+      zh
+    },
+    readMoreLabel{
+      en,
+      id,
+      zh
     }
   },
   cta{
@@ -874,7 +959,10 @@ export const CONTACT_PAGE_QUERY = `*[_type == "contactPage"][0]{
       id,
       zh
     },
-    button{
+    primaryButton{
+      ${buttonFragment}
+    },
+    secondaryButton{
       ${buttonFragment}
     }
   }
@@ -899,6 +987,259 @@ export const INVESTOR_PAGE_QUERY = `*[_type == "investorPage"][0]{
       en,
       id,
       zh
+    }
+  },
+  overview{
+    ${sectionHeaderFragment},
+    paragraphs[]{
+      en,
+      id,
+      zh
+    },
+    image{
+      asset->
+    }
+  },
+  investmentHighlights{
+    ${sectionHeaderFragment},
+    cards[]{
+      _key,
+      value{
+        en,
+        id,
+        zh
+      },
+      label{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      }
+    }
+  },
+  financialHighlights{
+    ${sectionHeaderFragment},
+    cards[]{
+      _key,
+      value{
+        en,
+        id,
+        zh
+      },
+      label{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      }
+    }
+  },
+  quickAccess{
+    ${sectionHeaderFragment},
+    cards[]{
+      _key,
+      icon,
+      title{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      },
+      button{
+        ${buttonFragment}
+      }
+    }
+  },
+  annualReports{
+    ${sectionHeaderFragment},
+    documents[]{
+      _key,
+      title{
+        en,
+        id,
+        zh
+      },
+      year,
+      category{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      },
+      file{
+        asset->
+      },
+      thumbnail{
+        asset->
+      }
+    }
+  },
+  financialStatements{
+    ${sectionHeaderFragment},
+    documents[]{
+      _key,
+      title{
+        en,
+        id,
+        zh
+      },
+      year,
+      category{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      },
+      file{
+        asset->
+      },
+      thumbnail{
+        asset->
+      }
+    }
+  },
+  prospectus{
+    ${sectionHeaderFragment},
+    documents[]{
+      _key,
+      title{
+        en,
+        id,
+        zh
+      },
+      year,
+      category{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      },
+      file{
+        asset->
+      },
+      thumbnail{
+        asset->
+      }
+    }
+  },
+  publicExpose{
+    ${sectionHeaderFragment},
+    documents[]{
+      _key,
+      title{
+        en,
+        id,
+        zh
+      },
+      year,
+      category{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      },
+      file{
+        asset->
+      },
+      thumbnail{
+        asset->
+      }
+    }
+  },
+  stockInfo{
+    ${sectionHeaderFragment},
+    stockCode,
+    exchange{
+      en,
+      id,
+      zh
+    },
+    listingDate,
+    market{
+      en,
+      id,
+      zh
+    },
+    fields[]{
+      _key,
+      label{
+        en,
+        id,
+        zh
+      },
+      value{
+        en,
+        id,
+        zh
+      }
+    }
+  },
+  corporateAction{
+    ${sectionHeaderFragment},
+    actions[]{
+      _key,
+      date,
+      title{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      },
+      type{
+        en,
+        id,
+        zh
+      }
+    }
+  },
+  cta{
+    title{
+      en,
+      id,
+      zh
+    },
+    description{
+      en,
+      id,
+      zh
+    },
+    primaryButton{
+      ${buttonFragment}
+    },
+    secondaryButton{
+      ${buttonFragment}
     }
   },
   cards[]{
@@ -1133,6 +1474,86 @@ export const GOVERNANCE_PAGE_QUERY = `*[_type == "governancePage"][0]{
       en,
       id,
       zh
+    }
+  },
+  cta{
+    title{
+      en,
+      id,
+      zh
+    },
+    description{
+      en,
+      id,
+      zh
+    },
+    primaryButton{
+      ${buttonFragment}
+    },
+    secondaryButton{
+      ${buttonFragment}
+    }
+  }
+}`
+
+export const CAREER_PAGE_QUERY = `*[_type == "careerPage"][0]{
+  _id,
+  _type,
+  seo,
+  hero{
+    eyebrow{
+      en,
+      id,
+      zh
+    },
+    title{
+      en,
+      id,
+      zh
+    },
+    description{
+      en,
+      id,
+      zh
+    }
+  },
+  jobOpenings{
+    ${sectionHeaderFragment},
+    emptyMessage{
+      en,
+      id,
+      zh
+    },
+    jobs[]{
+      _key,
+      title{
+        en,
+        id,
+        zh
+      },
+      department{
+        en,
+        id,
+        zh
+      },
+      location{
+        en,
+        id,
+        zh
+      },
+      type{
+        en,
+        id,
+        zh
+      },
+      description{
+        en,
+        id,
+        zh
+      },
+      applyButton{
+        ${buttonFragment}
+      }
     }
   },
   cta{

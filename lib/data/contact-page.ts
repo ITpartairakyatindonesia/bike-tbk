@@ -44,9 +44,14 @@ export const CONTACT_PAGE: ContactPage = {
       en: 'Learn more about PT Bike Tbk, our businesses, investor relations, and corporate governance.',
       id: 'Pelajari lebih lanjut tentang PT Bike Tbk, bisnis kami, hubungan investor, dan tata kelola perusahaan.',
     },
-    button: {
+    primaryButton: {
       label: { en: 'About Us', id: 'Tentang Kami' },
       href: '/about',
+      external: false,
+    },
+    secondaryButton: {
+      label: { en: 'Investor Relations', id: 'Hubungan Investor' },
+      href: '/investor',
       external: false,
     },
   },

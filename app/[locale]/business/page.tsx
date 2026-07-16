@@ -57,7 +57,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ local
       <SubHoldingStructure data={businessPage.subHoldingStructure} locale={locale} />
       <CoreBusiness data={businessPage.coreBusiness} locale={locale} />
       <ProjectExperience data={businessPage.projectExperience} locale={locale} />
-      <CTASection cta={businessPage.cta || {}} />
+      <CTASection cta={businessPage.cta || {}} locale={locale} />
     </div>
   );
 }

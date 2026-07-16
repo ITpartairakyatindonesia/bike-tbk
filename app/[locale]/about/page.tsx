@@ -49,11 +49,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     <div>
       <AboutHero hero={aboutPage.hero} locale={locale} />
       <AboutOverview overview={aboutPage.overview} locale={locale} />
-      <TimelineSection milestonesSection={aboutPage.milestonesSection || {}} />
+      <TimelineSection milestonesSection={aboutPage.milestonesSection || {}} locale={locale} />
       <AboutInfo info={aboutPage.info} locale={locale} />
       <AboutVisionMission visionMission={aboutPage.visionMission} locale={locale} />
       <AboutManagement management={aboutPage.management} locale={locale} />
-      <CTASection cta={aboutPage.cta || {}} />
+      <CTASection cta={aboutPage.cta || {}} locale={locale} />
     </div>
   );
 }

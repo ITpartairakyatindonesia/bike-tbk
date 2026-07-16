@@ -135,6 +135,11 @@ export const HOME_PAGE: HomePage = {
         },
       },
     ],
+    viewAllButton: {
+      label: { en: "Explore Our Business", id: "Jelajahi Bisnis Kami", zh: "探索我们的业务" },
+      href: "/business",
+      external: false,
+    },
   },
   sustainability: {
     sectionHeader: {
@@ -183,6 +188,11 @@ export const HOME_PAGE: HomePage = {
         },
       },
     ],
+    viewAllButton: {
+      label: { en: "Sustainability", id: "Keberlanjutan", zh: "可持续发展" },
+      href: "/sustainability",
+      external: false,
+    },
   },
   latestNews: {
     sectionHeader: {
@@ -199,6 +209,16 @@ export const HOME_PAGE: HomePage = {
       label: { en: "View All News", id: "Lihat Semua Berita", zh: "查看所有新闻" },
       href: "/news",
       external: false,
+    },
+    noNewsMessage: {
+      en: "No news available yet",
+      id: "Belum ada berita",
+      zh: "暂无新闻",
+    },
+    readMoreLabel: {
+      en: "Read More",
+      id: "Baca Selengkapnya",
+      zh: "阅读更多",
     },
   },
   brandsSection: {

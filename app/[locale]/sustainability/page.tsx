@@ -50,7 +50,7 @@ export default async function SustainabilityPage({ params }: { params: Promise<{
       <SustainabilityInitiatives section={sustainabilityPage.environmentalInitiatives} locale={locale} bgClass="bg-muted/30" />
       <SustainabilityInitiatives section={sustainabilityPage.socialResponsibility} locale={locale} />
       <SustainabilityInitiatives section={sustainabilityPage.governanceIntegration} locale={locale} bgClass="bg-muted/30" />
-      <CTASection cta={sustainabilityPage.cta || {}} />
+      <CTASection cta={sustainabilityPage.cta || {}} locale={locale} />
     </div>
   );
 }

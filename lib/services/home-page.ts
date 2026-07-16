@@ -91,6 +91,10 @@ export async function getHomePage(): Promise<HomePage> {
             ),
           }))
         : HOME_PAGE.businessHighlights?.cards,
+    viewAllButton: normalizeButton(
+      page.businessHighlights?.viewAllButton,
+      HOME_PAGE.businessHighlights?.viewAllButton
+    ),
   }
 
   const sustainability: SustainabilitySection = {
@@ -109,6 +113,10 @@ export async function getHomePage(): Promise<HomePage> {
         title: ensureLocalizedString(card.title),
       })
     ),
+    viewAllButton: normalizeButton(
+      page.sustainability?.viewAllButton,
+      HOME_PAGE.sustainability?.viewAllButton
+    ),
   }
 
   const latestNews: LatestNewsSection = {
@@ -123,6 +131,14 @@ export async function getHomePage(): Promise<HomePage> {
     viewAllButton: normalizeButton(
       page.latestNews?.viewAllButton,
       HOME_PAGE.latestNews?.viewAllButton
+    ),
+    noNewsMessage: ensureLocalizedText(
+      page.latestNews?.noNewsMessage,
+      HOME_PAGE.latestNews?.noNewsMessage
+    ),
+    readMoreLabel: ensureLocalizedString(
+      page.latestNews?.readMoreLabel,
+      HOME_PAGE.latestNews?.readMoreLabel
     ),
   }
 

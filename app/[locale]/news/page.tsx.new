@@ -3,7 +3,8 @@ import { NewsHero } from "@/components/news/NewsHero";
 import { FeaturedNews } from "@/components/news/FeaturedNews";
 import { NewsGrid } from "@/components/news/NewsGrid";
 import { CTASection } from "@/components/sections/CTASection";
-import { getNews, getNewsPage } from '@/lib/services/news';
+import { getNews } from '@/lib/services/news';
+import { getNewsPage } from '@/lib/services/news';
 import { pickLocalized } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {

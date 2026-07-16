@@ -1,6 +1,3 @@
-"use client";
-
-import { useTranslations } from 'next-intl';
 import type { AboutCultureSection } from "@/lib/types/sanity";
 import { TreePine, HeartHandshake, Users, Lightbulb, LucideIcon } from "lucide-react";
 import { pickLocalized } from "@/lib/utils";
@@ -18,11 +15,9 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export function AboutCulture({ culture, locale }: AboutCultureProps) {
-  const t = useTranslations('about.culture');
-
-  const title = pickLocalized(culture?.sectionHeader?.heading, locale) || t('title');
-  const subtitle = pickLocalized(culture?.sectionHeader?.heading, locale) || t('subtitle');
-  const introduction = pickLocalized(culture?.introduction, locale) || t('introduction');
+  const eyebrow = pickLocalized(culture?.sectionHeader?.eyebrow, locale);
+  const heading = pickLocalized(culture?.sectionHeader?.heading, locale);
+  const introduction = pickLocalized(culture?.introduction, locale);
   const cards = culture?.cards || [];
 
   return (
@@ -30,10 +25,10 @@ export function AboutCulture({ culture, locale }: AboutCultureProps) {
       <div className="container-page">
         <div className="max-w-3xl mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-            {title}
+            {eyebrow}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-            {subtitle}
+            {heading}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             {introduction}
