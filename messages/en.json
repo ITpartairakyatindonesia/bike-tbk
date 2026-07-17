@@ -45,11 +45,19 @@
           "placeholder": "Write your message here"
         }
       },
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "errors": {
+        "recipientNotConfigured": "Recipient email is not configured. Please contact support.",
+        "invalidEmail": "Please enter a valid email address."
+      }
     },
     "information": {
       "headOffice": "Head Office",
-      "corporateSecretary": "Corporate Secretary"
+      "corporateSecretary": "Corporate Secretary",
+      "phone": "Phone",
+      "email": "Email",
+      "mapPlaceholder": "Google Maps embed will appear here",
+      "mapUrlHint": "URL to be added later"
     }
   },
   "about": {

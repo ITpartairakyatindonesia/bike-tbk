@@ -8,6 +8,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { cn, pickLocalized, hasLocalizedContent } from "@/lib/utils";
 import { urlFor } from "@/lib/cms/image";
 import { AnchorLink } from "@/components/ui/AnchorLink";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import type { LocalizedString } from "@/lib/types/sanity";
 
 interface SiteHeaderProps {
@@ -44,11 +45,10 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
     router.push(newPath, { scroll: false });
   };
 
-  // Cycle through locales: en -> id -> zh -> en
-  const getNextLocale = (currentLocale: string) => {
-    const locales = ['en', 'id', 'zh'];
-    const currentIndex = locales.indexOf(currentLocale);
-    return locales[(currentIndex + 1) % locales.length];
+  const localeShortLabels: Record<string, string> = {
+    en: 'EN',
+    id: 'ID',
+    zh: '中文',
   };
 
   useEffect(() => {
@@ -73,6 +73,13 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
   const validNavigation = navigation.filter((item) =>
     Boolean(item.href && hasLocalizedContent(item.label))
   );
+
+  const isActive = (href: string) => {
+    if (href.startsWith("#")) return pathnameWithoutLocale === "/";
+    const cleanHref = href.replace(/^\//, "");
+    const cleanPath = pathnameWithoutLocale.replace(/^\//, "");
+    return cleanPath === cleanHref || cleanPath.startsWith(cleanHref + "/");
+  };
 
   return (
     <header
@@ -114,11 +121,16 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                 href={item.href}
                 className={cn(
                   "px-3 py-2 text-sm font-medium transition-colors relative group min-w-[80px] text-center",
-                  isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
+                  isActive(item.href)
+                    ? isDarkPage || scrolled ? "text-primary" : "text-white"
+                    : isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
                 )}
               >
                 {pickLocalized(item.label, locale)}
-                <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                <span className={cn(
+                  "absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary transition-transform origin-left",
+                  isActive(item.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                )} />
               </AnchorLink>
             ) : (
               <Link
@@ -126,45 +138,58 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                 href={`/${locale}${item.href}`}
                 className={cn(
                   "px-3 py-2 text-sm font-medium transition-colors relative group min-w-[80px] text-center",
-                  isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
+                  isActive(item.href)
+                    ? isDarkPage || scrolled ? "text-primary" : "text-white"
+                    : isDarkPage || scrolled ? "text-foreground/75 hover:text-primary" : "text-white/90 hover:text-white"
                 )}
               >
                 {pickLocalized(item.label, locale)}
-                <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                <span className={cn(
+                  "absolute inset-x-3 -bottom-0.5 h-0.5 bg-primary transition-transform origin-left",
+                  isActive(item.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                )} />
               </Link>
             )
           ))}
         </nav>
 
         <div className="ml-auto flex items-center gap-1 md:gap-2">
-          <button
-            onClick={() => handleLanguageSwitch(getNextLocale(locale))}
-            aria-label={`Switch language`}
-            className={cn(
-              "inline-flex items-center justify-center h-9 w-9 rounded-md transition",
-              isDarkPage || scrolled ? "hover:bg-primary-soft" : "hover:bg-white/10"
-            )}
-          >
-            {locale === "en" ? (
-              <svg viewBox="0 0 20 14" className="h-5 w-auto rounded-[3px] shadow-sm">
-                <rect width="20" height="14" fill="#012169" />
-                <path d="M0,0 L20,14 M20,0 L0,14" stroke="#FFFFFF" strokeWidth="2" />
-                <path d="M10,0 V14 M0,7 H20" stroke="#FFFFFF" strokeWidth="3" />
-                <path d="M10,0 V14 M0,7 H20" stroke="#C8102E" strokeWidth="1.5" />
-                <path d="M0,0 L20,14 M20,0 L0,14" stroke="#C8102E" strokeWidth="1" />
-              </svg>
-            ) : locale === "id" ? (
-              <svg viewBox="0 0 20 14" className="h-5 w-auto rounded-[3px] shadow-sm">
-                <rect width="20" height="7" fill="#FF0000" />
-                <rect y="7" width="20" height="7" fill="#FFFFFF" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 20 14" className="h-5 w-auto rounded-[3px] shadow-sm">
-                <rect width="20" height="14" fill="#DE2910" />
-                <circle cx="10" cy="7" r="3" fill="#FFDE00" />
-              </svg>
-            )}
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                aria-label="Switch language"
+                className={cn(
+                  "inline-flex items-center gap-1.5 h-9 px-2.5 rounded-md text-sm font-semibold transition",
+                  isDarkPage || scrolled ? "text-foreground hover:bg-primary-soft" : "text-white hover:bg-white/10"
+                )}
+              >
+                {localeShortLabels[locale] || locale}
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-[160px]">
+              <DropdownMenuItem
+                onClick={() => handleLanguageSwitch("id")}
+                className={cn("cursor-pointer", locale === "id" && "font-bold")}
+              >
+                <span className="text-base leading-none">🇮🇩</span>
+                Indonesia
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => handleLanguageSwitch("en")}
+                className={cn("cursor-pointer", locale === "en" && "font-bold")}
+              >
+                <span className="text-base leading-none">🇺🇸</span>
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => handleLanguageSwitch("zh")}
+                className={cn("cursor-pointer", locale === "zh" && "font-bold")}
+              >
+                <span className="text-base leading-none">🇨🇳</span>
+                中文
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Link
             href={`/${locale}/contact`}
             className="hidden md:inline-flex items-center h-10 px-5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary-deep transition shadow-soft"
@@ -185,7 +210,12 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl animate-fade-in">
+        <div className={cn(
+          "lg:hidden border-t animate-fade-in",
+          isDarkPage || scrolled
+            ? "border-border bg-background/95 backdrop-blur-xl"
+            : "border-white/10 bg-primary-deep/95 backdrop-blur-xl"
+        )}>
           <nav className="container-page py-4 flex flex-col">
             {validNavigation.map((item) => (
               item.href.startsWith("#") ? (
@@ -193,7 +223,14 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
+                  className={cn(
+                    "py-3 text-sm font-medium border-b last:border-0",
+                    isActive(item.href)
+                      ? isDarkPage || scrolled ? "text-primary font-semibold" : "text-white font-semibold"
+                      : isDarkPage || scrolled
+                        ? "text-foreground/80 hover:text-primary border-border/50"
+                        : "text-white/80 hover:text-white border-white/10"
+                  )}
                 >
                   {pickLocalized(item.label, locale)}
                 </AnchorLink>
@@ -202,7 +239,14 @@ export function SiteHeader({ siteSettings, navigation }: SiteHeaderProps) {
                   key={item.href}
                   href={`/${locale}${item.href}`}
                   onClick={() => setOpen(false)}
-                  className="py-3 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50 last:border-0"
+                  className={cn(
+                    "py-3 text-sm font-medium border-b last:border-0",
+                    isActive(item.href)
+                      ? isDarkPage || scrolled ? "text-primary font-semibold" : "text-white font-semibold"
+                      : isDarkPage || scrolled
+                        ? "text-foreground/80 hover:text-primary border-border/50"
+                        : "text-white/80 hover:text-white border-white/10"
+                  )}
                 >
                   {pickLocalized(item.label, locale)}
                 </Link>

@@ -32,12 +32,12 @@ export function ContactInformation({ contactInformation, map, locale }: ContactI
             </p>
             {contactInformation.phone && (
               <p className="text-foreground leading-relaxed">
-                Phone: {contactInformation.phone}
+                {t('phone')}: {contactInformation.phone}
               </p>
             )}
             {contactInformation.email && (
               <p className="text-foreground leading-relaxed">
-                Email: {contactInformation.email}
+                {t('email')}: {contactInformation.email}
               </p>
             )}
             {contactInformation.contactPerson && (
@@ -66,8 +66,8 @@ export function ContactInformation({ contactInformation, map, locale }: ContactI
             ) : (
               <div className="absolute inset-0 grid place-items-center text-muted-foreground">
                 <div className="text-center">
-                  <p className="font-semibold text-sm">Google Maps embed will appear here</p>
-                  <p className="text-xs mt-1">URL to be added later</p>
+                  <p className="font-semibold text-sm">{t('mapPlaceholder')}</p>
+                  <p className="text-xs mt-1">{t('mapUrlHint')}</p>
                 </div>
               </div>
             )}

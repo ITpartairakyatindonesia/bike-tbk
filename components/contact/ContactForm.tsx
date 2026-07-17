@@ -30,14 +30,14 @@ export function ContactForm({ recipientEmail }: ContactFormProps) {
 
     // Validate recipient email
     if (!recipientEmail) {
-      setErrorMessage('Recipient email is not configured. Please contact support.');
+      setErrorMessage(t('errors.recipientNotConfigured'));
       return;
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setErrorMessage('Please enter a valid email address.');
+      setErrorMessage(t('errors.invalidEmail'));
       return;
     }
 

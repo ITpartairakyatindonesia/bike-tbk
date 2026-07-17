@@ -45,11 +45,19 @@
           "placeholder": "Tulis pesan Anda di sini"
         }
       },
-      "submit": "Kirim Pesan"
+      "submit": "Kirim Pesan",
+      "errors": {
+        "recipientNotConfigured": "Email penerima belum dikonfigurasi. Silakan hubungi dukungan.",
+        "invalidEmail": "Mohon masukkan alamat email yang valid."
+      }
     },
     "information": {
       "headOffice": "Kantor Pusat",
-      "corporateSecretary": "Sekretaris Perusahaan"
+      "corporateSecretary": "Sekretaris Perusahaan",
+      "phone": "Telepon",
+      "email": "Email",
+      "mapPlaceholder": "Google Maps akan ditampilkan di sini",
+      "mapUrlHint": "URL akan ditambahkan nanti"
     }
   },
   "about": {

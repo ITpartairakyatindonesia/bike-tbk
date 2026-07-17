@@ -45,11 +45,19 @@
           "placeholder": "请在此输入您的留言"
         }
       },
-      "submit": "发送消息"
+      "submit": "发送消息",
+      "errors": {
+        "recipientNotConfigured": "收件人邮箱未配置，请联系客服。",
+        "invalidEmail": "请输入有效的电子邮箱地址。"
+      }
     },
     "information": {
       "headOffice": "总部",
-      "corporateSecretary": "公司秘书"
+      "corporateSecretary": "公司秘书",
+      "phone": "电话",
+      "email": "电子邮箱",
+      "mapPlaceholder": "Google 地图将显示在此处",
+      "mapUrlHint": "URL 稍后添加"
     }
   },
   "about": {
