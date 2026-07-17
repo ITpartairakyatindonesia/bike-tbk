@@ -40,8 +40,9 @@ export const ABOUT_HERO = {
 export const ABOUT_OVERVIEW = {
   title: "Siapa Kami",
   paragraphs: [
-    "PT Sepeda Bersama Indonesia (SBI) didirikan di Tangerang pada 2017. SBI memegang merek Genio Bike dan merupakan distributor terbesar sepeda merek United Bike dan Avand, mendistribusikan lebih dari 100 jenis dan 300 varian sepeda setiap tahun melalui 319 toko yang tersebar di Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua.",
-    "Transformasi kami mencerminkan visi strategis untuk berkembang melampaui bisnis sepeda — merambah sektor energi, teknologi, dan infrastruktur — didukung masuknya PT Penajam Makmur Jaya sebagai pemegang saham pengendali baru dengan komitmen pendanaan Rp 2 triliun.",
+    "PT Sepeda Bersama Indonesia (SBI) didirikan di Tangerang pada 2017 sebagai distributor sepeda, memegang merek Genio Bike serta menjadi distributor terbesar sepeda merek United Bike dan Avand di Indonesia — mendistribusikan lebih dari 100 jenis dan 300 varian sepeda setiap tahun melalui 319 toko yang tersebar di Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua.",
+    "Perjalanan SBI memasuki babak baru ketika PT Penajam Makmur Jaya masuk sebagai pemegang saham pengendali baru, kini menguasai 74,90% saham Perseroan. Melalui Rapat Umum Pemegang Saham Luar Biasa pada 2 Juli 2026, para pemegang saham menyetujui transformasi menyeluruh: perubahan susunan Direksi dan Dewan Komisaris, serta perubahan nama dan identitas Perseroan dari PT Sepeda Bersama Indonesia Tbk menjadi PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE).",
+    "Di bawah identitas baru ini, BIKE membawa arah strategis yang lebih luas — investasi ketahanan di bidang teknologi, kelautan, pangan, infrastruktur, dan data — sambil tetap berpijak pada fondasi bisnis distribusi yang telah dibangun sejak 2017. Transformasi ini turut didukung persetujuan penambahan bidang usaha baru serta fasilitas pendanaan untuk mempercepat pengembangan Perseroan.",
   ],
 };
 
@@ -57,7 +58,7 @@ export const ABOUT_HIGHLIGHTS: AboutHighlight[] = [
 export const ABOUT_INFO: AboutInfoItem[] = [
   { label: "Company Name", value: "PT Bhineka Inovasi Ketahanan Energi Tbk" },
   { label: "Founded", value: "2017" },
-  { label: "Head Office", value: "Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia" },
+  { label: "Head Office", value: "Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia" },
   { label: "Group Structure", value: "Super Holding Company" },
   { label: "Business Sectors", value: "9 Strategic Sectors" },
   { label: "Operations", value: "Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, Papua" },
@@ -200,8 +201,9 @@ export const ABOUT_PAGE: AboutPage = {
       heading: { en: 'Who We Are', id: 'Siapa Kami', zh: '我们是谁' },
     },
     paragraphs: [
-      { en: 'PT Sepeda Bersama Indonesia (SBI) was established in Tangerang in 2017. SBI holds the Genio Bike brand and is the largest distributor of United Bike and Avand brand bicycles, distributing more than 100 types and 300 variants of bicycles annually through 319 stores across Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, and Papua.', id: 'PT Sepeda Bersama Indonesia (SBI) didirikan di Tangerang pada 2017. SBI memegang merek Genio Bike dan merupakan distributor terbesar sepeda merek United Bike dan Avand, mendistribusikan lebih dari 100 jenis dan 300 varian sepeda setiap tahun melalui 319 toko yang tersebar di Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua.', zh: 'PT Sepeda Bersama Indonesia (SBI) 于2017年在坦格朗成立。SBI 持有 Genio Bike 品牌，是 United Bike 和 Avand 品牌自行车的最大分销商，每年通过319家门店分销超过100种和300个变型的自行车，覆盖爪哇、巴厘、苏门答腊、加里曼丹、苏拉威西、努沙登加拉、马鲁古和巴布亚。' },
-      { en: 'Our transformation reflects a strategic vision to grow beyond the bicycle business — venturing into energy, technology, and infrastructure sectors — supported by the entry of PT Penajam Makmur Jaya as the new controlling shareholder with a funding commitment of Rp 2 trillion.', id: 'Transformasi kami mencerminkan visi strategis untuk berkembang melampaui bisnis sepeda — merambah sektor energi, teknologi, dan infrastruktur — didukung masuknya PT Penajam Makmur Jaya sebagai pemegang saham pengendali baru dengan komitmen pendanaan Rp 2 triliun.', zh: '我们的转型体现了超越自行车业务发展的战略愿景——进军能源、科技和基础设施领域——得益于 PT Penajam Makmur Jaya 作为新控股股东的加入，并承诺提供2万亿印尼盾的资金支持。' },
+      { en: 'PT Sepeda Bersama Indonesia (SBI) was established in Tangerang in 2017 as a bicycle distributor, holding the Genio Bike brand and serving as the largest distributor of United Bike and Avand brand bicycles in Indonesia — distributing more than 100 types and 300 variants of bicycles annually through 319 stores across Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, and Papua.', id: 'PT Sepeda Bersama Indonesia (SBI) didirikan di Tangerang pada 2017 sebagai distributor sepeda, memegang merek Genio Bike serta menjadi distributor terbesar sepeda merek United Bike dan Avand di Indonesia — mendistribusikan lebih dari 100 jenis dan 300 varian sepeda setiap tahun melalui 319 toko yang tersebar di Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, dan Papua.', zh: 'PT Sepeda Bersama Indonesia (SBI) 于2017年在坦格朗成立，是一家自行车分销商，持有 Genio Bike 品牌，同时也是印尼 United Bike 和 Avand 品牌自行车最大的分销商——每年通过319家门店分销超过100种和300个变型的自行车，覆盖爪哇、巴厘、苏门答腊、加里曼丹、苏拉威西、努沙登加拉、马鲁古和巴布亚。' },
+      { en: "SBI's journey entered a new chapter when PT Penajam Makmur Jaya became the new controlling shareholder, now holding 74.90% of the Company's shares. Through the Extraordinary General Meeting of Shareholders on 2 July 2026, shareholders approved a comprehensive transformation: changes to the Board of Directors and Board of Commissioners, as well as the change of the Company's name and identity from PT Sepeda Bersama Indonesia Tbk to PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE).", id: 'Perjalanan SBI memasuki babak baru ketika PT Penajam Makmur Jaya masuk sebagai pemegang saham pengendali baru, kini menguasai 74,90% saham Perseroan. Melalui Rapat Umum Pemegang Saham Luar Biasa pada 2 Juli 2026, para pemegang saham menyetujui transformasi menyeluruh: perubahan susunan Direksi dan Dewan Komisaris, serta perubahan nama dan identitas Perseroan dari PT Sepeda Bersama Indonesia Tbk menjadi PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE).', zh: '当 PT Penajam Makmur Jaya 成为新控股股东时，SBI 的历程翻开了新篇章，目前持有公司74.90%的股份。通过2026年7月2日的临时股东大会，股东们批准了全面转型：更改董事会和监事会的组成，并将公司名称和身份从 PT Sepeda Bersama Indonesia Tbk 更改为 PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE)。' },
+      { en: 'Under this new identity, BIKE carries a broader strategic direction — resilience investments in technology, maritime, food, infrastructure, and data — while remaining grounded in the distribution business foundation built since 2017. This transformation is further supported by the approval of new business lines and funding facilities to accelerate the Company\'s development.', id: 'Di bawah identitas baru ini, BIKE membawa arah strategis yang lebih luas — investasi ketahanan di bidang teknologi, kelautan, pangan, infrastruktur, dan data — sambil tetap berpijak pada fondasi bisnis distribusi yang telah dibangun sejak 2017. Transformasi ini turut didukung persetujuan penambahan bidang usaha baru serta fasilitas pendanaan untuk mempercepat pengembangan Perseroan.', zh: '在这一新身份下，BIKE 承载着更广阔的战略方向——在科技、海洋、粮食、基础设施和数据领域进行韧性投资——同时立足于自2017年以来建立的分销业务基础。这一转型还得到新增业务领域批准和融资支持，以加速公司发展。' },
     ],
   },
   info: {
@@ -210,9 +212,9 @@ export const ABOUT_PAGE: AboutPage = {
       heading: { en: 'Company Information', id: 'Informasi Perusahaan', zh: '公司信息' },
     },
     items: [
-      { label: { en: 'Company Name', id: 'Nama Perusahaan', zh: '公司名称' }, value: { en: 'PT Bhineka Inovasi Ketahanan Energi Tbk', id: 'PT Bhineka Inovasi Ketahanan Energi Tbk', zh: 'PT Bhineka Inovasi Ketahanan Energi Tbk' } },
+      { label: { en: 'Company Name', id: 'Nama Perusahaan', zh: '公司名称' }, value: { en: 'PT Bhineka Inovasi Ketahanan Energi Tbk (formerly PT Sepeda Bersama Indonesia Tbk)', id: 'PT Bhineka Inovasi Ketahanan Energi Tbk (sebelumnya PT Sepeda Bersama Indonesia Tbk)', zh: 'PT Bhineka Inovasi Ketahanan Energi Tbk（前身为 PT Sepeda Bersama Indonesia Tbk）' } },
       { label: { en: 'Founded', id: 'Didirikan', zh: '成立时间' }, value: { en: '2017', id: '2017', zh: '2017' } },
-      { label: { en: 'Head Office', id: 'Kantor Pusat', zh: '总部' }, value: { en: 'Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', id: 'Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', zh: 'Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia' } },
+      { label: { en: 'Head Office', id: 'Kantor Pusat', zh: '总部' }, value: { en: 'Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', id: 'Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia', zh: 'Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia' } },
       { label: { en: 'Group Structure', id: 'Struktur Grup', zh: '集团架构' }, value: { en: 'Super Holding Company', id: 'Perusahaan Holding Super', zh: '超级控股公司' } },
       { label: { en: 'Business Sectors', id: 'Sektor Bisnis', zh: '业务领域' }, value: { en: '9 Strategic Sectors', id: '9 Sektor Strategis', zh: '9大战略领域' } },
       { label: { en: 'Operations', id: 'Operasi', zh: '运营地区' }, value: { en: 'Java, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, Papua (Indonesia)', id: 'Jawa, Bali, Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, Papua (Indonesia)', zh: '爪哇、巴厘、苏门答腊、加里曼丹、苏拉威西、努沙登加拉、马鲁古、巴布亚（印尼）' } },
@@ -259,7 +261,38 @@ export const ABOUT_PAGE: AboutPage = {
     introduction: { en: 'Meet the experienced leaders guiding Bike through strategic growth, innovation, and responsible corporate governance.', id: 'Temui pemimpin berpengalaman yang memandu Bike melalui pertumbuhan strategis, inovasi, dan tata kelola perusahaan yang bertanggung jawab.', zh: '认识引领 Bike 实现战略增长、创新和负责任公司治理的经验丰富的领导者。' },
     placeholder: { en: 'Management profiles will be available soon. Please check back later.', id: 'Profil manajemen akan segera tersedia. Silakan periksa kembali nanti.', zh: '管理层简介即将发布，请稍后回来查看。' },
     viewBiographyLabel: { en: 'View Biography', id: 'Lihat Biografi', zh: '查看简历' },
-    executives: [],
+    executives: [
+      {
+        name: 'Sendi',
+        position: { en: 'President Commissioner', id: 'Komisaris Utama', zh: '总裁专员' },
+        slug: { _type: 'slug', current: 'sendi' },
+      },
+      {
+        name: 'Muhammad Reagy Sukmana',
+        position: { en: 'Independent Commissioner', id: 'Komisaris Independen', zh: '独立专员' },
+        slug: { _type: 'slug', current: 'muhammad-reagy-sukmana' },
+      },
+      {
+        name: 'Eric Kusuma',
+        position: { en: 'President Director', id: 'Direktur Utama', zh: '总裁董事' },
+        slug: { _type: 'slug', current: 'eric-kusuma' },
+      },
+      {
+        name: 'Muhammad Kuswandi',
+        position: { en: 'Director I', id: 'Direktur I', zh: '董事一' },
+        slug: { _type: 'slug', current: 'muhammad-kuswandi' },
+      },
+      {
+        name: 'Nadila Syafira',
+        position: { en: 'Director II', id: 'Direktur II', zh: '董事二' },
+        slug: { _type: 'slug', current: 'nadila-syafira' },
+      },
+      {
+        name: 'Andrew Mulyadi',
+        position: { en: 'Director III', id: 'Direktur III', zh: '董事三' },
+        slug: { _type: 'slug', current: 'andrew-mulyadi' },
+      },
+    ],
   },
   milestonesSection: {
     sectionHeader: {
@@ -283,9 +316,9 @@ export const ABOUT_PAGE: AboutPage = {
         description: { en: 'Initial Public Offering (IPO) on the Indonesia Stock Exchange with stock code BIKE.', id: 'Penawaran umum perdana (IPO) di Bursa Efek Indonesia dengan kode saham BIKE.', zh: '在印尼证券交易所首次公开募股（IPO），股票代码为 BIKE。' },
       },
       {
-        year: '2026',
-        title: { en: 'Transformation into Super Holding', id: 'Transformasi menjadi Super Holding', zh: '转型为超级控股' },
-        description: { en: 'PT Penajam Makmur Jaya officially became the new controlling shareholder; beginning the transformation into PT Bhineka Inovasi Ketahanan Energi Tbk (Super Holding BIKE Tbk).', id: 'PT Penajam Makmur Jaya resmi menjadi pemegang saham pengendali baru; dimulainya transformasi menjadi PT Bhineka Inovasi Ketahanan Energi Tbk (Super Holding BIKE Tbk).', zh: 'PT Penajam Makmur Jaya 正式成为新的控股股东；启动向 PT Bhineka Inovasi Ketahanan Energi Tbk（超级控股 BIKE Tbk）的转型。' },
+        year: '2 Juli 2026',
+        title: { en: 'RUPSLB & Corporate Transformation', id: 'RUPSLB & Transformasi Perusahaan', zh: '临时股东大会与公司转型' },
+        description: { en: 'Extraordinary General Meeting of Shareholders approved the change of name to PT Bhineka Inovasi Ketahanan Energi Tbk, change of logo, and new Board of Directors and Board of Commissioners.', id: 'Rapat Umum Pemegang Saham Luar Biasa menyetujui perubahan nama menjadi PT Bhineka Inovasi Ketahanan Energi Tbk, perubahan logo, dan susunan Direksi dan Dewan Komisaris baru.', zh: '临时股东大会批准更名为 PT Bhineka Inovasi Ketahanan Energi Tbk、更换标志，以及新的董事会和监事会组成。' },
       },
     ],
   },

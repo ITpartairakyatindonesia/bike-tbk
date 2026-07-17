@@ -28,7 +28,7 @@ export const INVESTOR_PAGE: InvestorPage = {
     },
     paragraphs: [
       { en: 'Bike Tbk is a diversified super holding company undergoing a strategic transformation backed by PT Penajam Makmur Jaya (PMJ). Our portfolio spans 9 business sectors — delivering enduring value across multiple industries.', id: 'Bike Tbk adalah perusahaan super holding terdiversifikasi yang sedang menjalani transformasi strategis dengan dukungan dari PT Penajam Makmur Jaya (PMJ). Portofolio kami mencakup 9 sektor bisnis — memberikan nilai berkelanjutan di berbagai industri.', zh: 'Bike Tbk 是一家正在经历战略转型的多元化超级控股公司，由 PT Penajam Makmur Jaya (PMJ) 提供支持。我们的投资组合涵盖9个业务领域——在多个行业创造持久价值。' },
-      { en: 'With total funding of Rp 2 trillion from PMJ deployed in two phases (2026 and 2028), Bike Tbk is positioned for sustained growth. The soft loan carries an 8% interest rate over a 5-year tenor, providing the financial foundation for our expansion across 319+ distribution points nationwide.', id: 'Dengan total pendanaan Rp 2 triliun dari PMJ yang disalurkan dalam dua tahap (2026 dan 2028), Bike Tbk diposisikan untuk pertumbuhan berkelanjutan. Pinjaman lunak ini membawa suku bunga 8% dengan tenor 5 tahun, memberikan fondasi keuangan untuk ekspansi kami di lebih dari 319 titik distribusi di seluruh Indonesia.', zh: '凭借 PMJ 分两期（2026年和2028年）部署的2万亿印尼盾总资金，Bike Tbk 正处于持续增长的有利位置。该软贷款利率为8%，期限5年，为我们在全国319+个分销点的扩张提供了财务基础。' },
+      { en: 'With total funding of Rp 2 trillion from PMJ deployed in two phases (2026 and 2028), Bike Tbk is positioned for sustained growth. The soft loan carries an 8% interest rate over a 5-year tenor, providing the financial foundation for our expansion across 319+ distribution points nationwide. This funding was formally approved through the Extraordinary General Meeting of Shareholders on 2 July 2026, which also approved new business lines and additional funding facilities to accelerate the Company\'s development.', id: 'Dengan total pendanaan Rp 2 triliun dari PMJ yang disalurkan dalam dua tahap (2026 dan 2028), Bike Tbk diposisikan untuk pertumbuhan berkelanjutan. Pinjaman lunak ini membawa suku bunga 8% dengan tenor 5 tahun, memberikan fondasi keuangan untuk ekspansi kami di lebih dari 319 titik distribusi di seluruh Indonesia. Pendanaan ini secara resmi disetujui melalui Rapat Umum Pemegang Saham Luar Biasa pada 2 Juli 2026, yang juga menyetujui penambahan bidang usaha baru dan fasilitas pendanaan tambahan untuk mempercepat pengembangan Perseroan.', zh: '凭借 PMJ 分两期（2026年和2028年）部署的2万亿印尼盾总资金，Bike Tbk 正处于持续增长的有利位置。该软贷款利率为8%，期限5年，为我们在全国319+个分销点的扩张提供了财务基础。该融资于2026年7月2日的临时股东大会上正式获批，同时批准了新增业务领域和额外融资安排以加速公司发展。' },
       { en: 'We are committed to maintaining the highest standards of corporate governance, financial transparency, and shareholder engagement. Our investor relations program ensures that all stakeholders have access to timely, accurate, and comprehensive information.', id: 'Kami berkomitmen untuk menjaga standar tertinggi tata kelola perusahaan, transparansi keuangan, dan keterlibatan pemegang saham. Program hubungan investor kami memastikan bahwa semua pemangku kepentingan memiliki akses ke informasi yang tepat waktu, akurat, dan komprehensif.', zh: '我们致力于维持最高标准的公司治理、财务透明度和股东参与。我们的投资者关系计划确保所有利益相关者都能获得及时、准确和全面的信息。' },
     ],
     image: undefined,
@@ -188,15 +188,15 @@ export const INVESTOR_PAGE: InvestorPage = {
     sectionHeader: {
       eyebrow: { en: 'Public Expose', id: 'Paparan Publik', zh: '公开说明会' },
       heading: { en: 'Public Expose', id: 'Paparan Publik', zh: '公开说明会' },
-      description: { en: 'Materials and presentations from our annual public expose events.', id: 'Materi dan presentasi dari acara paparan publik tahunan kami.', zh: '年度公开说明会的材料和演示文稿。' },
+      description: { en: 'Materials and presentations from our public expose events.', id: 'Materi dan presentasi dari acara paparan publik kami.', zh: '公开说明会的材料和演示文稿。' },
     },
     documents: [
       {
-        _key: 'pe-coming-soon',
-        title: { en: 'Coming Soon', id: 'Segera', zh: '即将推出' },
-        year: '',
-        category: { en: 'Presentation', id: 'Presentasi', zh: '演示文稿' },
-        description: { en: 'Public expose materials will be published upon availability.', id: 'Materi paparan publik akan dipublikasikan setelah tersedia.', zh: '公开说明会材料将在可用后发布。' },
+        _key: 'pe-rupslb-2026',
+        title: { en: 'RUPSLB 2 July 2026 — Meeting Materials', id: 'Materi RUPSLB 2 Juli 2026', zh: '2026年7月2日临时股东大会——会议材料' },
+        year: '2026',
+        category: { en: 'RUPSLB', id: 'RUPSLB', zh: '临时股东大会' },
+        description: { en: 'Official meeting materials from the Extraordinary General Meeting of Shareholders held on 2 July 2026, covering the approval of name change, logo change, new Board of Directors and Commissioners, and funding facilities.', id: 'Materi rapat resmi dari Rapat Umum Pemegang Saham Luar Biasa yang diselenggarakan pada 2 Juli 2026, mencakup persetujuan perubahan nama, perubahan logo, susunan baru Direksi dan Dewan Komisaris, serta fasilitas pendanaan.', zh: '2026年7月2日召开的临时股东大会正式会议材料，涵盖更名、换标、新董事会和监事会组成以及融资安排的批准。' },
       },
     ],
   },
@@ -216,9 +216,59 @@ export const INVESTOR_PAGE: InvestorPage = {
     sectionHeader: {
       eyebrow: { en: 'Corporate Action', id: 'Aksi Korporasi', zh: '公司行动' },
       heading: { en: 'Corporate Action History', id: 'Riwayat Aksi Korporasi', zh: '公司行动历史' },
-      description: { en: 'Corporate action history will be published as the company progresses through its listing and operational milestones.', id: 'Riwayat aksi korporasi akan dipublikasikan seiring perusahaan mencapai pencatatan dan tonggak operasionalnya.', zh: '公司行动历史将随着公司上市和运营里程碑的推进而发布。' },
+      description: { en: 'A record of key corporate actions approved by shareholders.', id: 'Catatan aksi korporasi penting yang disetujui oleh pemegang saham.', zh: '经股东批准的关键公司行动记录。' },
     },
-    actions: [],
+    actions: [
+      {
+        _key: 'ca-1',
+        date: '2026-07-02',
+        title: { en: 'RUPSLB: Name Change, Logo, Board Composition & Funding Approval', id: 'RUPSLB: Perubahan Nama, Logo, Susunan Direksi/Komisaris & Persetujuan Pendanaan', zh: '临时股东大会：更名、换标、董事会/监事会改组及融资批准' },
+        description: { en: 'Extraordinary General Meeting of Shareholders approved the change of company name to PT Bhineka Inovasi Ketahanan Energi Tbk, change of corporate logo, new composition of Board of Directors and Board of Commissioners, and approval of funding facilities to accelerate the Company\'s development.', id: 'Rapat Umum Pemegang Saham Luar Biasa menyetujui perubahan nama Perseroan menjadi PT Bhineka Inovasi Ketahanan Energi Tbk, perubahan logo perusahaan, susunan baru Direksi dan Dewan Komisaris, serta persetujuan fasilitas pendanaan untuk mempercepat pengembangan Perseroan.', zh: '临时股东大会批准将公司名称更改为 PT Bhineka Inovasi Ketahanan Energi Tbk、更换企业标志、新的董事会和监事会组成，以及批准融资安排以加速公司发展。' },
+        type: { en: 'Corporate Action', id: 'Aksi Korporasi', zh: '公司行动' },
+      },
+    ],
+  },
+  shareholderStructure: {
+    sectionHeader: {
+      eyebrow: { en: 'Ownership', id: 'Kepemilikan', zh: '股权结构' },
+      heading: { en: 'Shareholder Structure', id: 'Struktur Kepemilikan Saham', zh: '股东结构' },
+      description: { en: 'Major shareholders of PT Bhineka Inovasi Ketahanan Energi Tbk.', id: 'Pemegang saham utama PT Bhineka Inovasi Ketahanan Energi Tbk.', zh: 'PT Bhineka Inovasi Ketahanan Energi Tbk 的主要股东。' },
+    },
+    items: [
+      {
+        _key: 'sh-1',
+        name: { en: 'PT Penajam Makmur Jaya', id: 'PT Penajam Makmur Jaya', zh: 'PT Penajam Makmur Jaya' },
+        percentage: '74.90%',
+        role: { en: 'Controlling Shareholder', id: 'Pemegang Saham Pengendali', zh: '控股股东' },
+      },
+      {
+        _key: 'sh-2',
+        name: { en: 'Public Shareholders', id: 'Pemegang Saham Publik', zh: '公众股东' },
+        percentage: '25.10%',
+        role: { en: 'Public', id: 'Publik', zh: '公众' },
+      },
+    ],
+    totalShares: '100%',
+    note: { en: 'Shareholder structure as of 2 July 2026. Minor individual shareholder details are not disclosed to protect privacy.', id: 'Struktur kepemilikan saham per 2 Juli 2026. Detail pemegang saham minor individu tidak diungkapkan untuk melindungi privasi.', zh: '截至2026年7月2日的股东结构。个别小股东详情不予披露以保护隐私。' },
+  },
+  capitalMarketInstitutions: {
+    sectionHeader: {
+      eyebrow: { en: 'Supporting Institutions', id: 'Institusi Penunjang', zh: '支持机构' },
+      heading: { en: 'Capital Market Supporting Institutions', id: 'Institusi Penunjang Pasar Modal', zh: '资本市场支持机构' },
+      description: { en: 'Official institutions supporting the Company\'s capital market activities.', id: 'Institusi resmi yang mendukung kegiatan pasar modal Perseroan.', zh: '支持公司资本市场活动的官方机构。' },
+    },
+    items: [
+      {
+        _key: 'cmi-1',
+        label: { en: 'Notary', id: 'Notaris', zh: '公证处' },
+        value: { en: 'Sugih Haryati Notaris & PPAT', id: 'Sugih Haryati Notaris & PPAT', zh: 'Sugih Haryati Notaris & PPAT' },
+      },
+      {
+        _key: 'cmi-2',
+        label: { en: 'Securities Administration Bureau', id: 'Biro Administrasi Efek', zh: '证券行政局' },
+        value: { en: 'PT Adimitra Jasa Korpora', id: 'PT Adimitra Jasa Korpora', zh: 'PT Adimitra Jasa Korpora' },
+      },
+    ],
   },
   attraction: {
     sectionHeader: {

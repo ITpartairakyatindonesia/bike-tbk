@@ -12,7 +12,7 @@ export const CONTACT_ITEMS: ContactItem[] = [
   {
     icon: MapPin,
     title: "Visit our HQ",
-    value: "Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
+    value: "Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
   },
   {
     icon: Phone,
@@ -33,7 +33,7 @@ export const CONTACT_ITEMS: ContactItem[] = [
 
 export const CONTACT_INFO = {
   company: "PT Bike Tbk",
-  address: "Jl. Boulevard Alam Sutera No.12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
+  address: "Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
   phone: "(021) 3005 2633",
   email: "corsec@bike-tbk.co.id",
   corporateSecretary: "Marina Pratiwi Sanjaya",
@@ -64,7 +64,7 @@ export const CONTACT_INFORMATION: ContactInfoCardData[] = [
     icon: MapPin,
     title: "Head Office",
     lines: [
-      "PT Bike Tbk, Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
+      "PT Bike Tbk, Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia",
       "Phone: (021) 3005 2633",
     ],
   },

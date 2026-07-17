@@ -5,6 +5,9 @@ import { InvestorHighlights } from "@/components/investor/InvestorHighlights";
 import { InvestorQuickAccess } from "@/components/investor/InvestorQuickAccess";
 import { InvestorStockInfo } from "@/components/investor/InvestorStockInfo";
 import { InvestorAttraction } from "@/components/investor/InvestorAttraction";
+import { InvestorCorporateAction } from "@/components/investor/InvestorCorporateAction";
+import { ShareholderStructure } from "@/components/investor/ShareholderStructure";
+import { CapitalMarketInstitutions } from "@/components/investor/CapitalMarketInstitutions";
 import { CTASection } from "@/components/sections/CTASection";
 import { getInvestorPage } from '@/lib/services/investor-page';
 
@@ -53,6 +56,9 @@ export default async function InvestorPage({ params }: { params: Promise<{ local
       <InvestorHighlights section={investorPage.financialHighlights} locale={locale} bgClass="bg-muted/30" />
       <InvestorQuickAccess section={investorPage.quickAccess} locale={locale} />
       <InvestorStockInfo section={investorPage.stockInfo} locale={locale} />
+      <InvestorCorporateAction section={investorPage.corporateAction} locale={locale} />
+      <ShareholderStructure section={investorPage.shareholderStructure} locale={locale} />
+      <CapitalMarketInstitutions section={investorPage.capitalMarketInstitutions} locale={locale} />
       <InvestorAttraction section={investorPage.attraction} locale={locale} />
       <CTASection cta={investorPage.cta || {}} locale={locale} />
     </div>

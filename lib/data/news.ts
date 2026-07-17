@@ -56,23 +56,23 @@ export const NEWS_PAGE_FALLBACK: NewsPage = {
 
 export const FALLBACK_NEWS: News[] = [
   {
-    _id: "news-pmj-controlling-shareholder",
+    _id: "news-rupslb-2-juli-2026",
     _type: "news",
     title: {
-      en: "PT Penajam Makmur Jaya Officially Becomes New Controlling Shareholder of Bike Tbk",
-      id: "PT Penajam Makmur Jaya Resmi Jadi Pemegang Saham Pengendali Baru Bike Tbk",
-      zh: "PT Penajam Makmur Jaya 正式成为 Bike Tbk 新控股股东",
+      en: "RUPSLB 2 July 2026: PT Sepeda Bersama Indonesia Tbk Transforms into PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE)",
+      id: "RUPSLB 2 Juli 2026: PT Sepeda Bersama Indonesia Tbk Bertransformasi Menjadi PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE)",
+      zh: "2026年7月2日临时股东大会：PT Sepeda Bersama Indonesia Tbk 正式更名为 PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE)",
     },
-    slug: { _type: "slug", current: "pmj-pemegang-saham-pengendali-bike-tbk" },
+    slug: { _type: "slug", current: "rupslb-2-juli-2026-transformasi-bike-tbk" },
     excerpt: {
-      en: "PT Penajam Makmur Jaya (PMJ) officially becomes the new controlling shareholder of PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk), supporting the company's business transformation and expansion into strategic sectors with long-term growth prospects. PMJ plans to provide funding support of Rp 1 trillion in early 2026.",
-      id: "PT Penajam Makmur Jaya (PMJ) resmi menjadi pemegang saham pengendali baru PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk), mendukung transformasi dan ekspansi bisnis perusahaan ke sektor-sektor strategis dengan prospek pertumbuhan jangka panjang. PMJ berencana menyediakan dukungan pendanaan senilai Rp 1 triliun pada awal 2026.",
-      zh: "PT Penajam Makmur Jaya (PMJ) 正式成为 PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk) 的新控股股东，支持公司业务转型和向具有长期增长前景的战略领域扩张。PMJ 计划在2026年初提供1万亿印尼盾的资金支持。",
+      en: "Through the Extraordinary General Meeting of Shareholders on 2 July 2026, shareholders approved a comprehensive transformation of the Company: change of name to PT Bhineka Inovasi Ketahanan Energi Tbk, change of corporate logo, new composition of the Board of Directors and Board of Commissioners, as well as the approval of new business lines and funding facilities to accelerate the Company's development.",
+      id: "Melalui Rapat Umum Pemegang Saham Luar Biasa pada 2 Juli 2026, para pemegang saham menyetujui transformasi menyeluruh Perseroan: perubahan nama menjadi PT Bhineka Inovasi Ketahanan Energi Tbk, perubahan logo perusahaan, susunan baru Direksi dan Dewan Komisaris, serta persetujuan penambahan bidang usaha baru dan fasilitas pendanaan untuk mempercepat pengembangan Perseroan.",
+      zh: "通过2026年7月2日的临时股东大会，股东们批准了公司的全面转型：更名为 PT Bhineka Inovasi Ketahanan Energi Tbk、更换企业标志、新的董事会和监事会组成，以及批准新增业务领域和融资安排以加速公司发展。",
     },
     category: "Announcement",
-    publishedAt: "2025-07-01T00:00:00.000Z",
+    publishedAt: "2026-07-02T00:00:00.000Z",
     featured: true,
-    author: "Bike Tbk",
+    author: "PT Bhineka Inovasi Ketahanan Energi Tbk",
     body: [
       {
         _type: "block",
@@ -83,7 +83,7 @@ export const FALLBACK_NEWS: News[] = [
           {
             _type: "span",
             _key: "span-1",
-            text: "PT Penajam Makmur Jaya (PMJ) resmi menjadi pemegang saham pengendali baru PT Bhineka Inovasi Ketahanan Energi Tbk (Bike Tbk), mendukung transformasi dan ekspansi bisnis perusahaan ke sektor-sektor strategis dengan prospek pertumbuhan jangka panjang. Kehadiran PMJ diharapkan memperkuat permodalan, mempercepat pengembangan bisnis, dan memperluas jaringan usaha perusahaan.",
+            text: "Pada 2 Juli 2026, PT Sepeda Bersama Indonesia Tbk mengadakan Rapat Umum Pemegang Saham Luar Biasa (RUPSLB) yang menandai babak baru dalam perjalanan Perseroan. Dalam rapat tersebut, para pemegang saham menyetujui transformasi menyeluruh yang mencakup perubahan nama Perseroan dari PT Sepeda Bersama Indonesia Tbk menjadi PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE), serta perubahan logo dan identitas korporat sebagai cerminan arah strategis yang baru.",
           },
         ],
       },
@@ -96,7 +96,46 @@ export const FALLBACK_NEWS: News[] = [
           {
             _type: "span",
             _key: "span-2",
-            text: "Sebagai bagian dari komitmen ini, PMJ berencana menyediakan dukungan pendanaan berupa pinjaman modal senilai Rp 1 triliun pada awal 2026, yang akan digunakan untuk mendukung ekspansi bisnis perusahaan — khususnya di sektor energi terbarukan, teknologi, jaringan distribusi, dan berbagai proyek strategis nasional. Langkah ini meletakkan fondasi bagi transformasi Bike Tbk menjadi perusahaan yang lebih terdiversifikasi dan berorientasi masa depan.",
+            text: "RUPSLB juga menyetujui perubahan susunan Direksi dan Dewan Komisaris. Susunan kepemimpinan yang baru diharapkan membawa visi segar dan kapabilitas yang diperlukan untuk mengarahkan Perseroan dalam fase pertumbuhan berikutnya. Perubahan susunan organ perseroan ini telah disesuaikan dengan ketentuan tata kelola perusahaan yang berlaku dan terdaftar di Bursa Efek Indonesia.",
+          },
+        ],
+      },
+      {
+        _type: "block",
+        _key: "block-3",
+        style: "normal",
+        markDefs: [],
+        children: [
+          {
+            _type: "span",
+            _key: "span-3",
+            text: "Selain perubahan nama dan susunan kepengurusan, RUPSLB juga menyetujui penambahan bidang usaha baru bagi Perseroan, mencakup investasi ketahanan di bidang teknologi, kelautan, pangan, infrastruktur, dan data. Perseroan tetap berpijak pada fondasi bisnis distribusi sepeda yang telah dibangun sejak 2017, sambil membuka jalan menuju diversifikasi bisnis yang lebih luas.",
+          },
+        ],
+      },
+      {
+        _type: "block",
+        _key: "block-4",
+        style: "normal",
+        markDefs: [],
+        children: [
+          {
+            _type: "span",
+            _key: "span-4",
+            text: "Untuk mempercepat pengembangan Perseroan, RUPSLB turut menyetujui fasilitas pendanaan yang akan digunakan untuk mendukung ekspansi ke sektor-sektor strategis baru. Fasilitas pendanaan ini diharapkan memperkuat permodalan Perseroan dan memungkinkan eksekusi rencana strategis secara lebih agresif dan berkelanjutan.",
+          },
+        ],
+      },
+      {
+        _type: "block",
+        _key: "block-5",
+        style: "normal",
+        markDefs: [],
+        children: [
+          {
+            _type: "span",
+            _key: "span-5",
+            text: "Transformasi ini didukung oleh PT Penajam Makmur Jaya yang kini menguasai 74,90% saham Perseroan sebagai pemegang saham pengendali baru. Dengan identitas baru sebagai PT Bhineka Inovasi Ketahanan Energi Tbk (BIKE), Perseroan siap melangkah ke masa depan dengan portofolio bisnis yang lebih terdiversifikasi, didukung tata kelola yang baik dan komitmen untuk menciptakan nilai tambah bagi seluruh pemegang saham dan pemangku kepentingan.",
           },
         ],
       },

@@ -23,9 +23,9 @@ export const CONTACT_PAGE: ContactPage = {
   contactInformation: {
     title: { en: 'Contact Information', id: 'Informasi Kontak', zh: '联系信息' },
     address: {
-      en: 'PT Bike Tbk, Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia',
-      id: 'PT Bike Tbk, Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia',
-      zh: 'PT Bike Tbk, Jl. Boulevard Alam Sutera No. 12A, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia',
+      en: 'PT Bike Tbk, Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia',
+      id: 'PT Bike Tbk, Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia',
+      zh: 'PT Bike Tbk, Jl. Alam Sutera Boulevard Kav. 12A, Pakulonan, Serpong Utara, Tangerang Selatan, Banten 15325, Indonesia',
     },
     phone: '(021) 3005 2633',
     email: 'corsec@bike-tbk.co.id',

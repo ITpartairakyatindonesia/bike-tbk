@@ -10,6 +10,8 @@ import type {
   GovernancePrinciple,
   RiskManagementSection,
   CorporateStatementSection,
+  LegalBasisSection,
+  LegalBasisItem,
   CTASection,
   LocalizedText,
 } from '@/lib/types/sanity'
@@ -88,6 +90,20 @@ export async function getGovernancePage(): Promise<GovernancePage> {
     ),
   }
 
+  const legalBasis: LegalBasisSection = {
+    sectionHeader: normalizeSectionHeader(
+      page.legalBasis?.sectionHeader,
+      GOVERNANCE_PAGE.legalBasis?.sectionHeader
+    ),
+    items: (page.legalBasis?.items || GOVERNANCE_PAGE.legalBasis?.items || []).map(
+      (item: LegalBasisItem, index: number) => ({
+        _key: item._key ?? `legal-${index}`,
+        regulation: ensureLocalizedString(item.regulation, GOVERNANCE_PAGE.legalBasis?.items?.[index]?.regulation),
+        description: ensureLocalizedText(item.description, GOVERNANCE_PAGE.legalBasis?.items?.[index]?.description),
+      })
+    ),
+  }
+
   const cta: CTASection = {
     title: ensureLocalizedString(page.cta?.title, GOVERNANCE_PAGE.cta?.title),
     description: ensureLocalizedText(page.cta?.description, GOVERNANCE_PAGE.cta?.description),
@@ -105,6 +121,7 @@ export async function getGovernancePage(): Promise<GovernancePage> {
     principles,
     riskManagement,
     corporateStatement,
+    legalBasis,
     cta,
   }
 }

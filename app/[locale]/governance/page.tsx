@@ -4,6 +4,7 @@ import { GovernanceOverview } from "@/components/governance/GovernanceOverview";
 import { GovernancePrinciples } from "@/components/governance/GovernancePrinciples";
 import { RiskManagement } from "@/components/governance/RiskManagement";
 import { CorporateStatement } from "@/components/governance/CorporateStatement";
+import { LegalBasis } from "@/components/governance/LegalBasis";
 import { CTASection } from "@/components/sections/CTASection";
 import { getGovernancePage } from '@/lib/services/governance-page';
 
@@ -51,6 +52,7 @@ export default async function GovernancePage({ params }: { params: Promise<{ loc
       <GovernancePrinciples principles={governancePage.principles} locale={locale} />
       <RiskManagement riskManagement={governancePage.riskManagement} locale={locale} />
       <CorporateStatement corporateStatement={governancePage.corporateStatement} locale={locale} />
+      <LegalBasis legalBasis={governancePage.legalBasis} locale={locale} />
       <CTASection cta={governancePage.cta || {}} locale={locale} />
     </div>
   );

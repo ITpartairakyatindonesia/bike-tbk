@@ -105,6 +105,35 @@ export const GOVERNANCE_PAGE: GovernancePage = {
     },
     statement: { en: 'Bike Tbk is committed to implementing good, transparent, and responsible corporate governance — in line with our transformation into a super holding company that creates sustainable value for all stakeholders.', id: 'Bike Tbk berkomitmen menjalankan tata kelola perusahaan yang baik, transparan, dan bertanggung jawab — sejalan dengan transformasi kami menjadi perusahaan holding super yang menciptakan nilai berkelanjutan bagi seluruh pemangku kepentingan.', zh: 'Bike Tbk 致力于践行良好、透明和负责任的公司治理——这与我们转型为为所有利益相关者创造可持续价值的超级控股公司相一致。' },
   },
+  legalBasis: {
+    sectionHeader: {
+      eyebrow: { en: 'Compliance', id: 'Kepatuhan', zh: '合规' },
+      heading: { en: 'Legal & Regulatory Framework', id: 'Dasar Hukum Kepatuhan', zh: '法律与监管框架' },
+      description: { en: 'Our governance practices are grounded in Indonesian corporate law and financial services regulations.', id: 'Praktik tata kelola kami berlandaskan hukum perseroan Indonesia dan regulasi jasa keuangan.', zh: '我们的治理实践以印尼公司法和金融服务法规为基础。' },
+    },
+    items: [
+      {
+        _key: 'legal-1',
+        regulation: { en: 'Law No. 40/2007 on Limited Liability Companies', id: 'UU No. 40/2007 tentang Perseroan Terbatas', zh: '《有限责任公司法》第40/2007号' },
+        description: { en: 'The foundational corporate law governing the establishment, operation, and dissolution of limited liability companies in Indonesia, including provisions on the General Meeting of Shareholders, Board of Directors, and Board of Commissioners.', id: 'Undang-undang dasar hukum perseroan yang mengatur pendirian, operasional, dan pembubaran perseroan terbatas di Indonesia, termasuk ketentuan mengenai Rapat Umum Pemegang Saham, Direksi, dan Dewan Komisaris.', zh: '印尼基础公司法，规范有限责任公司的设立、运营和解散，包括关于股东大会、董事会和监事会的规定。' },
+      },
+      {
+        _key: 'legal-2',
+        regulation: { en: 'POJK No. 15/2020 on Prudential Principles for Public Companies', id: 'POJK No. 15/2020 tentang Prinsip Kehati-hatian bagi Perusahaan Tercatat', zh: 'POJK第15/2020号《上市公司审慎原则》' },
+        description: { en: 'Regulation of the Indonesian Financial Services Authority (OJK) setting out prudential principles and good corporate governance requirements for publicly listed companies, including disclosure obligations and shareholder protection.', id: 'Peraturan Otoritas Jasa Keuangan (OJK) yang menetapkan prinsip kehati-hatian dan persyaratan tata kelola perusahaan yang baik bagi perusahaan tercatat, termasuk kewajiban pengungkapan dan perlindungan pemegang saham.', zh: '印尼金融服务管理局（OJK）法规，规定上市公司的审慎原则和良好公司治理要求，包括信息披露义务和股东保护。' },
+      },
+      {
+        _key: 'legal-3',
+        regulation: { en: 'POJK No. 33/2014 on Board of Directors and Board of Commissioners of Public Companies', id: 'POJK No. 33/2014 tentang Direksi dan Dewan Komisaris Perusahaan Tercatat', zh: 'POJK第33/2014号《上市公司董事会与监事会》' },
+        description: { en: 'OJK regulation governing the composition, duties, and responsibilities of the Board of Directors and Board of Commissioners of publicly listed companies, including independence requirements and committee structures.', id: 'Peraturan OJK yang mengatur susunan, tugas, dan tanggung jawab Direksi dan Dewan Komisaris perusahaan tercatat, termasuk persyaratan independensi dan struktur komite.', zh: 'OJK法规，规范上市公司董事会和监事会的组成、职责和责任，包括独立性要求和委员会结构。' },
+      },
+      {
+        _key: 'legal-4',
+        regulation: { en: 'POJK No. 16/2021 on Corporate Governance of Public Companies', id: 'POJK No. 16/2021 tentang Tata Kelola Perusahaan Tercatat', zh: 'POJK第16/2021号《上市公司公司治理》' },
+        description: { en: 'OJK regulation establishing the general corporate governance framework for publicly listed companies, covering the five pillars: transparency, accountability, responsibility, independence, and fairness.', id: 'Peraturan OJK yang menetapkan kerangka umum tata kelola perusahaan bagi perusahaan tercatat, mencakup lima pilar: transparansi, akuntabilitas, responsibilitas, independensi, dan kewajaran.', zh: 'OJK法规，确立上市公司的一般公司治理框架，涵盖五大支柱：透明度、问责制、责任、独立性和公平。' },
+      },
+    ],
+  },
   cta: {
     title: { en: 'Learn More About Our Governance Practices.', id: 'Pelajari Lebih Lanjut Praktik Tata Kelola Kami.', zh: '了解更多关于我们的治理实践。' },
     description: { en: 'Access our governance documents, policies, and reports to understand how we maintain accountability and transparency.', id: 'Akses dokumen tata kelola, kebijakan, dan laporan kami untuk memahami bagaimana kami menjaga akuntabilitas dan transparansi.', zh: '访问我们的治理文件、政策和报告，了解我们如何保持问责制和透明度。' },

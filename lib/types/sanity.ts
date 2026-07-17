@@ -580,6 +580,31 @@ export interface InvestorAttractionSection {
   cards?: InvestorAttractionCard[]
 }
 
+export interface ShareholderItem {
+  _key?: string
+  name: LocalizedString
+  percentage: string
+  role?: LocalizedString
+}
+
+export interface ShareholderStructureSection {
+  sectionHeader?: SectionHeader
+  items?: ShareholderItem[]
+  totalShares?: string
+  note?: LocalizedText
+}
+
+export interface CapitalMarketInstitutionItem {
+  _key?: string
+  label: LocalizedString
+  value: LocalizedString
+}
+
+export interface CapitalMarketInstitutionsSection {
+  sectionHeader?: SectionHeader
+  items?: CapitalMarketInstitutionItem[]
+}
+
 export interface InvestorPage {
   _id: string
   _type: 'investorPage'
@@ -595,6 +620,8 @@ export interface InvestorPage {
   publicExpose?: InvestorDocumentSection
   stockInfo?: InvestorStockInfoSection
   corporateAction?: InvestorCorporateActionSection
+  shareholderStructure?: ShareholderStructureSection
+  capitalMarketInstitutions?: CapitalMarketInstitutionsSection
   attraction?: InvestorAttractionSection
   cta?: CTASection
   cards?: InvestorCard[]
@@ -747,6 +774,17 @@ export interface CorporateStatementSection {
   statement?: LocalizedText
 }
 
+export interface LegalBasisItem {
+  _key?: string
+  regulation: LocalizedString
+  description: LocalizedText
+}
+
+export interface LegalBasisSection {
+  sectionHeader?: SectionHeader
+  items?: LegalBasisItem[]
+}
+
 export interface GovernancePage {
   _id?: string
   _type?: string
@@ -756,6 +794,7 @@ export interface GovernancePage {
   principles?: GovernancePrinciplesSection
   riskManagement?: RiskManagementSection
   corporateStatement?: CorporateStatementSection
+  legalBasis?: LegalBasisSection
   cta?: CTASection
 }
 

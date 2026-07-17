@@ -18,6 +18,10 @@ import type {
   InvestorCorporateActionItem,
   InvestorAttractionSection,
   InvestorAttractionCard,
+  ShareholderStructureSection,
+  ShareholderItem,
+  CapitalMarketInstitutionsSection,
+  CapitalMarketInstitutionItem,
   CTASection,
   LocalizedText,
 } from '@/lib/types/sanity'
@@ -208,6 +212,37 @@ export async function getInvestorPage(): Promise<InvestorPage> {
     'attr'
   )
 
+  const shareholderStructure: ShareholderStructureSection = {
+    sectionHeader: normalizeSectionHeader(
+      page.shareholderStructure?.sectionHeader,
+      INVESTOR_PAGE.shareholderStructure?.sectionHeader
+    ),
+    items: (page.shareholderStructure?.items || INVESTOR_PAGE.shareholderStructure?.items || []).map(
+      (item: ShareholderItem, index: number) => ({
+        _key: item._key ?? `sh-${index}`,
+        name: ensureLocalizedString(item.name, INVESTOR_PAGE.shareholderStructure?.items?.[index]?.name),
+        percentage: item.percentage ?? INVESTOR_PAGE.shareholderStructure?.items?.[index]?.percentage ?? '',
+        role: ensureLocalizedString(item.role, INVESTOR_PAGE.shareholderStructure?.items?.[index]?.role),
+      })
+    ),
+    totalShares: page.shareholderStructure?.totalShares ?? INVESTOR_PAGE.shareholderStructure?.totalShares,
+    note: ensureLocalizedText(page.shareholderStructure?.note, INVESTOR_PAGE.shareholderStructure?.note),
+  }
+
+  const capitalMarketInstitutions: CapitalMarketInstitutionsSection = {
+    sectionHeader: normalizeSectionHeader(
+      page.capitalMarketInstitutions?.sectionHeader,
+      INVESTOR_PAGE.capitalMarketInstitutions?.sectionHeader
+    ),
+    items: (page.capitalMarketInstitutions?.items || INVESTOR_PAGE.capitalMarketInstitutions?.items || []).map(
+      (item: CapitalMarketInstitutionItem, index: number) => ({
+        _key: item._key ?? `cmi-${index}`,
+        label: ensureLocalizedString(item.label, INVESTOR_PAGE.capitalMarketInstitutions?.items?.[index]?.label),
+        value: ensureLocalizedString(item.value, INVESTOR_PAGE.capitalMarketInstitutions?.items?.[index]?.value),
+      })
+    ),
+  }
+
   const cta: CTASection = {
     title: ensureLocalizedString(page.cta?.title, INVESTOR_PAGE.cta?.title),
     description: ensureLocalizedText(page.cta?.description, INVESTOR_PAGE.cta?.description),
@@ -231,6 +266,8 @@ export async function getInvestorPage(): Promise<InvestorPage> {
     publicExpose,
     stockInfo,
     corporateAction,
+    shareholderStructure,
+    capitalMarketInstitutions,
     attraction,
     cta,
   }
